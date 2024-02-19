@@ -28,8 +28,7 @@ async def Get_all_Modules():
             "selected": True}
     return results
 
-
-@router.get("/module/{id}",summary=" read Module by ID",
+@router.get("/module/{module_id}",summary=" read Module by ID",
         description="Get data about a specific Module according the given ID. Returns a Json with the Data.",
         tags=["Modules"],
         response_model=Module, 
@@ -69,25 +68,25 @@ async def Get_selected_Modules(
             "selected": True}
     return results
 
-@router.get("/module/room/{room_id}}",summary="read all Modules by Room",
-        description="Get data about multiple specific Modules according the given Room ID. Returns a Array of Json with the Data.",
-        tags=["Modules"],
-        response_model=Modules, 
-        responses={
-            404: NOT_FOUND()
-            })
-async def Get_selected_Modules_by_room(
-    id: int
-):
-    results = {"id": id,
-            "name": "str",
-            "dozent_id": 0,
-            "room_id": 0,
-            "study_semester": "str",
-            "need": "enumerate",
-            "type": "enumerate",
-            "selected": True}
-    return results
+# @router.get("/module/room/{room_id}}",summary="read all Modules by Room",
+#         description="Get data about multiple specific Modules according the given Room ID. Returns a Array of Json with the Data.",
+#         tags=["Modules"],
+#         response_model=Modules, 
+#         responses={
+#             404: NOT_FOUND()
+#             })
+# async def Get_selected_Modules_by_room(
+#     id: int
+# ):
+#     results = {"id": id,
+#             "name": "str",
+#             "dozent_id": 0,
+#             "room_id": 0,
+#             "study_semester": "str",
+#             "need": "enumerate",
+#             "type": "enumerate",
+#             "selected": True}
+#     return results
 
 @router.get("/module/dozent/{dozent_id}}",summary="read all Modules by Dozent",
         description="Get data about multiple specific Modules according the given Dozent ID. Returns a Array of Json with the Data.",
@@ -109,27 +108,6 @@ async def Get_selected_Modules_by_dozent(
             "selected": True}
     return results
 
-@router.post("/module/add",summary="add Module",
-        description="Add a module to the database based on the Input. Gives out a Message if successful.",
-        tags=["Modules"],
-        response_model=Message,
-        responses={
-            404: NOT_FOUND()
-        }
-    )
-async def Add_Modul(
-        id: int,
-        name: str,
-        dozent_id: int,
-        room_id: int,
-        study_semester: str,
-        need: str,
-        type: str,
-        selected: bool
-    ):
-    results = {"message": "success"}
-    return results
-
 @router.get("/module/studysemester/{studysemester_id}",summary="read all Modules by StudySemester",
         description="Get data about multiple specific Modules according the given StudySemester. Returns a Array of Json with the Data.",
         tags=["Modules"],
@@ -148,6 +126,27 @@ async def Get_selected_Modules(
             "need": "enumerate",
             "type": "enumerate",
             "selected": True}
+    return results
+
+@router.post("/module",summary="add Module",
+        description="Add a module to the database based on the Input. Gives out a Message if successful.",
+        tags=["Modules"],
+        response_model=Message,
+        responses={
+            404: NOT_FOUND()
+        }
+    )
+async def Add_Modul(
+        id: int,
+        name: str,
+        dozent_id: int,
+        room_id: int,
+        study_semester: str,
+        need: str,
+        type: str,
+        selected: bool
+    ):
+    results = {"message": "success"}
     return results
 
 @router.put("/module/{module_id}",summary="update complete Module by ID",
@@ -171,19 +170,19 @@ async def Update_Modul(
     results = {"message": "success"}
     return results
 
-@router.put("/module/{module_id}/{dozent_id}",summary="update Dozent in Module",
-        description="Update Dozent assigned to module already in the database based on the Input. Gives out a Message if successful.",
-        tags=["Modules"],
-        response_model=Message,
-        responses={
-            404: NOT_FOUND()
-        }
-    )
-async def Update_Modul_dozent(
-        dozent_id: int
-    ):
-    results = {"message": "success"}
-    return results
+# @router.put("/module/{module_id}/{dozent_id}",summary="update Dozent in Module",
+#         description="Update Dozent assigned to module already in the database based on the Input. Gives out a Message if successful.",
+#         tags=["Modules"],
+#         response_model=Message,
+#         responses={
+#             404: NOT_FOUND()
+#         }
+#     )
+# async def Update_Modul_dozent(
+#         dozent_id: int
+#     ):
+#     results = {"message": "success"}
+#     return results
 
 @router.delete("/module/{module_id}",summary="delete Module by ID",
         description="Delete a module from the database based on the Input. Gives out a Message if successful.",
