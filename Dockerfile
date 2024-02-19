@@ -1,8 +1,8 @@
 # How to RUN Docker 
 # MacOS / Linux
-# docker build -t pp_backend . && docker run --publish 80:80 pp_backend
+# docker build -t pp_backend . && docker run --publish 8000:8000 pp_backend
 # Windows
-# docker build -t pp_backend . ; docker run --publish 80:80 pp_backend
+# docker build -t pp_backend . ; docker run --publish 8000:8000 pp_backend
 FROM python:3.11
 
 # 
@@ -19,7 +19,7 @@ COPY ./routes /code/routes
 COPY ./models /code/models
 COPY ./API.py /code/API.py
 
-EXPOSE 80
+EXPOSE 8000
 
-CMD ["uvicorn", "API:app", "--host=0.0.0.0", "--port=80"]
+CMD ["uvicorn", "API:app", "--host=0.0.0.0", "--port=8000"]
 
