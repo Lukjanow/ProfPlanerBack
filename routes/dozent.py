@@ -26,7 +26,6 @@ async def Get_all_Dozents():
             "intern": True}
     return results
 
-
 @router.get("/dozent/{dozent_id}",summary="read Dozent by ID",
         description="Get data about a specific Dozent according the given ID. Returns a Json with the Data.",
         tags=["Dozent"],
@@ -45,8 +44,21 @@ async def Get_one_Dozent(
             "intern": True}
     return results
 
+@router.get("/dozent/absence/{dozent_id}",summary="Read all Absences by Dozent",
+        description="Gives out all absences a Dozent has. Returns an Array of Json if successful",
+        tags=["Dozent"],
+        response_model=Message,
+        responses={
+            404: NOT_FOUND()
+        }
+    )
+async def get_Dozent_absences(
+        dozent_id: int
+    ):
+    results = {"message": "success"}
+    return results
 
-@router.post("/dozent/add",summary="add Dozent",
+@router.post("/dozent",summary="add Dozent",
         description="Add a Dozent to the database based on the Input. Gives out a Message if successful.",
         tags=["Dozent"],
         response_model=Message,
@@ -60,6 +72,22 @@ async def Add_Dozent(
         email: str,
         title: str,
         intern: bool
+    ):
+    results = {"message": "success"}
+    return results
+
+@router.post("/dozent/absence/{dozent_id}",summary="add Absence to Dozent",
+        description="Add Absence for a Dozent to the database based on the Input. Gives out a Message if successful.",
+        tags=["Absence"],
+        response_model=Absence,
+        responses={
+            404: NOT_FOUND()
+        }
+    )
+async def Add_Abscence(
+        begin: str,
+        end: str,
+        comment: str
     ):
     results = {"message": "success"}
     return results
@@ -82,16 +110,18 @@ async def Update_Dozent(
     results = {"message": "success"}
     return results
 
-@router.get("/dozent/preference/{dozent_id}",summary="Read all Prefernces by Dozent",
-        description="Gives out all preferences a Dozent has. Returns an Array of Json if successful",
-        tags=["Dozent"],
+@router.put("/dozent/absence/{dozent_id}/{absence_id}",summary="update one Absence of a Dozent",
+        description="Update a Abscences already in the database based on the Input. Gives out a Message if successful.",
+        tags=["Absence"],
         response_model=Message,
         responses={
             404: NOT_FOUND()
         }
     )
-async def get_Dozent_preferences(
-        dozent_id: int
+async def Update_Abscence(
+        begin: str | None,
+        end: str | None,
+        comment: str | None
     ):
     results = {"message": "success"}
     return results
@@ -105,5 +135,17 @@ async def get_Dozent_preferences(
         }
     )
 async def Delete_Modul():
+    results = {"message": "success"}
+    return results
+
+@router.delete("/dozent/absence/{dozent_id}/{absence_id}",summary="delete one Absence from Dozent",
+        description="Delete a Room from the database based on the Input. Gives out a Message if successful.",
+        tags=["Absence"],
+        response_model=Message,
+        responses={
+            404: NOT_FOUND()
+        }
+    )
+async def Delete_Absence():
     results = {"message": "success"}
     return results
