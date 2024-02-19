@@ -1,14 +1,14 @@
 #run with "python -m uvicorn API:app --reload" to ensure uvicorn uses correct python version and restart when changes are detected
 from fastapi import Body, FastAPI
 
-from routs import *
+from routes import *
 
-from routs.modules import router as modulesrouter
-from routs.dozent import router as dozentrouter
-from routs.room import router as roomrouter
-from routs.calender import router as calenderrouter
-from routs.absence import router as absencerouter
-from routs.studysemester import router as studysemesterrouter
+from routes.modules import router as modulesrouter
+from routes.dozent import router as dozentrouter
+from routes.room import router as roomrouter
+from routes.calender import router as calenderrouter
+from routes.absence import router as absencerouter
+from routes.studysemester import router as studysemesterrouter
 
 
 # https://fastapi.tiangolo.com/tutorial/bigger-applications/
