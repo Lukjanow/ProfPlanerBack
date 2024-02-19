@@ -1,19 +1,8 @@
-#models for testing.py with is providing the API
 from pydantic import BaseModel
 
 def NOT_FOUND(): 
     return {"model": Error, "error": "Could not find"}
 
-#TestModules
-class Hello_World(BaseModel):
-    item_id: str | None
-    test: str 
-
-class Advice(BaseModel):
-    item_id: int
-    advice: str
-
-#Real Modules
 class Message(BaseModel):
     message: str
 
@@ -34,7 +23,6 @@ class Module(BaseModel):
 class Modules(BaseModel):
     Modules: dict[Module, Module]
 
-#Ich habe die str werte auf int geändert - Bitte korrigieren wenn das flasch war
 class Absence(BaseModel):
     begin: str
     end: str
