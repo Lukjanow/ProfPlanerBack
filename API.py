@@ -36,3 +36,4 @@ app.include_router(roomrouter)
 app.include_router(calenderrouter)
 app.include_router(absencerouter)
 app.include_router(studysemesterrouter)
+

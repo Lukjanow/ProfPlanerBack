@@ -1,18 +1,38 @@
 # HOW TO DEVELOP 
 # docker compose up
-
 version: "3.9"
 
 services:
-  people:
+  pp_backend:
     container_name: pp_backend
     build: .
     working_dir: /code/app
     command: uvicorn API:app --host 0.0.0.0 --port 8000 --reload 
     environment:
       DEBUG: 1
+      WAIT_HOSTS: mongo:27017
     volumes:
       - ./:/code/app
     ports:
       - 8000:8000
     restart: on-failure
+    links:
+      - mongo
+    depends_on:
+      - mongo
+    networks:
+      - node-network
+
+  mongo:
+    image: mongo
+    container_name: mongo
+    volumes:
+      - ./mongodb:/data/db
+    ports:
+      - "27017:27017"
+    networks:
+      - node-network
+
+networks:
+  node-network:
+    driver: bridge
