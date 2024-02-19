@@ -88,7 +88,7 @@ async def Get_selected_Modules(
 #             "selected": True}
 #     return results
 
-@router.get("/module/dozent/{dozent_id}}",summary="read all Modules by Dozent",
+@router.get("/module/dozent/{dozent_id}",summary="read all Modules by Dozent",
         description="Get data about multiple specific Modules according the given Dozent ID. Returns a Array of Json with the Data.",
         tags=["Modules"],
         response_model=Modules, 
