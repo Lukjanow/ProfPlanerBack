@@ -1,4 +1,4 @@
-# RUN Docker 
+# How to RUN Docker 
 # MacOS / Linux
 # docker build -t pp_backend . && docker run --publish 80:80 pp_backend
 # Windows
@@ -21,8 +21,5 @@ COPY ./API.py /code/API.py
 
 EXPOSE 80
 
-# 
-#CMD ["uvicorn", "API:app", "--host", "127.0.0.1", "--port", "8080"]
-#CMD [ "python","-m", "uvicorn", "API:app", "--host", "localhost", "--port", "8080", "--reload"]
 CMD ["uvicorn", "API:app", "--host=0.0.0.0", "--port=80"]
 
