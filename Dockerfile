@@ -1,5 +1,8 @@
 # RUN Docker 
+# MacOS / Linux
 # docker build -t pp_backend . && docker run --publish 80:80 pp_backend
+# Windows
+# docker build -t pp_backend . ; docker run --publish 80:80 pp_backend
 FROM python:3.11
 
 # 
