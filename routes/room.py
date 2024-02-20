@@ -3,9 +3,6 @@ from models.Room import Room
 
 router = APIRouter()
 
-def NOT_FOUND(r):
-    return {}
-
 # All API functions regarding Rooms
 
 
@@ -18,7 +15,7 @@ def NOT_FOUND(r):
         description="Get all Rooms from Database. Returns an Array of Json's.",
         tags=["Room"],
         response_model=Room, responses={
-            404: NOT_FOUND("Room")
+            404: {"error": "Could not find Room"}
             })
 async def Get_all_Rooms():
     results = {"id": 0,
@@ -33,7 +30,7 @@ async def Get_all_Rooms():
         tags=["Room"],
         response_model=Room, 
         responses={
-            404: NOT_FOUND("Room")
+            404: {"error": "Could not find Room"}
             })
 async def Get_one_Room(
     id: int
@@ -50,7 +47,7 @@ async def Get_one_Room(
         tags=["Room"],
         response_model=Room,
         responses={
-            404: NOT_FOUND("Room")
+            404: {"error": "Could not find Room"}
         }
     )
 async def Add_Room(
@@ -66,7 +63,7 @@ async def Add_Room(
         tags=["Room"],
         response_model=Room,
         responses={
-            404: NOT_FOUND("Room")
+            404: {"error": "Could not find Room"}
         }
     )
 async def Update_Room(
@@ -82,7 +79,7 @@ async def Update_Room(
         tags=["Room"],
         response_model=Room,
         responses={
-            404: NOT_FOUND("Room")
+            404: {"error": "Could not find Room"}
         }
     )
 async def Delete_Room():

@@ -5,9 +5,6 @@ router = APIRouter()
 
 # All API functions regarding studysemester
 
-def NOT_FOUND(r):
-    return {}
-
 # https://stackoverflow.com/questions/76231804/fastapi-how-to-modularize-code-into-multiple-files-with-access-to-app-decorators#:~:text=1%20Answer&text=The%20modularization%20of%20routes%20in,assembled%20into%20a%20FastAPI%20application.
 # Beispielstruktur: 
 # https://github.com/skatesham/fastapi-bigger-application 
@@ -17,7 +14,7 @@ def NOT_FOUND(r):
         description="Get all Studysemesters from Database. Returns an Array of Json's.",
         tags=["Studysemester"],
         response_model=StudySemester, responses={
-            404: NOT_FOUND("StudySemester")
+            404: {"error": "Could not find StudySemester"}
             })
 async def Get_all_Studysemesters():
     results = {"id": 0,
@@ -32,7 +29,7 @@ async def Get_all_Studysemesters():
         tags=["Studysemester"],
         response_model=StudySemester, 
         responses={
-            404: NOT_FOUND("StudySemester")
+            404: {"error": "Could not find StudySemester"}
             })
 async def Get_one_Studysemester(
     id: int
@@ -49,7 +46,7 @@ async def Get_one_Studysemester(
         tags=["Studysemester"],
         response_model=StudySemester,
         responses={
-            404: NOT_FOUND("StudySemester")
+            404: {"error": "Could not find StudySemester"}
         }
     )
 async def Add_Studysemester(
@@ -65,7 +62,7 @@ async def Add_Studysemester(
         tags=["Studysemester"],
         response_model=StudySemester,
         responses={
-            404: NOT_FOUND("StudySemester")
+            404: {"error": "Could not find StudySemester"}
         }
     )
 async def Update_Studysemester(
@@ -81,7 +78,7 @@ async def Update_Studysemester(
         tags=["Studysemester"],
         response_model=StudySemester,
         responses={
-            404: NOT_FOUND("StudySemester")
+            404: {"error": "Could not find StudySemester"}
         }
     )
 async def Delete_Studysemester():

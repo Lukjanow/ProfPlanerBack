@@ -3,8 +3,6 @@ from models.Module import Module
 
 router = APIRouter()
 
-def NOT_FOUND(r):
-    return {}
 
 # All API functions regarding Modules
 
@@ -18,7 +16,7 @@ def NOT_FOUND(r):
         tags=["Modules"],
         response_model=Module, 
         responses={
-            404: NOT_FOUND("Module")
+            404: {"error": "Could not find Module"}
             })
 async def Get_all_Modules():
     results = {"id": 0,
@@ -36,7 +34,7 @@ async def Get_all_Modules():
         tags=["Modules"],
         response_model=Module, 
         responses={
-            404: NOT_FOUND("Module")
+            404: {"error": "Could not find Module"}
             })
 async def Get_one_Modules(
     id: int
@@ -56,7 +54,7 @@ async def Get_one_Modules(
         tags=["Modules"],
         response_model=Module, 
         responses={
-            404: NOT_FOUND("Module")
+            404: {"error": "Could not find Module"}
             })
 async def Get_selected_Modules(
     ids: list[int]
@@ -96,7 +94,7 @@ async def Get_selected_Modules(
         tags=["Modules"],
         response_model=Module, 
         responses={
-            404: NOT_FOUND("Module")
+            404: {"error": "Could not find Module"}
             })
 async def Get_selected_Modules_by_dozent(
     id: int
@@ -116,7 +114,7 @@ async def Get_selected_Modules_by_dozent(
         tags=["Modules"],
         response_model=Module, 
         responses={
-            404: NOT_FOUND("Module")
+            404: {"error": "Could not find Module"}
             })
 async def Get_selected_Modules(
     id: int
@@ -136,7 +134,7 @@ async def Get_selected_Modules(
         tags=["Modules"],
         response_model=Module,
         responses={
-            404: NOT_FOUND("Module")
+            404: {"error": "Could not find Module"}
         }
     )
 async def Add_Modul(
@@ -157,7 +155,7 @@ async def Add_Modul(
         tags=["Modules"],
         response_model=Module,
         responses={
-            404: NOT_FOUND("Module")
+            404: {"error": "Could not find Module"}
         }
     )
 async def Update_Modul(
@@ -192,7 +190,7 @@ async def Update_Modul(
         tags=["Modules"],
         response_model=Module,
         responses={
-            404: NOT_FOUND("Module")
+            404: {"error": "Could not find Module"}
         }
     )
 async def Delete_Modul():

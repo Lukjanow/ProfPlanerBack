@@ -3,8 +3,6 @@ from models.Absence import *
 
 router = APIRouter()
 
-def NOT_FOUND(r):
-    return {}
 
 # All API functions regarding absence
 
@@ -13,7 +11,7 @@ def NOT_FOUND(r):
             tags=["Absence"],
             response_model=Absence,
             responses={
-                404: NOT_FOUND("Absence")
+                404: {"error": "Could not find Absence"}
             })
 async def Get_absences(
     dozent_id: int
@@ -29,7 +27,7 @@ async def Get_absences(
         tags=["Absence"],
         response_model=Absence,
         responses={
-            404: NOT_FOUND("Absence")
+            404: {"error": "Could not find Absence"}
         }
     )
 async def Add_Abscence(
@@ -46,7 +44,7 @@ async def Add_Abscence(
         tags=["Absence"],
         response_model=Absence,
         responses={
-            404: NOT_FOUND("Absence")
+            404: {"error": "Could not find Absence"}
         }
     )
 async def Update_Abscence(
@@ -62,7 +60,7 @@ async def Update_Abscence(
         tags=["Absence"],
         response_model=Absence, 
         responses={
-            404: NOT_FOUND("Absence")
+            404: {"error": "Could not find Absence"}
         }
     )
 async def Delete_Absence():
