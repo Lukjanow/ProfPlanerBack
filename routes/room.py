@@ -1,8 +1,8 @@
 from fastapi import APIRouter
+from models.Room import Room
 
 router = APIRouter()
 
-from models.Models import *
 # All API functions regarding Rooms
 
 
@@ -14,8 +14,8 @@ from models.Models import *
 @router.get("/room",summary="read all Room",
         description="Get all Rooms from Database. Returns an Array of Json's.",
         tags=["Room"],
-        response_model=Rooms, responses={
-            404: NOT_FOUND()
+        response_model=Room, responses={
+            404: {"error": "Could not find Room"}
             })
 async def Get_all_Rooms():
     results = {"id": 0,
@@ -30,7 +30,7 @@ async def Get_all_Rooms():
         tags=["Room"],
         response_model=Room, 
         responses={
-            404: NOT_FOUND()
+            404: {"error": "Could not find Room"}
             })
 async def Get_one_Room(
     id: int
@@ -45,9 +45,9 @@ async def Get_one_Room(
 @router.post("/room/add",summary="add Room",
         description="Add a Room to the database based on the Input. Gives out a Message if successful.",
         tags=["Room"],
-        response_model=Message,
+        response_model=Room,
         responses={
-            404: NOT_FOUND()
+            404: {"error": "Could not find Room"}
         }
     )
 async def Add_Room(
@@ -61,9 +61,9 @@ async def Add_Room(
 @router.put("/room/{room_id}",summary="update complete Room by ID",
         description="Update a Room already in the database based on the Input. Gives out a Message if successful.",
         tags=["Room"],
-        response_model=Message,
+        response_model=Room,
         responses={
-            404: NOT_FOUND()
+            404: {"error": "Could not find Room"}
         }
     )
 async def Update_Room(
@@ -77,9 +77,9 @@ async def Update_Room(
 @router.delete("/room/{room_id}",summary="delete Room by ID",
         description="Delete a Room from the database based on the Input. Gives out a Message if successful.",
         tags=["Room"],
-        response_model=Message,
+        response_model=Room,
         responses={
-            404: NOT_FOUND()
+            404: {"error": "Could not find Room"}
         }
     )
 async def Delete_Room():

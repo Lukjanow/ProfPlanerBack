@@ -1,8 +1,11 @@
 from fastapi import APIRouter
+from models.Dozent import Dozent
+from models.Absence import Absence
+
 
 router = APIRouter()
 
-from models.Models import *
+
 # All API functions regarding Dozents
 
 
@@ -14,8 +17,8 @@ from models.Models import *
 @router.get("/dozent",summary="read all Dozent",
         description="Get all Dozent from Database. Returns an Array of Json's.",
         tags=["Dozent"],
-        response_model=Dozents, responses={
-            404: NOT_FOUND()
+        response_model=Dozent, responses={
+            404: {"error": "Could not find Dozent"}
             })
 async def Get_all_Dozents():
     results = {"id": 0,
@@ -24,6 +27,7 @@ async def Get_all_Dozents():
             "title": "str",
             "absences": "list[Absence]",
             "intern": True}
+    
     return results
 
 @router.get("/dozent/{dozent_id}",summary="read Dozent by ID",
@@ -31,7 +35,7 @@ async def Get_all_Dozents():
         tags=["Dozent"],
         response_model=Dozent, 
         responses={
-            404: NOT_FOUND()
+            404: {"error": "Could not find Dozent"}
             })
 async def Get_one_Dozent(
     id: int
@@ -47,9 +51,9 @@ async def Get_one_Dozent(
 @router.get("/dozent/absence/{dozent_id}",summary="Read all Absences by Dozent",
         description="Gives out all absences a Dozent has. Returns an Array of Json if successful",
         tags=["Dozent"],
-        response_model=Message,
+        response_model=Absence,
         responses={
-            404: NOT_FOUND()
+            404: {"error": "Could not find Absence"}
         }
     )
 async def get_Dozent_absences(
@@ -61,9 +65,9 @@ async def get_Dozent_absences(
 @router.post("/dozent",summary="add Dozent",
         description="Add a Dozent to the database based on the Input. Gives out a Message if successful.",
         tags=["Dozent"],
-        response_model=Message,
+        response_model=Dozent,
         responses={
-            404: NOT_FOUND()
+            404: {"error": "Could not find Dozent"}
         }
     )
 async def Add_Dozent(
@@ -81,7 +85,7 @@ async def Add_Dozent(
         tags=["Absence"],
         response_model=Absence,
         responses={
-            404: NOT_FOUND()
+            404: {"error": "Could not find Absence"}
         }
     )
 async def Add_Abscence(
@@ -95,9 +99,9 @@ async def Add_Abscence(
 @router.put("/dozent/{dozent_id}",summary="update complete Dozent by ID",
         description="Update a Dozent already in the database based on the Input. Gives out a Message if successful.",
         tags=["Dozent"],
-        response_model=Message,
+        response_model=Dozent,
         responses={
-            404: NOT_FOUND()
+            404: {"error": "Could not find Dozent"}
         }
     )
 async def Update_Dozent(
@@ -113,9 +117,9 @@ async def Update_Dozent(
 @router.put("/dozent/absence/{dozent_id}/{absence_id}",summary="update one Absence of a Dozent",
         description="Update a Abscences already in the database based on the Input. Gives out a Message if successful.",
         tags=["Absence"],
-        response_model=Message,
+        response_model=Absence,
         responses={
-            404: NOT_FOUND()
+            404: {"error": "Could not find Absence"}
         }
     )
 async def Update_Abscence(
@@ -129,9 +133,9 @@ async def Update_Abscence(
 @router.delete("/dozent/{dozent_id}",summary="delete Dozent by ID",
         description="Delete a Dozent from the database based on the Input. Gives out a Message if successful.",
         tags=["Dozent"],
-        response_model=Message,
+        response_model=Dozent,
         responses={
-            404: NOT_FOUND()
+            404: {"error": "Could not find Dozent"}
         }
     )
 async def Delete_Modul():
@@ -141,9 +145,9 @@ async def Delete_Modul():
 @router.delete("/dozent/absence/{dozent_id}/{absence_id}",summary="delete one Absence from Dozent",
         description="Delete a Room from the database based on the Input. Gives out a Message if successful.",
         tags=["Absence"],
-        response_model=Message,
+        response_model=Absence,
         responses={
-            404: NOT_FOUND()
+            404: {"error": "Could not find Absence"}
         }
     )
 async def Delete_Absence():
