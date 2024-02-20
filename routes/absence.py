@@ -1,5 +1,6 @@
 from fastapi import APIRouter
 from models.Absence import *
+from models.Models import *
 
 router = APIRouter()
 
@@ -11,7 +12,7 @@ router = APIRouter()
             tags=["Absence"],
             response_model=Absence,
             responses={
-                404: {"error": "Could not find Absence"}
+                404: {"model": HTTPError, "detail": "str"}
             })
 async def Get_absences(
     dozent_id: int
@@ -27,7 +28,7 @@ async def Get_absences(
         tags=["Absence"],
         response_model=Absence,
         responses={
-            404: {"error": "Could not find Absence"}
+            404: {"model": HTTPError, "detail": "str"}
         }
     )
 async def Add_Abscence(
@@ -44,7 +45,7 @@ async def Add_Abscence(
         tags=["Absence"],
         response_model=Absence,
         responses={
-            404: {"error": "Could not find Absence"}
+            404: {"model": HTTPError, "detail": "str"}
         }
     )
 async def Update_Abscence(
@@ -60,7 +61,7 @@ async def Update_Abscence(
         tags=["Absence"],
         response_model=Absence, 
         responses={
-            404: {"error": "Could not find Absence"}
+            404: {"model": HTTPError, "detail": "str"}
         }
     )
 async def Delete_Absence():

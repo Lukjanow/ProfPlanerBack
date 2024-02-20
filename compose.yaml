@@ -1,5 +1,7 @@
 # HOW TO DEVELOP 
 # docker compose up
+# Use parameter --build if requirements change
+
 version: "3.9"
 
 services:
@@ -24,8 +26,11 @@ services:
       - node-network
 
   mongo:
-    image: mongo
+    image: mongo:7.0.5
     container_name: mongo
+    #environment:
+    #- MONGO_INITDB_ROOT_USERNAME=admin
+    #- MONGO_INITDB_ROOT_PASSWORD=passwort
     volumes:
       - ./mongodb:/data/db
     ports:

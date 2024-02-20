@@ -1,5 +1,6 @@
 from fastapi import APIRouter
 from models.StudySemester import *
+from models.Models import *
 
 router = APIRouter()
 
@@ -13,8 +14,8 @@ router = APIRouter()
 @router.get("/studysemester",summary="read all Studysemester",
         description="Get all Studysemesters from Database. Returns an Array of Json's.",
         tags=["Studysemester"],
-        response_model=StudySemester, responses={
-            404: {"error": "Could not find StudySemester"}
+        response_model=Studysemesters, responses={
+            404: {"model": HTTPError, "detail": "str"}
             })
 async def Get_all_Studysemesters():
     results = {"id": 0,
@@ -29,7 +30,7 @@ async def Get_all_Studysemesters():
         tags=["Studysemester"],
         response_model=StudySemester, 
         responses={
-            404: {"error": "Could not find StudySemester"}
+            404: {"model": HTTPError, "detail": "str"}
             })
 async def Get_one_Studysemester(
     id: int
@@ -46,7 +47,7 @@ async def Get_one_Studysemester(
         tags=["Studysemester"],
         response_model=StudySemester,
         responses={
-            404: {"error": "Could not find StudySemester"}
+            404: {"model": HTTPError, "detail": "str"}
         }
     )
 async def Add_Studysemester(
@@ -62,7 +63,7 @@ async def Add_Studysemester(
         tags=["Studysemester"],
         response_model=StudySemester,
         responses={
-            404: {"error": "Could not find StudySemester"}
+            404: {"model": HTTPError, "detail": "str"}
         }
     )
 async def Update_Studysemester(
@@ -78,7 +79,7 @@ async def Update_Studysemester(
         tags=["Studysemester"],
         response_model=StudySemester,
         responses={
-            404: {"error": "Could not find StudySemester"}
+            404: {"model": HTTPError, "detail": "str"}
         }
     )
 async def Delete_Studysemester():

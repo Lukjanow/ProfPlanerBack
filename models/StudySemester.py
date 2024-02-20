@@ -8,3 +8,6 @@ class StudySemester(BaseModel):
     name:str
     study: Study
     content: Content
+
+class Studysemesters(BaseModel):
+    Studysemesters: dict[StudySemester, StudySemester]

@@ -7,6 +7,8 @@ FROM python:3.11
 
 # 
 WORKDIR /code
+ENV MONGO_DB_USERNAME=admin
+ENV MONGO_DB_PWD=password
 
 # 
 COPY ./requirements.txt /code/requirements.txt
@@ -18,6 +20,7 @@ RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
 COPY ./routes /code/routes
 COPY ./models /code/models
 COPY ./API.py /code/API.py
+COPY ./Database /code/Database
 
 EXPOSE 8000
 

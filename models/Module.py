@@ -20,3 +20,7 @@ class Module(BaseModel):
     type: Type
     frequency: Frequency
     selected: bool
+
+
+class Modules(BaseModel):
+    Modules: dict[int, Module]
