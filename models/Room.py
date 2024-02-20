@@ -7,3 +7,6 @@ class Room(BaseModel):
     name: str
     capacity: int
     equipment: Equipment
+
+class Rooms(BaseModel):
+    Rooms: dict[Room, Room]

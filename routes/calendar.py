@@ -20,7 +20,7 @@ calendarentry = db["calendarEntry"]
 @router.get("/calendar/{calendar_id}",summary="read all CalendarEntry instances in Calendar",
         description="Get data about a specific calendar according the given ID. Returns a Json with the Data.",
         tags=["calendar"],
-        response_model=calendar, 
+        response_model=Calendar, 
         responses={
             404: {"model": HTTPError, "detail": "str"}
             })
@@ -41,7 +41,7 @@ async def Get_one_calendar(
 @router.get("/calendar/calendarentry/{calendar_id}/{calendarentry_id}",summary="get one CalendarEntry instance in Calendar",
         description="Get data about a specific calendar Entry according the given ID. Returns a Json with the Data.",
         tags=["calendar"],
-        response_model=calendarEntry, 
+        response_model=CalendarEntry, 
         responses={
             404: {"model": HTTPError, "detail": "str"}
             })
@@ -67,7 +67,7 @@ async def Get_one_CalendarEntry(
 @router.get("/calendar/studysemester/{calendar_id}/{studysemester_id}",summary="get all CalendarEntry instances from one studysemester",
         description="Get data about a specific calendar Entry according the given ID. Returns a Json with the Data.",
         tags=["calendar"],
-        response_model=calendar, 
+        response_model=Calendar, 
         responses={
             404: {"model": HTTPError, "detail": "str"}
             })
@@ -79,7 +79,7 @@ async def Get_calendar_semester():
 @router.get("/calendar/dozent/{calendar_id}/{dozent_id}",summary="get all CalendarEntry instances from one dozent",
         description="Get data about a specific calendar Entry according the given ID. Returns a Json with the Data.",
         tags=["calendar"],
-        response_model=calendar, 
+        response_model=Calendar, 
         responses={
             404: {"model": HTTPError, "detail": "str"}
             })
@@ -91,7 +91,7 @@ async def Get_calendar_dozent():
 @router.get("/calendar/room/{calendar_id}/{room_id}",summary=" get all CalendarEntry instances from one room",
         description="Get data about a specific calendar Entry according the given ID. Returns a Json with the Data.",
         tags=["calendar"],
-        response_model=calendar, 
+        response_model=Calendar, 
         responses={
             404: {"model": HTTPError, "detail": "str"}
             })
@@ -113,7 +113,7 @@ async def Add_calendar(
         entries: dict
     ):
     x = {"Entries": entries}
-    results = str(calendar.insert_one(x))
+    results = str(calendars.insert_one(x))
     return {"message": results}
 
 @router.post("/calendar/calendarentry/{calendar_id}",summary=" add CalendarEntry instance to Calendar",
@@ -125,7 +125,7 @@ async def Add_calendar(
         }
     )
 async def Add_calendarEntry(
-        data: calendarEntry
+        data: CalendarEntry
     ):
     data = dict(data)
     result = str(calendarentry.insert_one(data))

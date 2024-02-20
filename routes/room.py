@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from models.Room import Room
+from models.Room import *
 from models.Models import *
 
 

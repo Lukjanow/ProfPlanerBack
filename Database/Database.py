@@ -1,4 +1,4 @@
 import pymongo
 
-myclient = pymongo.MongoClient("mongodb://admin:passwort@pp_mongodb")
+myclient = pymongo.MongoClient("mongodb://mongo")
 db = myclient["ProfPlaner"]

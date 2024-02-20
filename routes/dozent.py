@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from models.Dozent import Dozent
+from models.Dozent import *
 from models.Absence import Absence
 from models.Models import *
 

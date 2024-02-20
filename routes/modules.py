@@ -9,7 +9,7 @@ from Database.Database import db
 modules = db["modules"]
 
 from models.Models import *
-from models.Module import Module
+from models.Module import *
 # All API functions regarding Modules
 
 # All API functions regarding Modules

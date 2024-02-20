@@ -9,3 +9,6 @@ class Dozent(BaseModel):
     title: str
     absences: list[Absence]
     comment: str
+
+class Dozents(BaseModel):
+    Dozents: dict[Dozent, Dozent]
