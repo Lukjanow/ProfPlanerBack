@@ -7,7 +7,15 @@ class Message(BaseModel):
     message: str
 
 class Error(BaseModel):
-    error: str
+    detail: str
+
+class HTTPError(BaseModel):
+    detail: str
+
+    class Config:
+        schema_extra = {
+            "example": {"detail": "HTTPException raised."},
+        }
 
 class Module(BaseModel):
     id: int 
@@ -21,7 +29,7 @@ class Module(BaseModel):
     
 
 class Modules(BaseModel):
-    Modules: dict[Module, Module]
+    Modules: dict[int, Module]
 
 class Absence(BaseModel):
     begin: str
