@@ -15,7 +15,7 @@ from models.Models import *
         description="Get all Dozent from Database. Returns an Array of Json's.",
         tags=["Dozent"],
         response_model=Dozents, responses={
-            404: NOT_FOUND()
+            404: {"model": HTTPError, "detail": "str"}
             })
 async def Get_all_Dozents():
     results = {"id": 0,
@@ -31,7 +31,7 @@ async def Get_all_Dozents():
         tags=["Dozent"],
         response_model=Dozent, 
         responses={
-            404: NOT_FOUND()
+            404: {"model": HTTPError, "detail": "str"}
             })
 async def Get_one_Dozent(
     id: int
@@ -49,7 +49,7 @@ async def Get_one_Dozent(
         tags=["Dozent"],
         response_model=Message,
         responses={
-            404: NOT_FOUND()
+            404: {"model": HTTPError, "detail": "str"}
         }
     )
 async def get_Dozent_absences(
@@ -63,7 +63,7 @@ async def get_Dozent_absences(
         tags=["Dozent"],
         response_model=Message,
         responses={
-            404: NOT_FOUND()
+            404: {"model": HTTPError, "detail": "str"}
         }
     )
 async def Add_Dozent(
@@ -81,7 +81,7 @@ async def Add_Dozent(
         tags=["Absence"],
         response_model=Absence,
         responses={
-            404: NOT_FOUND()
+            404: {"model": HTTPError, "detail": "str"}
         }
     )
 async def Add_Abscence(
@@ -97,7 +97,7 @@ async def Add_Abscence(
         tags=["Dozent"],
         response_model=Message,
         responses={
-            404: NOT_FOUND()
+            404: {"model": HTTPError, "detail": "str"}
         }
     )
 async def Update_Dozent(
@@ -115,7 +115,7 @@ async def Update_Dozent(
         tags=["Absence"],
         response_model=Message,
         responses={
-            404: NOT_FOUND()
+            404: {"model": HTTPError, "detail": "str"}
         }
     )
 async def Update_Abscence(
@@ -131,7 +131,7 @@ async def Update_Abscence(
         tags=["Dozent"],
         response_model=Message,
         responses={
-            404: NOT_FOUND()
+            404: {"model": HTTPError, "detail": "str"}
         }
     )
 async def Delete_Modul():
@@ -143,7 +143,7 @@ async def Delete_Modul():
         tags=["Absence"],
         response_model=Message,
         responses={
-            404: NOT_FOUND()
+            404: {"model": HTTPError, "detail": "str"}
         }
     )
 async def Delete_Absence():

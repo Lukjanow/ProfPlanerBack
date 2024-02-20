@@ -15,7 +15,7 @@ from models.Models import *
         description="Get all Rooms from Database. Returns an Array of Json's.",
         tags=["Room"],
         response_model=Rooms, responses={
-            404: NOT_FOUND()
+            404: {"model": HTTPError, "detail": "str"}
             })
 async def Get_all_Rooms():
     results = {"id": 0,
@@ -30,7 +30,7 @@ async def Get_all_Rooms():
         tags=["Room"],
         response_model=Room, 
         responses={
-            404: NOT_FOUND()
+            404: {"model": HTTPError, "detail": "str"}
             })
 async def Get_one_Room(
     id: int
@@ -47,7 +47,7 @@ async def Get_one_Room(
         tags=["Room"],
         response_model=Message,
         responses={
-            404: NOT_FOUND()
+            404: {"model": HTTPError, "detail": "str"}
         }
     )
 async def Add_Room(
@@ -63,7 +63,7 @@ async def Add_Room(
         tags=["Room"],
         response_model=Message,
         responses={
-            404: NOT_FOUND()
+            404: {"model": HTTPError, "detail": "str"}
         }
     )
 async def Update_Room(
@@ -79,7 +79,7 @@ async def Update_Room(
         tags=["Room"],
         response_model=Message,
         responses={
-            404: NOT_FOUND()
+            404: {"model": HTTPError, "detail": "str"}
         }
     )
 async def Delete_Room():

@@ -10,7 +10,7 @@ from models.Models import *
             tags=["Absence"],
             response_model=Absence,
             responses={
-                404: NOT_FOUND()
+                404: {"model": HTTPError, "detail": "str"}
             })
 async def Get_absences(
     dozent_id: int
@@ -26,7 +26,7 @@ async def Get_absences(
         tags=["Absence"],
         response_model=Absence,
         responses={
-            404: NOT_FOUND()
+            404: {"model": HTTPError, "detail": "str"}
         }
     )
 async def Add_Abscence(
@@ -43,7 +43,7 @@ async def Add_Abscence(
         tags=["Absence"],
         response_model=Message,
         responses={
-            404: NOT_FOUND()
+            404: {"model": HTTPError, "detail": "str"}
         }
     )
 async def Update_Abscence(
@@ -59,7 +59,7 @@ async def Update_Abscence(
         tags=["Absence"],
         response_model=Message,
         responses={
-            404: NOT_FOUND()
+            404: {"model": HTTPError, "detail": "str"}
         }
     )
 async def Delete_Absence():

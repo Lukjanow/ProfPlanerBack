@@ -1,8 +1,5 @@
 from pydantic import BaseModel
 
-def NOT_FOUND(): 
-    return {"model": Error, "error": "Could not find"}
-
 class Message(BaseModel):
     message: str
 
@@ -55,12 +52,12 @@ class Room(BaseModel):
 class Rooms(BaseModel):
     Rooms: dict[Room, Room]
 
-class CalenderEntry(BaseModel):
+class calendarEntry(BaseModel):
     module: Module
     time_stamp: str
 
-class Calender(BaseModel):
-    Entries: dict[CalenderEntry, CalenderEntry]
+class calendar(BaseModel):
+    Entries: dict[calendarEntry, calendarEntry]
 
 class Studysemester(BaseModel):
     name: str

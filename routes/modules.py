@@ -42,16 +42,16 @@ async def Get_all_Modules():
             404: {"model": HTTPError, "detail": "str"}
             })
 async def Get_one_Modules(
-    id: int
+    module_id
 ):
-    result = modules.find_one({"id": id})
+    result = modules.find_one({"id": module_id})
     if result:
         #remove id set by mongodb
         result.pop("_id")
         return result
     else:   #Module does not exist
         raise HTTPException(
-        404, detail=f'Module with ID {id} doesn\'t exist',
+        404, detail=f'Module with ID {module_id} doesn\'t exist',
     )
 
 @router.get("/modules/select",summary="read all selected Moduls",
@@ -85,7 +85,7 @@ async def Get_selected_Modules(
 #         tags=["Modules"],
 #         response_model=Modules, 
 #         responses={
-#             404: NOT_FOUND()
+#             404: {"model": HTTPError, "detail": "str"}
 #             })
 # async def Get_selected_Modules_by_room(
 #     id: int
@@ -158,7 +158,7 @@ async def Get_selected_Modules_studysemester(
         tags=["Modules"],
         response_model=Message,
         responses={
-            404: NOT_FOUND()
+            404: {"model": HTTPError, "detail": "str"}
         }
     )
 async def Add_Modul(
@@ -270,7 +270,7 @@ async def Update_Modul(
 #         tags=["Modules"],
 #         response_model=Message,
 #         responses={
-#             404: NOT_FOUND()
+#             404: {"model": HTTPError, "detail": "str"}
 #         }
 #     )
 # async def Update_Modul_dozent(
@@ -287,7 +287,7 @@ async def Update_Modul(
             404: {"model": HTTPError, "detail": "str"}
         }
     )
-async def Delete_Modul(
+async def Delete_Module(
     module_id
 ):
     module = modules.find_one({"id": int(module_id)})
