@@ -105,40 +105,53 @@ async def Get_selected_Modules(
         tags=["Modules"],
         response_model=Modules, 
         responses={
-            404: NOT_FOUND()
+            404: {"model": HTTPError, "detail": "str"}
             })
 async def Get_selected_Modules_by_dozent(
-    id: int
+    dozent_id
 ):
-    results = {"id": id,
-            "name": "str",
-            "dozent_id": 0,
-            "room_id": 0,
-            "study_semester": "str",
-            "need": "enumerate",
-            "type": "enumerate",
-            "selected": True}
-    return results
+    if modules.find_one({"dozent_id": int(dozent_id)}):
+        i = 1
+        x = {}
+        results = modules.find({"dozent_id": int(dozent_id)}).sort("id", 1)
+        for r in results:
+            #remove id set by mongodb
+            r.pop("_id")
+            x[i] = r
+            i = i+1
+        returnmessage = { "Modules": x}
+        return returnmessage
+    else:
+        raise HTTPException(
+            404, detail=f'No Modules for Dozent {dozent_id} exist.',
+        )
 
 @router.get("/module/studysemester/{studysemester_id}",summary="read all Modules by StudySemester",
         description="Get data about multiple specific Modules according the given StudySemester. Returns a Array of Json with the Data.",
         tags=["Modules"],
         response_model=Modules, 
         responses={
-            404: NOT_FOUND()
+            404: {"model": HTTPError, "detail": "str"}
             })
 async def Get_selected_Modules_studysemester(
-    id: int
+    studysemester_id
 ):
-    results = {"id": id,
-            "name": "str",
-            "dozent_id": 0,
-            "room_id": 0,
-            "study_semester": "str",
-            "need": "enumerate",
-            "type": "enumerate",
-            "selected": True}
-    return results
+    if modules.find_one({"study_semester": int(studysemester_id)}):
+        i = 1
+        x = {}
+        results = modules.find({"study_semester": int(studysemester_id)}).sort("id", 1)
+        for r in results:
+            #remove id set by mongodb
+            r.pop("_id")
+            x[i] = r
+            i = i+1
+    else:
+        raise HTTPException(
+            404, detail=f'No Modules for Study Semester {studysemester_id} exist.',
+        )
+    returnmessage = { "Modules": x}
+    return returnmessage
+    
 
 @router.post("/module",summary="add Module",
         description="Add a module to the database based on the Input. Returns a Message string.",
@@ -149,28 +162,40 @@ async def Get_selected_Modules_studysemester(
         }
     )
 async def Add_Modul(
-        id: int,
-        name: str,
-        dozent_id: int,
-        room_id: int,
-        study_semester: str,
-        need: str,
-        type: str,
-        selected: bool
+        # id: int,
+        # name: str,
+        # dozent_id: int,
+        # room_id: int,
+        # study_semester: int,
+        # need: str,
+        # type: str,
+        # selected: bool
+        data: Module
     ):
     #check if module ID already exist
-    if modules.find_one({"id": id}):
-        return {"message": f'A Module with ID {id} already exist'}
-    data = {
-            "id": id,
-        	"name": name,
-            "dozent_id": dozent_id,
-            "room_id": room_id,
-            "study_semester": study_semester,
-            "need": need,
-            "type": type,
-            "selected": selected
-    }
+    if modules.find_one({"id": data.id}):
+        return {"message": f'A Module with ID {data.id} already exist'}
+    # data = {
+    #         "id": id,
+    #     	"name": name,
+    #         "dozent_id": dozent_id,
+    #         "room_id": room_id,
+    #         "study_semester": study_semester,
+    #         "need": need,
+    #         "type": type,
+    #         "selected": selected
+    # }
+    #data = Module(id, name, dozent_id, room_id, study_semester, need, type, selected)
+    # data.id = id
+    # data.name = name
+    # data.dozent_id = dozent_id
+    # data.room_id = room_id
+    # data.study_semester = study_semester
+    # data.need = need
+    # data.type = type
+    # data.selected = selected
+
+    data = dict(data)
     # check if database is populated
     # Not needed for Modules: Here for later use in other routes
     # if modules.find_one():
@@ -180,6 +205,7 @@ async def Add_Modul(
     #     data["id"] = high + 1
     # else: 
     #     data["id"] = 1
+
     result = str(modules.insert_one(data))
     print(result)
     return {"message": result}
@@ -199,7 +225,7 @@ async def Update_Modul(
         name: str = None,
         dozent_id: int = None,
         room_id: int = None,
-        study_semester: str = None,
+        study_semester: int = None,
         need: str = None,
         type: str = None,
         selected: bool = None

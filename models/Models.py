@@ -21,8 +21,8 @@ class Module(BaseModel):
     id: int 
     name: str 
     dozent_id: int 
-    room_id: int 
-    study_semester: str 
+    room_id: int | None
+    study_semester: int 
     need: str 
     type: str 
     selected: bool 
