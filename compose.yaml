@@ -5,29 +5,39 @@
 version: "3.9"
 
 services:
-  people:
+  pp_backend:
     container_name: pp_backend
     build: .
     working_dir: /code/app
     command: uvicorn API:app --host 0.0.0.0 --port 8000 --reload 
     environment:
       DEBUG: 1
+      WAIT_HOSTS: mongo:27017
     volumes:
       - ./:/code/app
     ports:
       - 8000:8000
     restart: on-failure
-  mongodb:
-    image : mongo:7.0.5
-    container_name: pp_mongodb
-    environment:
-    - MONGO_INITDB_ROOT_USERNAME=admin
-    - MONGO_INITDB_ROOT_PASSWORD=passwort
-    ports:
-    - 27018:27017
-    restart: unless-stopped
-    volumes:
-      - mongodb_data_container:/data/db
+    links:
+      - mongo
+    depends_on:
+      - mongo
+    networks:
+      - node-network
 
-volumes:
-  mongodb_data_container:
+  mongo:
+    image: mongo:7.0.5
+    container_name: mongo
+    #environment:
+    #- MONGO_INITDB_ROOT_USERNAME=admin
+    #- MONGO_INITDB_ROOT_PASSWORD=passwort
+    volumes:
+      - ./mongodb:/data/db
+    ports:
+      - "27017:27017"
+    networks:
+      - node-network
+
+networks:
+  node-network:
+    driver: bridge

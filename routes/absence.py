@@ -1,8 +1,10 @@
 from fastapi import APIRouter
+from models.Absence import *
+from models.Models import *
 
 router = APIRouter()
 
-from models.Models import *
+
 # All API functions regarding absence
 
 @router.get("/dozent/{dozent_id}/absences", summary="read all absences for Dozent",
@@ -41,7 +43,7 @@ async def Add_Abscence(
 @router.put("/dozent/{dozent_id}/absence/{absence_id}",summary="update one Absence of a Dozent",
         description="Update a Abscences already in the database based on the Input. Gives out a Message if successful.",
         tags=["Absence"],
-        response_model=Message,
+        response_model=Absence,
         responses={
             404: {"model": HTTPError, "detail": "str"}
         }
@@ -55,9 +57,9 @@ async def Update_Abscence(
     return results
 
 @router.delete("/dozent/{dozent_id}/absence/{absence_id}",summary="delete one Absence from Dozent",
-        description="Delete a Room from the database based on the Input. Gives out a Message if successful.",
+        description="Delete a Absence from the database based on the Input. Gives out a Message if successful.",
         tags=["Absence"],
-        response_model=Message,
+        response_model=Absence, 
         responses={
             404: {"model": HTTPError, "detail": "str"}
         }

@@ -9,8 +9,10 @@ from Database.Database import db
 modules = db["modules"]
 
 from models.Models import *
+from models.Module import Module
 # All API functions regarding Modules
 
+# All API functions regarding Modules
 
 # https://stackoverflow.com/questions/76231804/fastapi-how-to-modularize-code-into-multiple-files-with-access-to-app-decorators#:~:text=1%20Answer&text=The%20modularization%20of%20routes%20in,assembled%20into%20a%20FastAPI%20application.
 # Beispielstruktur: 
@@ -57,7 +59,7 @@ async def Get_one_Modules(
 @router.get("/modules/select",summary="read all selected Moduls",
         description="Get data about multiple specific Modules according the given ID's. Returns a Array of Json with the Data. <br> Ids are separeted by a \",\" ",
         tags=["Modules"],
-        response_model=Modules, 
+        response_model=Module, 
         responses={
             404: {"model": HTTPError, "detail": "str"}
             })
@@ -103,7 +105,7 @@ async def Get_selected_Modules(
 @router.get("/module/dozent/{dozent_id}",summary="read all Modules by Dozent",
         description="Get data about multiple specific Modules according the given Dozent ID. Returns a Array of Json with the Data.",
         tags=["Modules"],
-        response_model=Modules, 
+        response_model=Module, 
         responses={
             404: {"model": HTTPError, "detail": "str"}
             })
@@ -129,7 +131,7 @@ async def Get_selected_Modules_by_dozent(
 @router.get("/module/studysemester/{studysemester_id}",summary="read all Modules by StudySemester",
         description="Get data about multiple specific Modules according the given StudySemester. Returns a Array of Json with the Data.",
         tags=["Modules"],
-        response_model=Modules, 
+        response_model=Module, 
         responses={
             404: {"model": HTTPError, "detail": "str"}
             })
@@ -156,7 +158,7 @@ async def Get_selected_Modules_studysemester(
 @router.post("/module",summary="add Module",
         description="Add a module to the database based on the Input. Returns a Message string.",
         tags=["Modules"],
-        response_model=Message,
+        response_model=Module,
         responses={
             404: {"model": HTTPError, "detail": "str"}
         }
@@ -214,7 +216,7 @@ async def Add_Modul(
 @router.put("/module/{module_id}",summary="update complete Module by ID",
         description="Update a module already in the database based on the Input. Gives out a Message if successful.",
         tags=["Modules"],
-        response_model=Message,
+        response_model=Module,
         responses={
             404: {"model": HTTPError, "detail": "str"},
             400: {"model": HTTPError, "detail": "str"}
@@ -282,7 +284,7 @@ async def Update_Modul(
 @router.delete("/module/{module_id}",summary="delete Module by ID",
         description="Delete a module from the database based on the Input. Gives out a Message if successful.",
         tags=["Modules"],
-        response_model=Message,
+        response_model=Module,
         responses={
             404: {"model": HTTPError, "detail": "str"}
         }

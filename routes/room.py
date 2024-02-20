@@ -1,8 +1,10 @@
 from fastapi import APIRouter
+from models.Room import Room
+from models.Models import *
+
 
 router = APIRouter()
 
-from models.Models import *
 # All API functions regarding Rooms
 
 
@@ -45,7 +47,7 @@ async def Get_one_Room(
 @router.post("/room/add",summary="add Room",
         description="Add a Room to the database based on the Input. Gives out a Message if successful.",
         tags=["Room"],
-        response_model=Message,
+        response_model=Room,
         responses={
             404: {"model": HTTPError, "detail": "str"}
         }
@@ -61,7 +63,7 @@ async def Add_Room(
 @router.put("/room/{room_id}",summary="update complete Room by ID",
         description="Update a Room already in the database based on the Input. Gives out a Message if successful.",
         tags=["Room"],
-        response_model=Message,
+        response_model=Room,
         responses={
             404: {"model": HTTPError, "detail": "str"}
         }
@@ -77,7 +79,7 @@ async def Update_Room(
 @router.delete("/room/{room_id}",summary="delete Room by ID",
         description="Delete a Room from the database based on the Input. Gives out a Message if successful.",
         tags=["Room"],
-        response_model=Message,
+        response_model=Room,
         responses={
             404: {"model": HTTPError, "detail": "str"}
         }
