@@ -1,14 +1,17 @@
-from pydantic import BaseModel
+from typing import Optional
+from bson import ObjectId
+from pydantic import BaseModel, Field
 
 from models.Absence import Absence
 
 class Dozent(BaseModel):
-    id: int
+    id: Optional[str] = Field(alias="_id", default=None)
     name: str
     e_mail: str
     title: str
     absences: list[Absence]
-    comment: str
+    intern: bool
 
-class Dozents(BaseModel):
-    Dozents: dict[Dozent, Dozent]
+class DozentRespone(Dozent):
+    absences: Optional[list[Absence]] = None
+    
