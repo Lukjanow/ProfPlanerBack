@@ -2,6 +2,8 @@ from fastapi import APIRouter
 from models.Room import *
 from models.common import *
 
+from typing import List
+
 
 router = APIRouter()
 
@@ -16,15 +18,12 @@ router = APIRouter()
 @router.get("/room",summary="read all Room",
         description="Get all Rooms from Database. Returns an Array of Json's.",
         tags=["Room"],
-        response_model=Rooms, responses={
+        response_model=List[Room], responses={
             404: {"model": HTTPError, "detail": "str"}
             })
 async def Get_all_Rooms():
-    results = {"id": 0,
-            "name": "str",
-            "capacity": 100,
-            "equipment": "str"}
-    return results
+    results = []
+    return []
 
 
 @router.get("/room/{room_id}",summary="read Room by ID",
