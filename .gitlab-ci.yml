@@ -18,7 +18,11 @@ test-job2:
 
 docker-pytest-job:  # Neuer Job für Docker Compose Pytest
   stage: test
+  image: docker:latest  # Verwenden Sie das Docker-Image als Basis
+  services:
+    - docker:dind  # Docker-in-Docker-Service
   script:
+    - docker info  # Optional, um die Docker-Installation zu überprüfen
     - docker compose run pp_backend pytest
 
 
