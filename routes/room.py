@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 from models.Room import *
-from Backend.models.common import *
+from models.common import *
 
 
 router = APIRouter()

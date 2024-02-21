@@ -1,7 +1,7 @@
 from fastapi import APIRouter
 from models.Dozent import *
 from models.Absence import Absence
-from Backend.models.common import *
+from models.common import *
 
 
 router = APIRouter()

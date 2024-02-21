@@ -1,15 +1,14 @@
 from fastapi import APIRouter, status, HTTPException
 
 import copy #Allow to copy Dict
+from models.common import *
+from models.Module import *
 
 router = APIRouter()
 
 from Database.Database import db
 
 modules = db["modules"]
-
-from Backend.models.common import *
-from models.Module import *
 # All API functions regarding Modules
 
 # All API functions regarding Modules
