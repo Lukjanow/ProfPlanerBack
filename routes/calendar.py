@@ -1,7 +1,7 @@
 from fastapi import APIRouter, status, HTTPException
 from models.Calendar import Calendar
 from models.CalendarEntry import CalendarEntry
-from Backend.models.common import *
+from models.common import *
 
 router = APIRouter()
 # All API functions regarding calendars
