@@ -132,4 +132,4 @@ async def Update_Dozent(dozent_id:str, changes:dict):
     )
 async def Delete_Modul(dozent_id:str):
     dozentCollection.delete_one({"_id": ObjectId(dozent_id)})
-    return {"message": f"Successfully deleted Module {dozent_id}"}
+    return {"message": f"Successfully deleted Dozent {dozent_id}"}
