@@ -6,7 +6,8 @@ docker-pytest-job:  # Neuer Job für Docker Compose Pytest
   script:
     - echo "Hello, $GITLAB_USER_LOGIN!"
     #- docker info  # Optional, um die Docker-Installation zu überprüfen
-    - docker compose run --force-recreate pp_backend pytest 
+    - docker compose build
+    - docker compose run pp_backend pytest 
 
 
 #deploy-prod:
