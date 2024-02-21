@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 from models.StudySemester import *
-from models.Models import *
+from Backend.models.common import *
 
 router = APIRouter()
 
