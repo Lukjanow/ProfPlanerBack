@@ -1,5 +1,6 @@
 from fastapi import APIRouter, status, HTTPException
 
+from typing import List
 import copy #Allow to copy Dict
 from models.common import *
 from models.Module import *
@@ -21,31 +22,30 @@ modules = db["modules"]
 @router.get("/module",summary="read all Modules",
         description="Get all Modules from Database. Returns an Array of Json's.",
         tags=["Modules"],
-        response_model=Modules)
+        response_model=List[ModuleResponse])
 async def Get_all_Modules():
     i = 1
-    x = {}
+    x = []
     results = modules.find().sort("id", 1)
     for r in results:
         #remove id set by mongodb
         r.pop("_id")
-        x[i] = r
+        x.append(r)
         i = i+1
     print(x)
-    returnmessage = { "Modules": x}
-    return returnmessage
+    return x
 
 @router.get("/module/{module_id}",summary=" read Module by ID",
         description="Get data about a specific Module according the given ID. Returns a Json with the Data.",
         tags=["Modules"],
-        response_model=Module, 
+        response_model=ModuleResponse, 
         responses={
             404: {"model": HTTPError, "detail": "str"}
             })
 async def Get_one_Modules(
     module_id
 ):
-    result = modules.find_one({"id": module_id})
+    result = modules.find_one({"id": int(module_id)})
     if result:
         #remove id set by mongodb
         result.pop("_id")
@@ -58,7 +58,7 @@ async def Get_one_Modules(
 @router.get("/modules/select",summary="read all selected Moduls",
         description="Get data about multiple specific Modules according the given ID's. Returns a Array of Json with the Data. <br> Ids are separeted by a \",\" ",
         tags=["Modules"],
-        response_model=Module, 
+        response_model=List[ModuleResponse], 
         responses={
             404: {"model": HTTPError, "detail": "str"}
             })
@@ -67,19 +67,18 @@ async def Get_selected_Modules(
 ):
     ids = ids.split(",")
     i = 1
-    x = {}
+    x = []
     for id in ids:
         result = modules.find_one({"id": int(id)})
         if result:
             result.pop("_id")
-            x[i] = result
+            x.append(result)
             i = i + 1
         else:
             raise HTTPException(
             404, detail=f'Module with ID {id} doesn\'t exist',
         )
-    returnmessage = { "Modules": x}
-    return returnmessage
+    return x
 
 # @router.get("/module/room/{room_id}}",summary="read all Modules by Room",
 #         description="Get data about multiple specific Modules according the given Room ID. Returns a Array of Json with the Data.",
@@ -104,24 +103,24 @@ async def Get_selected_Modules(
 @router.get("/module/dozent/{dozent_id}",summary="read all Modules by Dozent",
         description="Get data about multiple specific Modules according the given Dozent ID. Returns a Array of Json with the Data.",
         tags=["Modules"],
-        response_model=Module, 
+        response_model=List[ModuleResponse], 
         responses={
             404: {"model": HTTPError, "detail": "str"}
             })
 async def Get_selected_Modules_by_dozent(
     dozent_id
 ):
-    if modules.find_one({"dozent_id": int(dozent_id)}):
-        i = 1
-        x = {}
-        results = modules.find({"dozent_id": int(dozent_id)}).sort("id", 1)
-        for r in results:
-            #remove id set by mongodb
-            r.pop("_id")
-            x[i] = r
-            i = i+1
-        returnmessage = { "Modules": x}
-        return returnmessage
+    i = 1
+    x = []
+    results = modules.find({"dozent": {"$elemMatch": {"$eq": dozent_id}}}).sort("id", 1)
+    for r in results:
+        print("Getting results")
+        #remove id set by mongodb
+        r.pop("_id")
+        x.append(r)
+        i = i+1
+    if x:
+        return x
     else:
         raise HTTPException(
             404, detail=f'No Modules for Dozent {dozent_id} exist.',
@@ -130,74 +129,48 @@ async def Get_selected_Modules_by_dozent(
 @router.get("/module/studysemester/{studysemester_id}",summary="read all Modules by StudySemester",
         description="Get data about multiple specific Modules according the given StudySemester. Returns a Array of Json with the Data.",
         tags=["Modules"],
-        response_model=Module, 
+        response_model=List[ModuleResponse], 
         responses={
             404: {"model": HTTPError, "detail": "str"}
             })
 async def Get_selected_Modules_studysemester(
     studysemester_id
 ):
-    if modules.find_one({"study_semester": int(studysemester_id)}):
-        i = 1
-        x = {}
-        results = modules.find({"study_semester": int(studysemester_id)}).sort("id", 1)
-        for r in results:
-            #remove id set by mongodb
-            r.pop("_id")
-            x[i] = r
-            i = i+1
+    i = 1
+    x = []
+    results = modules.find({"study_semester": {"$elemMatch": {"$eq": studysemester_id}}}).sort("id", 1)
+    for r in results:
+        print("Getting results")
+        #remove id set by mongodb
+        r.pop("_id")
+        x.append(r)
+        i = i+1
+    if x:
+        return x
     else:
         raise HTTPException(
-            404, detail=f'No Modules for Study Semester {studysemester_id} exist.',
+            404, detail=f'No Modules for Studysemester {studysemester_id} exist.',
         )
-    returnmessage = { "Modules": x}
-    return returnmessage
     
 
 @router.post("/module",summary="add Module",
         description="Add a module to the database based on the Input. Returns a Message string.",
         tags=["Modules"],
-        response_model=Module,
+        response_model=Message,
         responses={
             404: {"model": HTTPError, "detail": "str"}
         }
     )
 async def Add_Modul(
-        # id: int,
-        # name: str,
-        # dozent_id: int,
-        # room_id: int,
-        # study_semester: int,
-        # need: str,
-        # type: str,
-        # selected: bool
-        data: Module
+        data: ModuleResponse
     ):
     #check if module ID already exist
     if modules.find_one({"id": data.id}):
         return {"message": f'A Module with ID {data.id} already exist'}
-    # data = {
-    #         "id": id,
-    #     	"name": name,
-    #         "dozent_id": dozent_id,
-    #         "room_id": room_id,
-    #         "study_semester": study_semester,
-    #         "need": need,
-    #         "type": type,
-    #         "selected": selected
-    # }
-    #data = Module(id, name, dozent_id, room_id, study_semester, need, type, selected)
-    # data.id = id
-    # data.name = name
-    # data.dozent_id = dozent_id
-    # data.room_id = room_id
-    # data.study_semester = study_semester
-    # data.need = need
-    # data.type = type
-    # data.selected = selected
 
     data = dict(data)
     # check if database is populated
+    # Might not be needed if we use pymongo ids
     # Not needed for Modules: Here for later use in other routes
     # if modules.find_one():
     #     max = modules.find().sort("id", -1).limit(1)             #Highest ID
@@ -215,7 +188,7 @@ async def Add_Modul(
 @router.put("/module/{module_id}",summary="update complete Module by ID",
         description="Update a module already in the database based on the Input. Gives out a Message if successful.",
         tags=["Modules"],
-        response_model=Module,
+        response_model=Message,
         responses={
             404: {"model": HTTPError, "detail": "str"},
             400: {"model": HTTPError, "detail": "str"}
@@ -224,12 +197,15 @@ async def Add_Modul(
 async def Update_Modul(
         module_id,
         name: str = None,
-        dozent_id: int = None,
-        room_id: int = None,
-        study_semester: int = None,
-        need: str = None,
-        type: str = None,
-        selected: bool = None
+        dozent: list[str] = None,
+        room: str = None,
+        study_semester: list[str] = None,
+        selected: bool = None,
+        duration: int = None,
+        approximate_attendance: int = None,
+        need: Equipment = None,
+        type: Type = None,
+        frequency: Frequency = None
     ):
     #check if module ID already exist
     module = modules.find_one({"id": int(module_id)})
@@ -238,10 +214,10 @@ async def Update_Modul(
         # Get Update Dict
         if name:
             module["name"] = name
-        if dozent_id:
-            module["dozent_id"] = dozent_id
-        if room_id:
-            module["room_id"] = room_id
+        if dozent:
+            module["dozent_id"] = dozent
+        if room:
+            module["room_id"] = room
         if study_semester:
             module["study_semester"] = study_semester
         if need:
@@ -250,6 +226,12 @@ async def Update_Modul(
             module["type"] = type
         if selected:
             module["selected"] = selected
+        if duration:
+            module["duration"] = duration
+        if approximate_attendance:
+            module["approximate_attendance"] = approximate_attendance
+        if frequency:
+            module["frequency"] = frequency
         print(module)
         print(checkdata)
         if module == checkdata:
@@ -283,7 +265,7 @@ async def Update_Modul(
 @router.delete("/module/{module_id}",summary="delete Module by ID",
         description="Delete a module from the database based on the Input. Gives out a Message if successful.",
         tags=["Modules"],
-        response_model=Module,
+        response_model=Message,
         responses={
             404: {"model": HTTPError, "detail": "str"}
         }

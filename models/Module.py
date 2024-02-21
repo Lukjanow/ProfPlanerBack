@@ -8,7 +8,7 @@ from models.enums.Type import Type
 from models.enums.Frequency import Frequency
 
 
-class Module(BaseModel):
+class Module(BaseModel, use_enum_values=True):
     id: int
     name: str
     dozent: list[Dozent]
@@ -16,11 +16,13 @@ class Module(BaseModel):
     study_semester: list[StudySemester]
     duration: int
     approximate_attendance: int
-    need: Equipment
+    need: Equipment | None
     type: Type
     frequency: Frequency
     selected: bool
 
 
-class Modules(BaseModel):
-    Modules: dict[int, Module]
+class ModuleResponse(Module):
+    dozent: list[str]
+    room: str | None
+    study_semester: list[str]
