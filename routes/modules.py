@@ -8,7 +8,7 @@ from Database.Database import db
 
 modules = db["modules"]
 
-from models.Models import *
+from Backend.models.common import *
 from models.Module import *
 # All API functions regarding Modules
 
