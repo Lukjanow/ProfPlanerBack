@@ -1,0 +1,81 @@
+[{
+  "_id": {
+    "$oid": "65d71bdb8c4eb66943f53f14"
+  },
+  "id": null,
+  "name": "Semester 1",
+  "study": 1,
+  "content": 1
+},
+{
+  "_id": {
+    "$oid": "65d71bdf8c4eb66943f53f15"
+  },
+  "id": null,
+  "name": "Semester 2",
+  "study": 1,
+  "content": 1
+},
+{
+  "_id": {
+    "$oid": "65d71bf38c4eb66943f53f16"
+  },
+  "id": null,
+  "name": "Semester 3",
+  "study": 1,
+  "content": 2
+},
+{
+  "_id": {
+    "$oid": "65d71bf78c4eb66943f53f17"
+  },
+  "id": null,
+  "name": "Semester 4",
+  "study": 1,
+  "content": 2
+},
+{
+  "_id": {
+    "$oid": "65d71bfb8c4eb66943f53f18"
+  },
+  "id": null,
+  "name": "Semester 5",
+  "study": 1,
+  "content": 2
+},
+{
+  "_id": {
+    "$oid": "65d71c028c4eb66943f53f19"
+  },
+  "id": null,
+  "name": "SED",
+  "study": 1,
+  "content": 3
+},
+{
+  "_id": {
+    "$oid": "65d71c088c4eb66943f53f1a"
+  },
+  "id": null,
+  "name": "Network",
+  "study": 1,
+  "content": 3
+},
+{
+  "_id": {
+    "$oid": "65d71c1f8c4eb66943f53f1b"
+  },
+  "id": null,
+  "name": "Design",
+  "study": 1,
+  "content": 3
+},
+{
+  "_id": {
+    "$oid": "65d71c2c8c4eb66943f53f1c"
+  },
+  "id": null,
+  "name": "Wahlfächer",
+  "study": 1,
+  "content": 4
+}]
