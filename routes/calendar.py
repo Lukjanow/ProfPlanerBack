@@ -75,7 +75,7 @@ async def Get_one_CalendarEntry(
 @router.get("/calendar/studysemester/{calendar_id}/{studysemester_id}",summary="get all CalendarEntry instances from one studysemester",
         description="Get data about a specific calendar Entry according the given ID. Returns a Json with the Data.",
         tags=["Calendar"],
-        response_model=CalendarResponse, 
+        response_model=CalendarResponseCom, 
         responses={
             404: {"model": HTTPError, "detail": "str"}
             })
@@ -83,11 +83,69 @@ async def Get_calendar_semester(
     calendar_id,
     studysemester_id
 ):
-    
-     #TODO Get Calender based on Semester, wait for semester db to finish
-    results = {"id": 0,
-            "Entries": "str"}
-    return results
+    returncalendar = {}
+    returnmodules = []
+    entries = []
+    returnentries = []
+    moduleComplete = True
+    calresult = calendars.find_one(ObjectId(calendar_id))
+    if calresult:
+        studysemesterresult = studysemester.find_one(ObjectId(studysemester_id))
+        if studysemesterresult:
+            returncalendar["_id"] = str(calresult["_id"])
+            returncalendar["name"] = calresult["name"]
+            #Find if studysemester is assigned to any module
+            modresults = modules.find({"study_semester": {"$elemMatch": {"$eq": studysemester_id}}})
+            for r in modresults:
+                print("Module: ", r)
+                r.pop("_id")
+                returnmodules.append(r)
+            print(returnmodules)
+            if returnmodules:
+                 #Add entries to returncalendar
+                for each in returnmodules:
+                    print(each["id"])
+                    #get all Entries with Module
+                    entryRes = calendarentry.find({"module": each["id"]})
+                    newentry = False
+                    for entry in entryRes:
+                        print(entry)
+                        entry["_id"] = str(entry["_id"])
+                        entries.append(entry)
+                        newentry = True
+                    if not newentry and moduleComplete:
+                        moduleComplete = False
+                        print("Module has no Entry")
+                #check if entries are in current calendar
+                for each in entries:
+                    print("Found Entries")
+                    #remove items not in searched calendar
+                    if each["_id"] in calresult["entries"]:
+                        print("Entry in Calendar")
+                        each = str(each)
+                        returnentries.append(each)
+                print(returnentries)
+                returncalendar["entries"] = returnentries  
+                print("Assigned entries to Calendar")
+                if moduleComplete:
+                    returncalendar["details"] = None
+                else:
+                    returncalendar["details"] = "Not all Modules of the studysemester are in the Calendar"
+                return returncalendar  
+            else:
+                raise HTTPException(
+                418, detail=f'studysemester with ID {studysemester_id} isn\'t assigned to a Module',
+            )
+        else:   #studysemester does not exist
+            raise HTTPException(
+            404, detail=f'studysemester with ID {studysemester_id} doesn\'t exist',
+        )
+    else:   #Calendar does not exist
+        raise HTTPException(
+        404, detail=f'calendar with ID {calendar_id} doesn\'t exist',
+    )
+
+
 
 @router.get("/calendar/dozent/{calendar_id}/{dozent_id}",summary="get all CalendarEntry instances from one dozent",
         description="Get data about a specific calendar Entry according the given ID. Returns a Json with the Data.",
@@ -171,11 +229,71 @@ async def Get_calendar_dozent(
         responses={
             404: {"model": HTTPError, "detail": "str"}
             })
-async def Get_calendar_room():
-    #TODO Get Calender based on Room, wait for room db to finish
-    results = {"id": 0,
-            "Entries": "str"}
-    return results
+async def Get_calendar_room(
+    calendar_id,
+    room_id
+):
+    returncalendar = {}
+    returnmodules = []
+    entries = []
+    returnentries = []
+    moduleComplete = True
+    calresult = calendars.find_one(ObjectId(calendar_id))
+    if calresult:
+        roomsresult = rooms.find_one(ObjectId(room_id))
+        if roomsresult:
+            returncalendar["_id"] = str(calresult["_id"])
+            returncalendar["name"] = calresult["name"]
+            #Find if rooms is assigned to any module
+            modresults = modules.find({"room":  room_id})
+            for r in modresults:
+                print("Module: ", r)
+                r.pop("_id")
+                returnmodules.append(r)
+            print(returnmodules)
+            if returnmodules:
+                 #Add entries to returncalendar
+                for each in returnmodules:
+                    print(each["id"])
+                    #get all Entries with Module
+                    entryRes = calendarentry.find({"module": each["id"]})
+                    newentry = False
+                    for entry in entryRes:
+                        print(entry)
+                        entry["_id"] = str(entry["_id"])
+                        entries.append(entry)
+                        newentry = True
+                    if not newentry and moduleComplete:
+                        moduleComplete = False
+                        print("Module has no Entry")
+                #check if entries are in current calendar
+                for each in entries:
+                    print("Found Entries")
+                    #remove items not in searched calendar
+                    if each["_id"] in calresult["entries"]:
+                        print("Entry in Calendar")
+                        each = str(each)
+                        returnentries.append(each)
+                print(returnentries)
+                returncalendar["entries"] = returnentries  
+                print("Assigned entries to Calendar")
+                if moduleComplete:
+                    returncalendar["details"] = None
+                else:
+                    returncalendar["details"] = "Not all Modules of the Dozent are in the Calendar"
+                return returncalendar  
+            else:
+                raise HTTPException(
+                418, detail=f'Dozent with ID {room_id} isn\'t assigned to a Module',
+            )
+        else:   #room does not exist
+            raise HTTPException(
+            404, detail=f'Dozent with ID {room_id} doesn\'t exist',
+        )
+    else:   #Calendar does not exist
+        raise HTTPException(
+        404, detail=f'calendar with ID {calendar_id} doesn\'t exist',
+    )
 
 
 @router.post("/calendar",summary="add calendar",
@@ -227,7 +345,7 @@ async def Add_calendarEntry(
         404, detail=f'Calendar with ID {calendar_id} doesn\'t exist',
     )
 
-@router.put("/calendar/calendarentry/{calendar_id}/{calendarentry_id}",summary=" update one CalendarEntry instance in Calendar",
+@router.put("/calendar/calendarentry/{calendarentry_id}",summary=" update one CalendarEntry instance in Calendar",
         description="Update a calendar Entry already in the database based on the Input. Gives out a Message if successful.",
         tags=["Calendar"],
         response_model=Message,
@@ -237,32 +355,24 @@ async def Add_calendarEntry(
     )
 
 async def Update_calendarEntry(
-        calendar_id,
         calendarentry_id,
-        #TODO change to different solution to allow single line edits
-        entry: CalendarEntryResponse
+        changes:dict
     ):
-    res = calendars.find_one(ObjectId(calendar_id))
-    #TODO check if Entry already exists(?)
+    res = calendarentry.find_one(ObjectId(calendarentry_id))
     if res:
-        res = calendarentry.find_one(ObjectId(calendarentry_id))
-        if res:
-            #Convert Model to dict
-            timestamp = dict(entry.time_stamp)
-            entry.time_stamp = {}
-            entry = dict(entry)
-            entry["time_stamp"] = timestamp
-            #write to Database
-            resultentry = str(calendarentry.update_one({"_id": ObjectId(calendarentry_id)}, {"$set": entry}))
-            return {"message": str(resultentry)}
-        else:
-            raise HTTPException(
-        404, detail=f'Calendar Entry with ID {calendarentry_id} doesn\'t exist',
-    )
+        for key, value in changes.items():
+            res[key] = value
+        try:
+            new_item = CalendarResponse(id=calendarentry_id, module=res["module"], time_stamp=res["time_stamp"])
+        except:
+            raise HTTPException(status_code=400, detail="TypeError")
+        resultentry = str(calendarentry.update_one({"_id": ObjectId(calendarentry_id)}, {"$set": changes}))
+        return {"message": str(resultentry)}
     else:
         raise HTTPException(
-        404, detail=f'Calendar with ID {calendar_id} doesn\'t exist',
-    )
+    404, detail=f'Calendar Entry with ID {calendarentry_id} doesn\'t exist',
+)
+
 
 
 
@@ -280,15 +390,13 @@ async def Delete_calendar(
     module = calendars.find_one({"id": int(calendar_id)})
     if module:
         res = calendars.delete_one({"id": int(calendar_id)})
-        print(res)
-        #TODO Remove Entries in Calendar
-        return {"message": f'Successfully deleted Module {calendar_id}'}
+        return {"message": f'Successfully deleted Calendar {calendar_id}'}
     else:
         raise HTTPException(
-        404, detail=f'Module with ID {calendar_id} doesn\'t exist',
+        404, detail=f'Calendar with ID {calendar_id} doesn\'t exist',
     )
 
-@router.delete("/calendar/calendarentry/{calendar_id}/{calendarentry_id}",summary="remove one CalendarEntry instance from Calendar",
+@router.delete("/calendar/calendarentry/{calendarentry_id}",summary="remove one CalendarEntry instance from Calendar",
         description="Delete a calendar Entry from the database based on the Input. Gives out a Message if successful.",
         tags=["Calendar"],
         response_model=Message,
@@ -297,22 +405,19 @@ async def Delete_calendar(
         }
     )
 async def Delete_calendarEntry(
-    calendar_id,
     calendarentry_id
 ):
-    calendar = calendars.find_one({"id": ObjectId(calendar_id)})
-    if calendar:
-        #TODO check if Calendar has Entry
-        entry = calendarentry.find_one({"entries": ObjectId(calendarentry_id)})
-        if entry:
-            res = calendar.delete_one({"entries": ObjectId(calendarentry_id)})
-            print(res)
-            #TODO Remove Entry from Calendars
-            return {"message": f'Successfully deleted Module {calendarentry_id}'}
-        else:
-            raise HTTPException(
-            404, detail=f'Module with ID {calendarentry_id} doesn\'t exist',)
+    entry = calendarentry.find_one({"entries": ObjectId(calendarentry_id)})
+    if entry:
+        res = calendarentry.delete_one({"entries": ObjectId(calendarentry_id)})
+        print(res)
+        calendar = calendars.find({"entries": {"$elemMatch": {"$eq": calendarentry_id}}})
+        for each in calendar:
+            entries = each["entries"]
+            entries.pop(calendarentry_id)
+            calendarentry.update_one({"_id": ObjectId(each["_id"])}, {"$set": entry})
+
+        return {"message": f'Successfully deleted Module {calendarentry_id}'}
     else:
         raise HTTPException(
-        404, detail=f'Module with ID {calendar_id} doesn\'t exist',
-    )
+        404, detail=f'Module with ID {calendarentry_id} doesn\'t exist',)

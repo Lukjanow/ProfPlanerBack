@@ -224,7 +224,7 @@ async def Update_Modul(
         400, detail=f'No Data send to Update the Database.',
         )
         else:
-            modules.replace_one({"id": int(module_id)}, module, True)
+            modules.update_one({"id": int(module_id)}, {"$set": module})
             return {"message": f'Updated Module {module_id}'}
     else:
         raise HTTPException(
