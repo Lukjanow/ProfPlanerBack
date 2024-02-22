@@ -98,7 +98,8 @@ async def Update_Abscence(dozent_id:str, absence_id:int, changes:dict):
         tags=["Absence"],
         response_model=Message, 
         responses={
-            404: {"model": HTTPError, "detail": "str"}
+            404: {"model": HTTPError, "detail": "str"},
+            400: {"model": HTTPError, "detail": "str"}
         }
     )
 async def Delete_Absence(dozent_id:str, absence_id:int):
