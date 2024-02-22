@@ -1,3 +1,4 @@
+from bson import ObjectId
 from fastapi import APIRouter, status, HTTPException
 
 from typing import List
@@ -110,15 +111,13 @@ async def Get_selected_Modules(
 async def Get_selected_Modules_by_dozent(
     dozent_id
 ):
-    i = 1
     x = []
     results = modules.find({"dozent": {"$elemMatch": {"$eq": dozent_id}}}).sort("id", 1)
     for r in results:
         print("Getting results")
         #remove id set by mongodb
-        r.pop("_id")
+        r["_id"] = str(r["_id"])
         x.append(r)
-        i = i+1
     if x:
         return x
     else:
@@ -136,15 +135,11 @@ async def Get_selected_Modules_by_dozent(
 async def Get_selected_Modules_studysemester(
     studysemester_id
 ):
-    i = 1
     x = []
     results = modules.find({"study_semester": {"$elemMatch": {"$eq": studysemester_id}}}).sort("id", 1)
     for r in results:
-        print("Getting results")
-        #remove id set by mongodb
-        r.pop("_id")
+        r["_id"] = str(r["_id"])
         x.append(r)
-        i = i+1
     if x:
         return x
     else:
@@ -169,16 +164,6 @@ async def Add_Modul(
         return {"message": f'A Module with ID {data.id} already exist'}
 
     data = dict(data)
-    # check if database is populated
-    # Might not be needed if we use pymongo ids
-    # Not needed for Modules: Here for later use in other routes
-    # if modules.find_one():
-    #     max = modules.find().sort("id", -1).limit(1)             #Highest ID
-    #     for doc in max:
-    #         high = doc["id"]
-    #     data["id"] = high + 1
-    # else: 
-    #     data["id"] = 1
 
     result = str(modules.insert_one(data))
     print(result)
