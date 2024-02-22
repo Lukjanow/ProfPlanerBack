@@ -88,7 +88,13 @@ async def Add_Studysemester(studysemester: StudySemester):
         }
     )
 async def Update_Studysemester(studysemester_id:str, changes: dict):
-    item = studySemesterCollection.find_one(ObjectId(studysemester_id))
+    try:
+        id = ObjectId(studysemester_id)
+    except:
+        raise HTTPException(400, detail=f'{studysemester_id} is not a valid ObjectId, it must be a 12-byte input or a 24-character hex string',)
+    
+    item = studySemesterCollection.find_one(id)
+
     if item == None:
         raise HTTPException(400, detail=f'Module with ID {studysemester_id} doesn\'t exist',)
 
@@ -113,5 +119,10 @@ async def Update_Studysemester(studysemester_id:str, changes: dict):
         }
     )
 async def Delete_Studysemester(studysemester_id:str):
-    studySemesterCollection.delete_one({"_id": ObjectId(studysemester_id)})
+    try:
+        id = ObjectId(studysemester_id)
+    except:
+        raise HTTPException(400, detail=f'{studysemester_id} is not a valid ObjectId, it must be a 12-byte input or a 24-character hex string',)
+    
+    studySemesterCollection.delete_one({"_id": id})
     return {"message": f"Successfully deleted StudySemester {studysemester_id}"}
