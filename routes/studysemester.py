@@ -54,7 +54,7 @@ async def Get_one_Studysemester(studysemester_id: str):
     result = studySemesterCollection.find_one(id)
     
     if result == None:
-        raise HTTPException(400, detail=f'Module with ID {studysemester_id} doesn\'t exist',)
+        raise HTTPException(400, detail=f'StudySemester with ID {studysemester_id} doesn\'t exist',)
 
     result["_id"] = str(result["_id"])
     return result
@@ -96,7 +96,7 @@ async def Update_Studysemester(studysemester_id:str, changes: dict):
     item = studySemesterCollection.find_one(id)
 
     if item == None:
-        raise HTTPException(400, detail=f'Module with ID {studysemester_id} doesn\'t exist',)
+        raise HTTPException(400, detail=f'StudySemester with ID {studysemester_id} doesn\'t exist',)
 
     for key, value in changes.items():
             item[key] = value
@@ -115,7 +115,8 @@ async def Update_Studysemester(studysemester_id:str, changes: dict):
         tags=["Studysemester"],
         response_model=Message,
         responses={
-            404: {"model": HTTPError, "detail": "str"}
+            404: {"model": HTTPError, "detail": "str"},
+            400: {"model": HTTPError, "detail": "str"}
         }
     )
 async def Delete_Studysemester(studysemester_id:str):
