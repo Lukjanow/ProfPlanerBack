@@ -2,6 +2,8 @@
 # docker compose up
 # Use parameter --build if requirements change
 
+# RUN TESTS
+# docker compose run pp_backend pytest
 version: "3.9"
 
 services:
