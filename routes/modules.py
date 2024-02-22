@@ -258,6 +258,7 @@ async def Update_Modul(
 async def Delete_Module(
     module_id
 ):
+    #TODO Possible delete Calendar entries
     module = modules.find_one({"id": int(module_id)})
     if module:
         res = modules.delete_one({"id": int(module_id)})
