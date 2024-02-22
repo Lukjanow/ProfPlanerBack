@@ -1,8 +1,13 @@
-from fastapi import APIRouter
+from bson import ObjectId
+from fastapi import APIRouter, HTTPException
 from models.StudySemester import *
 from models.common import *
+from Database.Database import db
 
 router = APIRouter()
+
+studySemesterCollection = db["studysemester"]
+
 
 # All API functions regarding studysemester
 
@@ -14,15 +19,20 @@ router = APIRouter()
 @router.get("/studysemester",summary="read all Studysemester",
         description="Get all Studysemesters from Database. Returns an Array of Json's.",
         tags=["Studysemester"],
-        response_model=Studysemesters, responses={
+        response_model=list[StudySemester], responses={
             404: {"model": HTTPError, "detail": "str"}
             })
 async def Get_all_Studysemesters():
-    results = {"id": 0,
-            "name": "str",
-            "study": "str",
-            "content": "str"}
-    return results
+    results = studySemesterCollection.find()
+
+    resultList = []
+
+    for result in results:
+        result["_id"] = str(result["_id"])
+        resultList.append(result)
+
+    return resultList
+
 
 
 @router.get("/studysemester/{studysemester_id}",summary="read Studysemester by ID",
@@ -30,19 +40,28 @@ async def Get_all_Studysemesters():
         tags=["Studysemester"],
         response_model=StudySemester, 
         responses={
+            400: {"model": HTTPError, "detail": "str"},
             404: {"model": HTTPError, "detail": "str"}
             })
-async def Get_one_Studysemester(
-    id: int
-):
-    results = {"id": 0,
-            "name": "str",
-            "study": "str",
-            "content": "str"}
-    return results
+async def Get_one_Studysemester(studysemester_id: str):
+    id: ObjectId
+
+    try:
+        id = ObjectId(studysemester_id)
+    except:
+        raise HTTPException(400, detail=f'{studysemester_id} is not a valid ObjectId, it must be a 12-byte input or a 24-character hex string',)
+
+    result = studySemesterCollection.find_one(id)
+    
+    if result == None:
+        raise HTTPException(400, detail=f'StudySemester with ID {studysemester_id} doesn\'t exist',)
+
+    result["_id"] = str(result["_id"])
+    return result
 
 
-@router.post("/studysemester/add",summary="add Studysemester",
+
+@router.post("/studysemester",summary="add Studysemester",
         description="Add a Studysemester to the database based on the Input. Gives out a Message if successful.",
         tags=["Studysemester"],
         response_model=StudySemester,
@@ -50,38 +69,61 @@ async def Get_one_Studysemester(
             404: {"model": HTTPError, "detail": "str"}
         }
     )
-async def Add_Studysemester(
-        name: str,
-        study: str,
-        content: str
-    ):
-    results = {"message": "success"}
-    return results
+async def Add_Studysemester(studysemester: StudySemester):
+    studysemester = dict(studysemester)
+    studySemesterCollection.insert_one(studysemester)
+
+    studysemester["_id"] = str(studysemester["_id"])
+    return studysemester
+
+
 
 @router.put("/studysemester/{studysemester_id}",summary="update complete Studysemester by ID",
         description="Update a Studysemester already in the database based on the Input. Gives out a Message if successful.",
         tags=["Studysemester"],
         response_model=StudySemester,
         responses={
-            404: {"model": HTTPError, "detail": "str"}
+            404: {"model": HTTPError, "detail": "str"},
+            400: {"model": HTTPError, "detail": "str"}
         }
     )
-async def Update_Studysemester(
-        name: str | None,
-        study: str | None,
-        content: str | None
-    ):
-    results = {"message": "success"}
-    return results
+async def Update_Studysemester(studysemester_id:str, changes: dict):
+    try:
+        id = ObjectId(studysemester_id)
+    except:
+        raise HTTPException(400, detail=f'{studysemester_id} is not a valid ObjectId, it must be a 12-byte input or a 24-character hex string',)
+    
+    item = studySemesterCollection.find_one(id)
+
+    if item == None:
+        raise HTTPException(400, detail=f'StudySemester with ID {studysemester_id} doesn\'t exist',)
+
+    for key, value in changes.items():
+            item[key] = value
+    try:
+        new_item = StudySemester(id=studysemester_id, name=item["name"], study=item["study"], content=item["content"])
+    except:
+        raise HTTPException(status_code=400, detail="TypeError")
+    studySemesterCollection.update_one({"_id": ObjectId(studysemester_id)}, {"$set": changes})
+
+    return new_item
+
+
 
 @router.delete("/studysemester/{studysemester_id}",summary="delete Studysemester by ID",
         description="Delete a Studysemester from the database based on the Input. Gives out a Message if successful.",
         tags=["Studysemester"],
-        response_model=StudySemester,
+        response_model=Message,
         responses={
-            404: {"model": HTTPError, "detail": "str"}
+            404: {"model": HTTPError, "detail": "str"},
+            400: {"model": HTTPError, "detail": "str"}
         }
     )
-async def Delete_Studysemester():
-    results = {"message": "success"}
-    return results
+async def Delete_Studysemester(studysemester_id:str):
+    try:
+        id = ObjectId(studysemester_id)
+    except:
+        raise HTTPException(400, detail=f'{studysemester_id} is not a valid ObjectId, it must be a 12-byte input or a 24-character hex string',)
+    
+    studySemesterCollection.delete_one({"_id": id})
+    return {"message": f"Successfully deleted StudySemester {studysemester_id}"}
