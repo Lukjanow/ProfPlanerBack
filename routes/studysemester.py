@@ -40,10 +40,21 @@ async def Get_all_Studysemesters():
         tags=["Studysemester"],
         response_model=StudySemester, 
         responses={
+            400: {"model": HTTPError, "detail": "str"},
             404: {"model": HTTPError, "detail": "str"}
             })
 async def Get_one_Studysemester(studysemester_id: str):
-    result = studySemesterCollection.find_one(ObjectId(studysemester_id))
+    id: ObjectId
+
+    try:
+        id = ObjectId(studysemester_id)
+    except:
+        raise HTTPException(400, detail=f'{studysemester_id} is not a valid ObjectId, it must be a 12-byte input or a 24-character hex string',)
+
+    result = studySemesterCollection.find_one(id)
+    
+    if result == None:
+        raise HTTPException(400, detail=f'Module with ID {studysemester_id} doesn\'t exist',)
 
     result["_id"] = str(result["_id"])
     return result
@@ -72,11 +83,15 @@ async def Add_Studysemester(studysemester: StudySemester):
         tags=["Studysemester"],
         response_model=StudySemester,
         responses={
-            404: {"model": HTTPError, "detail": "str"}
+            404: {"model": HTTPError, "detail": "str"},
+            400: {"model": HTTPError, "detail": "str"}
         }
     )
 async def Update_Studysemester(studysemester_id:str, changes: dict):
     item = studySemesterCollection.find_one(ObjectId(studysemester_id))
+    if item == None:
+        raise HTTPException(400, detail=f'Module with ID {studysemester_id} doesn\'t exist',)
+
     for key, value in changes.items():
             item[key] = value
     try:
