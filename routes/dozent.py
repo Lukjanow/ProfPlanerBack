@@ -1,11 +1,15 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, HTTPException
 from models.Dozent import *
 from models.Absence import Absence
 from models.common import *
-
+from bson.objectid import ObjectId
+from Database.Database import db
+from typing import List
 
 router = APIRouter()
 
+router = APIRouter()
+dozentCollection = db["dozent"]
 
 # All API functions regarding Dozents
 
@@ -18,139 +22,114 @@ router = APIRouter()
 @router.get("/dozent",summary="read all Dozent",
         description="Get all Dozent from Database. Returns an Array of Json's.",
         tags=["Dozent"],
-        response_model=Dozents, responses={
+        response_model=List[DozentRespone], responses={
             404: {"model": HTTPError, "detail": "str"}
             })
 async def Get_all_Dozents():
-    results = {"id": 0,
-            "name": "str",
-            "email": "str",
-            "title": "str",
-            "absences": "list[Absence]",
-            "intern": True}
-    
-    return results
+    results = dozentCollection.find()
+
+    resultList = []
+
+    for result in results:
+        result["_id"] = str(result["_id"])
+        resultList.append(result)
+
+    return resultList
+
+
 
 @router.get("/dozent/{dozent_id}",summary="read Dozent by ID",
         description="Get data about a specific Dozent according the given ID. Returns a Json with the Data.",
         tags=["Dozent"],
-        response_model=Dozent, 
+        response_model=DozentRespone, 
         responses={
             404: {"model": HTTPError, "detail": "str"}
             })
-async def Get_one_Dozent(
-    id: int
-):
-    results = {"id": 0,
-            "name": "str",
-            "email": "str",
-            "title": "str",
-            "absences": "list[Absence]",
-            "intern": True}
-    return results
+async def Get_one_Dozent(dozent_id: str):
+    result = dozentCollection.find_one(ObjectId(dozent_id))
+    
+    result["_id"] = str(result["_id"])
+    return result
+
+
 
 @router.get("/dozent/absence/{dozent_id}",summary="Read all Absences by Dozent",
         description="Gives out all absences a Dozent has. Returns an Array of Json if successful",
         tags=["Dozent"],
-        response_model=Absence,
+        response_model=list[Absence],
         responses={
             404: {"model": HTTPError, "detail": "str"}
         }
     )
-async def get_Dozent_absences(
-        dozent_id: int
-    ):
-    results = {"message": "success"}
-    return results
+async def get_Dozent_absences(dozent_id: str):
+    result = dozentCollection.find_one(ObjectId(dozent_id))
+    
+    resultList = []
+
+    for item in result["absences"]:
+        resultList.append(item)
+
+    return resultList
+
+
 
 @router.post("/dozent",summary="add Dozent",
         description="Add a Dozent to the database based on the Input. Gives out a Message if successful.",
         tags=["Dozent"],
-        response_model=Dozent,
+        response_model=DozentRespone,
         responses={
             404: {"model": HTTPError, "detail": "str"}
         }
     )
-async def Add_Dozent(
-        id: int,
-        name: str,
-        email: str,
-        title: str,
-        intern: bool
-    ):
-    results = {"message": "success"}
-    return results
+async def Add_Dozent(dozent: DozentRespone):
+    dozent_id = str(dozent.id)
+    dozent = dict(dozent)
 
-@router.post("/dozent/absence/{dozent_id}",summary="add Absence to Dozent",
-        description="Add Absence for a Dozent to the database based on the Input. Gives out a Message if successful.",
-        tags=["Absence"],
-        response_model=Absence,
-        responses={
-            404: {"model": HTTPError, "detail": "str"}
-        }
-    )
-async def Add_Abscence(
-        begin: str,
-        end: str,
-        comment: str
-    ):
-    results = {"message": "success"}
-    return results
+    if dozent["absences"] != None:
+        absenceList = []
+        for absence in dozent["absences"]:
+            absence = dict(absence)
+            absence["begin"] = dict(absence["begin"])
+            absence["end"] = dict(absence["end"])
+            absenceList.append(absence)
+
+        dozent["absences"] = absenceList
+    dozentCollection.insert_one(dozent)
+
+    dozent["_id"] = dozent_id
+    return dozent
+
+
 
 @router.put("/dozent/{dozent_id}",summary="update complete Dozent by ID",
         description="Update a Dozent already in the database based on the Input. Gives out a Message if successful.",
         tags=["Dozent"],
-        response_model=Dozent,
+        response_model=DozentRespone,
         responses={
             404: {"model": HTTPError, "detail": "str"}
         }
     )
-async def Update_Dozent(
-        id: int | None,
-        name: str | None,
-        email: str | None,
-        title: str | None,
-        intern: bool | None
-    ):
-    results = {"message": "success"}
-    return results
+async def Update_Dozent(dozent_id:str, changes:dict):
+    item = dozentCollection.find_one(ObjectId(dozent_id))
+    for key, value in changes.items():
+            item[key] = value
+    try:
+        new_item = DozentRespone(id=dozent_id, name=item["name"], e_mail=item["e_mail"], title=item["title"],absences=item["absences"],intern=item["intern"])
+    except:
+        raise HTTPException(status_code=400, detail="TypeError")
+    dozentCollection.update_one({"_id": ObjectId(dozent_id)}, {"$set": changes})
+    return new_item
 
-@router.put("/dozent/absence/{dozent_id}/{absence_id}",summary="update one Absence of a Dozent",
-        description="Update a Abscences already in the database based on the Input. Gives out a Message if successful.",
-        tags=["Absence"],
-        response_model=Absence,
-        responses={
-            404: {"model": HTTPError, "detail": "str"}
-        }
-    )
-async def Update_Abscence(
-        begin: str | None,
-        end: str | None,
-        comment: str | None
-    ):
-    results = {"message": "success"}
-    return results
+
 
 @router.delete("/dozent/{dozent_id}",summary="delete Dozent by ID",
         description="Delete a Dozent from the database based on the Input. Gives out a Message if successful.",
         tags=["Dozent"],
-        response_model=Dozent,
+        response_model=Message,
         responses={
             404: {"model": HTTPError, "detail": "str"}
         }
     )
-async def Delete_Modul():
-    results = {"message": "success"}
-    return results
-
-@router.delete("/dozent/absence/{dozent_id}/{absence_id}",summary="delete one Absence from Dozent",
-        description="Delete a Room from the database based on the Input. Gives out a Message if successful.",
-        tags=["Absence"],
-        response_model=Absence,
-        responses={
-            404: {"model": HTTPError, "detail": "str"}
-        }
-    )
-async def Delete_Absence():
-    results = {"message": "success"}
-    return results
+async def Delete_Modul(dozent_id:str):
+    dozentCollection.delete_one({"_id": ObjectId(dozent_id)})
+    return {"message": f"Successfully deleted Dozent {dozent_id}"}
