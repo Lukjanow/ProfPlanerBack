@@ -79,9 +79,10 @@ async def Update_Room(
         room_id,
         name: str = None,
         capacity: int = None,
-        equipment: Equipment = None
+        equipment: int = None
     ):
     #Check if Room Exists
+    #equipment = Equipment(*equipment)
     room = rooms.find_one({"id": int(room_id)})
     if not room: 
         raise HTTPException(
