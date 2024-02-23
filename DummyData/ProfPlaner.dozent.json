@@ -6,7 +6,36 @@
   "name": "Thielen",
   "e_mail": "thielen@hs-worms.de",
   "title": "Prof. Dr.",
-  "absences": [],
+  "absences": [
+    {
+      "id": 1,
+      "begin": {
+        "week_day": 3,
+        "hour": 13,
+        "minute": 0
+      },
+      "end": {
+        "week_day": 3,
+        "hour": 20,
+        "minute": 0
+      },
+      "comment": "Reguläre Treffen"
+    },
+    {
+      "id": 2,
+      "begin": {
+        "week_day": 5,
+        "hour": 8,
+        "minute": 0
+      },
+      "end": {
+        "week_day": 5,
+        "hour": 20,
+        "minute": 0
+      },
+      "comment": "Will langes Wochendee"
+    }
+  ],
   "intern": true
 },
 {
@@ -17,7 +46,22 @@
   "name": "Wehrstein",
   "e_mail": "Wehrstein@hs-worms.de",
   "title": "Herr",
-  "absences": [],
+  "absences": [
+    {
+      "id": 1,
+      "begin": {
+        "week_day": 2,
+        "hour": 8,
+        "minute": 0
+      },
+      "end": {
+        "week_day": 5,
+        "hour": 20,
+        "minute": 0
+      },
+      "comment": "Arbeiten in meinem Unternehmen"
+    }
+  ],
   "intern": false
 },
 {
@@ -28,7 +72,22 @@
   "name": "Schwarzer",
   "e_mail": "Schwarzer@hs-worms.de",
   "title": "Prof. Dr.",
-  "absences": [],
+  "absences": [
+    {
+      "id": 1,
+      "begin": {
+        "week_day": 3,
+        "hour": 13,
+        "minute": 0
+      },
+      "end": {
+        "week_day": 3,
+        "hour": 20,
+        "minute": 0
+      },
+      "comment": "Reguläre Treffen"
+    }
+  ],
   "intern": true
 },
 {
@@ -50,7 +109,22 @@
   "name": "Kohler",
   "e_mail": "Kohler@hs-worms.de",
   "title": "Prof. Dr.",
-  "absences": [],
+  "absences": [
+    {
+      "id": 1,
+      "begin": {
+        "week_day": 3,
+        "hour": 13,
+        "minute": 0
+      },
+      "end": {
+        "week_day": 3,
+        "hour": 20,
+        "minute": 0
+      },
+      "comment": "Reguläre Treffen"
+    }
+  ],
   "intern": true
 },
 {
@@ -61,7 +135,22 @@
   "name": "Kessler",
   "e_mail": "Kessler@hs-worms.de",
   "title": "Prof. Dr.",
-  "absences": [],
+  "absences": [
+    {
+      "id": 1,
+      "begin": {
+        "week_day": 3,
+        "hour": 13,
+        "minute": 0
+      },
+      "end": {
+        "week_day": 3,
+        "hour": 20,
+        "minute": 0
+      },
+      "comment": "Reguläre Treffen"
+    }
+  ],
   "intern": true
 },
 {
@@ -69,10 +158,81 @@
     "$oid": "65d706f05c208e7fd4abebb1"
   },
   "id": null,
-  "name": "Heinmann",
+  "name": "Heinemann",
   "e_mail": "Heinemann@hs-worms.de",
   "title": "Prof. Dr.",
-  "absences": [],
+  "absences": [
+    {
+      "id": 1,
+      "begin": {
+        "week_day": 1,
+        "hour": 8,
+        "minute": 0
+      },
+      "end": {
+        "week_day": 1,
+        "hour": 10,
+        "minute": 0
+      },
+      "comment": "Lange Anfahrt"
+    },
+    {
+      "id": 2,
+      "begin": {
+        "week_day": 2,
+        "hour": 8,
+        "minute": 0
+      },
+      "end": {
+        "week_day": 2,
+        "hour": 10,
+        "minute": 0
+      },
+      "comment": "Lange Anfahrt"
+    },
+    {
+      "id": 3,
+      "begin": {
+        "week_day": 3,
+        "hour": 8,
+        "minute": 0
+      },
+      "end": {
+        "week_day": 3,
+        "hour": 10,
+        "minute": 0
+      },
+      "comment": "Lange Anfahrt"
+    },
+    {
+      "id": 4,
+      "begin": {
+        "week_day": 4,
+        "hour": 8,
+        "minute": 0
+      },
+      "end": {
+        "week_day": 4,
+        "hour": 10,
+        "minute": 0
+      },
+      "comment": "Lange Anfahrt"
+    },
+    {
+      "id": 5,
+      "begin": {
+        "week_day": 5,
+        "hour": 8,
+        "minute": 0
+      },
+      "end": {
+        "week_day": 5,
+        "hour": 10,
+        "minute": 0
+      },
+      "comment": "Lange Anfahrt"
+    }
+  ],
   "intern": true
 },
 {
@@ -127,6 +287,21 @@
   "name": "Wiebel",
   "e_mail": "Wiebel@hs-worms.de",
   "title": "Prof. Dr.",
-  "absences": [],
+  "absences": [
+    {
+      "id": 1,
+      "begin": {
+        "week_day": 3,
+        "hour": 13,
+        "minute": 0
+      },
+      "end": {
+        "week_day": 3,
+        "hour": 20,
+        "minute": 0
+      },
+      "comment": "Reguläre Treffen"
+    }
+  ],
   "intern": true
 }]

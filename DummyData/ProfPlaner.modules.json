@@ -7,7 +7,7 @@
   "dozent": [
     "65d706915c208e7fd4abebab"
   ],
-  "room": "string",
+  "room": "65d854c3dfc97c0356792f8e",
   "study_semester": [
     "65d71bdb8c4eb66943f53f14"
   ],
@@ -27,7 +27,7 @@
   "dozent": [
     "65d706a45c208e7fd4abebac"
   ],
-  "room": "string",
+  "room": "65d854c3dfc97c0356792f8e",
   "study_semester": [
     "65d71bdb8c4eb66943f53f14"
   ],
@@ -47,7 +47,7 @@
   "dozent": [
     "65d706b15c208e7fd4abebad"
   ],
-  "room": "string",
+  "room": "65d85564dfc97c0356792f91string",
   "study_semester": [
     "65d71c028c4eb66943f53f19",
     "65d71bfb8c4eb66943f53f18",
@@ -70,7 +70,7 @@
   "dozent": [
     "65d706b15c208e7fd4abebad"
   ],
-  "room": "string",
+  "room": "65d85501dfc97c0356792f8fstring",
   "study_semester": [
     "65d71bf38c4eb66943f53f16"
   ],
@@ -90,7 +90,7 @@
   "dozent": [
     "65d706bc5c208e7fd4abebae"
   ],
-  "room": "string",
+  "room": "65d85609dfc97c0356792fa3string",
   "study_semester": [
     "65d71bfb8c4eb66943f53f18"
   ],
@@ -110,7 +110,7 @@
   "dozent": [
     "65d706c75c208e7fd4abebaf"
   ],
-  "room": "string",
+  "room": "65d85609dfc97c0356792fa3string",
   "study_semester": [
     "65d71bf78c4eb66943f53f17"
   ],
@@ -130,7 +130,7 @@
   "dozent": [
     "65d706d05c208e7fd4abebb0"
   ],
-  "room": "string",
+  "room": "65d8558bdfc97c0356792f96string",
   "study_semester": [
     "65d71bdf8c4eb66943f53f15"
   ],
@@ -150,7 +150,7 @@
   "dozent": [
     "65d71e229004f2a19971f8bc"
   ],
-  "room": "string",
+  "room": "65d855b8dfc97c0356792f97string",
   "study_semester": [
     "65d71c2c8c4eb66943f53f1c"
   ],
@@ -170,7 +170,7 @@
   "dozent": [
     "65d71e229004f2a19971f8bc"
   ],
-  "room": "string",
+  "room": "65d854c3dfc97c0356792f8estring",
   "study_semester": [
     "65d71bdb8c4eb66943f53f14"
   ],
@@ -190,7 +190,7 @@
   "dozent": [
     "65d706c75c208e7fd4abebaf"
   ],
-  "room": "string",
+  "room": "65d8556fdfc97c0356792f93string",
   "study_semester": [
     "65d71bdf8c4eb66943f53f15"
   ],
@@ -210,7 +210,7 @@
   "dozent": [
     "65d706c75c208e7fd4abebaf"
   ],
-  "room": "string",
+  "room": "65d85579dfc97c0356792f94string",
   "study_semester": [
     "65d71bdf8c4eb66943f53f15"
   ],
@@ -230,7 +230,7 @@
   "dozent": [
     "65d706915c208e7fd4abebab"
   ],
-  "room": "string",
+  "room": "65d85569dfc97c0356792f92string",
   "study_semester": [
     "65d71bf38c4eb66943f53f16"
   ],
@@ -360,5 +360,25 @@
   "need": null,
   "type": 1,
   "frequency": 2,
+  "selected": true
+},
+{
+  "_id": {
+    "$oid": "65d741667b2b74e83dedcdc0"
+  },
+  "id": 141,
+  "name": "Requirements Engineering",
+  "dozent": [
+    "65d706f05c208e7fd4abebb1"
+  ],
+  "room": null,
+  "study_semester": [
+    "65d71bf78c4eb66943f53f17"
+  ],
+  "duration": 90,
+  "approximate_attendance": 80,
+  "need": null,
+  "type": 1,
+  "frequency": 3,
   "selected": true
 }]

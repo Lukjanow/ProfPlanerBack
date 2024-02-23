@@ -1,0 +1,88 @@
+[{
+  "_id": {
+    "$oid": "65d854c3dfc97c0356792f8e"
+  },
+  "Name": "B200",
+  "Capacity": 120,
+  "Equipment": null
+},
+{
+  "_id": {
+    "$oid": "65d85501dfc97c0356792f8f"
+  },
+  "Name": "D138",
+  "Capacity": 100,
+  "Equipment": null
+},
+{
+  "_id": {
+    "$oid": "65d8553adfc97c0356792f90"
+  },
+  "Name": "N140",
+  "Capacity": 25,
+  "Equipment": 1
+},
+{
+  "_id": {
+    "$oid": "65d85564dfc97c0356792f91"
+  },
+  "Name": "N141",
+  "Capacity": 25,
+  "Equipment": 1
+},
+{
+  "_id": {
+    "$oid": "65d85569dfc97c0356792f92"
+  },
+  "Name": "N142",
+  "Capacity": 25,
+  "Equipment": 1
+},
+{
+  "_id": {
+    "$oid": "65d8556fdfc97c0356792f93"
+  },
+  "Name": "N143",
+  "Capacity": 25,
+  "Equipment": 1
+},
+{
+  "_id": {
+    "$oid": "65d85579dfc97c0356792f94"
+  },
+  "Name": "N240",
+  "Capacity": 20,
+  "Equipment": 2
+},
+{
+  "_id": {
+    "$oid": "65d85580dfc97c0356792f95"
+  },
+  "Name": "N241",
+  "Capacity": 20,
+  "Equipment": 2
+},
+{
+  "_id": {
+    "$oid": "65d8558bdfc97c0356792f96"
+  },
+  "Name": "A125",
+  "Capacity": 150,
+  "Equipment": null
+},
+{
+  "_id": {
+    "$oid": "65d855b8dfc97c0356792f97"
+  },
+  "Name": "A014",
+  "Capacity": 80,
+  "Equipment": 1
+},
+{
+  "_id": {
+    "$oid": "65d85609dfc97c0356792fa3"
+  },
+  "Name": "N041",
+  "Capacity": 100,
+  "Equipment": 1
+}]

@@ -24,18 +24,6 @@
 },
 {
   "_id": {
-    "$oid": "65d71a88b21ff5d5528eba67"
-  },
-  "id": null,
-  "module": 132,
-  "time_stamp": {
-    "week_day": 3,
-    "hour": 9,
-    "minute": 0
-  }
-},
-{
-  "_id": {
     "$oid": "65d73c5ca421a928cd955b70"
   },
   "id": null,
@@ -139,18 +127,6 @@
   "time_stamp": {
     "week_day": 2,
     "hour": 9,
-    "minute": 0
-  }
-},
-{
-  "_id": {
-    "$oid": "65d73d11a421a928cd955b79"
-  },
-  "id": null,
-  "module": 214,
-  "time_stamp": {
-    "week_day": 1,
-    "hour": 13,
     "minute": 0
   }
 },
