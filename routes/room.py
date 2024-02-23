@@ -1,29 +1,27 @@
-from fastapi import APIRouter
+from fastapi import APIRouter,  HTTPException
 from models.Room import *
 from models.common import *
 
+from typing import List
+import copy
+
+from utils.result_parser import remove_mongo_ids
 
 router = APIRouter()
 
-# All API functions regarding Rooms
+from Database.Database import db
 
-
-# https://stackoverflow.com/questions/76231804/fastapi-how-to-modularize-code-into-multiple-files-with-access-to-app-decorators#:~:text=1%20Answer&text=The%20modularization%20of%20routes%20in,assembled%20into%20a%20FastAPI%20application.
-# Beispielstruktur: 
-# https://github.com/skatesham/fastapi-bigger-application 
-
+rooms = db["rooms"]
 
 @router.get("/room",summary="read all Room",
         description="Get all Rooms from Database. Returns an Array of Json's.",
         tags=["Room"],
-        response_model=Rooms, responses={
+        response_model=List[Room], responses={
             404: {"model": HTTPError, "detail": "str"}
             })
 async def Get_all_Rooms():
-    results = {"id": 0,
-            "name": "str",
-            "capacity": 100,
-            "equipment": "str"}
+    results = rooms.find().sort("id", 1)
+    results = remove_mongo_ids(results)
     return results
 
 
@@ -35,55 +33,99 @@ async def Get_all_Rooms():
             404: {"model": HTTPError, "detail": "str"}
             })
 async def Get_one_Room(
-    id: int
+    room_id
 ):
-    results = {"id": 0,
-            "name": "str",
-            "capacity": 100,
-            "equipment": "str"}
-    return results
+    result = rooms.find_one({"id": int(room_id)})
+    if result: 
+        result.pop("_id")
+        return result
+    else:   #Module does not exist
+        raise HTTPException(
+        404, detail=f'Module with ID {room_id} doesn\'t exist',
+    )
 
 
 @router.post("/room/add",summary="add Room",
         description="Add a Room to the database based on the Input. Gives out a Message if successful.",
         tags=["Room"],
-        response_model=Room,
+        response_model=Message,
         responses={
             404: {"model": HTTPError, "detail": "str"}
         }
     )
 async def Add_Room(
-        name: str,
-        capacity: int,
-        equipment: str
+        data: Room
     ):
-    results = {"message": "success"}
-    return results
+    #check if module ID already exist
+    if rooms.find_one({"id": data.id}):
+        return {"message": f'A Module with ID {data.id} already exist'}
 
+    data = dict(data)
+
+    result = str(rooms.insert_one(data))
+    print(result)
+    return {"message": result}
+
+# Need to clarify if this is the way how put is used; Body?
 @router.put("/room/{room_id}",summary="update complete Room by ID",
         description="Update a Room already in the database based on the Input. Gives out a Message if successful.",
         tags=["Room"],
-        response_model=Room,
+        response_model=Message,
         responses={
             404: {"model": HTTPError, "detail": "str"}
         }
     )
 async def Update_Room(
-        name: str | None,
-        capacity: int | None,
-        equipment: str | None
+        room_id,
+        name: str = None,
+        capacity: int = None,
+        equipment: Equipment = None
     ):
-    results = {"message": "success"}
-    return results
+    #Check if Room Exists
+    room = rooms.find_one({"id": int(room_id)})
+    if not room: 
+        raise HTTPException(
+            404, detail=f'Module with ID {room_id} doesn\'t exist',
+        )
+    
+    checkdata = copy.deepcopy(room)  #Copy the entry to check if something changed
+    if name:
+        room["name"] = name 
+    if capacity:
+        room["capacity"] = capacity
+    if equipment:
+        room["equipment"] = equipment
+
+    if room == checkdata:
+        print("No Updates")
+        raise HTTPException(
+            400, detail=f'No Data send to Update the Database.',
+        )
+    else:
+        print("Update Room")
+        rooms.update_one({"id": int(room_id)}, {"$set": room})
+        return {"message": f'Updated Room {room_id}'}
+
+
 
 @router.delete("/room/{room_id}",summary="delete Room by ID",
         description="Delete a Room from the database based on the Input. Gives out a Message if successful.",
         tags=["Room"],
-        response_model=Room,
+        response_model=Message,
         responses={
             404: {"model": HTTPError, "detail": "str"}
         }
     )
-async def Delete_Room():
-    results = {"message": "success"}
-    return results
+async def Delete_Room(
+    room_id
+):
+    #Check if Room Exists
+    room = rooms.find_one({"id": int(room_id)})
+    if room:
+        res = rooms.delete_one({"id": int(room_id)})
+        return {"message": f'Successfully deleted Room {room_id}'}
+    else:
+        # Need to Clarify if this is the right response code
+        raise HTTPException(
+            400, detail=f'Room with ID {room_id} doesn\'t exist',
+        )
