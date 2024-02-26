@@ -6,6 +6,7 @@ from models.Dozent import DozentRespone
 
 from routes.dozent import dozentCollection
 
+#TODO Deal with empty Abscences List
 router = APIRouter()
 
 

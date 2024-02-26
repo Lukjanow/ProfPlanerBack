@@ -1,0 +1,88 @@
+[{
+  "_id": {
+    "$oid": "65d854c3dfc97c0356792f8e"
+  },
+  "name": "B200",
+  "capacity": 120,
+  "equipment": null
+},
+{
+  "_id": {
+    "$oid": "65d85501dfc97c0356792f8f"
+  },
+  "name": "D138",
+  "capacity": 100,
+  "equipment": null
+},
+{
+  "_id": {
+    "$oid": "65d8553adfc97c0356792f90"
+  },
+  "name": "N140",
+  "capacity": 25,
+  "equipment": 1
+},
+{
+  "_id": {
+    "$oid": "65d85564dfc97c0356792f91"
+  },
+  "name": "N141",
+  "capacity": 25,
+  "equipment": 1
+},
+{
+  "_id": {
+    "$oid": "65d85569dfc97c0356792f92"
+  },
+  "name": "N142",
+  "capacity": 25,
+  "equipment": 1
+},
+{
+  "_id": {
+    "$oid": "65d8556fdfc97c0356792f93"
+  },
+  "name": "N143",
+  "capacity": 25,
+  "equipment": 1
+},
+{
+  "_id": {
+    "$oid": "65d85579dfc97c0356792f94"
+  },
+  "name": "N240",
+  "capacity": 20,
+  "equipment": 2
+},
+{
+  "_id": {
+    "$oid": "65d85580dfc97c0356792f95"
+  },
+  "name": "N241",
+  "capacity": 20,
+  "equipment": 2
+},
+{
+  "_id": {
+    "$oid": "65d8558bdfc97c0356792f96"
+  },
+  "name": "A125",
+  "capacity": 150,
+  "equipment": null
+},
+{
+  "_id": {
+    "$oid": "65d855b8dfc97c0356792f97"
+  },
+  "name": "A014",
+  "capacity": 80,
+  "equipment": 1
+},
+{
+  "_id": {
+    "$oid": "65d85609dfc97c0356792fa3"
+  },
+  "name": "N041",
+  "capacity": 100,
+  "equipment": 1
+}]
