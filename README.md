@@ -5,17 +5,17 @@
 ## Getting started
 
 Run Tests
-```
+```console
 docker compose run pp_backend pytest
 ```
 
 Import Dummy Data 
-```
+```console
 docker compose run pp_backend sh import_dummy_data.sh
 ```
 
 Run Server
-```
+```console
 docker compose up
 ```
 
