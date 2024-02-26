@@ -1,30 +1,33 @@
-from fastapi import APIRouter
+from bson import ObjectId
+from fastapi import APIRouter,  HTTPException
 from models.Room import *
 from models.common import *
 
+from typing import List
+import copy
 
 router = APIRouter()
 
-# All API functions regarding Rooms
+from Database.Database import db
 
-
-# https://stackoverflow.com/questions/76231804/fastapi-how-to-modularize-code-into-multiple-files-with-access-to-app-decorators#:~:text=1%20Answer&text=The%20modularization%20of%20routes%20in,assembled%20into%20a%20FastAPI%20application.
-# Beispielstruktur: 
-# https://github.com/skatesham/fastapi-bigger-application 
-
+rooms = db["rooms"]
 
 @router.get("/room",summary="read all Room",
         description="Get all Rooms from Database. Returns an Array of Json's.",
         tags=["Room"],
-        response_model=Rooms, responses={
+        response_model=List[Room], responses={
             404: {"model": HTTPError, "detail": "str"}
             })
 async def Get_all_Rooms():
-    results = {"id": 0,
-            "name": "str",
-            "capacity": 100,
-            "equipment": "str"}
-    return results
+    results = rooms.find()
+
+    resultList = []
+
+    for result in results:
+        result["_id"] = str(result["_id"])
+        resultList.append(result)
+    print
+    return resultList
 
 
 @router.get("/room/{room_id}",summary="read Room by ID",
@@ -35,30 +38,42 @@ async def Get_all_Rooms():
             404: {"model": HTTPError, "detail": "str"}
             })
 async def Get_one_Room(
-    id: int
+    room_id
 ):
-    results = {"id": 0,
-            "name": "str",
-            "capacity": 100,
-            "equipment": "str"}
-    return results
+    try:
+        id = ObjectId(room_id)
+    except:
+        raise HTTPException(400, detail=f'{room_id} is not a valid ObjectId, it must be a 12-byte input or a 24-character hex string',)
+    result = rooms.find_one(id)
+
+    if result == None:
+        raise HTTPException(400, detail=f'Room with ID {id} doesn\'t exist',)
+    
+    result["_id"] = str(result["_id"])
+    return result
 
 
 @router.post("/room/add",summary="add Room",
         description="Add a Room to the database based on the Input. Gives out a Message if successful.",
         tags=["Room"],
-        response_model=Room,
+        response_model=Message,
         responses={
             404: {"model": HTTPError, "detail": "str"}
         }
     )
 async def Add_Room(
-        name: str,
-        capacity: int,
-        equipment: str
+        data: Room
     ):
-    results = {"message": "success"}
-    return results
+    #check if module ID already exist
+    if rooms.find_one({"id": data.id}):
+        return {"message": f'A Module with ID {data.id} already exist'}
+
+    data = dict(data)
+
+    result = str(rooms.insert_one(data))
+    print(result)
+    return {"message": result}
+
 
 @router.put("/room/{room_id}",summary="update complete Room by ID",
         description="Update a Room already in the database based on the Input. Gives out a Message if successful.",
@@ -69,21 +84,42 @@ async def Add_Room(
         }
     )
 async def Update_Room(
-        name: str | None,
-        capacity: int | None,
-        equipment: str | None
+        room_id,
+        changes:dict
     ):
-    results = {"message": "success"}
-    return results
+    try:
+        id = ObjectId(room_id)
+    except:
+        raise HTTPException(400, detail=f'{room_id} is not a valid ObjectId, it must be a 12-byte input or a 24-character hex string',)
+    result = rooms.find_one(id)
+
+    if result == None:
+        raise HTTPException(400, detail=f'Room with ID {id} doesn\'t exist',)
+    for key, value in changes.items():
+            result[key] = value
+    try:
+        new_item = Room(id=room_id, name=result["name"], capacity=result["capacity"], equipment=result["equipment"])
+    except:
+        raise HTTPException(status_code=400, detail="TypeError")
+    rooms.update_one({"_id": ObjectId(room_id)}, {"$set": changes})
+    return new_item
+
+
+
 
 @router.delete("/room/{room_id}",summary="delete Room by ID",
         description="Delete a Room from the database based on the Input. Gives out a Message if successful.",
         tags=["Room"],
-        response_model=Room,
+        response_model=Message,
         responses={
             404: {"model": HTTPError, "detail": "str"}
         }
     )
-async def Delete_Room():
-    results = {"message": "success"}
-    return results
+async def Delete_Room(room_id):
+    try:
+        id = ObjectId(room_id)
+    except:
+        raise HTTPException(400, detail=f'{room_id} is not a valid ObjectId, it must be a 12-byte input or a 24-character hex string',)
+    
+    rooms.delete_one({"_id": id})
+    return {"message": f"Successfully deleted Dozent {room_id}"}
