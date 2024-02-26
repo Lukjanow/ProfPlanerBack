@@ -9,6 +9,11 @@ Run Tests
 docker compose run pp_backend pytest
 ```
 
+Import Dummy Data 
+```
+docker compose run pp_backend sh import_dummy_data.sh
+```
+
 Run Server
 ```
 docker compose up

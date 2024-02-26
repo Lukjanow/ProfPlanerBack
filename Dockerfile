@@ -21,6 +21,7 @@ COPY ./routes /code/routes
 COPY ./models /code/models
 COPY ./API.py /code/API.py
 COPY ./Database /code/Database
+COPY ./DummyData /code/DummyData
 
 EXPOSE 8000
 
