@@ -1,11 +1,10 @@
+from bson import ObjectId
 from fastapi import APIRouter,  HTTPException
 from models.Room import *
 from models.common import *
 
 from typing import List
 import copy
-
-from utils.result_parser import remove_mongo_ids
 
 router = APIRouter()
 
@@ -20,9 +19,15 @@ rooms = db["rooms"]
             404: {"model": HTTPError, "detail": "str"}
             })
 async def Get_all_Rooms():
-    results = rooms.find().sort("id", 1)
-    results = remove_mongo_ids(results)
-    return results
+    results = rooms.find()
+
+    resultList = []
+
+    for result in results:
+        result["_id"] = str(result["_id"])
+        resultList.append(result)
+    print
+    return resultList
 
 
 @router.get("/room/{room_id}",summary="read Room by ID",
@@ -35,14 +40,17 @@ async def Get_all_Rooms():
 async def Get_one_Room(
     room_id
 ):
-    result = rooms.find_one({"id": int(room_id)})
-    if result: 
-        result.pop("_id")
-        return result
-    else:   #Module does not exist
-        raise HTTPException(
-        404, detail=f'Module with ID {room_id} doesn\'t exist',
-    )
+    try:
+        id = ObjectId(room_id)
+    except:
+        raise HTTPException(400, detail=f'{room_id} is not a valid ObjectId, it must be a 12-byte input or a 24-character hex string',)
+    result = rooms.find_one(id)
+
+    if result == None:
+        raise HTTPException(400, detail=f'Room with ID {id} doesn\'t exist',)
+    
+    result["_id"] = str(result["_id"])
+    return result
 
 
 @router.post("/room/add",summary="add Room",
@@ -66,46 +74,36 @@ async def Add_Room(
     print(result)
     return {"message": result}
 
-# Need to clarify if this is the way how put is used; Body?
+
 @router.put("/room/{room_id}",summary="update complete Room by ID",
         description="Update a Room already in the database based on the Input. Gives out a Message if successful.",
         tags=["Room"],
-        response_model=Message,
+        response_model=Room,
         responses={
             404: {"model": HTTPError, "detail": "str"}
         }
     )
 async def Update_Room(
         room_id,
-        name: str = None,
-        capacity: int = None,
-        equipment: int = None
+        changes:dict
     ):
-    #Check if Room Exists
-    #equipment = Equipment(*equipment)
-    room = rooms.find_one({"id": int(room_id)})
-    if not room: 
-        raise HTTPException(
-            404, detail=f'Module with ID {room_id} doesn\'t exist',
-        )
-    
-    checkdata = copy.deepcopy(room)  #Copy the entry to check if something changed
-    if name:
-        room["name"] = name 
-    if capacity:
-        room["capacity"] = capacity
-    if equipment:
-        room["equipment"] = equipment
+    try:
+        id = ObjectId(room_id)
+    except:
+        raise HTTPException(400, detail=f'{room_id} is not a valid ObjectId, it must be a 12-byte input or a 24-character hex string',)
+    result = rooms.find_one(id)
 
-    if room == checkdata:
-        print("No Updates")
-        raise HTTPException(
-            400, detail=f'No Data send to Update the Database.',
-        )
-    else:
-        print("Update Room")
-        rooms.update_one({"id": int(room_id)}, {"$set": room})
-        return {"message": f'Updated Room {room_id}'}
+    if result == None:
+        raise HTTPException(400, detail=f'Room with ID {id} doesn\'t exist',)
+    for key, value in changes.items():
+            result[key] = value
+    try:
+        new_item = Room(id=room_id, name=result["name"], capacity=result["capacity"], equipment=result["equipment"])
+    except:
+        raise HTTPException(status_code=400, detail="TypeError")
+    rooms.update_one({"_id": ObjectId(room_id)}, {"$set": changes})
+    return new_item
+
 
 
 
@@ -117,16 +115,11 @@ async def Update_Room(
             404: {"model": HTTPError, "detail": "str"}
         }
     )
-async def Delete_Room(
-    room_id
-):
-    #Check if Room Exists
-    room = rooms.find_one({"id": int(room_id)})
-    if room:
-        res = rooms.delete_one({"id": int(room_id)})
-        return {"message": f'Successfully deleted Room {room_id}'}
-    else:
-        # Need to Clarify if this is the right response code
-        raise HTTPException(
-            400, detail=f'Room with ID {room_id} doesn\'t exist',
-        )
+async def Delete_Room(room_id):
+    try:
+        id = ObjectId(room_id)
+    except:
+        raise HTTPException(400, detail=f'{room_id} is not a valid ObjectId, it must be a 12-byte input or a 24-character hex string',)
+    
+    rooms.delete_one({"_id": id})
+    return {"message": f"Successfully deleted Dozent {room_id}"}
