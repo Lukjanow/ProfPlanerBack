@@ -1,0 +1,22 @@
+Abkürzungen V, Ü, P
+mehrere Lehrende im Mockup
+Bachelor, Master, dual
+Gebäude entfernen
+Stammdaten Export und Import neben dem "neues Modul" button platzieren
+filter, sortiermöglichkeiten, suche für stammdaten
+Darstellung anpassen für (4., 6. Semester oder 4 - 6 Semester)
+
+
+Übung oder Praktikum (Switch, nicht beides), Seminar haben keine Übung und Praktikum
+Als Block Praktikum und Vorlesung oder getrennt?
+Farbe auswählen (eigenes Farbschema definieren)
+Lehrende on the fly erstellen, wenn Modul angelegt wird
+Notiz?, Flag, Vorlage, Stern (beim Planen)
+Notiz zum Modul hinzufügen
+Modulpräferenzen überflüssig
+Veranstaltungen anlegen (Termine, z.B. Mittwochs Mittags)
+Review: Kommentarfunktion (Meinung zum Plan), aktuell eigentlich per E-Mail (wahrscheinlich eher nicht) (einfachste Variante, nur der Planer berücksichtigt)
+Spezielle Spalte: wie TOP etc. (z.B. Samstag)
+Montag - Freitag (Wochentage einstellen)
+Idee: Deployment mit einer Pipeline 
+

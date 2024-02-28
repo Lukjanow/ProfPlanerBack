@@ -57,28 +57,22 @@ async def Get_one_Modules(
     )
 
 @router.get("/modules/select",summary="read all selected Moduls",
-        description="Get data about multiple specific Modules according the given ID's. Returns a Array of Json with the Data. <br> Ids are separeted by a \",\" ",
+        description="Read all Modules that are currently selected ",
         tags=["Modules"],
         response_model=List[ModuleResponse], 
         responses={
             404: {"model": HTTPError, "detail": "str"}
             })
-async def Get_selected_Modules(
-    ids: str
-):
-    ids = ids.split(",")
-    i = 1
+async def Get_selected_Modules():
     x = []
-    for id in ids:
-        result = modules.find_one({"id": int(id)})
-        if result:
-            result.pop("_id")
-            x.append(result)
-            i = i + 1
-        else:
-            raise HTTPException(
-            404, detail=f'Module with ID {id} doesn\'t exist',
-        )
+    result = modules.find({"selected": True}).sort("id", 1)
+    for r in result:
+        r.pop("_id")
+        x.append(r)
+    if x == []:
+        raise HTTPException(
+        404, detail=f'No Modules found',
+    )
     return x
 
 # @router.get("/module/room/{room_id}}",summary="read all Modules by Room",
@@ -181,56 +175,24 @@ async def Add_Modul(
         }
     )
 async def Update_Modul(
-        module_id,
-        name: str = None,
-        dozent: list[str] = None,
-        room: str = None,
-        study_semester: list[str] = None,
-        selected: bool = None,
-        duration: int = None,
-        approximate_attendance: int = None,
-        need: Equipment = None,
-        type: Type = None,
-        frequency: Frequency = None
+        modules_id:str, changes:dict
     ):
     #check if module ID already exist
-    module = modules.find_one({"id": int(module_id)})
-    if module:
-        checkdata = copy.deepcopy(module)  #Copy the entry to check if something changed
-        # Get Update Dict
-        if name:
-            module["name"] = name
-        if dozent:
-            module["dozent_id"] = dozent
-        if room:
-            module["room_id"] = room
-        if study_semester:
-            module["study_semester"] = study_semester
-        if need:
-            module["need"] = need
-        if type:
-            module["type"] = type
-        if selected:
-            module["selected"] = selected
-        if duration:
-            module["duration"] = duration
-        if approximate_attendance:
-            module["approximate_attendance"] = approximate_attendance
-        if frequency:
-            module["frequency"] = frequency
-        print(module)
-        print(checkdata)
-        if module == checkdata:
-            raise HTTPException(
-        400, detail=f'No Data send to Update the Database.',
-        )
-        else:
-            modules.update_one({"id": int(module_id)}, {"$set": module})
-            return {"message": f'Updated Module {module_id}'}
-    else:
-        raise HTTPException(
-        404, detail=f'Module with ID {module_id} doesn\'t exist',
-    )
+    result = modules.find_one({"id": int(modules_id)})
+
+    if result == None:
+        raise HTTPException(404, detail=f'Module with ID {modules_id} doesn\'t exist',)
+    for key, value in changes.items():
+            result[key] = value
+    try:
+        new_item = ModuleResponse(id=int(modules_id), name=result["name"], dozent=result["dozent"], room=result["room"],
+                                  study_semester=result["study_semester"], need=result["need"], type=result["type"],
+                                  selected=result["selected"], duration=result["duration"],  approximate_attendance=result["approximate_attendance"],
+                                  frequency=result["frequency"])
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=f'{e}')
+    r = modules.update_one({"id": int(modules_id)}, {"$set": changes})
+    return {"message": f'{r}'}
 
 
 
