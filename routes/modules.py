@@ -164,6 +164,7 @@ async def Add_Modul(
     return {"message": result}
 
 
+# TODO: Please check the Enum Update Functionality, for me this way didn't worked :) 
 @router.put("/module/{module_id}",summary="update complete Module by ID",
         description="Update a module already in the database based on the Input. Gives out a Message if successful.",
         tags=["Modules"],

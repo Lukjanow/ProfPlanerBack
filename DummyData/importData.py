@@ -25,7 +25,7 @@ def importDataToCollection(collection, fileName):
 
 
 
-myclient = pymongo.MongoClient("mongodb://localhost:27017/")
+myclient = pymongo.MongoClient("mongodb://mongo:27017/")
 db = myclient["ProfPlaner"]
 
 calendars = db["calendar"]
