@@ -79,7 +79,7 @@ async def Get_all_Modules_data():
 async def Get_one_Modules_data(
     module_id
 ):
-    result = modules.find_one({"id": int(module_id)})
+    result = modules.find_one({"id": module_id})
     result.pop("_id")
     dozent = []
     for id in result["dozent"]:
@@ -111,7 +111,7 @@ async def Get_one_Modules_data(
 async def Get_one_Modules(
     module_id
 ):
-    result = modules.find_one({"id": int(module_id)})
+    result = modules.find_one({"id": module_id})
     if result:
         #remove id set by mongodb
         result.pop("_id")
@@ -332,7 +332,7 @@ async def Add_Modul(
         data: ModuleResponse
     ):
     #check if module ID already exist
-    if modules.find_one({"id": data.id}):
+    if modules.find_one({"id": data.id, "type": {"$elemMatch": {"$eq": data.type}}}):
         return {"message": f'A Module with ID {data.id} already exist'}
 
     data = dict(data)
@@ -356,20 +356,20 @@ async def Update_Modul(
         module_id, changes:dict
     ):
     #check if module ID already exist
-    result = modules.find_one({"id": int(module_id)})
+    result = modules.find_one({"id": module_id})
 
     if result == None:
         raise HTTPException(404, detail=f'Module with ID {module_id} doesn\'t exist',)
     for key, value in changes.items():
             result[key] = value
     try:
-        new_item = ModuleResponse(id=int(module_id), name=result["name"], dozent=result["dozent"], room=result["room"],
+        new_item = ModuleResponse(id=module_id, name=result["name"], dozent=result["dozent"], room=result["room"],
                                   study_semester=result["study_semester"], need=result["need"], type=result["type"],
                                   selected=result["selected"], duration=result["duration"],  approximate_attendance=result["approximate_attendance"],
                                   frequency=result["frequency"])
     except Exception as e:
         raise HTTPException(status_code=400, detail=f'{e}')
-    r = modules.update_one({"id": int(module_id)}, {"$set": changes})
+    r = modules.update_one({"id": module_id}, {"$set": changes})
     return {"message": f'{r}'}
 
 
@@ -400,9 +400,9 @@ async def Delete_Module(
     module_id
 ):
     #TODO Possible delete Calendar entries
-    module = modules.find_one({"id": int(module_id)})
+    module = modules.find_one({"id": module_id})
     if module:
-        res = modules.delete_one({"id": int(module_id)})
+        res = modules.delete_one({"id": module_id})
         print(res)
         return {"message": f'Successfully deleted Module {module_id}'}
     else:

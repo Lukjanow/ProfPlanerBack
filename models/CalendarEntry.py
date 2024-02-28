@@ -7,8 +7,9 @@ class CalendarEntry(BaseModel):
     id: str
     module: Module
     time_stamp: TimeStamp
+    comment: str | None
 
 class CalendarEntryResponse(CalendarEntry):
     id: Optional[str] = Field(alias="_id", default=None)
-    module: int
+    module: str
     time_stamp: TimeStamp | None
