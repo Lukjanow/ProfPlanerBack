@@ -30,7 +30,7 @@ docker-compose-test:
     # - docker stop pp_backend_test_container
     # - docker rm pp_backend_test_container
     - docker-compose -f docker-compose.yaml up -d
-    - docker-compose -f docker-compose.yaml run app pytest
+    - docker-compose -f docker-compose.yaml run pp_backend pytest
     - docker-compose -f docker-compose.yaml down
 
 
