@@ -1,17 +1,47 @@
-docker-pytest-job:  # Neuer Job für Docker Compose Pytest
-  stage: test
-  image: docker:latest  # Verwenden Sie das Docker-Image als Basis
+stages: 
+  - build
+  - test
+  - deploy
+
+build_image:
+  stage: build
+  image: docker:latest
   services:
-    - docker:dind  # Docker-in-Docker-Service
+    - docker:dind
   script:
-    - echo "Hello, $GITLAB_USER_LOGIN!"
-    #- docker info  # Optional, um die Docker-Installation zu überprüfen
-    - docker compose build
-    - docker compose run pp_backend pytest 
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - docker build -t $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG .
+    - echo $CI_COMMIT_REF_SLUG
+    - docker push $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG
+
+docker-compose-test:
+  stage: test
+  image: docker:latest
+  services:
+    - docker:dind
+  script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - docker pull $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG
+    - docker run --name pp_backend_test_container -d $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG
+    - docker exec pp_backend_test_container pytest
+    - docker stop pp_backend_test_container
+    - docker rm pp_backend_test_container
 
 
-#deploy-prod:
-#  stage: deploy
-#  script:
-#    - echo "This job deploys something from the $CI_COMMIT_BRANCH branch."
-#  environment: production
+# docker-pytest-job:  # Neuer Job für Docker Compose Pytest
+#   stage: test
+#   image: docker:latest  # Verwenden Sie das Docker-Image als Basis
+#   services:
+#     - docker:dind  # Docker-in-Docker-Service
+#   script:
+#     - echo "Hello, $GITLAB_USER_LOGIN!"
+#     #- docker info  # Optional, um die Docker-Installation zu überprüfen
+#     - docker compose build
+#     - docker compose run pp_backend pytest 
+
+# deploy-prod:
+#   stage: deploy
+#   script:
+#     - echo "This job deploys something from the $CI_COMMIT_BRANCH branch."
+#     - ssh $DEPLOY_USER@$DEPLOY_SERVER "docker pull $CI_REGISTRY_IMAGE && docker-compose up -d"
+#   environment: production
