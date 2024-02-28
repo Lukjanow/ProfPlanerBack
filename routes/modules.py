@@ -325,6 +325,7 @@ async def Get_selected_Modules_studysemester_data(
         tags=["Modules"],
         response_model=Message,
         responses={
+            400: {"model": HTTPError, "detail": "str"},
             404: {"model": HTTPError, "detail": "str"}
         }
     )
@@ -332,8 +333,8 @@ async def Add_Modul(
         data: ModuleResponse
     ):
     #check if module ID already exist
-    if modules.find_one({"id": data.id, "type": {"$elemMatch": {"$eq": data.type}}}):
-        return {"message": f'A Module with ID {data.id} already exist'}
+    if modules.find_one({"id": data.id, "type": data.type}):
+        raise HTTPException(status_code=400, detail=f'A Module with ID {data.id} and {data.type} already exist')
 
     data = dict(data)
 
