@@ -19,7 +19,7 @@ before_script:
   - cp "$SSH_KNOWN_HOSTS" ~/.ssh/known_hosts
   - chmod 644 ~/.ssh/known_hosts
 
-build_image:
+build-image:
   stage: build
   image: docker:latest
   services:
@@ -29,7 +29,7 @@ build_image:
     - docker-compose -f docker-compose.yaml build
     - docker-compose -f docker-compose.yaml push
 
-docker-compose-test:
+test-api:
   stage: test
   image: docker:latest
   services:
@@ -49,9 +49,9 @@ deploy-prod:
     - echo "This job deploys something from the $CI_COMMIT_BRANCH branch."
     - alias ssh_pp='ssh -o ProxyCommand="ssh -W %h:%p inf3237@nibelung.hs-worms.de" profplanner@profplanner.projekte.it.hs-worms.de'
     - ssh_pp "docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY"
-    - ssh_pp "docker-compose -f docker-compose.yaml pull"
-    - ssh_pp $DEPLOY_USER@$DEPLOY_SERVER "docker-compose -f docker-compose.yaml down"
-    - ssh_pp $DEPLOY_USER@$DEPLOY_SERVER "docker-compose -f docker-compose.yaml up -d"
+    - ssh_pp "docker compose -f docker-compose.yaml pull"
+    - ssh_pp $DEPLOY_USER@$DEPLOY_SERVER "docker compose -f docker-compose.yaml down"
+    - ssh_pp $DEPLOY_USER@$DEPLOY_SERVER "docker compose -f docker-compose.yaml up -d"
     
     # - ssh $DEPLOY_USER@$DEPLOY_SERVER "docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY"
     # - ssh $DEPLOY_USER@$DEPLOY_SERVER "docker-compose -f docker-compose.yaml pull"
