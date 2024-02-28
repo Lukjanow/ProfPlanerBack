@@ -353,23 +353,23 @@ async def Add_Modul(
         }
     )
 async def Update_Modul(
-        modules_id, changes:dict
+        module_id, changes:dict
     ):
     #check if module ID already exist
-    result = modules.find_one({"id": int(modules_id)})
+    result = modules.find_one({"id": int(module_id)})
 
     if result == None:
-        raise HTTPException(404, detail=f'Module with ID {modules_id} doesn\'t exist',)
+        raise HTTPException(404, detail=f'Module with ID {module_id} doesn\'t exist',)
     for key, value in changes.items():
             result[key] = value
     try:
-        new_item = ModuleResponse(id=int(modules_id), name=result["name"], dozent=result["dozent"], room=result["room"],
+        new_item = ModuleResponse(id=int(module_id), name=result["name"], dozent=result["dozent"], room=result["room"],
                                   study_semester=result["study_semester"], need=result["need"], type=result["type"],
                                   selected=result["selected"], duration=result["duration"],  approximate_attendance=result["approximate_attendance"],
                                   frequency=result["frequency"])
     except Exception as e:
         raise HTTPException(status_code=400, detail=f'{e}')
-    r = modules.update_one({"id": int(modules_id)}, {"$set": changes})
+    r = modules.update_one({"id": int(module_id)}, {"$set": changes})
     return {"message": f'{r}'}
 
 
