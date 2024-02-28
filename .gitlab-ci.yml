@@ -48,12 +48,10 @@ deploy-prod:
   services:
    - docker:dind
   script:
-    - hostname
     - echo "This job deploys something from the $CI_COMMIT_BRANCH branch."
     # - alias ssh_pp='ssh -o ProxyCommand="ssh -W %h:%p inf3237@nibelung.hs-worms.de" profplanner@profplanner.projekte.it.hs-worms.de'
-    - ssh -o ProxyCommand="ssh -W %h:%p inf3237@nibelung.hs-worms.de" profplanner@profplanner.projekte.it.hs-worms.de "docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY && docker compose -f docker-compose.yaml pull && docker compose -f docker-compose.yaml down && docker compose -f docker-compose.yaml up -d"
+    - ssh -o ProxyCommand="ssh -W %h:%p inf3237@nibelung.hs-worms.de" profplanner@profplanner.projekte.it.hs-worms.de "docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY && hostname && docker compose -f docker-compose.yaml pull && docker compose -f docker-compose.yaml down && docker compose -f docker-compose.yaml up -d"
     #- ssh_pp "docker compose -f docker-compose.yaml pull"
-    - hostname
     # - docker compose -f docker-compose.yaml pull
     # - docker compose -f docker-compose.yaml down
     # - docker compose -f docker-compose.yaml up -d
