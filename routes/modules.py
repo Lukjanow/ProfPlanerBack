@@ -16,7 +16,7 @@ rooms = db["rooms"]
 modules = db["modules"]
 # All API functions regarding Modules
 
-# TODO: Create Routes with Data send instead of IDS for example: Not dozent: "id" but dozent: [{"id": id, "name": "name"}..., {"id": id, "name": "name"...}...]
+
 
 # https://stackoverflow.com/questions/76231804/fastapi-how-to-modularize-code-into-multiple-files-with-access-to-app-decorators#:~:text=1%20Answer&text=The%20modularization%20of%20routes%20in,assembled%20into%20a%20FastAPI%20application.
 # Beispielstruktur: 

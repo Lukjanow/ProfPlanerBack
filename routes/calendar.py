@@ -6,6 +6,7 @@ from models.common import *
 
 router = APIRouter()
 # All API functions regarding calendars and it's entries
+# TODO: Create Routes with Data send instead of IDS for example: Not dozent: "id" but dozent: [{"id": id, "name": "name"}..., {"id": id, "name": "name"...}...]
 
 from Database.Database import db
 
