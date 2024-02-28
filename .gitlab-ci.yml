@@ -24,11 +24,14 @@ docker-compose-test:
     - docker:dind
   script:
     - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
-    - docker pull $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG
-    - docker run --name pp_backend_test_container -d $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG
-    - docker exec pp_backend_test_container pytest
-    - docker stop pp_backend_test_container
-    - docker rm pp_backend_test_container
+    # - docker pull $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG
+    # - docker run --name pp_backend_test_container -d $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG
+    # - docker exec pp_backend_test_container pytest
+    # - docker stop pp_backend_test_container
+    # - docker rm pp_backend_test_container
+    - docker-compose -f docker-compose.test.yaml up -d
+    - docker-compose -f docker-compose.test.yaml run app pytest
+    - docker-compose -f docker-compose.test.yaml down
 
 
 # docker-pytest-job:  # Neuer Job für Docker Compose Pytest
