@@ -46,7 +46,7 @@ async def Get_all_Dozents():
             404: {"model": HTTPError, "detail": "str"},
             400: {"model": HTTPError, "detail": "str"}
             })
-async def Get_one_Dozent(dozent_id: str):
+async def Get_one_Dozent(dozent_id):
     try:
         id = ObjectId(dozent_id)
     except:
@@ -70,7 +70,7 @@ async def Get_one_Dozent(dozent_id: str):
             400: {"model": HTTPError, "detail": "str"}
         }
     )
-async def get_Dozent_absences(dozent_id: str):
+async def get_Dozent_absences(dozent_id):
     try:
         id = ObjectId(dozent_id)
     except:
@@ -126,7 +126,7 @@ async def Add_Dozent(dozent: DozentRespone):
             400: {"model": HTTPError, "detail": "str"}
         }
     )
-async def Update_Dozent(dozent_id:str, changes:dict):
+async def Update_Dozent(dozent_id, changes:dict):
     try:
         id = ObjectId(dozent_id)
     except:
@@ -155,7 +155,7 @@ async def Update_Dozent(dozent_id:str, changes:dict):
             400: {"model": HTTPError, "detail": "str"}
         }
     )
-async def Delete_Modul(dozent_id:str):
+async def Delete_Modul(dozent_id):
     try:
         id = ObjectId(dozent_id)
     except:
