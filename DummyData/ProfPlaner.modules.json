@@ -250,7 +250,7 @@
   "dozent": [
     "65d73a12a421a928cd955b67"
   ],
-  "room": "string",
+  "room": null,
   "study_semester": [
     "65d71c2c8c4eb66943f53f1c"
   ],
@@ -270,7 +270,7 @@
   "dozent": [
     "65d73a62a421a928cd955b69"
   ],
-  "room": "string",
+  "room": null,
   "study_semester": [
     "65d71c088c4eb66943f53f1a"
   ],
@@ -290,7 +290,7 @@
   "dozent": [
     "65d706915c208e7fd4abebab"
   ],
-  "room": "string",
+  "room": null,
   "study_semester": [
     "65d71c088c4eb66943f53f1a"
   ],
@@ -310,7 +310,7 @@
   "dozent": [
     "65d706915c208e7fd4abebab"
   ],
-  "room": "string",
+  "room": null,
   "study_semester": [
     "65d71c088c4eb66943f53f1a",
     "65d71c028c4eb66943f53f19"
@@ -319,7 +319,7 @@
   "approximate_attendance": 20,
   "need": null,
   "type": 1,
-  "frequency": 3,
+  "frequency": 3,string
   "selected": true
 },
 {
@@ -331,7 +331,7 @@
   "dozent": [
     "65d706b15c208e7fd4abebad"
   ],
-  "room": "string",
+  "room": null,
   "study_semester": [
     "65d71c028c4eb66943f53f19"
   ],
@@ -351,7 +351,7 @@
   "dozent": [
     "65d73be5a421a928cd955b6e"
   ],
-  "room": "string",
+  "room": null,
   "study_semester": [
     "65d71c1f8c4eb66943f53f1b"
   ],
