@@ -29,9 +29,9 @@ docker-compose-test:
     # - docker exec pp_backend_test_container pytest
     # - docker stop pp_backend_test_container
     # - docker rm pp_backend_test_container
-    - docker-compose -f docker-compose.test.yaml up -d
-    - docker-compose -f docker-compose.test.yaml run app pytest
-    - docker-compose -f docker-compose.test.yaml down
+    - docker-compose -f docker-compose.yaml up -d
+    - docker-compose -f docker-compose.yaml run app pytest
+    - docker-compose -f docker-compose.yaml down
 
 
 # docker-pytest-job:  # Neuer Job für Docker Compose Pytest
