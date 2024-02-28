@@ -6,6 +6,7 @@ from models.Dozent import DozentRespone
 
 from routes.dozent import dozentCollection
 
+#TODO Deal with empty Abscences List
 router = APIRouter()
 
 
@@ -29,11 +30,19 @@ def create_absences_update_list(dozent):
         tags=["Absence"],
         response_model= DozentRespone,
         responses={
-            404: {"model": HTTPError, "detail": "str"}
+            404: {"model": HTTPError, "detail": "str"},
+            400: {"model": HTTPError, "detail": "str"}
         }
     )
 async def Add_Abscence(dozent_id:str, absence:Absence):
-    dozent = dozentCollection.find_one(ObjectId(dozent_id))
+    try:
+        id = ObjectId(dozent_id)
+    except:
+        raise HTTPException(400, detail=f'{dozent_id} is not a valid ObjectId, it must be a 12-byte input or a 24-character hex string',)
+    dozent = dozentCollection.find_one(id)
+
+    if dozent == None:
+        raise HTTPException(400, detail=f'Dozent with ID {id} doesn\'t exist',)
 
     absence.id = dozent["absences"][len(dozent["absences"]) - 1]["id"] + 1
     dozent["absences"].append(absence)
@@ -50,11 +59,20 @@ async def Add_Abscence(dozent_id:str, absence:Absence):
         tags=["Absence"],
         response_model=Absence,
         responses={
-            404: {"model": HTTPError, "detail": "str"}
+            404: {"model": HTTPError, "detail": "str"},
+            400: {"model": HTTPError, "detail": "str"}
         }
     )
 async def Update_Abscence(dozent_id:str, absence_id:int, changes:dict):
-    dozent = dozentCollection.find_one(ObjectId(dozent_id))
+    try:
+        id = ObjectId(dozent_id)
+    except:
+        raise HTTPException(400, detail=f'{dozent_id} is not a valid ObjectId, it must be a 12-byte input or a 24-character hex string',)
+    
+    dozent = dozentCollection.find_one(id)
+
+    if dozent == None:
+        raise HTTPException(400, detail=f'Dozent with ID {id} doesn\'t exist',)
 
     changeItem: Absence = None
     c = 0
@@ -69,7 +87,7 @@ async def Update_Abscence(dozent_id:str, absence_id:int, changes:dict):
         c += 1
     
     if changeItem == None:
-        raise HTTPException(status_code=400, detail="Item not found")
+        raise HTTPException(status_code=400, detail=f"Absence with ID {absence_id} doesn\'t exist")
 
     dozentCollection.update_one({"_id": ObjectId(dozent_id)}, {"$set": create_absences_update_list(dozent)})
     return changeItem
@@ -81,11 +99,20 @@ async def Update_Abscence(dozent_id:str, absence_id:int, changes:dict):
         tags=["Absence"],
         response_model=Message, 
         responses={
-            404: {"model": HTTPError, "detail": "str"}
+            404: {"model": HTTPError, "detail": "str"},
+            400: {"model": HTTPError, "detail": "str"}
         }
     )
 async def Delete_Absence(dozent_id:str, absence_id:int):
-    dozent = dozentCollection.find_one(ObjectId(dozent_id))
+    try:
+        id = ObjectId(dozent_id)
+    except:
+        raise HTTPException(400, detail=f'{dozent_id} is not a valid ObjectId, it must be a 12-byte input or a 24-character hex string',)
+    
+    dozent = dozentCollection.find_one(id)
+
+    if dozent == None:
+        raise HTTPException(400, detail=f'Dozent with ID {id} doesn\'t exist',)
 
     absence_list = []
 
@@ -100,8 +127,6 @@ async def Delete_Absence(dozent_id:str, absence_id:int):
 
 
     dozent["absences"] = absence_list
-
-    print(dozent["absences"])
 
     dozentCollection.update_one({"_id": ObjectId(dozent_id)}, {"$set": create_absences_update_list(dozent)})
     return {"message": f"Successfully deleted Absence {absence_id} from Dozent with ID {dozent_id}"}
