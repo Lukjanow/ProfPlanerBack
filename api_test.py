@@ -7,6 +7,8 @@ client = TestClient(app)
 
 # Test for the index route
 def test_index():
-    response = client.get("/docs")
+    response = client.get("/room")
     assert response.status_code == 200
     #assert "items" in response.json()
+
+# Try to commit changes to dev 

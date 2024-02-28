@@ -7,6 +7,7 @@ from models.enums.Equipment import Equipment
 from models.enums.Type import Type
 from models.enums.Frequency import Frequency
 
+#TODO Change id to str
 
 class Module(BaseModel, use_enum_values=True):
     id: int
