@@ -1,3 +1,4 @@
+from bson import ObjectId
 from fastapi import APIRouter, status, HTTPException
 
 from typing import List
@@ -9,10 +10,13 @@ router = APIRouter()
 
 from Database.Database import db
 
+dozents = db["dozent"]
+study_semesters = db["studysemester"]
+rooms = db["rooms"]
 modules = db["modules"]
 # All API functions regarding Modules
 
-# All API functions regarding Modules
+
 
 # https://stackoverflow.com/questions/76231804/fastapi-how-to-modularize-code-into-multiple-files-with-access-to-app-decorators#:~:text=1%20Answer&text=The%20modularization%20of%20routes%20in,assembled%20into%20a%20FastAPI%20application.
 # Beispielstruktur: 
@@ -20,7 +24,7 @@ modules = db["modules"]
 
 
 @router.get("/module",summary="read all Modules",
-        description="Get all Modules from Database. Returns an Array of Json's.",
+        description="Get all Modules from Database. Returns an Array of Json's. Response contain only Dozent ID, Room ID and studysemester ID",
         tags=["Modules"],
         response_model=List[ModuleResponse])
 async def Get_all_Modules():
@@ -35,6 +39,68 @@ async def Get_all_Modules():
     print(x)
     return x
 
+
+@router.get("/moduledata",summary="read all Modules and get Data about referenced objects",
+        description="Get all Modules from Database. Returns an Array of Json's. Response contain also Data about Dozent, Room and studysemester ",
+        tags=["Modules"],
+        response_model=List[Module])
+async def Get_all_Modules_data():
+    re = modules.find()
+    x = []
+    for result in re:
+        result.pop("_id")
+        dozent = []
+        for id in result["dozent"]:
+            res = dozents.find_one({"_id": ObjectId(str(id))})
+            res["_id"] = str(res["_id"])
+            dozent.append(res)
+        result["dozent"] = dozent
+        study_semester = []
+        for id in result["study_semester"]:
+            res = study_semesters.find_one({"_id": ObjectId(str(id))})
+            res["_id"] = str(res["_id"])
+            study_semester.append(res)
+        result["study_semester"] = study_semester
+        try:
+            result["room"] = rooms.find_one({"_id": ObjectId(result["room"])})
+            result["room"]["_id"] = str(result["room"]["_id"])
+        except:
+            pass
+        x.append(result)
+    return x
+
+@router.get("/moduledata/{module_id}",summary="read Module by ID and get Data from referenced Data",
+        description="Get data about a specific Module according the given ID. Returns a Json with the Data. Also gives Back data for Dozent, Rooms and Studysemester",
+        tags=["Modules"],
+        response_model=Module, 
+        responses={
+            404: {"model": HTTPError, "detail": "str"}
+            })
+async def Get_one_Modules_data(
+    module_id
+):
+    result = modules.find_one({"id": module_id})
+    result.pop("_id")
+    dozent = []
+    for id in result["dozent"]:
+        res = dozents.find_one({"_id": ObjectId(str(id))})
+        res["_id"] = str(res["_id"])
+        dozent.append(res)
+    result["dozent"] = dozent
+    study_semester = []
+    for id in result["study_semester"]:
+        res = study_semesters.find_one({"_id": ObjectId(str(id))})
+        res["_id"] = str(res["_id"])
+        study_semester.append(res)
+    result["study_semester"] = study_semester
+    try:
+        result["room"] = rooms.find_one({"_id": ObjectId(result["room"])})
+        result["room"]["_id"] = str(result["room"]["_id"])
+    except:
+        pass
+    print(result)
+    return result
+
 @router.get("/module/{module_id}",summary=" read Module by ID",
         description="Get data about a specific Module according the given ID. Returns a Json with the Data.",
         tags=["Modules"],
@@ -45,7 +111,7 @@ async def Get_all_Modules():
 async def Get_one_Modules(
     module_id
 ):
-    result = modules.find_one({"id": int(module_id)})
+    result = modules.find_one({"id": module_id})
     if result:
         #remove id set by mongodb
         result.pop("_id")
@@ -56,28 +122,58 @@ async def Get_one_Modules(
     )
 
 @router.get("/modules/select",summary="read all selected Moduls",
-        description="Get data about multiple specific Modules according the given ID's. Returns a Array of Json with the Data. <br> Ids are separeted by a \",\" ",
+        description="Read all Modules that are currently selected ",
         tags=["Modules"],
         response_model=List[ModuleResponse], 
         responses={
             404: {"model": HTTPError, "detail": "str"}
             })
-async def Get_selected_Modules(
-    ids: str
-):
-    ids = ids.split(",")
-    i = 1
+async def Get_selected_Modules():
     x = []
-    for id in ids:
-        result = modules.find_one({"id": int(id)})
-        if result:
-            result.pop("_id")
-            x.append(result)
-            i = i + 1
-        else:
-            raise HTTPException(
-            404, detail=f'Module with ID {id} doesn\'t exist',
-        )
+    result = modules.find({"selected": True}).sort("id", 1)
+    for r in result:
+        r.pop("_id")
+        x.append(r)
+    if x == []:
+        raise HTTPException(
+        404, detail=f'No Modules found',
+    )
+    return x
+
+@router.get("/modulesdata/select",summary="read all selected Moduls and get data from referenced Objects",
+        description="Read all Modules that are currently selected ",
+        tags=["Modules"],
+        response_model=List[Module], 
+        responses={
+            404: {"model": HTTPError, "detail": "str"}
+            })
+async def Get_selected_Modules_data():
+    x = []
+    re = modules.find({"selected": True}).sort("id", 1)
+    for result in re:
+        result.pop("_id")
+        dozent = []
+        for id in result["dozent"]:
+            res = dozents.find_one({"_id": ObjectId(str(id))})
+            res["_id"] = str(res["_id"])
+            dozent.append(res)
+        result["dozent"] = dozent
+        study_semester = []
+        for id in result["study_semester"]:
+            res = study_semesters.find_one({"_id": ObjectId(str(id))})
+            res["_id"] = str(res["_id"])
+            study_semester.append(res)
+        result["study_semester"] = study_semester
+        try:
+            result["room"] = rooms.find_one({"_id": ObjectId(result["room"])})
+            result["room"]["_id"] = str(result["room"]["_id"])
+        except:
+            pass
+        x.append(result)
+    if x == []:
+        raise HTTPException(
+        404, detail=f'No Modules found',
+    )
     return x
 
 # @router.get("/module/room/{room_id}}",summary="read all Modules by Room",
@@ -100,6 +196,45 @@ async def Get_selected_Modules(
 #             "selected": True}
 #     return results
 
+@router.get("/moduledata/dozent/{dozent_id}",summary="read all Modules by Dozent and dat about referenced Objects",
+        description="Get data about multiple specific Modules according the given Dozent ID. Returns a Array of Json with the Data.",
+        tags=["Modules"],
+        response_model=List[Module], 
+        responses={
+            404: {"model": HTTPError, "detail": "str"}
+            })
+async def Get_selected_Modules_by_dozent_data(
+    dozent_id
+):
+    x = []
+    re = modules.find({"dozent": {"$elemMatch": {"$eq": dozent_id}}}).sort("id", 1)
+    for result in re:
+        result.pop("_id")
+        dozent = []
+        for id in result["dozent"]:
+            res = dozents.find_one({"_id": ObjectId(str(id))})
+            res["_id"] = str(res["_id"])
+            dozent.append(res)
+        result["dozent"] = dozent
+        study_semester = []
+        for id in result["study_semester"]:
+            res = study_semesters.find_one({"_id": ObjectId(str(id))})
+            res["_id"] = str(res["_id"])
+            study_semester.append(res)
+        result["study_semester"] = study_semester
+        try:
+            result["room"] = rooms.find_one({"_id": ObjectId(result["room"])})
+            result["room"]["_id"] = str(result["room"]["_id"])
+        except:
+            pass
+        x.append(result)
+    if x:
+        return x
+    else:
+        raise HTTPException(
+            404, detail=f'No Modules for Dozent {dozent_id} exist.',
+        )
+    
 @router.get("/module/dozent/{dozent_id}",summary="read all Modules by Dozent",
         description="Get data about multiple specific Modules according the given Dozent ID. Returns a Array of Json with the Data.",
         tags=["Modules"],
@@ -110,15 +245,13 @@ async def Get_selected_Modules(
 async def Get_selected_Modules_by_dozent(
     dozent_id
 ):
-    i = 1
     x = []
     results = modules.find({"dozent": {"$elemMatch": {"$eq": dozent_id}}}).sort("id", 1)
     for r in results:
         print("Getting results")
         #remove id set by mongodb
-        r.pop("_id")
+        r["_id"] = str(r["_id"])
         x.append(r)
-        i = i+1
     if x:
         return x
     else:
@@ -136,15 +269,11 @@ async def Get_selected_Modules_by_dozent(
 async def Get_selected_Modules_studysemester(
     studysemester_id
 ):
-    i = 1
     x = []
     results = modules.find({"study_semester": {"$elemMatch": {"$eq": studysemester_id}}}).sort("id", 1)
     for r in results:
-        print("Getting results")
-        #remove id set by mongodb
-        r.pop("_id")
+        r["_id"] = str(r["_id"])
         x.append(r)
-        i = i+1
     if x:
         return x
     else:
@@ -152,12 +281,51 @@ async def Get_selected_Modules_studysemester(
             404, detail=f'No Modules for Studysemester {studysemester_id} exist.',
         )
     
+@router.get("/moduledata/studysemester/{studysemester_id}",summary="read all Modules by StudySemester and data about referenced Objects",
+        description="Get data about multiple specific Modules according the given StudySemester. Returns a Array of Json with the Data.",
+        tags=["Modules"],
+        response_model=List[Module], 
+        responses={
+            404: {"model": HTTPError, "detail": "str"}
+            })
+async def Get_selected_Modules_studysemester_data(
+    studysemester_id
+):
+    x = []
+    re = modules.find({"study_semester": {"$elemMatch": {"$eq": studysemester_id}}}).sort("id", 1)
+    for result in re:
+        result.pop("_id")
+        dozent = []
+        for id in result["dozent"]:
+            res = dozents.find_one({"_id": ObjectId(str(id))})
+            res["_id"] = str(res["_id"])
+            dozent.append(res)
+        result["dozent"] = dozent
+        study_semester = []
+        for id in result["study_semester"]:
+            res = study_semesters.find_one({"_id": ObjectId(str(id))})
+            res["_id"] = str(res["_id"])
+            study_semester.append(res)
+        result["study_semester"] = study_semester
+        try:
+            result["room"] = rooms.find_one({"_id": ObjectId(result["room"])})
+            result["room"]["_id"] = str(result["room"]["_id"])
+        except:
+            pass
+        x.append(result)
+    if x:
+        return x
+    else:
+        raise HTTPException(
+            404, detail=f'No Modules for Studysemester {studysemester_id} exist.',
+        )
 
 @router.post("/module",summary="add Module",
         description="Add a module to the database based on the Input. Returns a Message string.",
         tags=["Modules"],
         response_model=Message,
         responses={
+            400: {"model": HTTPError, "detail": "str"},
             404: {"model": HTTPError, "detail": "str"}
         }
     )
@@ -165,26 +333,17 @@ async def Add_Modul(
         data: ModuleResponse
     ):
     #check if module ID already exist
-    if modules.find_one({"id": data.id}):
-        return {"message": f'A Module with ID {data.id} already exist'}
+    if modules.find_one({"id": data.id, "type": data.type}):
+        raise HTTPException(status_code=400, detail=f'A Module with ID {data.id} and {data.type} already exist')
 
     data = dict(data)
-    # check if database is populated
-    # Might not be needed if we use pymongo ids
-    # Not needed for Modules: Here for later use in other routes
-    # if modules.find_one():
-    #     max = modules.find().sort("id", -1).limit(1)             #Highest ID
-    #     for doc in max:
-    #         high = doc["id"]
-    #     data["id"] = high + 1
-    # else: 
-    #     data["id"] = 1
 
     result = str(modules.insert_one(data))
     print(result)
     return {"message": result}
 
 
+# TODO: Please check the Enum Update Functionality, for me this way didn't worked :) 
 @router.put("/module/{module_id}",summary="update complete Module by ID",
         description="Update a module already in the database based on the Input. Gives out a Message if successful.",
         tags=["Modules"],
@@ -195,56 +354,24 @@ async def Add_Modul(
         }
     )
 async def Update_Modul(
-        module_id,
-        name: str = None,
-        dozent: list[str] = None,
-        room: str = None,
-        study_semester: list[str] = None,
-        selected: bool = None,
-        duration: int = None,
-        approximate_attendance: int = None,
-        need: Equipment = None,
-        type: Type = None,
-        frequency: Frequency = None
+        module_id, changes:dict
     ):
     #check if module ID already exist
-    module = modules.find_one({"id": int(module_id)})
-    if module:
-        checkdata = copy.deepcopy(module)  #Copy the entry to check if something changed
-        # Get Update Dict
-        if name:
-            module["name"] = name
-        if dozent:
-            module["dozent_id"] = dozent
-        if room:
-            module["room_id"] = room
-        if study_semester:
-            module["study_semester"] = study_semester
-        if need:
-            module["need"] = need
-        if type:
-            module["type"] = type
-        if selected:
-            module["selected"] = selected
-        if duration:
-            module["duration"] = duration
-        if approximate_attendance:
-            module["approximate_attendance"] = approximate_attendance
-        if frequency:
-            module["frequency"] = frequency
-        print(module)
-        print(checkdata)
-        if module == checkdata:
-            raise HTTPException(
-        400, detail=f'No Data send to Update the Database.',
-        )
-        else:
-            modules.replace_one({"id": int(module_id)}, module, True)
-            return {"message": f'Updated Module {module_id}'}
-    else:
-        raise HTTPException(
-        404, detail=f'Module with ID {module_id} doesn\'t exist',
-    )
+    result = modules.find_one({"id": module_id})
+
+    if result == None:
+        raise HTTPException(404, detail=f'Module with ID {module_id} doesn\'t exist',)
+    for key, value in changes.items():
+            result[key] = value
+    try:
+        new_item = ModuleResponse(id=module_id, name=result["name"], dozent=result["dozent"], room=result["room"],
+                                  study_semester=result["study_semester"], need=result["need"], type=result["type"],
+                                  selected=result["selected"], duration=result["duration"],  approximate_attendance=result["approximate_attendance"],
+                                  frequency=result["frequency"])
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=f'{e}')
+    r = modules.update_one({"id": module_id}, {"$set": changes})
+    return {"message": f'{r}'}
 
 
 
@@ -273,9 +400,10 @@ async def Update_Modul(
 async def Delete_Module(
     module_id
 ):
-    module = modules.find_one({"id": int(module_id)})
+    #TODO Possible delete Calendar entries
+    module = modules.find_one({"id": module_id})
     if module:
-        res = modules.delete_one({"id": int(module_id)})
+        res = modules.delete_one({"id": module_id})
         print(res)
         return {"message": f'Successfully deleted Module {module_id}'}
     else:

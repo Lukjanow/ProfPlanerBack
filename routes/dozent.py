@@ -43,10 +43,18 @@ async def Get_all_Dozents():
         tags=["Dozent"],
         response_model=DozentRespone, 
         responses={
-            404: {"model": HTTPError, "detail": "str"}
+            404: {"model": HTTPError, "detail": "str"},
+            400: {"model": HTTPError, "detail": "str"}
             })
-async def Get_one_Dozent(dozent_id: str):
-    result = dozentCollection.find_one(ObjectId(dozent_id))
+async def Get_one_Dozent(dozent_id):
+    try:
+        id = ObjectId(dozent_id)
+    except:
+        raise HTTPException(400, detail=f'{dozent_id} is not a valid ObjectId, it must be a 12-byte input or a 24-character hex string',)
+    result = dozentCollection.find_one(id)
+
+    if result == None:
+        raise HTTPException(400, detail=f'Dozent with ID {id} doesn\'t exist',)
     
     result["_id"] = str(result["_id"])
     return result
@@ -58,11 +66,19 @@ async def Get_one_Dozent(dozent_id: str):
         tags=["Dozent"],
         response_model=list[Absence],
         responses={
-            404: {"model": HTTPError, "detail": "str"}
+            404: {"model": HTTPError, "detail": "str"},
+            400: {"model": HTTPError, "detail": "str"}
         }
     )
-async def get_Dozent_absences(dozent_id: str):
-    result = dozentCollection.find_one(ObjectId(dozent_id))
+async def get_Dozent_absences(dozent_id):
+    try:
+        id = ObjectId(dozent_id)
+    except:
+        raise HTTPException(400, detail=f'{dozent_id} is not a valid ObjectId, it must be a 12-byte input or a 24-character hex string',)
+    result = dozentCollection.find_one(id)
+
+    if result == None:
+        raise HTTPException(400, detail=f'Dozent with ID {id} doesn\'t exist',)
     
     resultList = []
 
@@ -82,7 +98,6 @@ async def get_Dozent_absences(dozent_id: str):
         }
     )
 async def Add_Dozent(dozent: DozentRespone):
-    dozent_id = str(dozent.id)
     dozent = dict(dozent)
 
     if dozent["absences"] != None:
@@ -96,7 +111,7 @@ async def Add_Dozent(dozent: DozentRespone):
         dozent["absences"] = absenceList
     dozentCollection.insert_one(dozent)
 
-    dozent["_id"] = dozent_id
+    dozent["_id"] = str(dozent["_id"])
     return dozent
 
 
@@ -106,15 +121,23 @@ async def Add_Dozent(dozent: DozentRespone):
         tags=["Dozent"],
         response_model=DozentRespone,
         responses={
-            404: {"model": HTTPError, "detail": "str"}
+            404: {"model": HTTPError, "detail": "str"},
+            400: {"model": HTTPError, "detail": "str"}
         }
     )
-async def Update_Dozent(dozent_id:str, changes:dict):
-    item = dozentCollection.find_one(ObjectId(dozent_id))
-    for key, value in changes.items():
-            item[key] = value
+async def Update_Dozent(dozent_id, changes:dict):
     try:
-        new_item = DozentRespone(id=dozent_id, name=item["name"], e_mail=item["e_mail"], title=item["title"],absences=item["absences"],intern=item["intern"])
+        id = ObjectId(dozent_id)
+    except:
+        raise HTTPException(400, detail=f'{dozent_id} is not a valid ObjectId, it must be a 12-byte input or a 24-character hex string',)
+    result = dozentCollection.find_one(id)
+
+    if result == None:
+        raise HTTPException(400, detail=f'Dozent with ID {id} doesn\'t exist',)
+    for key, value in changes.items():
+            result[key] = value
+    try:
+        new_item = DozentRespone(id=dozent_id, name=result["name"], e_mail=result["e_mail"], title=result["title"],absences=result["absences"],intern=result["intern"])
     except:
         raise HTTPException(status_code=400, detail="TypeError")
     dozentCollection.update_one({"_id": ObjectId(dozent_id)}, {"$set": changes})
@@ -127,9 +150,15 @@ async def Update_Dozent(dozent_id:str, changes:dict):
         tags=["Dozent"],
         response_model=Message,
         responses={
-            404: {"model": HTTPError, "detail": "str"}
+            404: {"model": HTTPError, "detail": "str"},
+            400: {"model": HTTPError, "detail": "str"}
         }
     )
-async def Delete_Modul(dozent_id:str):
-    dozentCollection.delete_one({"_id": ObjectId(dozent_id)})
+async def Delete_Modul(dozent_id):
+    try:
+        id = ObjectId(dozent_id)
+    except:
+        raise HTTPException(400, detail=f'{dozent_id} is not a valid ObjectId, it must be a 12-byte input or a 24-character hex string',)
+    
+    dozentCollection.delete_one({"_id": id})
     return {"message": f"Successfully deleted Dozent {dozent_id}"}
