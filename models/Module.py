@@ -7,14 +7,13 @@ from models.enums.Equipment import Equipment
 from models.enums.Type import Type
 from models.enums.Frequency import Frequency
 
-#TODO Change id to str
 
 class Module(BaseModel, use_enum_values=True):
     id: str
     name: str
     code: str | None
     dozent: list[Dozent]
-    room: Room | None
+    room: list[Room] | Room | None
     study_semester: list[StudySemester]
     duration: int
     approximate_attendance: int
@@ -29,5 +28,5 @@ class Module(BaseModel, use_enum_values=True):
 
 class ModuleResponse(Module):
     dozent: list[str]
-    room: str | None
+    room: list[str] | str | None
     study_semester: list[str]
