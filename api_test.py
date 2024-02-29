@@ -26,12 +26,10 @@ def test_create_room():
 def test_update_room():
     global room_id
     response = client.post("/room/add", json=
-                           {"_id": "", "name": "TestRoom", "capacity": 100, "equipment": 1}
+                           {"name": "TestRoom", "capacity": 100, "equipment": 1}
                         )
     
-    object_id_pattern = re.compile(r"ObjectId\('(\w+)'\)")
-    match = object_id_pattern.search(response.json()["message"])
-    room_id = match.group(1)
+    room_id = response.json()["_id"]
     
     print(response.text)
     assert response.status_code == 200
