@@ -365,13 +365,19 @@ async def Add_Modul(
 async def Update_Modul(
         module_id, changes:dict
     ):
-    #check if module ID already exist
-    result = modules.find_one({"id": module_id})
+    result = {}
 
-    if result == None:
-        raise HTTPException(404, detail=f'Module with ID {module_id} doesn\'t exist',)
     for key, value in changes.items():
             result[key] = value
+
+    #check if module exists
+    try:
+        res = modules.find_one({"id": module_id, "type": result["type"]})
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=f'{e} must be defined')
+    if res == None:
+        raise HTTPException(404, detail=f'Module with ID {module_id} and type {result["type"]} doesn\'t exist',)
+
     try:
         new_item = ModuleResponse(id=module_id, name=result["name"], dozent=result["dozent"], room=result["room"],
                                   study_semester=result["study_semester"], need=result["need"], type=result["type"],
