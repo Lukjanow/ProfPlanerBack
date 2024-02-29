@@ -10,6 +10,8 @@ router = APIRouter()
 
 router = APIRouter()
 dozentCollection = db["dozent"]
+modules = db["modules"]
+
 
 # All API functions regarding Dozents
 
@@ -160,5 +162,15 @@ async def Delete_Modul(dozent_id):
     except:
         raise HTTPException(400, detail=f'{dozent_id} is not a valid ObjectId, it must be a 12-byte input or a 24-character hex string',)
     
+    re = modules.find({"dozent": {"$elemMatch": {"$eq": dozent_id}}})
+
+    for module in re:
+        newDozentList = []
+        for dozent in module["dozent"]:
+            if dozent == dozent_id:
+                continue
+            newDozentList.append(dozent)
+        modules.update_one({"_id":module["_id"]}, {"$set":{"dozent":newDozentList}})
+
     dozentCollection.delete_one({"_id": id})
     return {"message": f"Successfully deleted Dozent {dozent_id}"}
