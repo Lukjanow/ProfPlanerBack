@@ -367,7 +367,8 @@ async def Update_Modul(
         new_item = ModuleResponse(id=module_id, name=result["name"], dozent=result["dozent"], room=result["room"],
                                   study_semester=result["study_semester"], need=result["need"], type=result["type"],
                                   selected=result["selected"], duration=result["duration"],  approximate_attendance=result["approximate_attendance"],
-                                  frequency=result["frequency"])
+                                  frequency=result["frequency"], code=result["code"],
+                                  color=result["color"], note=result["note"], groups=result["groups"])
     except Exception as e:
         raise HTTPException(status_code=400, detail=f'{e}')
     r = modules.update_one({"id": module_id}, {"$set": changes})
