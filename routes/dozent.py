@@ -98,7 +98,6 @@ async def get_Dozent_absences(dozent_id):
         }
     )
 async def Add_Dozent(dozent: DozentRespone):
-    dozent_id = str(dozent.id)
     dozent = dict(dozent)
 
     if dozent["absences"] != None:
@@ -112,7 +111,7 @@ async def Add_Dozent(dozent: DozentRespone):
         dozent["absences"] = absenceList
     dozentCollection.insert_one(dozent)
 
-    dozent["_id"] = dozent_id
+    dozent["_id"] = str(dozent["_id"])
     return dozent
 
 

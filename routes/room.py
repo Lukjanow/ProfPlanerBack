@@ -53,10 +53,11 @@ async def Get_one_Room(
     return result
 
 
+   
 @router.post("/room/add",summary="add Room",
         description="Add a Room to the database based on the Input. Gives out a Message if successful.",
         tags=["Room"],
-        response_model=Message,
+        response_model=Room,
         responses={
             404: {"model": HTTPError, "detail": "str"}
         }
@@ -64,15 +65,12 @@ async def Get_one_Room(
 async def Add_Room(
         data: Room
     ):
-    #check if module ID already exist
-    if rooms.find_one({"id": data.id}):
-        return {"message": f'A Module with ID {data.id} already exist'}
-
     data = dict(data)
+    rooms.insert_one(data)
 
-    result = str(rooms.insert_one(data))
-    print(result)
-    return {"message": result}
+    data["_id"] = str(data["_id"])
+    return data
+
 
 
 @router.put("/room/{room_id}",summary="update complete Room by ID",
