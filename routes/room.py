@@ -101,6 +101,9 @@ async def Update_Room(
     except:
         raise HTTPException(status_code=400, detail="TypeError")
     rooms.update_one({"_id": ObjectId(room_id)}, {"$set": changes})
+
+    new_item.id = room_id
+
     return new_item
 
 

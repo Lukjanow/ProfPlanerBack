@@ -106,6 +106,8 @@ async def Update_Studysemester(studysemester_id:str, changes: dict):
         raise HTTPException(status_code=400, detail="TypeError")
     studySemesterCollection.update_one({"_id": ObjectId(studysemester_id)}, {"$set": changes})
 
+    new_item.id = studysemester_id
+
     return new_item
 
 

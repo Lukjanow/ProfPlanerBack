@@ -143,6 +143,9 @@ async def Update_Dozent(dozent_id, changes:dict):
     except:
         raise HTTPException(status_code=400, detail="TypeError")
     dozentCollection.update_one({"_id": ObjectId(dozent_id)}, {"$set": changes})
+
+    new_item.id = dozent_id
+
     return new_item
 
 
