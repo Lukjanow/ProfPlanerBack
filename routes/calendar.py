@@ -59,7 +59,7 @@ async def Get_one_CalendarEntry(
     if result:  
         result = calendarentry.find_one(ObjectId(calendarentry_id))
         if result: #check if element exists in given calendar
-            res = calendars.find({"entries": {"$elemMatch": {"$eq": ObjectId(calendarentry_id)}}})
+            res = calendars.find({"entries": {"$elemMatch": {"$eq": calendarentry_id}}})
             for each in res:
                 if each["_id"]:
                         return result
@@ -346,7 +346,7 @@ async def Add_calendarEntry(
         404, detail=f'Calendar with ID {calendar_id} doesn\'t exist',
     )
 
-@router.put("/calendar/calendarentry/{calendarentry_id}",summary=" update one CalendarEntry instance in Calendar",
+@router.put("/calendar/calendarentry/{calendar_id}/{calendarentry_id}",summary=" update one CalendarEntry instance in Calendar",
         description="Update a calendar Entry already in the database based on the Input. Gives out a Message if successful.",
         tags=["Calendar"],
         response_model=Message,
@@ -356,22 +356,28 @@ async def Add_calendarEntry(
     )
 
 async def Update_calendarEntry(
+        calendar_id,
         calendarentry_id,
         changes:dict
     ):
-    res = calendarentry.find_one(ObjectId(calendarentry_id))
-    if res:
-        for key, value in changes.items():
-            res[key] = value
-        try:
-            new_item = CalendarResponse(id=calendarentry_id, module=res["module"], time_stamp=res["time_stamp"])
-        except:
-            raise HTTPException(status_code=400, detail="TypeError")
-        resultentry = str(calendarentry.update_one({"_id": ObjectId(calendarentry_id)}, {"$set": changes}))
-        return {"message": str(resultentry)}
+    calresult = calendars.find_one(ObjectId(calendar_id))
+    if calresult:
+        res = calendarentry.find_one(ObjectId(calendarentry_id))
+        if res:
+            res = calendars.find({"entries": {"$elemMatch": {"$eq": calendarentry_id}}})
+            for each in res:
+                if each["_id"] == ObjectId(calendar_id):
+                        resultentry = str(calendarentry.update_one({"_id": ObjectId(calendarentry_id)}, {"$set": changes}))
+                        return {"message": str(resultentry)}
+                else:   
+                    raise HTTPException(
+                        400, detail=f'No Entry {calendar_id} in given Calendar',)
+        else:
+            raise HTTPException(
+        404, detail=f'Calendar Entry with ID {calendarentry_id} doesn\'t exist',)
     else:
-        raise HTTPException(
-    404, detail=f'Calendar Entry with ID {calendarentry_id} doesn\'t exist',
+            raise HTTPException(
+        404, detail=f'Calendar with ID {calendar_id} doesn\'t exist',
 )
 
 
