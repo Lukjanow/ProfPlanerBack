@@ -22,6 +22,7 @@ COPY ./models /code/models
 COPY ./API.py /code/API.py
 COPY ./Database /code/Database
 COPY ./DummyData /code/DummyData
+COPY ./api_test.py /code/api_test.py
 
 EXPOSE 8000
 
