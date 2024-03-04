@@ -7,7 +7,7 @@ from Database.Database import db
 router = APIRouter()
 
 studySemesterCollection = db["studysemester"]
-
+modules = db["modules"]
 
 # All API functions regarding studysemester
 
@@ -106,6 +106,8 @@ async def Update_Studysemester(studysemester_id:str, changes: dict):
         raise HTTPException(status_code=400, detail="TypeError")
     studySemesterCollection.update_one({"_id": ObjectId(studysemester_id)}, {"$set": changes})
 
+    new_item.id = studysemester_id
+
     return new_item
 
 
@@ -124,6 +126,16 @@ async def Delete_Studysemester(studysemester_id:str):
         id = ObjectId(studysemester_id)
     except:
         raise HTTPException(400, detail=f'{studysemester_id} is not a valid ObjectId, it must be a 12-byte input or a 24-character hex string',)
+    
+    re = modules.find({"study_semester": {"$elemMatch": {"$eq": studysemester_id}}})
+
+    for module in re:
+        newStudysemesterList = []
+        for studysemester in module["study_semester"]:
+            if studysemester == studysemester_id:
+                continue
+            newStudysemesterList.append(studysemester)
+        modules.update_one({"_id":module["_id"]}, {"$set":{"study_semester":newStudysemesterList}})
     
     studySemesterCollection.delete_one({"_id": id})
     return {"message": f"Successfully deleted StudySemester {studysemester_id}"}

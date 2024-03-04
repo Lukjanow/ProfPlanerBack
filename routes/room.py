@@ -11,6 +11,7 @@ router = APIRouter()
 from Database.Database import db
 
 rooms = db["rooms"]
+modules = db["modules"]
 
 @router.get("/room",summary="read all Room",
         description="Get all Rooms from Database. Returns an Array of Json's.",
@@ -100,6 +101,9 @@ async def Update_Room(
     except:
         raise HTTPException(status_code=400, detail="TypeError")
     rooms.update_one({"_id": ObjectId(room_id)}, {"$set": changes})
+
+    new_item.id = room_id
+
     return new_item
 
 
@@ -119,5 +123,19 @@ async def Delete_Room(room_id):
     except:
         raise HTTPException(400, detail=f'{room_id} is not a valid ObjectId, it must be a 12-byte input or a 24-character hex string',)
     
+
+    reList = modules.find({"room": {"$elemMatch": {"$eq": room_id}}})
+    for module in reList:
+        newRoomList = []
+        for room in module["room"]:
+            if room == room_id:
+                continue
+            newRoomList.append(room)
+        modules.update_one({"_id":module["_id"]}, {"$set":{"room":newRoomList}})
+        
+    reList = modules.find({"room":room_id})
+    for module in reList:
+        modules.update_one({"_id":module["_id"]}, {"$set":{"room":None}})
+
     rooms.delete_one({"_id": id})
-    return {"message": f"Successfully deleted Dozent {room_id}"}
+    return {"message": f"Successfully deleted Room {room_id}"}
