@@ -39,3 +39,4 @@ class BasicModule(BaseModel):
     dozent: list[str]
     room: list[str]
     study_semester: list[str]
+    duration: int

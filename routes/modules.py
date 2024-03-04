@@ -47,7 +47,7 @@ async def Get_all_Modules():
         response_model=List[BasicModule]
     )
 async def Get_BasicData_Modules():
-    fields = {"id": 1, "name": 1, "code": 1, "dozent": 1, "room": 1, "study_semester": 1}
+    fields = {"id": 1, "name": 1, "code": 1, "dozent": 1, "room": 1, "study_semester": 1, "duration": 1}
 
     modules_list = modules.find({}, fields)
 
