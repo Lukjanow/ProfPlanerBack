@@ -40,11 +40,13 @@ test-api:
     - docker-compose -f docker-compose.yaml run pp_backend pytest
     - docker-compose -f docker-compose.yaml down
 
-# TODO: Fix deployment; aktuell kennt er das docker-compose file nicht
-
 deploy-prod:
   stage: deploy
   image: docker:latest
+  # Deploy only on Prod 
+  only:
+    refs:
+      - main
   services:
    - docker:dind
   script:
