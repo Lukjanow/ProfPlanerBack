@@ -30,3 +30,13 @@ class ModuleResponse(Module):
     dozent: list[str]
     room: list[str] | str | None
     study_semester: list[str]
+
+
+class BasicModule(BaseModel):
+    id: str
+    name: str
+    code: str
+    dozent: list[str]
+    room: list[str]
+    study_semester: list[str]
+    duration: int

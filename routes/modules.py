@@ -40,6 +40,32 @@ async def Get_all_Modules():
     return x
 
 
+
+@router.get("/module/basicdata", summary="Read all Modules for basic data",
+        description="Get all modules for the basic data table. Returns a list of JSONs with the selected fields.",
+        tags=["Modules"],
+        response_model=List[BasicModule]
+    )
+async def Get_BasicData_Modules():
+    fields = {"id": 1, "name": 1, "code": 1, "dozent": 1, "room": 1, "study_semester": 1, "duration": 1}
+
+    modules_list = modules.find({}, fields)
+
+    selected_modules = []
+
+    for module in modules_list:
+        # Exclude the _id field
+        module.pop("_id", None)
+        selected_modules.append(module)
+
+    if selected_modules:
+        return selected_modules
+    else:
+        # Raise HTTPException if no modules found
+        raise HTTPException(status_code=404, detail='No modules found')
+
+
+
 @router.get("/moduledata",summary="read all Modules and get Data about referenced objects",
         description="Get all Modules from Database. Returns an Array of Json's. Response contain also Data about Dozent, Room and studysemester ",
         tags=["Modules"],
