@@ -1,8 +1,18 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, HTTPException
+from models.Dozent import *
+from models.Absence import Absence
+from models.common import *
+from bson.objectid import ObjectId
+from Database.Database import db
+from typing import List
 
 router = APIRouter()
 
-from models.Models import *
+router = APIRouter()
+dozentCollection = db["dozent"]
+modules = db["modules"]
+
+
 # All API functions regarding Dozents
 
 
@@ -14,138 +24,156 @@ from models.Models import *
 @router.get("/dozent",summary="read all Dozent",
         description="Get all Dozent from Database. Returns an Array of Json's.",
         tags=["Dozent"],
-        response_model=Dozents, responses={
-            404: NOT_FOUND()
+        response_model=List[DozentRespone], responses={
+            404: {"model": HTTPError, "detail": "str"}
             })
 async def Get_all_Dozents():
-    results = {"id": 0,
-            "name": "str",
-            "email": "str",
-            "title": "str",
-            "absences": "list[Absence]",
-            "intern": True}
-    return results
+    results = dozentCollection.find()
+
+    resultList = []
+
+    for result in results:
+        result["_id"] = str(result["_id"])
+        resultList.append(result)
+
+    return resultList
+
+
 
 @router.get("/dozent/{dozent_id}",summary="read Dozent by ID",
         description="Get data about a specific Dozent according the given ID. Returns a Json with the Data.",
         tags=["Dozent"],
-        response_model=Dozent, 
+        response_model=DozentRespone, 
         responses={
-            404: NOT_FOUND()
+            404: {"model": HTTPError, "detail": "str"},
+            400: {"model": HTTPError, "detail": "str"}
             })
-async def Get_one_Dozent(
-    id: int
-):
-    results = {"id": 0,
-            "name": "str",
-            "email": "str",
-            "title": "str",
-            "absences": "list[Absence]",
-            "intern": True}
-    return results
+async def Get_one_Dozent(dozent_id):
+    try:
+        id = ObjectId(dozent_id)
+    except:
+        raise HTTPException(400, detail=f'{dozent_id} is not a valid ObjectId, it must be a 12-byte input or a 24-character hex string',)
+    result = dozentCollection.find_one(id)
+
+    if result == None:
+        raise HTTPException(400, detail=f'Dozent with ID {id} doesn\'t exist',)
+    
+    result["_id"] = str(result["_id"])
+    return result
+
+
 
 @router.get("/dozent/absence/{dozent_id}",summary="Read all Absences by Dozent",
         description="Gives out all absences a Dozent has. Returns an Array of Json if successful",
         tags=["Dozent"],
-        response_model=Message,
+        response_model=list[Absence],
         responses={
-            404: NOT_FOUND()
+            404: {"model": HTTPError, "detail": "str"},
+            400: {"model": HTTPError, "detail": "str"}
         }
     )
-async def get_Dozent_absences(
-        dozent_id: int
-    ):
-    results = {"message": "success"}
-    return results
+async def get_Dozent_absences(dozent_id):
+    try:
+        id = ObjectId(dozent_id)
+    except:
+        raise HTTPException(400, detail=f'{dozent_id} is not a valid ObjectId, it must be a 12-byte input or a 24-character hex string',)
+    result = dozentCollection.find_one(id)
+
+    if result == None:
+        raise HTTPException(400, detail=f'Dozent with ID {id} doesn\'t exist',)
+    
+    resultList = []
+
+    for item in result["absences"]:
+        resultList.append(item)
+
+    return resultList
+
+
 
 @router.post("/dozent",summary="add Dozent",
         description="Add a Dozent to the database based on the Input. Gives out a Message if successful.",
         tags=["Dozent"],
-        response_model=Message,
+        response_model=DozentRespone,
         responses={
-            404: NOT_FOUND()
+            404: {"model": HTTPError, "detail": "str"}
         }
     )
-async def Add_Dozent(
-        id: int,
-        name: str,
-        email: str,
-        title: str,
-        intern: bool
-    ):
-    results = {"message": "success"}
-    return results
+async def Add_Dozent(dozent: DozentRespone):
+    dozent = dict(dozent)
 
-@router.post("/dozent/absence/{dozent_id}",summary="add Absence to Dozent",
-        description="Add Absence for a Dozent to the database based on the Input. Gives out a Message if successful.",
-        tags=["Absence"],
-        response_model=Absence,
-        responses={
-            404: NOT_FOUND()
-        }
-    )
-async def Add_Abscence(
-        begin: str,
-        end: str,
-        comment: str
-    ):
-    results = {"message": "success"}
-    return results
+    if dozent["absences"] != None:
+        absenceList = []
+        for absence in dozent["absences"]:
+            absence = dict(absence)
+            absence["begin"] = dict(absence["begin"])
+            absence["end"] = dict(absence["end"])
+            absenceList.append(absence)
+
+        dozent["absences"] = absenceList
+    dozentCollection.insert_one(dozent)
+
+    dozent["_id"] = str(dozent["_id"])
+    return dozent
+
+
 
 @router.put("/dozent/{dozent_id}",summary="update complete Dozent by ID",
         description="Update a Dozent already in the database based on the Input. Gives out a Message if successful.",
         tags=["Dozent"],
-        response_model=Message,
+        response_model=DozentRespone,
         responses={
-            404: NOT_FOUND()
+            404: {"model": HTTPError, "detail": "str"},
+            400: {"model": HTTPError, "detail": "str"}
         }
     )
-async def Update_Dozent(
-        id: int | None,
-        name: str | None,
-        email: str | None,
-        title: str | None,
-        intern: bool | None
-    ):
-    results = {"message": "success"}
-    return results
+async def Update_Dozent(dozent_id, changes:dict):
+    try:
+        id = ObjectId(dozent_id)
+    except:
+        raise HTTPException(400, detail=f'{dozent_id} is not a valid ObjectId, it must be a 12-byte input or a 24-character hex string',)
+    result = dozentCollection.find_one(id)
 
-@router.put("/dozent/absence/{dozent_id}/{absence_id}",summary="update one Absence of a Dozent",
-        description="Update a Abscences already in the database based on the Input. Gives out a Message if successful.",
-        tags=["Absence"],
-        response_model=Message,
-        responses={
-            404: NOT_FOUND()
-        }
-    )
-async def Update_Abscence(
-        begin: str | None,
-        end: str | None,
-        comment: str | None
-    ):
-    results = {"message": "success"}
-    return results
+    if result == None:
+        raise HTTPException(400, detail=f'Dozent with ID {id} doesn\'t exist',)
+    for key, value in changes.items():
+            result[key] = value
+    try:
+        new_item = DozentRespone(id=dozent_id, name=result["name"], e_mail=result["e_mail"], title=result["title"],absences=result["absences"],intern=result["intern"])
+    except:
+        raise HTTPException(status_code=400, detail="TypeError")
+    dozentCollection.update_one({"_id": ObjectId(dozent_id)}, {"$set": changes})
+
+    new_item.id = dozent_id
+
+    return new_item
+
+
 
 @router.delete("/dozent/{dozent_id}",summary="delete Dozent by ID",
         description="Delete a Dozent from the database based on the Input. Gives out a Message if successful.",
         tags=["Dozent"],
         response_model=Message,
         responses={
-            404: NOT_FOUND()
+            404: {"model": HTTPError, "detail": "str"},
+            400: {"model": HTTPError, "detail": "str"}
         }
     )
-async def Delete_Modul():
-    results = {"message": "success"}
-    return results
+async def Delete_Modul(dozent_id):
+    try:
+        id = ObjectId(dozent_id)
+    except:
+        raise HTTPException(400, detail=f'{dozent_id} is not a valid ObjectId, it must be a 12-byte input or a 24-character hex string',)
+    
+    re = modules.find({"dozent": {"$elemMatch": {"$eq": dozent_id}}})
 
-@router.delete("/dozent/absence/{dozent_id}/{absence_id}",summary="delete one Absence from Dozent",
-        description="Delete a Room from the database based on the Input. Gives out a Message if successful.",
-        tags=["Absence"],
-        response_model=Message,
-        responses={
-            404: NOT_FOUND()
-        }
-    )
-async def Delete_Absence():
-    results = {"message": "success"}
-    return results
+    for module in re:
+        newDozentList = []
+        for dozent in module["dozent"]:
+            if dozent == dozent_id:
+                continue
+            newDozentList.append(dozent)
+        modules.update_one({"_id":module["_id"]}, {"$set":{"dozent":newDozentList}})
+
+    dozentCollection.delete_one({"_id": id})
+    return {"message": f"Successfully deleted Dozent {dozent_id}"}

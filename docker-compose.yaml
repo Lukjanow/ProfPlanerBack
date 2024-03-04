@@ -1,0 +1,46 @@
+# HOW TO DEVELOP 
+# docker compose up
+# Use parameter --build if requirements change
+
+# RUN TESTS
+# docker compose run pp_backend pytest
+version: "3.9"
+
+services:
+  pp_backend:
+    container_name: pp_backend
+    build: .
+    image: registry.gitlab.rlp.net/top/24s/profplaner/profplaner_backend/backend:latest
+    working_dir: /code/app
+    command: uvicorn API:app --host 0.0.0.0 --port 8000 --reload 
+    environment:
+      DEBUG: 1
+      WAIT_HOSTS: mongo:27017
+    volumes:
+      - ./:/code/app
+    ports:
+      - 8000:8000
+    restart: on-failure
+    links:
+      - mongo
+    depends_on:
+      - mongo
+    networks:
+      - node-network
+
+  mongo:
+    image: mongo:7.0.5
+    container_name: mongo
+    #environment:
+    #- MONGO_INITDB_ROOT_USERNAME=admin
+    #- MONGO_INITDB_ROOT_PASSWORD=passwort
+    volumes:
+      - ./mongodb:/data/db
+    ports:
+      - "27017:27017"
+    networks:
+      - node-network
+
+networks:
+  node-network:
+    driver: bridge

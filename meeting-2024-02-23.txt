@@ -1,0 +1,5 @@
+Stammdaten Export und Import neben dem "neues Modul" button platzieren
+
+Veranstaltungen anlegen (Termine, z.B. Mittwochs Mittags)
+Idee: Deployment mit einer Pipeline 
+

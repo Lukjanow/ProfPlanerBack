@@ -1,0 +1,13 @@
+_id,id,name,e_mail,title,absences[0].id,absences[1].id,absences[2].id,absences[3].id,absences[4].id,absences[0].begin.week_day,absences[1].begin.week_day,absences[2].begin.week_day,absences[3].begin.week_day,absences[4].begin.week_day,absences[0].begin.hour,absences[1].begin.hour,absences[2].begin.hour,absences[3].begin.hour,absences[4].begin.hour,absences[0].begin.minute,absences[1].begin.minute,absences[2].begin.minute,absences[3].begin.minute,absences[4].begin.minute,absences[0].end.week_day,absences[1].end.week_day,absences[2].end.week_day,absences[3].end.week_day,absences[4].end.week_day,absences[0].end.hour,absences[1].end.hour,absences[2].end.hour,absences[3].end.hour,absences[4].end.hour,absences[0].end.minute,absences[1].end.minute,absences[2].end.minute,absences[3].end.minute,absences[4].end.minute,absences[0].comment,absences[1].comment,absences[2].comment,absences[3].comment,absences[4].comment,intern
+65d706915c208e7fd4abebab,,Thielen,thielen@hs-worms.de,Prof. Dr.,1,2,,,,3,5,,,,13,8,,,,0,0,,,,3,5,,,,20,20,,,,0,0,,,,Reguläre Treffen,Will langes Wochendee,,,,true
+65d706a45c208e7fd4abebac,,Wehrstein,Wehrstein@hs-worms.de,Herr,1,,,,,2,,,,,8,,,,,0,,,,,5,,,,,20,,,,,0,,,,,Arbeiten in meinem Unternehmen,,,,,false
+65d706b15c208e7fd4abebad,,Schwarzer,Schwarzer@hs-worms.de,Prof. Dr.,1,,,,,3,,,,,13,,,,,0,,,,,3,,,,,20,,,,,0,,,,,Reguläre Treffen,,,,,true
+65d706bc5c208e7fd4abebae,,Koenig,Koenig@hs-worms.de,Prof. Dr.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,true
+65d706c75c208e7fd4abebaf,,Kohler,Kohler@hs-worms.de,Prof. Dr.,1,,,,,3,,,,,13,,,,,0,,,,,3,,,,,20,,,,,0,,,,,Reguläre Treffen,,,,,true
+65d706d05c208e7fd4abebb0,,Kessler,Kessler@hs-worms.de,Prof. Dr.,1,,,,,3,,,,,13,,,,,0,,,,,3,,,,,20,,,,,0,,,,,Reguläre Treffen,,,,,true
+65d706f05c208e7fd4abebb1,,Heinemann,Heinemann@hs-worms.de,Prof. Dr.,1,2,3,4,5,1,2,3,4,5,8,8,8,8,8,0,0,0,0,0,1,2,3,4,5,10,10,10,10,10,0,0,0,0,0,Lange Anfahrt,Lange Anfahrt,Lange Anfahrt,Lange Anfahrt,Lange Anfahrt,true
+65d71ab9b21ff5d5528eba68,,Werle-Rutter,Rutter@hs-worms.de,Herr,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,true
+65d71e229004f2a19971f8bc,,Gloger,Gloger@hs-worms.de,Prof. Dr.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,true
+65d73a12a421a928cd955b67,,Haas,Haas@hs-worms.de,Prof. Dr.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,true
+65d73a62a421a928cd955b69,,Wendzel,Wendzel@hs-worms.de,Prof. Dr.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,true
+65d73be5a421a928cd955b6e,,Wiebel,Wiebel@hs-worms.de,Prof. Dr.,1,,,,,3,,,,,13,,,,,0,,,,,3,,,,,20,,,,,0,,,,,Reguläre Treffen,,,,,true

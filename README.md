@@ -4,11 +4,21 @@
 
 ## Getting started
 
-Mein erster "sinnvoller" Commit auf dieses Repo! ;) 
+Run Tests
+```console
+docker compose run pp_backend pytest
+```
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+Import Dummy Data 
+```console
+docker compose run pp_backend sh import_dummy_data.sh
+```
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+Run Server
+```console
+docker compose up
+```
+
 
 ## Add your files
 
