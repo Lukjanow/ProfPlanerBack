@@ -37,8 +37,8 @@ class ModuleResponse(Module):
 class BasicModule(BaseModel):
     id: Optional[str] = Field(alias="_id", default=None)
     name: str
-    code: str
+    code: str | None
     dozent: list[str]
-    room: list[str]
+    room: list[str] | str | None
     study_semester: list[str]
     duration: int
