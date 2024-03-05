@@ -91,10 +91,7 @@ async def Get_BasicData_Modules():
     for module in modules_list:
         module["_id"] = str(module["_id"])
         selected_modules.append(module)    
-        print("-----------------")
-        print(selected_modules)
-        print("------------------------")
-
+        
     if selected_modules:
         return selected_modules
     else:
