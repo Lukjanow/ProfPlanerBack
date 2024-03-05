@@ -14,6 +14,8 @@ dozents = db["dozent"]
 study_semesters = db["studysemester"]
 rooms = db["rooms"]
 modules = db["modules"]
+calendars = db["calendar"]
+calendarentry = db["calendarEntry"]
 # All API functions regarding Modules
 
 
@@ -383,6 +385,24 @@ async def Delete_Module(
         id = ObjectId(object_id)
     except:
         raise HTTPException(400, detail=f'{object_id} is not a valid ObjectId, it must be a 12-byte input or a 24-character hex string',)
+    
+    entrys = calendarentry.find()
+
+    entryList = []
+
+    for entry in entrys:
+        if entry["module"] == object_id:
+            entryList.append(str(entry["_id"]))
+            calendarentry.delete_one({"_id":entry["_id"]})
+    
+    calendar = calendars.find()
+   
+    for cal in calendar:
+        for entry in entryList:
+            if entry not in cal["entries"]:
+                continue
+            cal["entries"].remove(entry)
+        calendars.update_one({"_id":cal["_id"]}, {"$set":{"entries":cal["entries"]}})
 
     modules.delete_one({"_id": id})
     return {"message": f"Successfully deleted Module {object_id}"}
