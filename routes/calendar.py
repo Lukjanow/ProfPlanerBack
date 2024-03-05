@@ -62,6 +62,33 @@ async def Get_one_calendar(
     )
 
 
+@router.get("/calendar/entrys/{calendar_id}",summary="Get CalendarEntrys from Calendar",
+        description="Get all CalendarEntrys from a specific Calendar. Returns a Json with the Data and all reference Data.",
+        tags=["Calendar"],
+        response_model=list[CalendarEntry], 
+        responses={
+            404: {"model": HTTPError, "detail": "str"}
+            })
+async def getCalendarEntriesFromCalendar(
+    calendar_id
+):
+    result = calendars.find_one(ObjectId(calendar_id))
+    if result:
+        response = []
+        for entry in result["entries"]:
+            entryData = calendarentry.find_one(ObjectId(entry))
+            moduledata = modules.find_one(ObjectId(entryData["module"]))
+            entryData["module"] = convertDataWithReferences([moduledata])[0]
+            entryData["_id"] = str(entryData["_id"])
+
+            response.append(entryData)
+        return response
+    else:   #Calendar does not exist
+        raise HTTPException(
+        404, detail=f'calendar with ID {calendar_id} doesn\'t exist',
+    )
+
+
 @router.get("/calendar/calendarentry/{calendarentry_id}",summary="get one CalendarEntry instance in Calendar",
         description="Get data about a specific calendar Entry according the given ID. Returns a Json with the Data.",
         tags=["Calendar"],
@@ -355,3 +382,34 @@ async def Delete_calendarEntry(
     return {"message": f"Successfully deleted CalendarEntry {calendarentry_id}"}
             
 
+@router.put("/calendar/{calendar_id}",summary=" update one Calendar",
+        description="Update a calendar already in the database based on the Input. Gives out a Message if successful.",
+        tags=["Calendar"],
+        response_model=CalendarResponse,
+        responses={
+            404: {"model": HTTPError, "detail": "str"}
+        }
+    )
+async def Update_calendarEntry(
+        calendar_id,
+        changes:dict
+    ):
+    try:
+        id = ObjectId(calendar_id)
+    except:
+        raise HTTPException(400, detail=f'{calendar_id} is not a valid ObjectId, it must be a 12-byte input or a 24-character hex string',)
+    result = calendars.find_one(id)
+
+    if result == None:
+        raise HTTPException(400, detail=f'Calendar with ID {id} doesn\'t exist',)
+    for key, value in changes.items():
+            result[key] = value
+    try:
+        new_item = CalendarResponse(id=calendar_id, name=result["name"], entries=result["entries"])
+    except:
+        raise HTTPException(status_code=400, detail="TypeError")
+    calendars.update_one({"_id": ObjectId(calendar_id)}, {"$set": changes})
+
+    new_item.id = calendar_id
+
+    return new_item
