@@ -77,6 +77,43 @@ async def Get_all_Modules():
     return resultList
 
 
+@router.get("/module/{object_id}",summary=" read one Module by ID",
+        description="Get data about a Module according the given object_id. Returns a Json with the Data.",
+        tags=["Modules"],
+        response_model=ModuleResponse, 
+        responses={
+            404: {"model": HTTPError, "detail": "str"}
+            })
+async def Get_one_Module(object_id):
+    re = modules.find_one(ObjectId(object_id))
+
+    if re:
+        re["_id"] = str(re["_id"])
+        return re
+    else:   #Module does not exist
+        raise HTTPException(
+        404, detail=f'Module with ID {object_id} doesn\'t exist',
+    )
+
+@router.get("/moduledata/{object_id}",summary=" read one Module by ID  and get Data from referenced Data",
+        description="Get data about a Module according the given object_id. Returns a Json with the Data. Also gives Back data for Dozent, Rooms and Studysemester",
+        tags=["Modules"],
+        response_model=Module, 
+        responses={
+            404: {"model": HTTPError, "detail": "str"}
+            })
+async def Get_one_Module(object_id):
+    re = modules.find_one(ObjectId(object_id))
+
+    if re:
+        re = convertDataWithReferences([re])[0]
+        re["_id"] = str(re["_id"])
+        return re
+    else:   #Module does not exist
+        raise HTTPException(
+        404, detail=f'Module with ID {object_id} doesn\'t exist',
+    )
+
 
 @router.get("/module/basicdata", summary="Read all Modules for basic data",
         description="Get all modules for the basic data table. Returns a list of JSONs with the selected fields.",
@@ -113,7 +150,7 @@ async def Get_all_Modules_data():
 
 
 
-@router.get("/moduledata/{module_id}",summary="read all Modules with the same module_id and get Data from referenced Data",
+@router.get("/moduledata/module/{module_id}",summary="read all Modules with the same module_id and get Data from referenced Data",
         description="Get data about Modules according the given module_id. Returns a Json with the Data. Also gives Back data for Dozent, Rooms and Studysemester",
         tags=["Modules"],
         response_model=List[Module], 
@@ -134,14 +171,14 @@ async def Get_Modules_by_id(
 
 
 
-@router.get("/module/{module_id}",summary=" read Modules with the same module_id",
+@router.get("/module/module/{module_id}",summary=" read Modules with the same module_id",
         description="Get data about Modules according the given module_id. Returns a Json with the Data.",
         tags=["Modules"],
         response_model=List[ModuleResponse], 
         responses={
             404: {"model": HTTPError, "detail": "str"}
             })
-async def Get_one_Modules(
+async def Get_Modules_moduleid(
     module_id
 ):
     re = modules.find({"module_id": module_id})
@@ -179,6 +216,27 @@ async def Get_selected_Modules():
 
 
 
+@router.get("/modules/unselect",summary="read all unselected Moduls",
+        description="Read all Modules that are currently unselected ",
+        tags=["Modules"],
+        response_model=List[ModuleResponse], 
+        responses={
+            404: {"model": HTTPError, "detail": "str"}
+            })
+async def Get_selected_Modules():
+    x = []
+    result = modules.find({"selected": False}).sort("id", 1)
+    for r in result:
+        r["_id"] = str(r["_id"])
+        x.append(r)
+    if x == []:
+        raise HTTPException(
+        404, detail=f'No Modules found',
+    )
+    return x
+
+
+
 @router.get("/modulesdata/select",summary="read all selected Moduls and get data from referenced Objects",
         description="Read all Modules that are currently selected ",
         tags=["Modules"],
@@ -188,6 +246,24 @@ async def Get_selected_Modules():
             })
 async def Get_selected_Modules_data():
     re = modules.find({"selected": True}).sort("id", 1)
+    x = convertDataWithReferences(re)
+    
+    if x == []:
+        raise HTTPException(
+        404, detail=f'No Modules found',
+    )
+    return x
+
+
+@router.get("/modulesdata/unselect",summary="read all unselected Moduls and get data from referenced Objects",
+        description="Read all Modules that are currently unselected ",
+        tags=["Modules"],
+        response_model=List[Module], 
+        responses={
+            404: {"model": HTTPError, "detail": "str"}
+            })
+async def Get_selected_Modules_data():
+    re = modules.find({"selected": False}).sort("id", 1)
     x = convertDataWithReferences(re)
     
     if x == []:
