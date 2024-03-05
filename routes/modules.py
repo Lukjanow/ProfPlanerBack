@@ -30,13 +30,15 @@ def convertDataWithReferences(re):
         dozent = []
         for id in result["dozent"]:
             res = dozents.find_one({"_id": ObjectId(str(id))})
-            res["_id"] = str(res["_id"])
+            if res != None:
+                res["_id"] = str(res["_id"])
             dozent.append(res)
         result["dozent"] = dozent
         study_semester = []
         for id in result["study_semester"]:
             res = study_semesters.find_one({"_id": ObjectId(str(id))})
-            res["_id"] = str(res["_id"])
+            if res != None:
+                res["_id"] = str(res["_id"])
             study_semester.append(res)
         result["study_semester"] = study_semester
 
@@ -44,11 +46,13 @@ def convertDataWithReferences(re):
         if(type(result["room"]) == list):
             for id in result["room"]:
                 res = rooms.find_one({"_id": ObjectId(str(id))})
-                res["_id"] = str(res["_id"])
+                if res != None:
+                    res["_id"] = str(res["_id"])
                 roomList.append(res)
         else:
             res = rooms.find_one({"_id": ObjectId(result["room"])})
-            res["_id"] = str(res["_id"])
+            if res != None:
+                res["_id"] = str(res["_id"])
             roomList = res
         result["room"] = roomList
         result["_id"] = str(result["_id"])
@@ -75,7 +79,7 @@ async def Get_all_Modules():
 @router.get("/module/basicdata", summary="Read all Modules for basic data",
         description="Get all modules for the basic data table. Returns a list of JSONs with the selected fields.",
         tags=["Modules"],
-        response_model=List[BasicModule]
+        response_model=list[BasicModule]
     )
 async def Get_BasicData_Modules():
     fields = {"name": 1, "code": 1, "dozent": 1, "room": 1, "study_semester": 1, "duration": 1}
@@ -87,7 +91,7 @@ async def Get_BasicData_Modules():
     for module in modules_list:
         module["_id"] = str(module["_id"])
         selected_modules.append(module)    
-
+        
     if selected_modules:
         return selected_modules
     else:
