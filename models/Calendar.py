@@ -10,8 +10,3 @@ class Calendar(BaseModel):
 class CalendarResponse(Calendar):
     id: Optional[str] = Field(alias="_id", default=None)
     entries: list[str]
-    
-class CalendarResponseCom(CalendarResponse):
-    details: Optional[str]
-
-
