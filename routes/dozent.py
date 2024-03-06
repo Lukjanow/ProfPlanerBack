@@ -139,7 +139,7 @@ async def Update_Dozent(dozent_id, changes:dict):
     for key, value in changes.items():
             result[key] = value
     try:
-        new_item = DozentResponse(id=dozent_id, prename=result["prename"], lastname=result["lastname"], email=result["email"], title=result["title"], salutation=result["salutation"], absences=result["absences"])
+        new_item = DozentResponse(id=dozent_id, salutation=result["salutation"], lastname=result["lastname"], prename=result["prename"], email=result["email"], title=result["title"], absences=result["absences"])
     except:
         raise HTTPException(status_code=400, detail="TypeError")
     dozentCollection.update_one({"_id": ObjectId(dozent_id)}, {"$set": changes})
