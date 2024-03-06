@@ -229,18 +229,12 @@ async def Get_calendar_room(
         if moduleData["room"] == None:
             continue
 
-        if type(moduleData["room"] == list):
-            if room_id in moduleData["room"]:
-                entryData["_id"] = str(entryData["_id"])
-                entryData["module"] = convertDataWithReferences([moduleData])[0]
+        if room_id in moduleData["room"]:
+            entryData["_id"] = str(entryData["_id"])
+            entryData["module"] = convertDataWithReferences([moduleData])[0]
 
-                entryList.append(entryData)
-        else: 
-            if room_id == moduleData["room"]:
-                entryData["_id"] = str(entryData["_id"])
-                entryData["module"] = convertDataWithReferences([moduleData])[0]
-
-                entryList.append(entryData)
+            entryList.append(entryData)
+        
 
     return entryList
 

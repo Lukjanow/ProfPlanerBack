@@ -45,17 +45,11 @@ def convertDataWithReferences(re):
         result["study_semester"] = study_semester
 
         roomList = []
-        if(type(result["room"]) == list):
-            for id in result["room"]:
-                res = rooms.find_one({"_id": ObjectId(str(id))})
-                if res != None:
-                    res["_id"] = str(res["_id"])
-                roomList.append(res)
-        else:
-            res = rooms.find_one({"_id": ObjectId(result["room"])})
+        for id in result["room"]:
+            res = rooms.find_one({"_id": ObjectId(str(id))})
             if res != None:
                 res["_id"] = str(res["_id"])
-            roomList = res
+            roomList.append(res)
         result["room"] = roomList
         result["_id"] = str(result["_id"])
         x.append(result)
@@ -115,7 +109,7 @@ async def Get_one_Module(object_id):
     )
 
 
-@router.get("/module/basicdata", summary="Read all Modules for basic data",
+@router.get("/module/basicdata/", summary="Read all Modules for basic data",
         description="Get all modules for the basic data table. Returns a list of JSONs with the selected fields.",
         tags=["Modules"],
         response_model=list[BasicModule]
