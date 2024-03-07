@@ -11,21 +11,16 @@ from models.enums.Frequency import Frequency
 
 class Module(BaseModel, use_enum_values=True):
     id: Optional[str] = Field(alias="_id", default=None)
-    module_id: str
+    module_id: str | None
     name: str
     code: str | None
-    dozent: list[Dozent]
-    room: list[Room]
-    study_semester: list[StudySemester]
-    duration: int
-    approximate_attendance: int
-    need: Equipment | None
-    type: list[Type]
+    events: list[dict]
+    qsp: list[str] | None
     frequency: Frequency
     selected: bool
     color: str | None
     note: str | None
-    groups: int | None
+    course: bool
 
 
 class ModuleResponse(Module):
