@@ -38,7 +38,7 @@ class BasicModule(BaseModel):
     id: Optional[str] = Field(alias="_id", default=None)
     name: str
     code: str | None
-    dozent: list[str]
-    room: list[str]
-    study_semester: list[str]
+    dozent: list[Dozent]
+    room: list[Room]
+    study_semester: list[StudySemester]
     duration: int
