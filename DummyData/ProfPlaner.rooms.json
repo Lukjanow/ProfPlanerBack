@@ -1,88 +1,90 @@
-[{
-  "_id": {
-    "$oid": "65d854c3dfc97c0356792f8e"
+[
+  {
+    "_id": {
+      "$oid": "65d854c3dfc97c0356792f8e"
+    },
+    "roomNumber": "B200",
+    "capacity": 120,
+    "roomType": "Labor"
   },
-  "name": "B200",
-  "capacity": 120,
-  "equipment": null
-},
-{
-  "_id": {
-    "$oid": "65d85501dfc97c0356792f8f"
+  {
+    "_id": {
+      "$oid": "65d85501dfc97c0356792f8f"
+    },
+    "roomNumber": "D138",
+    "capacity": 100,
+    "roomType": "Labor"
   },
-  "name": "D138",
-  "capacity": 100,
-  "equipment": null
-},
-{
-  "_id": {
-    "$oid": "65d8553adfc97c0356792f90"
+  {
+    "_id": {
+      "$oid": "65d8553adfc97c0356792f90"
+    },
+    "roomNumber": "N140",
+    "capacity": 25,
+    "roomType": "Labor"
   },
-  "name": "N140",
-  "capacity": 25,
-  "equipment": 1
-},
-{
-  "_id": {
-    "$oid": "65d85564dfc97c0356792f91"
+  {
+    "_id": {
+      "$oid": "65d85564dfc97c0356792f91"
+    },
+    "roomNumber": "N141",
+    "capacity": 25,
+    "roomType": "Labor"
   },
-  "name": "N141",
-  "capacity": 25,
-  "equipment": 1
-},
-{
-  "_id": {
-    "$oid": "65d85569dfc97c0356792f92"
+  {
+    "_id": {
+      "$oid": "65d85569dfc97c0356792f92"
+    },
+    "roomNumber": "N142",
+    "capacity": 25,
+    "roomType": "Labor"
   },
-  "name": "N142",
-  "capacity": 25,
-  "equipment": 1
-},
-{
-  "_id": {
-    "$oid": "65d8556fdfc97c0356792f93"
+  {
+    "_id": {
+      "$oid": "65d8556fdfc97c0356792f93"
+    },
+    "roomNumber": "N143",
+    "capacity": 25,
+    "roomType": "Labor"
   },
-  "name": "N143",
-  "capacity": 25,
-  "equipment": 1
-},
-{
-  "_id": {
-    "$oid": "65d85579dfc97c0356792f94"
+  {
+    "_id": {
+      "$oid": "65d85579dfc97c0356792f94"
+    },
+    "roomNumber": "N240",
+    "capacity": 20,
+    "roomType": "Labor"
   },
-  "name": "N240",
-  "capacity": 20,
-  "equipment": 2
-},
-{
-  "_id": {
-    "$oid": "65d85580dfc97c0356792f95"
+  {
+    "_id": {
+      "$oid": "65d85580dfc97c0356792f95"
+    },
+    "roomNumber": "N241",
+    "capacity": 20,
+    "roomType": "Labor"
   },
-  "name": "N241",
-  "capacity": 20,
-  "equipment": 2
-},
-{
-  "_id": {
-    "$oid": "65d8558bdfc97c0356792f96"
+  {
+    "_id": {
+      "$oid": "65d8558bdfc97c0356792f96"
+    },
+    "roomNumber": "A125",
+    "capacity": 150,
+    "roomType": "Labor"
   },
-  "name": "A125",
-  "capacity": 150,
-  "equipment": null
-},
-{
-  "_id": {
-    "$oid": "65d855b8dfc97c0356792f97"
+  {
+    "_id": {
+      "$oid": "65d855b8dfc97c0356792f97"
+    },
+    "roomNumber": "A014",
+    "capacity": 80,
+    "roomType": "Labor"
   },
-  "name": "A014",
-  "capacity": 80,
-  "equipment": 1
-},
-{
-  "_id": {
-    "$oid": "65d85609dfc97c0356792fa3"
-  },
-  "name": "N041",
-  "capacity": 100,
-  "equipment": 1
-}]
+  {
+    "_id": {
+      "$oid": "65d85609dfc97c0356792fa3"
+    },
+    "roomNumber": "N041",
+    "capacity": 100,
+    "roomType": "Labor"
+  }
+]
