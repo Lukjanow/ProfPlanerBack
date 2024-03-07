@@ -1,307 +1,321 @@
-[{
-  "_id": {
-    "$oid": "65d706915c208e7fd4abebab"
-  },
-  "id": null,
-  "name": "Thielen",
-  "e_mail": "thielen@hs-worms.de",
-  "title": "Prof. Dr.",
-  "absences": [
-    {
-      "id": 1,
-      "begin": {
-        "week_day": 3,
-        "hour": 13,
-        "minute": 0
-      },
-      "end": {
-        "week_day": 3,
-        "hour": 20,
-        "minute": 0
-      },
-      "comment": "Reguläre Treffen"
+[
+  {
+    "_id": {
+      "$oid": "65d706915c208e7fd4abebab"
     },
-    {
-      "id": 2,
-      "begin": {
-        "week_day": 5,
-        "hour": 8,
-        "minute": 0
+    "id": null,
+    "prename": "Herbert",
+    "lastname": "Thielen",
+    "email": "thielen@hs-worms.de",
+    "title": "Prof. Dr.",
+    "salutation": "Herr",
+    "absences": [
+      {
+        "id": 1,
+        "begin": {
+          "week_day": 3,
+          "hour": 13,
+          "minute": 0
+        },
+        "end": {
+          "week_day": 3,
+          "hour": 20,
+          "minute": 0
+        },
+        "comment": "Reguläre Treffen"
       },
-      "end": {
-        "week_day": 5,
-        "hour": 20,
-        "minute": 0
-      },
-      "comment": "Will langes Wochendee"
-    }
-  ],
-  "intern": true
-},
-{
-  "_id": {
-    "$oid": "65d706a45c208e7fd4abebac"
+      {
+        "id": 2,
+        "begin": {
+          "week_day": 5,
+          "hour": 8,
+          "minute": 0
+        },
+        "end": {
+          "week_day": 5,
+          "hour": 20,
+          "minute": 0
+        },
+        "comment": "Will langes Wochendee"
+      }
+    ]
   },
-  "id": null,
-  "name": "Wehrstein",
-  "e_mail": "Wehrstein@hs-worms.de",
-  "title": "Herr",
-  "absences": [
-    {
-      "id": 1,
-      "begin": {
-        "week_day": 2,
-        "hour": 8,
-        "minute": 0
-      },
-      "end": {
-        "week_day": 5,
-        "hour": 20,
-        "minute": 0
-      },
-      "comment": "Arbeiten in meinem Unternehmen"
-    }
-  ],
-  "intern": false
-},
-{
-  "_id": {
-    "$oid": "65d706b15c208e7fd4abebad"
-  },
-  "id": null,
-  "name": "Schwarzer",
-  "e_mail": "Schwarzer@hs-worms.de",
-  "title": "Prof. Dr.",
-  "absences": [
-    {
-      "id": 1,
-      "begin": {
-        "week_day": 3,
-        "hour": 13,
-        "minute": 0
-      },
-      "end": {
-        "week_day": 3,
-        "hour": 20,
-        "minute": 0
-      },
-      "comment": "Reguläre Treffen"
-    }
-  ],
-  "intern": true
-},
-{
-  "_id": {
-    "$oid": "65d706bc5c208e7fd4abebae"
-  },
-  "id": null,
-  "name": "Koenig",
-  "e_mail": "Koenig@hs-worms.de",
-  "title": "Prof. Dr.",
-  "absences": [],
-  "intern": true
-},
-{
-  "_id": {
-    "$oid": "65d706c75c208e7fd4abebaf"
-  },
-  "id": null,
-  "name": "Kohler",
-  "e_mail": "Kohler@hs-worms.de",
-  "title": "Prof. Dr.",
-  "absences": [
-    {
-      "id": 1,
-      "begin": {
-        "week_day": 3,
-        "hour": 13,
-        "minute": 0
-      },
-      "end": {
-        "week_day": 3,
-        "hour": 20,
-        "minute": 0
-      },
-      "comment": "Reguläre Treffen"
-    }
-  ],
-  "intern": true
-},
-{
-  "_id": {
-    "$oid": "65d706d05c208e7fd4abebb0"
-  },
-  "id": null,
-  "name": "Kessler",
-  "e_mail": "Kessler@hs-worms.de",
-  "title": "Prof. Dr.",
-  "absences": [
-    {
-      "id": 1,
-      "begin": {
-        "week_day": 3,
-        "hour": 13,
-        "minute": 0
-      },
-      "end": {
-        "week_day": 3,
-        "hour": 20,
-        "minute": 0
-      },
-      "comment": "Reguläre Treffen"
-    }
-  ],
-  "intern": true
-},
-{
-  "_id": {
-    "$oid": "65d706f05c208e7fd4abebb1"
-  },
-  "id": null,
-  "name": "Heinemann",
-  "e_mail": "Heinemann@hs-worms.de",
-  "title": "Prof. Dr.",
-  "absences": [
-    {
-      "id": 1,
-      "begin": {
-        "week_day": 1,
-        "hour": 8,
-        "minute": 0
-      },
-      "end": {
-        "week_day": 1,
-        "hour": 10,
-        "minute": 0
-      },
-      "comment": "Lange Anfahrt"
+  {
+    "_id": {
+      "$oid": "65d706a45c208e7fd4abebac"
     },
-    {
-      "id": 2,
-      "begin": {
-        "week_day": 2,
-        "hour": 8,
-        "minute": 0
-      },
-      "end": {
-        "week_day": 2,
-        "hour": 10,
-        "minute": 0
-      },
-      "comment": "Lange Anfahrt"
+    "id": null,
+    "prename": "Markus",
+    "lastname": "Wehrstein",
+    "email": "Wehrstein@hs-worms.de",
+    "title": "Herr",
+    "salutation": "Herr",
+    "absences": [
+      {
+        "id": 1,
+        "begin": {
+          "week_day": 2,
+          "hour": 8,
+          "minute": 0
+        },
+        "end": {
+          "week_day": 5,
+          "hour": 20,
+          "minute": 0
+        },
+        "comment": "Arbeiten in meinem Unternehmen"
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "65d706b15c208e7fd4abebad"
     },
-    {
-      "id": 3,
-      "begin": {
-        "week_day": 3,
-        "hour": 8,
-        "minute": 0
-      },
-      "end": {
-        "week_day": 3,
-        "hour": 10,
-        "minute": 0
-      },
-      "comment": "Lange Anfahrt"
+    "id": null,
+    "prename": "Volker",
+    "lastname": "Schwarzer",
+    "email": "Schwarzer@hs-worms.de",
+    "title": "Prof. Dr.",
+    "salutation": "Herr",
+    "absences": [
+      {
+        "id": 1,
+        "begin": {
+          "week_day": 3,
+          "hour": 13,
+          "minute": 0
+        },
+        "end": {
+          "week_day": 3,
+          "hour": 20,
+          "minute": 0
+        },
+        "comment": "Reguläre Treffen"
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "65d706bc5c208e7fd4abebae"
     },
-    {
-      "id": 4,
-      "begin": {
-        "week_day": 4,
-        "hour": 8,
-        "minute": 0
-      },
-      "end": {
-        "week_day": 4,
-        "hour": 10,
-        "minute": 0
-      },
-      "comment": "Lange Anfahrt"
+    "id": null,
+    "prename": "Werner",
+    "lastname": "Koenig",
+    "email": "Koenig@hs-worms.de",
+    "title": "Prof. Dr.",
+    "salutation": "Herr",
+    "absences": []
+  },
+  {
+    "_id": {
+      "$oid": "65d706c75c208e7fd4abebaf"
     },
-    {
-      "id": 5,
-      "begin": {
-        "week_day": 5,
-        "hour": 8,
-        "minute": 0
+    "id": null,
+    "prename": "Jens",
+    "lastname": "Kohler",
+    "email": "Kohler@hs-worms.de",
+    "title": "Prof. Dr.",
+    "salutation": "Herr",
+    "absences": [
+      {
+        "id": 1,
+        "begin": {
+          "week_day": 3,
+          "hour": 13,
+          "minute": 0
+        },
+        "end": {
+          "week_day": 3,
+          "hour": 20,
+          "minute": 0
+        },
+        "comment": "Reguläre Treffen"
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "65d706d05c208e7fd4abebb0"
+    },
+    "id": null,
+    "prename": "Dagmar",
+    "lastname": "Kessler",
+    "email": "Kessler@hs-worms.de",
+    "title": "Prof. Dr.",
+    "salutation": "Frau",
+    "absences": [
+      {
+        "id": 1,
+        "begin": {
+          "week_day": 3,
+          "hour": 13,
+          "minute": 0
+        },
+        "end": {
+          "week_day": 3,
+          "hour": 20,
+          "minute": 0
+        },
+        "comment": "Reguläre Treffen"
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "65d706f05c208e7fd4abebb1"
+    },
+    "id": null,
+    "prename": "Elisabeth",
+    "lastname": "Heinemann",
+    "email": "Heinemann@hs-worms.de",
+    "title": "Prof. Dr.",
+    "salutation": "Frau",
+    "absences": [
+      {
+        "id": 1,
+        "begin": {
+          "week_day": 1,
+          "hour": 8,
+          "minute": 0
+        },
+        "end": {
+          "week_day": 1,
+          "hour": 10,
+          "minute": 0
+        },
+        "comment": "Lange Anfahrt"
       },
-      "end": {
-        "week_day": 5,
-        "hour": 10,
-        "minute": 0
+      {
+        "id": 2,
+        "begin": {
+          "week_day": 2,
+          "hour": 8,
+          "minute": 0
+        },
+        "end": {
+          "week_day": 2,
+          "hour": 10,
+          "minute": 0
+        },
+        "comment": "Lange Anfahrt"
       },
-      "comment": "Lange Anfahrt"
-    }
-  ],
-  "intern": true
-},
-{
-  "_id": {
-    "$oid": "65d71ab9b21ff5d5528eba68"
-  },
-  "id": null,
-  "name": "Werle-Rutter",
-  "e_mail": "Rutter@hs-worms.de",
-  "title": "Herr",
-  "absences": [],
-  "intern": true
-},
-{
-  "_id": {
-    "$oid": "65d71e229004f2a19971f8bc"
-  },
-  "id": null,
-  "name": "Gloger",
-  "e_mail": "Gloger@hs-worms.de",
-  "title": "Prof. Dr.",
-  "absences": [],
-  "intern": true
-},
-{
-  "_id": {
-    "$oid": "65d73a12a421a928cd955b67"
-  },
-  "id": null,
-  "name": "Haas",
-  "e_mail": "Haas@hs-worms.de",
-  "title": "Prof. Dr.",
-  "absences": [],
-  "intern": true
-},
-{
-  "_id": {
-    "$oid": "65d73a62a421a928cd955b69"
-  },
-  "id": null,
-  "name": "Wendzel",
-  "e_mail": "Wendzel@hs-worms.de",
-  "title": "Prof. Dr.",
-  "absences": [],
-  "intern": true
-},
-{
-  "_id": {
-    "$oid": "65d73be5a421a928cd955b6e"
-  },
-  "id": null,
-  "name": "Wiebel",
-  "e_mail": "Wiebel@hs-worms.de",
-  "title": "Prof. Dr.",
-  "absences": [
-    {
-      "id": 1,
-      "begin": {
-        "week_day": 3,
-        "hour": 13,
-        "minute": 0
+      {
+        "id": 3,
+        "begin": {
+          "week_day": 3,
+          "hour": 8,
+          "minute": 0
+        },
+        "end": {
+          "week_day": 3,
+          "hour": 10,
+          "minute": 0
+        },
+        "comment": "Lange Anfahrt"
       },
-      "end": {
-        "week_day": 3,
-        "hour": 20,
-        "minute": 0
+      {
+        "id": 4,
+        "begin": {
+          "week_day": 4,
+          "hour": 8,
+          "minute": 0
+        },
+        "end": {
+          "week_day": 4,
+          "hour": 10,
+          "minute": 0
+        },
+        "comment": "Lange Anfahrt"
       },
-      "comment": "Reguläre Treffen"
-    }
-  ],
-  "intern": true
-}]
+      {
+        "id": 5,
+        "begin": {
+          "week_day": 5,
+          "hour": 8,
+          "minute": 0
+        },
+        "end": {
+          "week_day": 5,
+          "hour": 10,
+          "minute": 0
+        },
+        "comment": "Lange Anfahrt"
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "65d71ab9b21ff5d5528eba68"
+    },
+    "id": null,
+    "prename": "Michael Derek",
+    "lastname": "Werle-Rutter",
+    "email": "Rutter@hs-worms.de",
+    "title": "",
+    "salutation": "Herr",
+    "absences": []
+  },
+  {
+    "_id": {
+      "$oid": "65d71e229004f2a19971f8bc"
+    },
+    "id": null,
+    "prename": "Oliver",
+    "lastname": "Gloger",
+    "email": "Gloger@hs-worms.de",
+    "title": "Prof. Dr.",
+    "salutation": "Herr",
+    "absences": []
+  },
+  {
+    "_id": {
+      "$oid": "65d73a12a421a928cd955b67"
+    },
+    "id": null,
+    "prename": "Normen",
+    "lastname": "Haas",
+    "email": "Haas@hs-worms.de",
+    "title": "Prof. Dr.",
+    "salutation": "Herr",
+    "absences": []
+  },
+  {
+    "_id": {
+      "$oid": "65d73a62a421a928cd955b69"
+    },
+    "id": null,
+    "prename": "Steffen",
+    "lastname": "Wendzel",
+    "email": "Wendzel@hs-worms.de",
+    "title": "Prof. Dr.",
+    "salutation": "Herr",
+    "absences": []
+  },
+  {
+    "_id": {
+      "$oid": "65d73be5a421a928cd955b6e"
+    },
+    "id": null,
+    "prename": "Alexander",
+    "lastname": "Wiebel",
+    "email": "Wiebel@hs-worms.de",
+    "title": "Prof. Dr.",
+    "salutation": "Herr",
+    "absences": [
+      {
+        "id": 1,
+        "begin": {
+          "week_day": 3,
+          "hour": 13,
+          "minute": 0
+        },
+        "end": {
+          "week_day": 3,
+          "hour": 20,
+          "minute": 0
+        },
+        "comment": "Reguläre Treffen"
+      }
+    ]
+  }
+]

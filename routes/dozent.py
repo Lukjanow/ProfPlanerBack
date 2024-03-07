@@ -10,6 +10,8 @@ router = APIRouter()
 
 router = APIRouter()
 dozentCollection = db["dozent"]
+modules = db["modules"]
+
 
 # All API functions regarding Dozents
 
@@ -22,7 +24,7 @@ dozentCollection = db["dozent"]
 @router.get("/dozent",summary="read all Dozent",
         description="Get all Dozent from Database. Returns an Array of Json's.",
         tags=["Dozent"],
-        response_model=List[DozentRespone], responses={
+        response_model=List[DozentResponse], responses={
             404: {"model": HTTPError, "detail": "str"}
             })
 async def Get_all_Dozents():
@@ -41,7 +43,7 @@ async def Get_all_Dozents():
 @router.get("/dozent/{dozent_id}",summary="read Dozent by ID",
         description="Get data about a specific Dozent according the given ID. Returns a Json with the Data.",
         tags=["Dozent"],
-        response_model=DozentRespone, 
+        response_model=DozentResponse, 
         responses={
             404: {"model": HTTPError, "detail": "str"},
             400: {"model": HTTPError, "detail": "str"}
@@ -92,12 +94,12 @@ async def get_Dozent_absences(dozent_id):
 @router.post("/dozent",summary="add Dozent",
         description="Add a Dozent to the database based on the Input. Gives out a Message if successful.",
         tags=["Dozent"],
-        response_model=DozentRespone,
+        response_model=DozentResponse,
         responses={
             404: {"model": HTTPError, "detail": "str"}
         }
     )
-async def Add_Dozent(dozent: DozentRespone):
+async def Add_Dozent(dozent: DozentResponse):
     dozent = dict(dozent)
 
     if dozent["absences"] != None:
@@ -119,7 +121,7 @@ async def Add_Dozent(dozent: DozentRespone):
 @router.put("/dozent/{dozent_id}",summary="update complete Dozent by ID",
         description="Update a Dozent already in the database based on the Input. Gives out a Message if successful.",
         tags=["Dozent"],
-        response_model=DozentRespone,
+        response_model=DozentResponse,
         responses={
             404: {"model": HTTPError, "detail": "str"},
             400: {"model": HTTPError, "detail": "str"}
@@ -137,10 +139,13 @@ async def Update_Dozent(dozent_id, changes:dict):
     for key, value in changes.items():
             result[key] = value
     try:
-        new_item = DozentRespone(id=dozent_id, name=result["name"], e_mail=result["e_mail"], title=result["title"],absences=result["absences"],intern=result["intern"])
+        new_item = DozentResponse(id=dozent_id, salutation=result["salutation"], lastname=result["lastname"], prename=result["prename"], email=result["email"], title=result["title"], absences=result["absences"])
     except:
         raise HTTPException(status_code=400, detail="TypeError")
     dozentCollection.update_one({"_id": ObjectId(dozent_id)}, {"$set": changes})
+
+    new_item.id = dozent_id
+
     return new_item
 
 
@@ -160,5 +165,15 @@ async def Delete_Modul(dozent_id):
     except:
         raise HTTPException(400, detail=f'{dozent_id} is not a valid ObjectId, it must be a 12-byte input or a 24-character hex string',)
     
+    re = modules.find({"dozent": {"$elemMatch": {"$eq": dozent_id}}})
+
+    for module in re:
+        newDozentList = []
+        for dozent in module["dozent"]:
+            if dozent == dozent_id:
+                continue
+            newDozentList.append(dozent)
+        modules.update_one({"_id":module["_id"]}, {"$set":{"dozent":newDozentList}})
+
     dozentCollection.delete_one({"_id": id})
     return {"message": f"Successfully deleted Dozent {dozent_id}"}

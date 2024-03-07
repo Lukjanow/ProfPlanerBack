@@ -3,15 +3,10 @@ from pydantic import BaseModel, Field
 from models.CalendarEntry import *
 
 class Calendar(BaseModel):
-    id: str
+    id: Optional[str] = Field(alias="_id", default=None)
     name: str
     entries: list[CalendarEntry]
 
 class CalendarResponse(Calendar):
     id: Optional[str] = Field(alias="_id", default=None)
     entries: list[str]
-    
-class CalendarResponseCom(CalendarResponse):
-    details: Optional[str]
-
-

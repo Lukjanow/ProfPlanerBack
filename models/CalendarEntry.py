@@ -4,7 +4,7 @@ from models.Module import *
 from models.TimeStamp import TimeStamp
 
 class CalendarEntry(BaseModel):
-    id: str
+    id: Optional[str] = Field(alias="_id", default=None)
     module: Module
     time_stamp: TimeStamp
     comment: str | None

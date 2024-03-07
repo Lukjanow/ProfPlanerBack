@@ -2,12 +2,12 @@
   "_id": {
     "$oid": "65d70a20bd82b03aeac92a56"
   },
-  "id": "112",
+  "module_id": "112",
   "name": "Einführung in die Informatik",
   "dozent": [
     "65d706915c208e7fd4abebab"
   ],
-  "room": "65d854c3dfc97c0356792f8e",
+  "room": ["65d854c3dfc97c0356792f8e"],
   "study_semester": [
     "65d71bdb8c4eb66943f53f14"
   ],
@@ -25,12 +25,12 @@
   "_id": {
     "$oid": "65d70a35bd82b03aeac92a57"
   },
-  "id": "111",
+  "module_id": "111",
   "name": "Selbst- und Methodenkompetenz",
   "dozent": [
     "65d706a45c208e7fd4abebac"
   ],
-  "room": "65d854c3dfc97c0356792f8e",
+  "room": ["65d854c3dfc97c0356792f8e"],
   "study_semester": [
     "65d71bdb8c4eb66943f53f14"
   ],
@@ -48,12 +48,12 @@
   "_id": {
     "$oid": "65d70a55bd82b03aeac92a58"
   },
-  "id": "507",
+  "module_id": "507",
   "name": "Internet of Things",
   "dozent": [
     "65d706b15c208e7fd4abebad"
   ],
-  "room": "65d85564dfc97c0356792f91",
+  "room": ["65d85564dfc97c0356792f91"],
   "study_semester": [
     "65d71c028c4eb66943f53f19",
     "65d71bfb8c4eb66943f53f18",
@@ -74,12 +74,12 @@
   "_id": {
     "$oid": "65d70a6bbd82b03aeac92a59"
   },
-  "id": "132",
+  "module_id": "132",
   "name": "Webentwicklung",
   "dozent": [
     "65d706b15c208e7fd4abebad"
   ],
-  "room": "65d85501dfc97c0356792f8f",
+  "room": ["65d85501dfc97c0356792f8f"],
   "study_semester": [
     "65d71bf38c4eb66943f53f16"
   ],
@@ -97,12 +97,12 @@
   "_id": {
     "$oid": "65d70a8cbd82b03aeac92a5a"
   },
-  "id": "152",
+  "module_id": "152",
   "name": "User experience",
   "dozent": [
     "65d706bc5c208e7fd4abebae"
   ],
-  "room": "65d85609dfc97c0356792fa3",
+  "room": ["65d85609dfc97c0356792fa3"],
   "study_semester": [
     "65d71bfb8c4eb66943f53f18"
   ],
@@ -120,12 +120,12 @@
   "_id": {
     "$oid": "65d70aafbd82b03aeac92a5b"
   },
-  "id": "151",
+  "module_id": "151",
   "name": "Fullstack Webanwendungen",
   "dozent": [
     "65d706c75c208e7fd4abebaf"
   ],
-  "room": "65d85609dfc97c0356792fa3",
+  "room": ["65d85609dfc97c0356792fa3"],
   "study_semester": [
     "65d71bf78c4eb66943f53f17"
   ],
@@ -143,12 +143,12 @@
   "_id": {
     "$oid": "65d70acbbd82b03aeac92a5c"
   },
-  "id": "125",
+  "module_id": "125",
   "name": "Statistik",
   "dozent": [
     "65d706d05c208e7fd4abebb0"
   ],
-  "room": "65d8558bdfc97c0356792f96",
+  "room": ["65d8558bdfc97c0356792f96"],
   "study_semester": [
     "65d71bdf8c4eb66943f53f15"
   ],
@@ -166,12 +166,12 @@
   "_id": {
     "$oid": "65d71e619004f2a19971f8bd"
   },
-  "id": "215",
+  "module_id": "215",
   "name": "machine Learning",
   "dozent": [
     "65d71e229004f2a19971f8bc"
   ],
-  "room": "65d855b8dfc97c0356792f97",
+  "room": ["65d855b8dfc97c0356792f97"],
   "study_semester": [
     "65d71c2c8c4eb66943f53f1c"
   ],
@@ -189,12 +189,12 @@
   "_id": {
     "$oid": "65d738b5a421a928cd955b63"
   },
-  "id": "113",
+  "module_id": "113",
   "name": "Hardwarekonzepte",
   "dozent": [
     "65d71e229004f2a19971f8bc"
   ],
-  "room": "65d854c3dfc97c0356792f8e",
+  "room": ["65d854c3dfc97c0356792f8e"],
   "study_semester": [
     "65d71bdb8c4eb66943f53f14"
   ],
@@ -212,12 +212,12 @@
   "_id": {
     "$oid": "65d73918a421a928cd955b64"
   },
-  "id": "121",
+  "module_id": "121",
   "name": "Betriebssysteme",
   "dozent": [
     "65d706c75c208e7fd4abebaf"
   ],
-  "room": "65d8556fdfc97c0356792f93",
+  "room": ["65d8556fdfc97c0356792f93"],
   "study_semester": [
     "65d71bdf8c4eb66943f53f15"
   ],
@@ -235,12 +235,12 @@
   "_id": {
     "$oid": "65d73941a421a928cd955b65"
   },
-  "id": "123",
+  "module_id": "123",
   "name": "Rechernetze und Netzwerksicherheit",
   "dozent": [
     "65d706c75c208e7fd4abebaf"
   ],
-  "room": "65d85579dfc97c0356792f94",
+  "room": ["65d85579dfc97c0356792f94"],
   "study_semester": [
     "65d71bdf8c4eb66943f53f15"
   ],
@@ -258,12 +258,12 @@
   "_id": {
     "$oid": "65d73993a421a928cd955b66"
   },
-  "id": "131",
+  "module_id": "131",
   "name": "Softwarequalität",
   "dozent": [
     "65d706915c208e7fd4abebab"
   ],
-  "room": "65d85569dfc97c0356792f92",
+  "room": ["65d85569dfc97c0356792f92"],
   "study_semester": [
     "65d71bf38c4eb66943f53f16"
   ],
@@ -281,12 +281,12 @@
   "_id": {
     "$oid": "65d73a36a421a928cd955b68"
   },
-  "id": "214",
+  "module_id": "214",
   "name": "Digitalisierung und Gesellschaft",
   "dozent": [
     "65d73a12a421a928cd955b67"
   ],
-  "room": null,
+  "room": [],
   "study_semester": [
     "65d71c2c8c4eb66943f53f1c"
   ],
@@ -304,12 +304,12 @@
   "_id": {
     "$oid": "65d73a7ca421a928cd955b6a"
   },
-  "id": "302",
+  "module_id": "302",
   "name": "Network Security",
   "dozent": [
     "65d73a62a421a928cd955b69"
   ],
-  "room": null,
+  "room": [],
   "study_semester": [
     "65d71c088c4eb66943f53f1a"
   ],
@@ -327,12 +327,12 @@
   "_id": {
     "$oid": "65d73abfa421a928cd955b6b"
   },
-  "id": "304",
+  "module_id": "304",
   "name": "Skript-Programmierung",
   "dozent": [
     "65d706915c208e7fd4abebab"
   ],
-  "room": null,
+  "room": [],
   "study_semester": [
     "65d71c088c4eb66943f53f1a"
   ],
@@ -350,12 +350,12 @@
   "_id": {
     "$oid": "65d73af9a421a928cd955b6c"
   },
-  "id": "305",
+  "module_id": "305",
   "name": "Kryptographie",
   "dozent": [
     "65d706915c208e7fd4abebab"
   ],
-  "room": null,
+  "room": [],
   "study_semester": [
     "65d71c088c4eb66943f53f1a",
     "65d71c028c4eb66943f53f19"
@@ -374,12 +374,12 @@
   "_id": {
     "$oid": "65d73b8da421a928cd955b6d"
   },
-  "id": "501",
+  "module_id": "501",
   "name": "Algorithmen und Datenstrukturen",
   "dozent": [
     "65d706b15c208e7fd4abebad"
   ],
-  "room": null,
+  "room": [],
   "study_semester": [
     "65d71c028c4eb66943f53f19"
   ],
@@ -397,12 +397,12 @@
   "_id": {
     "$oid": "65d73c01a421a928cd955b6f"
   },
-  "id": "403",
+  "module_id": "403",
   "name": "3D-Modellierung",
   "dozent": [
     "65d73be5a421a928cd955b6e"
   ],
-  "room": null,
+  "room": [],
   "study_semester": [
     "65d71c1f8c4eb66943f53f1b"
   ],
@@ -420,12 +420,12 @@
   "_id": {
     "$oid": "65d741667b2b74e83dedcdc0"
   },
-  "id": "141",
+  "module_id": "141",
   "name": "Requirements Engineering",
   "dozent": [
     "65d706f05c208e7fd4abebb1"
   ],
-  "room": null,
+  "room": [],
   "study_semester": [
     "65d71bf78c4eb66943f53f17"
   ],

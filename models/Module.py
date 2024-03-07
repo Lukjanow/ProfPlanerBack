@@ -1,4 +1,5 @@
-from pydantic import BaseModel
+from typing import Optional
+from pydantic import BaseModel, Field
 
 from models.Dozent import Dozent
 from models.Room import Room
@@ -8,11 +9,12 @@ from models.enums.Frequency import Frequency
 
 
 class Module(BaseModel, use_enum_values=True):
-    id: str
+    id: Optional[str] = Field(alias="_id", default=None)
+    module_id: str
     name: str
     code: str | None
     dozent: list[Dozent]
-    room: list[Room] | Room | None
+    room: list[Room]
     study_semester: list[StudySemester]
     duration: int
     approximate_attendance: int
@@ -26,15 +28,15 @@ class Module(BaseModel, use_enum_values=True):
 
 class ModuleResponse(Module):
     dozent: list[str]
-    room: list[str] | str | None
+    room: list[str]
     study_semester: list[str]
 
 
 class BasicModule(BaseModel):
-    id: str
+    id: Optional[str] = Field(alias="_id", default=None)
     name: str
-    code: str
-    dozent: list[str]
-    room: list[str]
-    study_semester: list[str]
+    code: str | None
+    dozent: list[Dozent]
+    room: list[Room]
+    study_semester: list[StudySemester]
     duration: int
