@@ -497,7 +497,12 @@ async def Add_Modul_XLSX(
     ok = True
     #check if module ID already exist
     for module in data:
-        cpy = {}
+        cpy = {
+            "dozent": [],
+            "room": [],
+            "study_semester": [],
+            "type": []
+        }
         for key, value in module.items():
             if re.search("dozent|type|study_semester|room", key):
                 if re.search("dozent", key) and value:
