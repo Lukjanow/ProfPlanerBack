@@ -7,6 +7,8 @@ from Database.Database import db
 router = APIRouter()
 
 studyCourseCollection = db["studycourse"]
+studySemesterCollection = db["studysemester"]
+modules = db["modules"]
 
 @router.get("/studycourse",summary="read all StudyCourses",
         description="Get all StudyCourses from Database. Returns an Array of Json's.",
@@ -115,19 +117,29 @@ async def Update_StudyCourse(studycourse_id:str, changes: dict):
     )
 async def Delete_StudyCourse(studycourse_id:str):
     try:
-        id = ObjectId(studycourse_id)
+        id_check = ObjectId(studycourse_id)
     except:
         raise HTTPException(400, detail=f'{studycourse_id} is not a valid ObjectId, it must be a 12-byte input or a 24-character hex string',)
     
-    """  re = modules.find({"study_semester": {"$elemMatch": {"$eq": studycourse_id}}})
+    re = studySemesterCollection.find({"studyCourse": studycourse_id})
+   
+    studySemesterIDs = []
 
-    for module in re:
-        newStudysemesterList = []
-        for studysemester in module["study_semester"]:
-            if studysemester == studysemester_id:
-                continue
-            newStudysemesterList.append(studysemester)
-        modules.update_one({"_id":module["_id"]}, {"$set":{"study_semester":newStudysemesterList}})
-     """
+    for studysemester in re:
+        studySemesterIDs.append(studysemester["_id"])
+        studySemesterCollection.delete_one({"_id": studysemester["_id"]})
+
+    for id in studySemesterIDs:
+        print(id)
+        re = modules.find({"study_semester": {"$elemMatch": {"$eq": str(id)}}})
+
+        for module in re:
+            newStudysemesterList = []
+            for studysemester in module["study_semester"]:
+                if studysemester == str(id):
+                    continue
+                newStudysemesterList.append(studysemester)
+            modules.update_one({"_id":module["_id"]}, {"$set":{"study_semester":newStudysemesterList}})
+    
     studyCourseCollection.delete_one({"_id": id})
-    return {"message": f"Successfully deleted StudyCourse {studycourse_id}"}
+    return {"message": f"Successfully deleted StudyCourse {studycourse_id}"} 
