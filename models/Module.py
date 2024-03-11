@@ -42,17 +42,27 @@ class BasicModule(BaseModel):
     duration: int
 
 
+class Events(BaseModel):
+    type: str
+    dozent: list[str]
+    room: str
+    duration: str
+    pause: str
+    group: str
+    addTime: bool
+    error: bool
 
-class NEWModule(BaseModel, use_enum_values=True):
+
+class Moduledetails(BaseModel, use_enum_values=True):
     id: Optional[str] = Field(alias="_id", default=None)
     module_id: str | None
     name: str
     code: str | None
-    events: list[dict]
-    study_semester: list[StudySemester]
+    events: list[Events]
+    study_semester: list[str]
     qsp: list[str] | None
     frequency: Frequency
     selected: bool
     color: str | None
     note: str | None
-    course: bool
+    study_course: list[str]
