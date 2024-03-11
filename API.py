@@ -9,6 +9,7 @@ from routes.room import router as roomrouter
 from routes.calendar import router as calendarrouter
 from routes.absence import router as absencerouter
 from routes.studysemester import router as studysemesterrouter
+from routes.export import router as exportrouter
 
 #test
 # https://fastapi.tiangolo.com/tutorial/bigger-applications/
@@ -36,4 +37,5 @@ app.include_router(roomrouter)
 app.include_router(calendarrouter)
 app.include_router(absencerouter)
 app.include_router(studysemesterrouter)
+app.include_router(exportrouter)
 
