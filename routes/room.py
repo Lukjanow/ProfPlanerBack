@@ -97,7 +97,7 @@ async def Update_Room(
     for key, value in changes.items():
             result[key] = value
     try:
-        new_item = Room(id=room_id, name=result["name"], capacity=result["capacity"], equipment=result["equipment"])
+        new_item = Room(id=room_id, roomNumber=result["roomNumber"], capacity=result["capacity"], roomType=result["roomType"])
     except:
         raise HTTPException(status_code=400, detail="TypeError")
     rooms.update_one({"_id": ObjectId(room_id)}, {"$set": changes})

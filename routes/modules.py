@@ -123,7 +123,9 @@ async def Get_BasicData_Modules():
 
     for module in modules_list:
         module["_id"] = str(module["_id"])
-        selected_modules.append(module)    
+        selected_modules.append(module)   
+
+    selected_modules = convertDataWithReferences(selected_modules) 
         
     if selected_modules:
         return selected_modules
