@@ -1,81 +1,226 @@
 [{
   "_id": {
-    "$oid": "65d71bdb8c4eb66943f53f14"
+    "$oid": "65ef198800fa3a6dfc152b22"
   },
   "id": null,
-  "name": "Semester 1",
-  "study": 1,
-  "content": 1
-},
-{
+  "studyCourse": "65ef18ce00fa3a6dfc152b20",
+  "semesterNumbers": [
+    1
+  ],
+  "content": []
+},{
   "_id": {
-    "$oid": "65d71bdf8c4eb66943f53f15"
+    "$oid": "65ef19a300fa3a6dfc152b23"
   },
   "id": null,
-  "name": "Semester 2",
-  "study": 1,
-  "content": 1
-},
-{
+  "studyCourse": "65ef18ce00fa3a6dfc152b20",
+  "semesterNumbers": [
+    1
+  ],
+  "content": []
+},{
   "_id": {
-    "$oid": "65d71bf38c4eb66943f53f16"
+    "$oid": "65ef19ca00fa3a6dfc152b24"
   },
   "id": null,
-  "name": "Semester 3",
-  "study": 1,
-  "content": 2
-},
-{
+  "studyCourse": "65ef18ce00fa3a6dfc152b20",
+  "semesterNumbers": [
+    3,
+    4,
+    5
+  ],
+  "content": [
+    "WB"
+  ]
+},{
   "_id": {
-    "$oid": "65d71bf78c4eb66943f53f17"
+    "$oid": "65ef1a0300fa3a6dfc152b25"
   },
   "id": null,
-  "name": "Semester 4",
-  "study": 1,
-  "content": 2
-},
-{
+  "studyCourse": "65ef18ce00fa3a6dfc152b20",
+  "semesterNumbers": [
+    4
+  ],
+  "content": []
+},{
   "_id": {
-    "$oid": "65d71bfb8c4eb66943f53f18"
+    "$oid": "65ef1a1a00fa3a6dfc152b26"
   },
   "id": null,
-  "name": "Semester 5",
-  "study": 1,
-  "content": 2
-},
-{
+  "studyCourse": "65ef18ce00fa3a6dfc152b20",
+  "semesterNumbers": [
+    5
+  ],
+  "content": []
+},{
   "_id": {
-    "$oid": "65d71c028c4eb66943f53f19"
+    "$oid": "65ef1a3400fa3a6dfc152b27"
   },
   "id": null,
-  "name": "SED",
-  "study": 1,
-  "content": 3
-},
-{
+  "studyCourse": "65ef18ce00fa3a6dfc152b20",
+  "semesterNumbers": [
+    4
+  ],
+  "content": []
+},{
   "_id": {
-    "$oid": "65d71c088c4eb66943f53f1a"
+    "$oid": "65ef1a5300fa3a6dfc152b28"
   },
   "id": null,
-  "name": "Network",
-  "study": 1,
-  "content": 3
-},
-{
+  "studyCourse": "65ef18ce00fa3a6dfc152b20",
+  "semesterNumbers": [
+    2
+  ],
+  "content": []
+},{
   "_id": {
-    "$oid": "65d71c1f8c4eb66943f53f1b"
+    "$oid": "65ef1a6c00fa3a6dfc152b29"
   },
   "id": null,
-  "name": "Design",
-  "study": 1,
-  "content": 3
-},
-{
+  "studyCourse": "65ef18ce00fa3a6dfc152b20",
+  "semesterNumbers": [
+    3,
+    4,
+    5
+  ],
+  "content": [
+    "WB"
+  ]
+},{
   "_id": {
-    "$oid": "65d71c2c8c4eb66943f53f1c"
+    "$oid": "65ef1b90cb961b3663f592a5"
   },
   "id": null,
-  "name": "Wahlfächer",
-  "study": 1,
-  "content": 4
+  "studyCourse": "65ef18ce00fa3a6dfc152b20",
+  "semesterNumbers": [
+    1
+  ],
+  "content": []
+},{
+  "_id": {
+    "$oid": "65ef1bcccb961b3663f592a6"
+  },
+  "id": null,
+  "studyCourse": "65ef18ce00fa3a6dfc152b20",
+  "semesterNumbers": [
+    2
+  ],
+  "content": []
+},{
+  "_id": {
+    "$oid": "65ef1bdecb961b3663f592a7"
+  },
+  "id": null,
+  "studyCourse": "65ef18ce00fa3a6dfc152b20",
+  "semesterNumbers": [
+    2
+  ],
+  "content": []
+},{
+  "_id": {
+    "$oid": "65ef1befcb961b3663f592a8"
+  },
+  "id": null,
+  "studyCourse": "65ef18ce00fa3a6dfc152b20",
+  "semesterNumbers": [
+    3
+  ],
+  "content": []
+},{
+  "_id": {
+    "$oid": "65ef1c08cb961b3663f592a9"
+  },
+  "id": null,
+  "studyCourse": "65ef18ce00fa3a6dfc152b20",
+  "semesterNumbers": [
+    3,
+    4,
+    5
+  ],
+  "content": [
+    "WB"
+  ]
+},{
+  "0": "\"WB",
+  "_id": {
+    "$oid": "65ef1c20cb961b3663f592aa"
+  },
+  "id": null,
+  "studyCourse": "65ef18ce00fa3a6dfc152b20",
+  "semesterNumbers": [
+    3,
+    "4",
+    "5"
+  ],
+  "content": []
+},{
+  "_id": {
+    "$oid": "65ef1c36cb961b3663f592ab"
+  },
+  "id": null,
+  "studyCourse": "65ef18ce00fa3a6dfc152b20",
+  "semesterNumbers": [
+    3,
+    4,
+    5
+  ],
+  "content": [
+    "WB"
+  ]
+},{
+  "_id": {
+    "$oid": "65ef1ccecb961b3663f592ad"
+  },
+  "id": null,
+  "studyCourse": "65ef18ce00fa3a6dfc152b20",
+  "semesterNumbers": [
+    3,
+    4,
+    5
+  ],
+  "content": [
+    "WB",
+    "SE&D",
+    "NetSec"
+  ]
+},{
+  "_id": {
+    "$oid": "65ef1cf5cb961b3663f592ae"
+  },
+  "id": null,
+  "studyCourse": "65ef18ce00fa3a6dfc152b20",
+  "semesterNumbers": [
+    3,
+    4,
+    5
+  ],
+  "content": [
+    "WB",
+    "SE&D"
+  ]
+},{
+  "_id": {
+    "$oid": "65ef1d0acb961b3663f592af"
+  },
+  "id": null,
+  "studyCourse": "65ef18ce00fa3a6dfc152b20",
+  "semesterNumbers": [
+    3,
+    4,
+    5
+  ],
+  "content": [
+    "WB",
+    "VisCo"
+  ]
+},{
+  "_id": {
+    "$oid": "65ef1d28cb961b3663f592b0"
+  },
+  "id": null,
+  "studyCourse": "65ef18ce00fa3a6dfc152b20",
+  "semesterNumbers": [
+    4
+  ],
+  "content": []
 }]

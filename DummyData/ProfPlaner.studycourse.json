@@ -1,0 +1,22 @@
+[{
+  "_id": {
+    "$oid": "65ef18ce00fa3a6dfc152b20"
+  },
+  "id": null,
+  "name": "AI B.Sc",
+  "semesterCount": 7,
+  "content": [
+    "VisCo",
+    "SE&D",
+    "WB",
+    "NetSec"
+  ]
+},{
+  "_id": {
+    "$oid": "65ef18de00fa3a6dfc152b21"
+  },
+  "id": null,
+  "name": "WI B.Sc",
+  "semesterCount": 7,
+  "content": []
+}]
