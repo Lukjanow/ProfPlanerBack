@@ -17,7 +17,7 @@ notes = db["notes"]
         response_model=List[Note], responses={
             404: {"model": HTTPError, "detail": "str"}
             })
-async def get_all_notes():
+async def Get_all_Notes():
     results = notes.find()
 
     resultList = []
@@ -38,7 +38,7 @@ async def get_all_notes():
             404: {"model": HTTPError, "detail": "str"},
             400: {"model": HTTPError, "detail": "str"}
             })
-async def get_note_by_id(note_id):
+async def Get_one_Note(note_id):
     try:
         id = ObjectId(note_id)
     except:
@@ -72,7 +72,7 @@ async def Add_Room(
 
 
 @router.delete("/notes/{note_id}", summary="Delete a Note by ID", response_model=Message, tags=["Notes"])
-async def delete_note(note_id: str):
+async def Delete_Note(note_id: str):
     try:
         id = ObjectId(note_id)
     except:
