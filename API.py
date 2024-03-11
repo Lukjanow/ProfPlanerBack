@@ -11,6 +11,7 @@ from routes.absence import router as absencerouter
 from routes.studysemester import router as studysemesterrouter
 from routes.notes import router as notesrouter
 from routes.export import router as exportrouter
+from routes.studycourse import router as studycourserouter
 
 
 #test
@@ -40,5 +41,6 @@ app.include_router(calendarrouter)
 app.include_router(absencerouter)
 app.include_router(studysemesterrouter)
 app.include_router(notesrouter)
+app.include_router(studycourserouter)
 app.include_router(exportrouter)
 

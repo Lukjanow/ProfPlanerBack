@@ -19,7 +19,7 @@ modules = db["modules"]
 @router.get("/studysemester",summary="read all Studysemester",
         description="Get all Studysemesters from Database. Returns an Array of Json's.",
         tags=["Studysemester"],
-        response_model=list[StudySemester], responses={
+        response_model=list[StudySemesterResponse], responses={
             404: {"model": HTTPError, "detail": "str"}
             })
 async def Get_all_Studysemesters():
@@ -38,7 +38,7 @@ async def Get_all_Studysemesters():
 @router.get("/studysemester/{studysemester_id}",summary="read Studysemester by ID",
         description="Get data about a specific Studysemester according the given ID. Returns a Json with the Data.",
         tags=["Studysemester"],
-        response_model=StudySemester, 
+        response_model=StudySemesterResponse, 
         responses={
             400: {"model": HTTPError, "detail": "str"},
             404: {"model": HTTPError, "detail": "str"}
@@ -64,7 +64,7 @@ async def Get_one_Studysemester(studysemester_id: str):
 @router.post("/studysemester",summary="add Studysemester",
         description="Add a Studysemester to the database based on the Input. Gives out a Message if successful.",
         tags=["Studysemester"],
-        response_model=StudySemester,
+        response_model=StudySemesterResponse,
         responses={
             404: {"model": HTTPError, "detail": "str"}
         }
@@ -81,7 +81,7 @@ async def Add_Studysemester(studysemester: StudySemester):
 @router.put("/studysemester/{studysemester_id}",summary="update complete Studysemester by ID",
         description="Update a Studysemester already in the database based on the Input. Gives out a Message if successful.",
         tags=["Studysemester"],
-        response_model=StudySemester,
+        response_model=StudySemesterResponse,
         responses={
             404: {"model": HTTPError, "detail": "str"},
             400: {"model": HTTPError, "detail": "str"}
@@ -101,7 +101,7 @@ async def Update_Studysemester(studysemester_id:str, changes: dict):
     for key, value in changes.items():
             item[key] = value
     try:
-        new_item = StudySemester(id=studysemester_id, name=item["name"], study=item["study"], content=item["content"])
+        new_item = StudySemesterResponse(id=studysemester_id, studyCourse=item["studyCourse"], semesterNumbers=item["semesterNumbers"], content=item["content"])
     except:
         raise HTTPException(status_code=400, detail="TypeError")
     studySemesterCollection.update_one({"_id": ObjectId(studysemester_id)}, {"$set": changes})
