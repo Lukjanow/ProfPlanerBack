@@ -117,7 +117,7 @@ async def Update_StudyCourse(studycourse_id:str, changes: dict):
     )
 async def Delete_StudyCourse(studycourse_id:str):
     try:
-        id_check = ObjectId(studycourse_id)
+        id_course = ObjectId(studycourse_id)
     except:
         raise HTTPException(400, detail=f'{studycourse_id} is not a valid ObjectId, it must be a 12-byte input or a 24-character hex string',)
     
@@ -141,5 +141,5 @@ async def Delete_StudyCourse(studycourse_id:str):
                 newStudysemesterList.append(studysemester)
             modules.update_one({"_id":module["_id"]}, {"$set":{"study_semester":newStudysemesterList}})
     
-    studyCourseCollection.delete_one({"_id": id})
+    studyCourseCollection.delete_one({"_id": id_course})
     return {"message": f"Successfully deleted StudyCourse {studycourse_id}"} 
