@@ -1,10 +1,11 @@
 from typing import Optional
 from pydantic import BaseModel, Field
+from models.StudyCourse import StudyCourse
 from models.enums.Content import Content
 from models.enums.Study import Study
 
-class StudySemester(BaseModel, use_enum_values=True):
+class StudySemester(BaseModel):
     id: Optional[str] = Field(alias="_id", default=None)
-    name:str
-    study: Study
-    content: Content
+    studyCourse: str
+    semesterNumbers: list[int]
+    content: list[str]

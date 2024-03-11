@@ -101,7 +101,7 @@ async def Update_Studysemester(studysemester_id:str, changes: dict):
     for key, value in changes.items():
             item[key] = value
     try:
-        new_item = StudySemester(id=studysemester_id, name=item["name"], study=item["study"], content=item["content"])
+        new_item = StudySemester(id=studysemester_id, studyCourse=item["studyCourse"], semesterNumbers=item["semesterNumbers"], content=item["content"])
     except:
         raise HTTPException(status_code=400, detail="TypeError")
     studySemesterCollection.update_one({"_id": ObjectId(studysemester_id)}, {"$set": changes})
