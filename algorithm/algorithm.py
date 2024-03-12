@@ -18,6 +18,14 @@ db = myclient.ProfPlaner
 from conflicts import checkTimetableForConflicts
 from bson import ObjectId
 from routes.modules import convertDataWithReferences
+from itertools import permutations
+num_list = [11, 21, 31, 41, 51]
+perm_list = []
+
+for perm in permutations(num_list):
+    perm_list.append(perm)
+print(perm_list)
+
 modules = db["modules"]
 calendarentry = db["calendarEntry"]
 calendars = db["calendar"]
@@ -53,7 +61,7 @@ for module in module_list:
 
 #TODO: GET ALL MODULES FROM BACHELOR AI SEMESTER 1
 b_ai_1_module_list = []
-for module in module_list:
+for module in unplanned_modul_list:
     for study_semester in module["study_semester"]:
         if study_semester["studyCourse"]["name"] == "AI B.Sc":
             if 1 in study_semester["semesterNumbers"]:
@@ -74,11 +82,53 @@ timetable = {
     52: [], #FRIDAY AFTERNOON
 }
 
-is_valid = False
+# def getPermNum(perm_list, perm_index, module_index):
+#     perm_num = None
+#     for perm_num_index, perm_num in enumerate(perm_list[0]):
+#         if perm_num_index == module_index:
+#             block_num = perm_num
+#     for perm_num_index, perm_num in enumerate(perm_list[perm_index]):
+#         if perm_num == block_num:
+#             return perm_num_index
+        
+def getPermNum(perm, module_index):
+    for perm_num_index, perm_num in enumerate(perm):
+        if perm_num_index == module_index:
+            return perm_num
+
+def deletePermListElements(perm_list, perm_index, block_num):
+    block_index = None
+    for perm_num_index, perm_num in enumerate(perm_list[perm_index]):
+        if perm_num == block_num:
+            block_index = perm_num_index 
+    for index, perm in enumerate(perm_list):
+        if index >= perm_index:
+            if perm[block_index] == block_num:
+                perm_list.drop(perm)
+                index -= 1
+    return perm_list
+
+
 while is_valid == False:
-    for index, module in enumerate(b_ai_1_module_list):
+    #perm_list_1
+
+    num_list = [11, 21, 31, 41, 51]
+    perm_list = []
+    for perm in permutations(num_list):
+        perm_list.append(perm)
+    perm_index = 0
+
+    for module_index, module in enumerate(b_ai_1_module_list):
+        perm_num = getPermNum(perm_list[perm_index], module_index)
         for key, value in timetable.items():
-            if ((key//10) == index + 1) & ((key%10) == 1):
+            if key == perm_num:
                 value.append(module)
-    is_valid = checkTimetableForConflicts(timetable, planned_module_list)
+
+    is_valid, block_num = checkTimetableForConflicts(timetable, planned_module_list)
+    
+    if is_valid == False:
+        perm_list = deletePermListElements(perm_list, perm_index, block_num)
+        perm_index += 1
+
+
 print("NEW PLAN", timetable)

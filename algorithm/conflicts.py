@@ -32,24 +32,33 @@ def overlapBlock(calendarEntry, block):
     return True
 
 def checkTimetableForConflicts(timetable, planned_module_list):
+    #loop through every time block
     for key, value in timetable.items():
         module_list = value
         dozent_dict = {}
-        room_dict = {}
+        #loop trough every module in this block
         for module in module_list:
+            #loop through every dozent in module
             for dozent in module["dozent"]:
+                #get the full name of the dozent
                 dozent_name = getDozentName(dozent)
+                #check if the dozent has already appeared in the time block
                 if dozent_name in dozent_dict:
-                    return False
+                    return (False, key)
                 else:
                     dozent_dict[dozent_name] = [module]
+        #loop through every dozent that appeares in the time block
         for key2, value in dozent_dict.items():
+            #loop through every planned module
             for calendarEntry in planned_module_list:
                 module = calendarEntry["module"]
+                #loop through every dozent in this module
                 for dozent in module["dozent"]:
+                    #get the full name of the dozent
                     dozent_name = getDozentName(dozent)
+                    #check if the planned module has the same dozent
                     if dozent_name == key2:
-                        #check Time
+                        #check if the planned module overlaps with the current block
                         if overlapBlock(calendarEntry, key):
-                            return False
-    return True
+                            return (False, key)
+    return (True, 0)
