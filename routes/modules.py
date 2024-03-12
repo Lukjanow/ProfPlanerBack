@@ -17,6 +17,7 @@ rooms = db["rooms"]
 modules = db["modules"]
 calendars = db["calendar"]
 calendarentry = db["calendarEntry"]
+studycourse = db["studycourse"]
 # All API functions regarding Modules
 
 
@@ -41,6 +42,9 @@ def convertDataWithReferences(re):
         for id in result["study_semester"]:
             res = study_semesters.find_one({"_id": ObjectId(str(id))})
             if res != None:
+                resCourse = studycourse.find_one({"_id": ObjectId(str(res["studyCourse"]))})
+                resCourse["_id"] = str(resCourse["_id"])
+                res["studyCourse"] = resCourse
                 res["_id"] = str(res["_id"])
             study_semester.append(res)
         result["study_semester"] = study_semester
@@ -143,6 +147,9 @@ async def Get_BasicData_Modules():
 async def Get_all_Modules_data():
     re = modules.find()
     x = convertDataWithReferences(re)
+    print("------------------------")
+    print(x)
+    print("--------------------------------")
     return x
 
 

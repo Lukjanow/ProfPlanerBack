@@ -7,21 +7,24 @@
   "dozent": [
     "65d706915c208e7fd4abebab"
   ],
-  "room": ["65d854c3dfc97c0356792f8e"],
+  "room": [
+    "65d854c3dfc97c0356792f8e"
+  ],
   "study_semester": [
-    "65d71bdb8c4eb66943f53f14"
+    "65ef198800fa3a6dfc152b22"
   ],
   "duration": 90,
   "approximate_attendance": 100,
-  "type": [1],
+  "type": [
+    1
+  ],
   "frequency": 3,
   "selected": true,
   "code": "EINF",
   "color": null,
   "note": null,
   "groups": null
-},
-{
+},{
   "_id": {
     "$oid": "65d70a35bd82b03aeac92a57"
   },
@@ -30,21 +33,24 @@
   "dozent": [
     "65d706a45c208e7fd4abebac"
   ],
-  "room": ["65d854c3dfc97c0356792f8e"],
+  "room": [
+    "65d854c3dfc97c0356792f8e"
+  ],
   "study_semester": [
-    "65d71bdb8c4eb66943f53f14"
+    "65ef19a300fa3a6dfc152b23"
   ],
   "duration": 90,
   "approximate_attendance": 100,
-  "type": [1],
+  "type": [
+    1
+  ],
   "frequency": 3,
   "selected": true,
   "code": "SMK",
   "color": null,
   "note": null,
   "groups": null
-},
-{
+},{
   "_id": {
     "$oid": "65d70a55bd82b03aeac92a58"
   },
@@ -53,24 +59,25 @@
   "dozent": [
     "65d706b15c208e7fd4abebad"
   ],
-  "room": ["65d85564dfc97c0356792f91"],
+  "room": [
+    "65d85564dfc97c0356792f91"
+  ],
   "study_semester": [
-    "65d71c028c4eb66943f53f19",
-    "65d71bfb8c4eb66943f53f18",
-    "65d71bf78c4eb66943f53f17",
-    "65d71bf38c4eb66943f53f16"
+    "65ef19ca00fa3a6dfc152b24"
   ],
   "duration": 90,
   "approximate_attendance": 20,
-  "type": [1,3],
+  "type": [
+    1,
+    3
+  ],
   "frequency": 3,
   "selected": true,
   "code": "IoT",
   "color": null,
   "note": null,
   "groups": null
-},
-{
+},{
   "_id": {
     "$oid": "65d70a6bbd82b03aeac92a59"
   },
@@ -79,21 +86,24 @@
   "dozent": [
     "65d706b15c208e7fd4abebad"
   ],
-  "room": ["65d85501dfc97c0356792f8f"],
+  "room": [
+    "65d85501dfc97c0356792f8f"
+  ],
   "study_semester": [
-    "65d71bf38c4eb66943f53f16"
+    "65ef1a0300fa3a6dfc152b25"
   ],
   "duration": 90,
   "approximate_attendance": 80,
-  "type": [1],
+  "type": [
+    1
+  ],
   "frequency": 3,
   "selected": true,
   "code": "WEB",
   "color": null,
   "note": null,
   "groups": null
-},
-{
+},{
   "_id": {
     "$oid": "65d70a8cbd82b03aeac92a5a"
   },
@@ -102,21 +112,25 @@
   "dozent": [
     "65d706bc5c208e7fd4abebae"
   ],
-  "room": ["65d85609dfc97c0356792fa3"],
+  "room": [
+    "65d85609dfc97c0356792fa3"
+  ],
   "study_semester": [
-    "65d71bfb8c4eb66943f53f18"
+    "65ef1a1a00fa3a6dfc152b26"
   ],
   "duration": 90,
   "approximate_attendance": 70,
-  "type": [1,2],
+  "type": [
+    1,
+    2
+  ],
   "frequency": 3,
   "selected": true,
   "code": "UX",
   "color": null,
   "note": null,
   "groups": null
-},
-{
+},{
   "_id": {
     "$oid": "65d70aafbd82b03aeac92a5b"
   },
@@ -125,21 +139,25 @@
   "dozent": [
     "65d706c75c208e7fd4abebaf"
   ],
-  "room": ["65d85609dfc97c0356792fa3"],
+  "room": [
+    "65d85609dfc97c0356792fa3"
+  ],
   "study_semester": [
-    "65d71bf78c4eb66943f53f17"
+    "65ef1a3400fa3a6dfc152b27"
   ],
   "duration": 90,
   "approximate_attendance": 70,
-  "type": [1,3],
+  "type": [
+    1,
+    3
+  ],
   "frequency": 3,
   "selected": true,
   "code": "FullWEB",
   "color": null,
   "note": null,
   "groups": null
-},
-{
+},{
   "_id": {
     "$oid": "65d70acbbd82b03aeac92a5c"
   },
@@ -148,21 +166,25 @@
   "dozent": [
     "65d706d05c208e7fd4abebb0"
   ],
-  "room": ["65d8558bdfc97c0356792f96"],
+  "room": [
+    "65d8558bdfc97c0356792f96"
+  ],
   "study_semester": [
-    "65d71bdf8c4eb66943f53f15"
+    "65ef1a5300fa3a6dfc152b28"
   ],
   "duration": 90,
   "approximate_attendance": 140,
-  "type": [1,2],
+  "type": [
+    1,
+    2
+  ],
   "frequency": 3,
   "selected": true,
   "code": null,
   "color": null,
   "note": null,
   "groups": null
-},
-{
+},{
   "_id": {
     "$oid": "65d71e619004f2a19971f8bd"
   },
@@ -171,21 +193,25 @@
   "dozent": [
     "65d71e229004f2a19971f8bc"
   ],
-  "room": ["65d855b8dfc97c0356792f97"],
+  "room": [
+    "65d855b8dfc97c0356792f97"
+  ],
   "study_semester": [
-    "65d71c2c8c4eb66943f53f1c"
+    "65ef1a6c00fa3a6dfc152b29"
   ],
   "duration": 90,
   "approximate_attendance": 40,
-  "type": [1,3],
+  "type": [
+    1,
+    3
+  ],
   "frequency": 1,
   "selected": true,
   "code": "ML",
   "color": null,
   "note": null,
   "groups": null
-},
-{
+},{
   "_id": {
     "$oid": "65d738b5a421a928cd955b63"
   },
@@ -194,21 +220,24 @@
   "dozent": [
     "65d71e229004f2a19971f8bc"
   ],
-  "room": ["65d854c3dfc97c0356792f8e"],
+  "room": [
+    "65d854c3dfc97c0356792f8e"
+  ],
   "study_semester": [
-    "65d71bdb8c4eb66943f53f14"
+    "65ef1b90cb961b3663f592a5"
   ],
   "duration": 90,
   "approximate_attendance": 100,
-  "type": [1],
+  "type": [
+    1
+  ],
   "frequency": 3,
   "selected": true,
   "code": "HK",
   "color": null,
   "note": null,
   "groups": null
-},
-{
+},{
   "_id": {
     "$oid": "65d73918a421a928cd955b64"
   },
@@ -217,21 +246,24 @@
   "dozent": [
     "65d706c75c208e7fd4abebaf"
   ],
-  "room": ["65d8556fdfc97c0356792f93"],
+  "room": [
+    "65d8556fdfc97c0356792f93"
+  ],
   "study_semester": [
-    "65d71bdf8c4eb66943f53f15"
+    "65ef1bcccb961b3663f592a6"
   ],
   "duration": 90,
   "approximate_attendance": 110,
-  "type": [1],
+  "type": [
+    1
+  ],
   "frequency": 3,
   "selected": true,
   "code": "BS",
   "color": null,
   "note": null,
   "groups": null
-},
-{
+},{
   "_id": {
     "$oid": "65d73941a421a928cd955b65"
   },
@@ -240,21 +272,24 @@
   "dozent": [
     "65d706c75c208e7fd4abebaf"
   ],
-  "room": ["65d85579dfc97c0356792f94"],
+  "room": [
+    "65d85579dfc97c0356792f94"
+  ],
   "study_semester": [
-    "65d71bdf8c4eb66943f53f15"
+    "65ef1bdecb961b3663f592a7"
   ],
   "duration": 90,
   "approximate_attendance": 110,
-  "type": [1],
+  "type": [
+    1
+  ],
   "frequency": 3,
   "selected": true,
   "code": "RuN",
   "color": null,
   "note": null,
   "groups": null
-},
-{
+},{
   "_id": {
     "$oid": "65d73993a421a928cd955b66"
   },
@@ -263,21 +298,24 @@
   "dozent": [
     "65d706915c208e7fd4abebab"
   ],
-  "room": ["65d85569dfc97c0356792f92"],
+  "room": [
+    "65d85569dfc97c0356792f92"
+  ],
   "study_semester": [
-    "65d71bf38c4eb66943f53f16"
+    "65ef1befcb961b3663f592a8"
   ],
   "duration": 90,
   "approximate_attendance": 110,
-  "type": [1],
+  "type": [
+    1
+  ],
   "frequency": 3,
   "selected": true,
   "code": "SWQ",
   "color": null,
   "note": null,
   "groups": null
-},
-{
+},{
   "_id": {
     "$oid": "65d73a36a421a928cd955b68"
   },
@@ -288,19 +326,21 @@
   ],
   "room": ["65d854c3dfc97c0356792f8e"],
   "study_semester": [
-    "65d71c2c8c4eb66943f53f1c"
+    
   ],
   "duration": 90,
   "approximate_attendance": 20,
-  "type": [1,2],
+  "type": [
+    1,
+    2
+  ],
   "frequency": 3,
   "selected": true,
   "code": "DuG",
   "color": null,
   "note": null,
   "groups": null
-},
-{
+},{
   "_id": {
     "$oid": "65d73a7ca421a928cd955b6a"
   },
@@ -311,19 +351,21 @@
   ],
   "room": ["65d854c3dfc97c0356792f8e"],
   "study_semester": [
-    "65d71c088c4eb66943f53f1a"
+    "65ef1c20cb961b3663f592aa"
   ],
   "duration": 90,
   "approximate_attendance": 20,
-  "type": [1,2],
+  "type": [
+    1,
+    2
+  ],
   "frequency": 3,
   "selected": true,
   "code": null,
   "color": "#9f00ff",
   "note": null,
   "groups": null
-},
-{
+},{
   "_id": {
     "$oid": "65d73abfa421a928cd955b6b"
   },
@@ -334,19 +376,20 @@
   ],
   "room": ["65d854c3dfc97c0356792f8e"],
   "study_semester": [
-    "65d71c088c4eb66943f53f1a"
+    "65ef1c36cb961b3663f592ab"
   ],
   "duration": 90,
   "approximate_attendance": 20,
-  "type": [1],
+  "type": [
+    1
+  ],
   "frequency": 1,
   "selected": false,
   "code": null,
   "color": null,
   "note": null,
   "groups": null
-},
-{
+},{
   "_id": {
     "$oid": "65d73af9a421a928cd955b6c"
   },
@@ -357,20 +400,20 @@
   ],
   "room": ["65d854c3dfc97c0356792f8e"],
   "study_semester": [
-    "65d71c088c4eb66943f53f1a",
-    "65d71c028c4eb66943f53f19"
+    "65ef1ccecb961b3663f592ad"
   ],
   "duration": 90,
   "approximate_attendance": 20,
-  "type": [2],
+  "type": [
+    2
+  ],
   "frequency": 3,
   "selected": true,
   "code": null,
   "color": null,
   "note": null,
   "groups": null
-},
-{
+},{
   "_id": {
     "$oid": "65d73b8da421a928cd955b6d"
   },
@@ -381,19 +424,21 @@
   ],
   "room": ["65d854c3dfc97c0356792f8e"],
   "study_semester": [
-    "65d71c028c4eb66943f53f19"
+    "65ef1cf5cb961b3663f592ae"
   ],
   "duration": 90,
   "approximate_attendance": 30,
-  "type": [1,2],
+  "type": [
+    1,
+    2
+  ],
   "frequency": 2,
   "selected": true,
   "code": "AD",
   "color": "#e4cd03",
   "note": null,
   "groups": null
-},
-{
+},{
   "_id": {
     "$oid": "65d73c01a421a928cd955b6f"
   },
@@ -404,19 +449,20 @@
   ],
   "room": ["65d854c3dfc97c0356792f8e"],
   "study_semester": [
-    "65d71c1f8c4eb66943f53f1b"
+    "65ef1d0acb961b3663f592af"
   ],
   "duration": 90,
   "approximate_attendance": 30,
-  "type": [3],
+  "type": [
+    3
+  ],
   "frequency": 2,
   "selected": true,
   "code": "3D",
   "color": null,
   "note": null,
   "groups": 2
-},
-{
+},{
   "_id": {
     "$oid": "65d741667b2b74e83dedcdc0"
   },
@@ -427,11 +473,14 @@
   ],
   "room": ["65d854c3dfc97c0356792f8e"],
   "study_semester": [
-    "65d71bf78c4eb66943f53f17"
+    "65ef1d28cb961b3663f592b0"
   ],
   "duration": 90,
   "approximate_attendance": 80,
-  "type": [1,2],
+  "type": [
+    1,
+    2
+  ],
   "frequency": 3,
   "selected": true,
   "code": "RE",
