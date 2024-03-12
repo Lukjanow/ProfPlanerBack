@@ -147,9 +147,7 @@ async def Get_BasicData_Modules():
 async def Get_all_Modules_data():
     re = modules.find()
     x = convertDataWithReferences(re)
-    print("------------------------")
-    print(x)
-    print("--------------------------------")
+  
     return x
 
 
@@ -466,8 +464,13 @@ async def Delete_Module(
     except:
         raise HTTPException(400, detail=f'{object_id} is not a valid ObjectId, it must be a 12-byte input or a 24-character hex string',)
     
-    entrys = calendarentry.find()
+    re = modules.find_one(ObjectId(object_id))
 
+    if re != None and len(re) != 0:
+        for study in re["study_semester"]:
+            study_semesters.delete_one({"_id": ObjectId(study)})
+    
+    entrys = calendarentry.find()
     entryList = []
 
     for entry in entrys:

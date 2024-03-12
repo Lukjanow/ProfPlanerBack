@@ -170,7 +170,8 @@
     "65d8558bdfc97c0356792f96"
   ],
   "study_semester": [
-    "65ef1a5300fa3a6dfc152b28"
+    "65ef1a5300fa3a6dfc152b28",
+    "65f015d8f958c3e9d7a7cb53"
   ],
   "duration": 90,
   "approximate_attendance": 140,
@@ -189,7 +190,7 @@
     "$oid": "65d71e619004f2a19971f8bd"
   },
   "module_id": "215",
-  "name": "machine Learning",
+  "name": "Machine Learning",
   "dozent": [
     "65d71e229004f2a19971f8bc"
   ],
@@ -268,7 +269,7 @@
     "$oid": "65d73941a421a928cd955b65"
   },
   "module_id": "123",
-  "name": "Rechernetze und Netzwerksicherheit",
+  "name": "Rechnernetze und Netzwerksicherheit",
   "dozent": [
     "65d706c75c208e7fd4abebaf"
   ],
@@ -276,7 +277,8 @@
     "65d85579dfc97c0356792f94"
   ],
   "study_semester": [
-    "65ef1bdecb961b3663f592a7"
+    "65ef1bdecb961b3663f592a7",
+    "65f01608f958c3e9d7a7cb54"
   ],
   "duration": 90,
   "approximate_attendance": 110,

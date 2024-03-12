@@ -69,7 +69,7 @@ async def Get_one_Studysemester(studysemester_id: str):
             404: {"model": HTTPError, "detail": "str"}
         }
     )
-async def Add_Studysemester(studysemester: StudySemester):
+async def Add_Studysemester(studysemester: StudySemesterResponse):
     studysemester = dict(studysemester)
     studySemesterCollection.insert_one(studysemester)
 

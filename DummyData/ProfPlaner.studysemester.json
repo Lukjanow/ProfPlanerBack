@@ -149,8 +149,8 @@
   "studyCourse": "65ef18ce00fa3a6dfc152b20",
   "semesterNumbers": [
     3,
-    "4",
-    "5"
+    4,
+    5
   ],
   "content": []
 },{
@@ -219,6 +219,26 @@
   },
   "id": null,
   "studyCourse": "65ef18ce00fa3a6dfc152b20",
+  "semesterNumbers": [
+    4
+  ],
+  "content": []
+},{
+  "_id": {
+    "$oid": "65f015d8f958c3e9d7a7cb53"
+  },
+  "id": null,
+  "studyCourse": "65ef18de00fa3a6dfc152b21",
+  "semesterNumbers": [
+    2
+  ],
+  "content": []
+},{
+  "_id": {
+    "$oid": "65f01608f958c3e9d7a7cb54"
+  },
+  "id": null,
+  "studyCourse": "65ef18de00fa3a6dfc152b21",
   "semesterNumbers": [
     4
   ],
