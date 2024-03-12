@@ -1,25 +1,5 @@
 [{
   "_id": {
-    "$oid": "65ef198800fa3a6dfc152b22"
-  },
-  "id": null,
-  "studyCourse": "65ef18ce00fa3a6dfc152b20",
-  "semesterNumbers": [
-    1
-  ],
-  "content": []
-},{
-  "_id": {
-    "$oid": "65ef19a300fa3a6dfc152b23"
-  },
-  "id": null,
-  "studyCourse": "65ef18ce00fa3a6dfc152b20",
-  "semesterNumbers": [
-    1
-  ],
-  "content": []
-},{
-  "_id": {
     "$oid": "65ef19ca00fa3a6dfc152b24"
   },
   "id": null,
@@ -54,16 +34,6 @@
   "content": []
 },{
   "_id": {
-    "$oid": "65ef1a3400fa3a6dfc152b27"
-  },
-  "id": null,
-  "studyCourse": "65ef18ce00fa3a6dfc152b20",
-  "semesterNumbers": [
-    4
-  ],
-  "content": []
-},{
-  "_id": {
     "$oid": "65ef1a5300fa3a6dfc152b28"
   },
   "id": null,
@@ -74,20 +44,6 @@
   "content": []
 },{
   "_id": {
-    "$oid": "65ef1a6c00fa3a6dfc152b29"
-  },
-  "id": null,
-  "studyCourse": "65ef18ce00fa3a6dfc152b20",
-  "semesterNumbers": [
-    3,
-    4,
-    5
-  ],
-  "content": [
-    "WB"
-  ]
-},{
-  "_id": {
     "$oid": "65ef1b90cb961b3663f592a5"
   },
   "id": null,
@@ -96,50 +52,6 @@
     1
   ],
   "content": []
-},{
-  "_id": {
-    "$oid": "65ef1bcccb961b3663f592a6"
-  },
-  "id": null,
-  "studyCourse": "65ef18ce00fa3a6dfc152b20",
-  "semesterNumbers": [
-    2
-  ],
-  "content": []
-},{
-  "_id": {
-    "$oid": "65ef1bdecb961b3663f592a7"
-  },
-  "id": null,
-  "studyCourse": "65ef18ce00fa3a6dfc152b20",
-  "semesterNumbers": [
-    2
-  ],
-  "content": []
-},{
-  "_id": {
-    "$oid": "65ef1befcb961b3663f592a8"
-  },
-  "id": null,
-  "studyCourse": "65ef18ce00fa3a6dfc152b20",
-  "semesterNumbers": [
-    3
-  ],
-  "content": []
-},{
-  "_id": {
-    "$oid": "65ef1c08cb961b3663f592a9"
-  },
-  "id": null,
-  "studyCourse": "65ef18ce00fa3a6dfc152b20",
-  "semesterNumbers": [
-    3,
-    4,
-    5
-  ],
-  "content": [
-    "WB"
-  ]
 },{
   "0": "\"WB",
   "_id": {
@@ -153,20 +65,6 @@
     5
   ],
   "content": []
-},{
-  "_id": {
-    "$oid": "65ef1c36cb961b3663f592ab"
-  },
-  "id": null,
-  "studyCourse": "65ef18ce00fa3a6dfc152b20",
-  "semesterNumbers": [
-    3,
-    4,
-    5
-  ],
-  "content": [
-    "WB"
-  ]
 },{
   "_id": {
     "$oid": "65ef1ccecb961b3663f592ad"
@@ -213,16 +111,6 @@
     "WB",
     "VisCo"
   ]
-},{
-  "_id": {
-    "$oid": "65ef1d28cb961b3663f592b0"
-  },
-  "id": null,
-  "studyCourse": "65ef18ce00fa3a6dfc152b20",
-  "semesterNumbers": [
-    4
-  ],
-  "content": []
 },{
   "_id": {
     "$oid": "65f015d8f958c3e9d7a7cb53"
