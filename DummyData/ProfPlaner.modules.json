@@ -11,7 +11,14 @@
     "65d854c3dfc97c0356792f8e"
   ],
   "study_semester": [
-    "65ef198800fa3a6dfc152b22"
+    {
+      "_id": 0,
+      "studyCourse": "65ef18ce00fa3a6dfc152b20",
+      "semesterNumbers": [
+        1
+      ],
+  "content": []
+    }
   ],
   "duration": 90,
   "approximate_attendance": 100,
@@ -37,7 +44,14 @@
     "65d854c3dfc97c0356792f8e"
   ],
   "study_semester": [
-    "65ef19a300fa3a6dfc152b23"
+    {
+      "_id": 0,
+      "studyCourse": "65ef18ce00fa3a6dfc152b20",
+      "semesterNumbers": [
+        1
+      ],
+      "content": []
+    }
   ],
   "duration": 90,
   "approximate_attendance": 100,
@@ -63,7 +77,18 @@
     "65d85564dfc97c0356792f91"
   ],
   "study_semester": [
-    "65ef19ca00fa3a6dfc152b24"
+    {
+      "_id": 0,
+      "studyCourse": "65ef18ce00fa3a6dfc152b20",
+      "semesterNumbers": [
+        3,
+        4,
+        5
+      ],
+      "content": [
+        "WB"
+      ]
+    }
   ],
   "duration": 90,
   "approximate_attendance": 20,
@@ -90,7 +115,14 @@
     "65d85501dfc97c0356792f8f"
   ],
   "study_semester": [
-    "65ef1a0300fa3a6dfc152b25"
+    {
+      "_id": 0,
+      "studyCourse": "65ef18ce00fa3a6dfc152b20",
+      "semesterNumbers": [
+        4
+      ],
+      "content": []
+        }
   ],
   "duration": 90,
   "approximate_attendance": 80,
@@ -116,7 +148,14 @@
     "65d85609dfc97c0356792fa3"
   ],
   "study_semester": [
-    "65ef1a1a00fa3a6dfc152b26"
+    {
+      "_id": 0,
+      "studyCourse": "65ef18ce00fa3a6dfc152b20",
+      "semesterNumbers": [
+        5
+      ],
+      "content": []
+    }
   ],
   "duration": 90,
   "approximate_attendance": 70,
@@ -143,7 +182,14 @@
     "65d85609dfc97c0356792fa3"
   ],
   "study_semester": [
-    "65ef1a3400fa3a6dfc152b27"
+    {
+      "_id": 0,
+      "studyCourse": "65ef18ce00fa3a6dfc152b20",
+      "semesterNumbers": [
+        4
+      ],
+      "content": []
+    }
   ],
   "duration": 90,
   "approximate_attendance": 70,
@@ -170,8 +216,22 @@
     "65d8558bdfc97c0356792f96"
   ],
   "study_semester": [
-    "65ef1a5300fa3a6dfc152b28",
-    "65f015d8f958c3e9d7a7cb53"
+    {
+      "_id": 0,
+      "studyCourse": "65ef18ce00fa3a6dfc152b20",
+      "semesterNumbers": [
+        2
+      ],
+      "content": []
+    },
+    {
+      "_id": 1,
+      "studyCourse": "65ef18de00fa3a6dfc152b21",
+      "semesterNumbers": [
+        2
+      ],
+      "content": []
+    }
   ],
   "duration": 90,
   "approximate_attendance": 140,
@@ -198,7 +258,18 @@
     "65d855b8dfc97c0356792f97"
   ],
   "study_semester": [
-    "65ef1a6c00fa3a6dfc152b29"
+    {
+      "_id": 0,
+      "studyCourse": "65ef18ce00fa3a6dfc152b20",
+      "semesterNumbers": [
+        3,
+        4,
+        5
+      ],
+      "content": [
+        "WB"
+      ]
+    }
   ],
   "duration": 90,
   "approximate_attendance": 40,
@@ -225,7 +296,14 @@
     "65d854c3dfc97c0356792f8e"
   ],
   "study_semester": [
-    "65ef1b90cb961b3663f592a5"
+    {
+      "_id": 0,
+      "studyCourse": "65ef18ce00fa3a6dfc152b20",
+      "semesterNumbers": [
+        1
+      ],
+      "content": []
+    }
   ],
   "duration": 90,
   "approximate_attendance": 100,
@@ -251,7 +329,14 @@
     "65d8556fdfc97c0356792f93"
   ],
   "study_semester": [
-    "65ef1bcccb961b3663f592a6"
+    {
+      "_id": 0,
+      "studyCourse": "65ef18ce00fa3a6dfc152b20",
+      "semesterNumbers": [
+        2
+      ],
+      "content": []
+    }
   ],
   "duration": 90,
   "approximate_attendance": 110,
@@ -277,8 +362,22 @@
     "65d85579dfc97c0356792f94"
   ],
   "study_semester": [
-    "65ef1bdecb961b3663f592a7",
-    "65f01608f958c3e9d7a7cb54"
+    {
+      "_id": 0,
+      "studyCourse": "65ef18ce00fa3a6dfc152b20",
+      "semesterNumbers": [
+        2
+      ],
+      "content": []
+    },
+    {
+      "_id": 1,
+      "studyCourse": "65ef18de00fa3a6dfc152b21",
+      "semesterNumbers": [
+        4
+      ],
+      "content": []
+    }
   ],
   "duration": 90,
   "approximate_attendance": 110,
@@ -304,7 +403,14 @@
     "65d85569dfc97c0356792f92"
   ],
   "study_semester": [
-    "65ef1befcb961b3663f592a8"
+    {
+      "_id": 0,
+      "studyCourse": "65ef18ce00fa3a6dfc152b20",
+      "semesterNumbers": [
+        3
+      ],
+      "content": []
+    }
   ],
   "duration": 90,
   "approximate_attendance": 110,
@@ -353,7 +459,16 @@
   ],
   "room": [],
   "study_semester": [
-    "65ef1c20cb961b3663f592aa"
+    {
+      "_id": 0,
+      "studyCourse": "65ef18ce00fa3a6dfc152b20",
+      "semesterNumbers": [
+        3,
+        4,
+        5
+      ],
+      "content": []
+    }
   ],
   "duration": 90,
   "approximate_attendance": 20,
@@ -378,7 +493,18 @@
   ],
   "room": [],
   "study_semester": [
-    "65ef1c36cb961b3663f592ab"
+    {
+      "_id": 0,
+      "studyCourse": "65ef18ce00fa3a6dfc152b20",
+      "semesterNumbers": [
+        3,
+        4,
+        5
+      ],
+      "content": [
+        "WB"
+      ]
+    }
   ],
   "duration": 90,
   "approximate_attendance": 20,
@@ -402,7 +528,20 @@
   ],
   "room": [],
   "study_semester": [
-    "65ef1ccecb961b3663f592ad"
+    {
+      "_id": 0,
+      "studyCourse": "65ef18ce00fa3a6dfc152b20",
+      "semesterNumbers": [
+        3,
+        4,
+        5
+      ],
+      "content": [
+        "WB",
+        "SE&D",
+        "NetSec"
+      ]
+    }
   ],
   "duration": 90,
   "approximate_attendance": 20,
@@ -426,7 +565,19 @@
   ],
   "room": [],
   "study_semester": [
-    "65ef1cf5cb961b3663f592ae"
+    {
+      "_id": 0,
+      "studyCourse": "65ef18ce00fa3a6dfc152b20",
+      "semesterNumbers": [
+        3,
+        4,
+        5
+      ],
+      "content": [
+        "WB",
+        "SE&D"
+      ]
+    }
   ],
   "duration": 90,
   "approximate_attendance": 30,
@@ -451,7 +602,19 @@
   ],
   "room": [],
   "study_semester": [
-    "65ef1d0acb961b3663f592af"
+    {
+      "_id": 0,
+      "studyCourse": "65ef18ce00fa3a6dfc152b20",
+      "semesterNumbers": [
+        3,
+        4,
+        5
+      ],
+      "content": [
+        "WB",
+        "VisCo"
+      ]
+    }
   ],
   "duration": 90,
   "approximate_attendance": 30,
@@ -475,8 +638,15 @@
   ],
   "room": [],
   "study_semester": [
-    "65ef1d28cb961b3663f592b0"
-  ],
+    {
+      "_id": 0,
+      "studyCourse": "65ef18ce00fa3a6dfc152b20",
+      "semesterNumbers": [
+        4
+      ],
+      "content": []
+        }
+      ],
   "duration": 90,
   "approximate_attendance": 80,
   "type": [
