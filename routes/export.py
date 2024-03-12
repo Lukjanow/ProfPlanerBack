@@ -12,6 +12,7 @@ from Database.Database import db
 rooms = db['rooms']
 modules = db['modules']
 dozents = db['dozent']
+studyCourseCollection = db["studycourse"]
 
 def removeID(items):
     tmp = []
@@ -32,20 +33,24 @@ async def export_data():
     modulesData = modules.find()
     dozentsData = dozents.find()
     roomsData = rooms.find()
+    studyCourseData = studyCourseCollection.find()
 
     modulesData = removeID(modulesData)
     dozentsData = removeID(dozentsData)
     roomsData = removeID(roomsData)
+    studyCourseData = removeID(studyCourseData)
 
     pandaModule = pd.DataFrame(modulesData)
     pandaDozent = pd.DataFrame(dozentsData)
-    pandaRoom = pd.DataFrame(roomsData)    
+    pandaRoom = pd.DataFrame(roomsData)   
+    pandastudyCourse = pd.DataFrame(studyCourseData)  
 
     buffer = BytesIO()
     with pd.ExcelWriter(buffer) as writer:
         pandaModule.to_excel(writer, sheet_name='Modules', index=False)
         pandaDozent.to_excel(writer, sheet_name='Dozents', index=False)
         pandaRoom.to_excel(writer, sheet_name='Rooms', index=False)
+        pandastudyCourse.to_excel(writer, sheet_name='Studycourses', index=False)
 
     writer.close()
 
