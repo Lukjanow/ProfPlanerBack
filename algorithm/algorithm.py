@@ -1,7 +1,27 @@
 from conflicts import checkTimetableForConflicts
+from routes.modules import convertDataWithReferences
+from bson import ObjectId
+from Database.Database import db
+
+modules = db["modules"]
+calendarentry = db["calendarEntry"]
+calendars = db["calendar"]
 
 #TODO: GET ALL NOT PLANNED MODULES
-module_list = []
+re = modules.find()   
+module_list = convertDataWithReferences(re)
+
+result = calendars.find_one(ObjectId("65d61765c15324dcfc497c4f"))
+calendarEntrys = []
+for entry in result["entries"]:
+    entryData = calendarentry.find_one(ObjectId(entry))
+    moduledata = modules.find_one(ObjectId(entryData["module"]))
+    entryData["module"] = convertDataWithReferences([moduledata])[0]
+    entryData["_id"] = str(entryData["_id"])
+
+    calendarEntrys.append(entryData)
+print("MODULES", module_list)
+print("CALENDAR ENTRIES", calendarEntrys)
 #TODO: GET ALL MODULES FROM BACHELOR AI SEMESTER 1
 # b_ai_1_module_list = []
 # for module in module_list:
