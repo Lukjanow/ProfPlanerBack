@@ -2,9 +2,10 @@ from bson import ObjectId
 from fastapi import APIRouter, status, HTTPException
 
 from typing import List
-import copy #Allow to copy Dict
+from copy import * #Allow to copy Dict
 from models.common import *
 from models.Module import *
+import re
 import uuid 
 
 router = APIRouter()
@@ -393,8 +394,8 @@ async def Add_Modul(
     if data["study_semester"] != None:
         studyList = []
         for study in data["study_semester"]:
-            study = dict(study)
             study["_id"] = [len(data["study_semester"]) - 1]["_id"] + 1
+            study = dict(study)
             studyList.append(study)
 
         data["study_semester"] = studyList
@@ -405,7 +406,6 @@ async def Add_Modul(
     return data
 
 
-# TODO: Please check the Enum Update Functionality, for me this way didn't worked :) 
 @router.put("/module/{object_id}",summary="update complete Module by ID",
         description="Update a module already in the database based on the Input. Gives out a Message if successful.",
         tags=["Modules"],
