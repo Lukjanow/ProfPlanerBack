@@ -1,0 +1,495 @@
+[{
+  "_id": {
+    "$oid": "65f1743a5b655a51a49cd872"
+  },
+  "id": null,
+  "roomNumber": "TestRoom",
+  "capacity": 100,
+  "roomType": "Labor"
+},
+{
+  "_id": {
+    "$oid": "65f17e1a652cb752e477652c"
+  },
+  "id": null,
+  "roomNumber": "A012",
+  "capacity": 96,
+  "roomType": "auditorium"
+},
+{
+  "_id": {
+    "$oid": "65f17e35652cb752e477652d"
+  },
+  "id": null,
+  "roomNumber": "A013",
+  "capacity": 32,
+  "roomType": "auditorium"
+},
+{
+  "_id": {
+    "$oid": "65f17e4e652cb752e477652e"
+  },
+  "id": null,
+  "roomNumber": "A014",
+  "capacity": 80,
+  "roomType": "auditorium"
+},
+{
+  "_id": {
+    "$oid": "65f17e8a652cb752e477652f"
+  },
+  "id": null,
+  "roomNumber": "A125",
+  "capacity": 144,
+  "roomType": "auditorium"
+},
+{
+  "_id": {
+    "$oid": "65f17ea0652cb752e4776530"
+  },
+  "id": null,
+  "roomNumber": "A126",
+  "capacity": 54,
+  "roomType": "auditorium"
+},
+{
+  "_id": {
+    "$oid": "65f17ed7652cb752e4776531"
+  },
+  "id": null,
+  "roomNumber": "B200",
+  "capacity": 108,
+  "roomType": "auditorium"
+},
+{
+  "_id": {
+    "$oid": "65f17f05652cb752e4776532"
+  },
+  "id": null,
+  "roomNumber": "BU030",
+  "capacity": 382,
+  "roomType": "auditorium"
+},
+{
+  "_id": {
+    "$oid": "65f17f26652cb752e4776533"
+  },
+  "id": null,
+  "roomNumber": "C038",
+  "capacity": 56,
+  "roomType": "auditorium"
+},
+{
+  "_id": {
+    "$oid": "65f17f37652cb752e4776534"
+  },
+  "id": null,
+  "roomNumber": "C039",
+  "capacity": 56,
+  "roomType": "auditorium"
+},
+{
+  "_id": {
+    "$oid": "65f17f4a652cb752e4776535"
+  },
+  "id": null,
+  "roomNumber": "C040",
+  "capacity": 32,
+  "roomType": "auditorium"
+},
+{
+  "_id": {
+    "$oid": "65f17f5b652cb752e4776536"
+  },
+  "id": null,
+  "roomNumber": "C131",
+  "capacity": 56,
+  "roomType": "auditorium"
+},
+{
+  "_id": {
+    "$oid": "65f17f68652cb752e4776537"
+  },
+  "id": null,
+  "roomNumber": "C132",
+  "capacity": 56,
+  "roomType": "auditorium"
+},
+{
+  "_id": {
+    "$oid": "65f17f75652cb752e4776538"
+  },
+  "id": null,
+  "roomNumber": "C133",
+  "capacity": 56,
+  "roomType": "auditorium"
+},
+{
+  "_id": {
+    "$oid": "65f17f83652cb752e4776539"
+  },
+  "id": null,
+  "roomNumber": "C134",
+  "capacity": 32,
+  "roomType": "auditorium"
+},
+{
+  "_id": {
+    "$oid": "65f17f93652cb752e477653a"
+  },
+  "id": null,
+  "roomNumber": "C201",
+  "capacity": 56,
+  "roomType": "auditorium"
+},
+{
+  "_id": {
+    "$oid": "65f17fa0652cb752e477653b"
+  },
+  "id": null,
+  "roomNumber": "C202",
+  "capacity": 56,
+  "roomType": "auditorium"
+},
+{
+  "_id": {
+    "$oid": "65f17fad652cb752e477653c"
+  },
+  "id": null,
+  "roomNumber": "C203",
+  "capacity": 32,
+  "roomType": "auditorium"
+},
+{
+  "_id": {
+    "$oid": "65f17fbe652cb752e477653d"
+  },
+  "id": null,
+  "roomNumber": "C204",
+  "capacity": 56,
+  "roomType": "auditorium"
+},
+{
+  "_id": {
+    "$oid": "65f17fd4652cb752e477653e"
+  },
+  "id": null,
+  "roomNumber": "D042",
+  "capacity": 56,
+  "roomType": "auditorium"
+},
+{
+  "_id": {
+    "$oid": "65f17fe5652cb752e477653f"
+  },
+  "id": null,
+  "roomNumber": "D043",
+  "capacity": 48,
+  "roomType": "auditorium"
+},
+{
+  "_id": {
+    "$oid": "65f17ffd652cb752e4776540"
+  },
+  "id": null,
+  "roomNumber": "D138",
+  "capacity": 72,
+  "roomType": "auditorium"
+},
+{
+  "_id": {
+    "$oid": "65f180b5652cb752e4776541"
+  },
+  "id": null,
+  "roomNumber": "N039",
+  "capacity": 30,
+  "roomType": "laboratory"
+},
+{
+  "_id": {
+    "$oid": "65f180c9652cb752e4776542"
+  },
+  "id": null,
+  "roomNumber": "N040",
+  "capacity": 20,
+  "roomType": "laboratory"
+},
+{
+  "_id": {
+    "$oid": "65f180d9652cb752e4776543"
+  },
+  "id": null,
+  "roomNumber": "N041",
+  "capacity": 23,
+  "roomType": "laboratory"
+},
+{
+  "_id": {
+    "$oid": "65f180e8652cb752e4776544"
+  },
+  "id": null,
+  "roomNumber": "N042",
+  "capacity": 28,
+  "roomType": "laboratory"
+},
+{
+  "_id": {
+    "$oid": "65f1819a652cb752e4776545"
+  },
+  "id": null,
+  "roomNumber": "N140",
+  "capacity": 18,
+  "roomType": "laboratory"
+},
+{
+  "_id": {
+    "$oid": "65f181a4652cb752e4776546"
+  },
+  "id": null,
+  "roomNumber": "N140",
+  "capacity": 18,
+  "roomType": "laboratory"
+},
+{
+  "_id": {
+    "$oid": "65f18224652cb752e4776547"
+  },
+  "id": null,
+  "roomNumber": "N141",
+  "capacity": 18,
+  "roomType": "laboratory"
+},
+{
+  "_id": {
+    "$oid": "65f18246652cb752e4776548"
+  },
+  "id": null,
+  "roomNumber": "N142",
+  "capacity": 19,
+  "roomType": "laboratory"
+},
+{
+  "_id": {
+    "$oid": "65f18255652cb752e4776549"
+  },
+  "id": null,
+  "roomNumber": "N143",
+  "capacity": 24,
+  "roomType": "laboratory"
+},
+{
+  "_id": {
+    "$oid": "65f18263652cb752e477654a"
+  },
+  "id": null,
+  "roomNumber": "N144",
+  "capacity": 21,
+  "roomType": "laboratory"
+},
+{
+  "_id": {
+    "$oid": "65f1827f652cb752e477654b"
+  },
+  "id": null,
+  "roomNumber": "N239",
+  "capacity": 12,
+  "roomType": "laboratory"
+},
+{
+  "_id": {
+    "$oid": "65f1828f652cb752e477654c"
+  },
+  "id": null,
+  "roomNumber": "N240",
+  "capacity": 18,
+  "roomType": "laboratory"
+},
+{
+  "_id": {
+    "$oid": "65f182a3652cb752e477654d"
+  },
+  "id": null,
+  "roomNumber": "N241",
+  "capacity": 25,
+  "roomType": "laboratory"
+},
+{
+  "_id": {
+    "$oid": "65f182b4652cb752e477654e"
+  },
+  "id": null,
+  "roomNumber": "N242",
+  "capacity": 24,
+  "roomType": "laboratory"
+},
+{
+  "_id": {
+    "$oid": "65f182c1652cb752e477654f"
+  },
+  "id": null,
+  "roomNumber": "N243",
+  "capacity": 25,
+  "roomType": "laboratory"
+},
+{
+  "_id": {
+    "$oid": "65f182ce652cb752e4776550"
+  },
+  "id": null,
+  "roomNumber": "N245",
+  "capacity": 15,
+  "roomType": "laboratory"
+},
+{
+  "_id": {
+    "$oid": "65f18313652cb752e4776551"
+  },
+  "id": null,
+  "roomNumber": "O004",
+  "capacity": 48,
+  "roomType": "auditorium"
+},
+{
+  "_id": {
+    "$oid": "65f1832e652cb752e4776552"
+  },
+  "id": null,
+  "roomNumber": "O005-1",
+  "capacity": 48,
+  "roomType": "auditorium"
+},
+{
+  "_id": {
+    "$oid": "65f18340652cb752e4776553"
+  },
+  "id": null,
+  "roomNumber": "O005-2",
+  "capacity": 48,
+  "roomType": "auditorium"
+},
+{
+  "_id": {
+    "$oid": "65f18356652cb752e4776554"
+  },
+  "id": null,
+  "roomNumber": "O103",
+  "capacity": 48,
+  "roomType": "auditorium"
+},
+{
+  "_id": {
+    "$oid": "65f18365652cb752e4776555"
+  },
+  "id": null,
+  "roomNumber": "O104",
+  "capacity": 48,
+  "roomType": "auditorium"
+},
+{
+  "_id": {
+    "$oid": "65f1838b652cb752e4776556"
+  },
+  "id": null,
+  "roomNumber": "O203",
+  "capacity": 24,
+  "roomType": "auditorium"
+},
+{
+  "_id": {
+    "$oid": "65f18399652cb752e4776557"
+  },
+  "id": null,
+  "roomNumber": "O204",
+  "capacity": 24,
+  "roomType": "auditorium"
+},
+{
+  "_id": {
+    "$oid": "65f183ad652cb752e4776558"
+  },
+  "id": null,
+  "roomNumber": "O205",
+  "capacity": 22,
+  "roomType": "auditorium"
+},
+{
+  "_id": {
+    "$oid": "65f183c0652cb752e4776559"
+  },
+  "id": null,
+  "roomNumber": "O206",
+  "capacity": 40,
+  "roomType": "auditorium"
+},
+{
+  "_id": {
+    "$oid": "65f183d7652cb752e477655a"
+  },
+  "id": null,
+  "roomNumber": "O207",
+  "capacity": 18,
+  "roomType": "auditorium"
+},
+{
+  "_id": {
+    "$oid": "65f183ee652cb752e477655b"
+  },
+  "id": null,
+  "roomNumber": "O208",
+  "capacity": 24,
+  "roomType": "auditorium"
+},
+{
+  "_id": {
+    "$oid": "65f183fc652cb752e477655c"
+  },
+  "id": null,
+  "roomNumber": "O209",
+  "capacity": 22,
+  "roomType": "auditorium"
+},
+{
+  "_id": {
+    "$oid": "65f18413652cb752e477655d"
+  },
+  "id": null,
+  "roomNumber": "O303",
+  "capacity": 38,
+  "roomType": "auditorium"
+},
+{
+  "_id": {
+    "$oid": "65f18424652cb752e477655e"
+  },
+  "id": null,
+  "roomNumber": "O304",
+  "capacity": 36,
+  "roomType": "auditorium"
+},
+{
+  "_id": {
+    "$oid": "65f18437652cb752e477655f"
+  },
+  "id": null,
+  "roomNumber": "O305",
+  "capacity": 32,
+  "roomType": "auditorium"
+},
+{
+  "_id": {
+    "$oid": "65f18452652cb752e4776560"
+  },
+  "id": null,
+  "roomNumber": "O306",
+  "capacity": 54,
+  "roomType": "auditorium"
+},
+{
+  "_id": {
+    "$oid": "65f18467652cb752e4776561"
+  },
+  "id": null,
+  "roomNumber": "O307",
+  "capacity": 34,
+  "roomType": "auditorium"
+}]
