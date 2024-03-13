@@ -44,6 +44,7 @@ def convertDataWithReferences(re):
                 resCourse = studycourse.find_one({"_id": ObjectId(str(res["studyCourse"]))})
                 resCourse["_id"] = str(resCourse["_id"])
                 res["studyCourse"] = resCourse
+                res["_id"] = str(res["_id"])
             study_semester.append(res)
         result["study_semester"] = study_semester
 
@@ -393,6 +394,7 @@ async def Add_Modul(
     if data["study_semester"] != None:
         studyList = []
         for study in data["study_semester"]:
+            study["_id"] = [len(data["study_semester"]) - 1]["_id"] + 1
             study = dict(study)
             studyList.append(study)
 
@@ -491,48 +493,3 @@ async def Delete_Module(
 
     modules.delete_one({"_id": id})
     return {"message": f"Successfully deleted Module {object_id}"}
-
-
-
-@router.post("/moduleXLSX",summary="add multiple Modules",
-        description="Add multiple module to the database based on the Input. Returns a Message string. Used to import via XLSX.",
-        tags=["Modules"],
-        response_model=Message,
-        responses={
-            400: {"model": HTTPError, "detail": "str"},
-            404: {"model": HTTPError, "detail": "str"}
-        }
-    )
-async def Add_Modul_XLSX(
-        data: List[dict]
-    ):
-    ok = True
-    #check if module ID already exist
-    for module in data:
-        cpy = {
-            "dozent": [],
-            "room": [],
-            "study_semester": [],
-            "type": []
-        }
-        for key, value in module.items():
-            if re.search("dozent|type|study_semester|room", key):
-                if re.search("dozent", key) and value:
-                    cpy.setdefault("dozent", []).append(value)
-                elif re.search("type", key) and value:
-                    cpy.setdefault("type", []).append(value)
-                elif re.search("study_semester", key) and value:
-                    cpy.setdefault("study_semester", []).append(value)
-                elif re.search("room", key) and value:
-                    cpy.setdefault("room", []).append(value)
-            elif key == "_id":
-                cpy.update({key: ObjectId(value)})
-            else:
-                cpy.update({key: value})
-        try:
-            modules.insert_one(cpy)
-        except:
-            ok = False
-            print("error", cpy)
-
-    return {"message": f"Okay" if ok else f'Not all Modules could be imported'}
