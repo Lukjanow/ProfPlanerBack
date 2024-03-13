@@ -419,7 +419,6 @@ async def Update_Modul(
         object_id, changes:dict
     ):
     result = {}
-    print(changes)
 
     for key, value in changes.items():
             result[key] = value
