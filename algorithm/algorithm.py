@@ -10,7 +10,8 @@ from conflicts import checkTimetableForConflicts
 from bson import ObjectId
 from routes.modules import convertDataWithReferences
 from itertools import permutations
-
+from models.CalendarEntry import CalendarEntry
+import random
 
 def getPermNum(perm, module_index):
     for perm_num_index, perm_num in enumerate(perm):
@@ -25,7 +26,7 @@ def getBlockIndex(perm, block_num):
 
 
 def deletePermListElements(perm_list, block_num, block_index):
-    print("CURRENT PERM LIST:",perm_list)
+    # print("CURRENT PERM LIST:",perm_list)
     # for perm_num_index, perm_num in enumerate(perm_list[perm_index]):
     #     if perm_num == block_num:
     #         block_index = perm_num_index 
@@ -33,10 +34,11 @@ def deletePermListElements(perm_list, block_num, block_index):
     new_perm_list = []
     for perm in perm_list:
         if perm[block_index] == block_num:
-            print("BAD PERM:", perm)
+            # print("BAD PERM:", perm)
+            pass
         else:
             new_perm_list.append(perm)
-    print("NEW PERM LIST:",new_perm_list)
+    # print("NEW PERM LIST:",new_perm_list)
     return new_perm_list
 
 # while is_valid == False:
@@ -113,8 +115,9 @@ def getModulesByContent(module_list, study_course, content):
     for module in module_list:
         for study_semester in module["study_semester"]:
             if study_semester["studyCourse"]["name"] == study_course:
-                if content in study_semester["content"]:
-                    content_module_list.append(module)
+                if len(study_semester["content"]) > 0:
+                    if content == study_semester["content"][0]:
+                        content_module_list.append(module)
     return content_module_list
 
 
@@ -129,12 +132,13 @@ def getStudyCourseList(module_list):
 
 def filterOutNonMandatoryModules(module_list):
     # print("START MODULE LIST",module_list)
-    for index, module in enumerate(module_list):
+    filtered_list = []
+    for module in module_list:
         for study_semester in module["study_semester"]:
-            if len(study_semester["content"]) != 0:
-                module_list.pop(index)
+            if len(study_semester["semesterNumbers"]) == 1:
+                filtered_list.append(module)
                 break
-    return module_list
+    return filtered_list
         # print("MODULE LIST",module_list)
 
 def filterOutNonMandatoryCalendarEntries(calendar_entry_list):
@@ -158,37 +162,41 @@ def getPermList(num_list):
 # print("NEW PLAN", timetable)
 
 
-def algorithm(module_list, planned_module_list):
+def algorithm(module_list, planned_module_list, timetable):
     print("Starting algorithm...")
     isValid = False
 
-    num_list = [11, 21, 31, 41, 51]
-
+    # fake_num_list = [11, 21, 31, 41, 51, 12, 22, 42, 52]
+    # num_list = []
+    # for i in range(8, -1, -1):
+    #     num = random.randint(0,i)
+    #     num_list.append(fake_num_list[num])
+    #     fake_num_list.pop(num)
+    num_list = [11, 21, 31, 41, 51, 12, 22, 42, 52]
 
     perm_list = getPermList(num_list)
     print("Starting perm list 1...")
     while len(perm_list) > 0:
         perm = perm_list[0]
         print("current perm:", perm)
-        timetable = {
-            11: [], #MONDAY MORNING
-            12: [], #MONDAY AFTERNOON
-            21: [], #TUESDAY MORNING
-            22: [], #TUESDAY AFTERNOON
-            31: [], #WEDNESDAY MORNING
-            32: [], #WEDNESDAY AFTERNOON
-            41: [], #THURSDAY MORNING
-            42: [], #THURSDAY AFTERNOON
-            51: [], #FRIDAY MORNING
-            52: [], #FRIDAY AFTERNOON
-        }
+        # timetable = {
+        #     11: [], #MONDAY MORNING
+        #     12: [], #MONDAY AFTERNOON
+        #     21: [], #TUESDAY MORNING
+        #     22: [], #TUESDAY AFTERNOON
+        #     31: [], #WEDNESDAY MORNING
+        #     32: [], #WEDNESDAY AFTERNOON
+        #     41: [], #THURSDAY MORNING
+        #     42: [], #THURSDAY AFTERNOON
+        #     51: [], #FRIDAY MORNING
+        #     52: [], #FRIDAY AFTERNOON
+        # }
         for module_index, module in enumerate(module_list):
             perm_num = getPermNum(perm, module_index)
             for key, value in timetable.items():
                 if key == perm_num:
                     value.append(module)
                     break
-
         is_valid, block_num = checkTimetableForConflicts(timetable, planned_module_list)
         
         if is_valid == False:
@@ -198,9 +206,14 @@ def algorithm(module_list, planned_module_list):
                 if num == block_num:
                     block_index = index
             perm_list = deletePermListElements(perm_list, block_num, block_index)
+            for key, value in timetable.items():
+                for index, module in enumerate(value):
+                    if module in module_list:
+                        value.pop(index)
         else:
             print("perm succeeded!")
             return timetable
+    return timetable
 
 
 def main():
@@ -225,40 +238,33 @@ def main():
 
     #endregion
 
-    new_list = planned_module_list
-    for calendar_entry in new_list:
-        for study_semester in calendar_entry["module"]["study_semester"]:
-            if study_semester["studyCourse"]["name"] == "AI B.Sc":
-                if 4 in study_semester["semesterNumbers"]:
-                    print(calendar_entry["time_stamp"])
-
+    timetable = {
+            11: [], #MONDAY MORNING
+            12: [], #MONDAY AFTERNOON
+            21: [], #TUESDAY MORNING
+            22: [], #TUESDAY AFTERNOON
+            31: [], #WEDNESDAY MORNING
+            32: [], #WEDNESDAY AFTERNOON
+            41: [], #THURSDAY MORNING
+            42: [], #THURSDAY AFTERNOON
+            51: [], #FRIDAY MORNING
+            52: [], #FRIDAY AFTERNOON
+        }
     for study_course in unplanned_study_course_list:
         for i in range(1, study_course["semesterCount"] + 1):
             print(study_course["name"], i)
-            semester_list = getModulesBySemester(unplanned_module_list, study_course["name"], i)
+            semester_list = getModulesBySemester(module_list, study_course["name"], i)
             semester_list = filterOutNonMandatoryModules(semester_list)
-            # print(study_course["name"], i, semester_list)
-            timetable = algorithm(semester_list, new_list)
-            print(timetable)
-            print()
-            #algorithmus
+            for module in semester_list:
+                print(module["name"])
+            timetable = algorithm(semester_list, [], timetable)
         for content in study_course["content"]:
-            content_list = getModulesByContent(unplanned_module_list, study_course["name"], content)
-            print(study_course["name"], content, content_list)
-
-    timetable = {
-    11: [], #MONDAY MORNING
-    12: [], #MONDAY AFTERNOON
-    21: [], #TUESDAY MORNING
-    22: [], #TUESDAY AFTERNOON
-    31: [], #WEDNESDAY MORNING
-    32: [], #WEDNESDAY AFTERNOON
-    41: [], #THURSDAY MORNING
-    42: [], #THURSDAY AFTERNOON
-    51: [], #FRIDAY MORNING
-    52: [], #FRIDAY AFTERNOON
-    }
-
+            print(study_course["name"], content)
+            content_list = getModulesByContent(module_list, study_course["name"], content)
+            for module in content_list:
+                print(module["name"])
+            timetable = algorithm(content_list, [], timetable)
+    print(timetable)
     
     
 
