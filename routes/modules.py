@@ -394,7 +394,12 @@ async def Add_Modul(
         studyList = []
         for study in data["study_semester"]:
             study = dict(study)
-            study["_id"] = [len(data["study_semester"]) - 1]["_id"] + 1
+            length = len(data["study_semester"])
+            print(length)
+            print(data["study_semester"])
+            print(data["study_semester"][length - 1])
+            print(data["study_semester"][length - 1].id)
+            study["_id"] = data["study_semester"][length - 1].id + 1
             studyList.append(study)
 
         data["study_semester"] = studyList
