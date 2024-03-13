@@ -2,7 +2,6 @@ def getDozentName(dozent):
     return str(dozent["prename"] + " " + dozent["lastname"])
 
 def overlapBlock(calendarEntry, block):
-    print("BLOCK",block)
     day = calendarEntry["time_stamp"]["week_day"]
     blockDay = int(block) // 10
     if day != blockDay:
