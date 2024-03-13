@@ -16,11 +16,10 @@ class Module(BaseModel, use_enum_values=True):
     room: list[Room]
     study_semester: list[StudySemester]
     duration: int
-    approximate_attendance: int
+    approximate_attendance: int | None
     frequency: Frequency
     selected: bool
     color: str | None
-    study_course: list[str]
 
 
 

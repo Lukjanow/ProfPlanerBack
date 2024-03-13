@@ -44,7 +44,6 @@ def convertDataWithReferences(re):
                 resCourse = studycourse.find_one({"_id": ObjectId(str(res["studyCourse"]))})
                 resCourse["_id"] = str(resCourse["_id"])
                 res["studyCourse"] = resCourse
-                res["_id"] = str(res["_id"])
             study_semester.append(res)
         result["study_semester"] = study_semester
 
@@ -406,7 +405,6 @@ async def Add_Modul(
     return data
 
 
-# TODO: Please check the Enum Update Functionality, for me this way didn't worked :) 
 @router.put("/module/{object_id}",summary="update complete Module by ID",
         description="Update a module already in the database based on the Input. Gives out a Message if successful.",
         tags=["Modules"],
@@ -420,6 +418,7 @@ async def Update_Modul(
         object_id, changes:dict
     ):
     result = {}
+    print(changes)
 
     for key, value in changes.items():
             result[key] = value

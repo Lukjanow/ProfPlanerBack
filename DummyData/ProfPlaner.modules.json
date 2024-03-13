@@ -12,10 +12,9 @@
   ],
   "study_semester": [
     {
-      "_id": 0,
       "studyCourse": "65ef18ce00fa3a6dfc152b20",
       "semesterNumbers": [
-        1
+        "1"
       ],
   "content": []
     }
@@ -45,10 +44,9 @@
   ],
   "study_semester": [
     {
-      "_id": 0,
       "studyCourse": "65ef18ce00fa3a6dfc152b20",
       "semesterNumbers": [
-        1
+        "1"
       ],
       "content": []
     }
@@ -78,12 +76,11 @@
   ],
   "study_semester": [
     {
-      "_id": 0,
       "studyCourse": "65ef18ce00fa3a6dfc152b20",
       "semesterNumbers": [
-        3,
-        4,
-        5
+        "3",
+        "4",
+        "5"
       ],
       "content": [
         "WB"
@@ -116,10 +113,9 @@
   ],
   "study_semester": [
     {
-      "_id": 0,
       "studyCourse": "65ef18ce00fa3a6dfc152b20",
       "semesterNumbers": [
-        4
+        "4"
       ],
       "content": []
         }
@@ -149,10 +145,9 @@
   ],
   "study_semester": [
     {
-      "_id": 0,
       "studyCourse": "65ef18ce00fa3a6dfc152b20",
       "semesterNumbers": [
-        5
+        "5"
       ],
       "content": []
     }
@@ -183,10 +178,9 @@
   ],
   "study_semester": [
     {
-      "_id": 0,
       "studyCourse": "65ef18ce00fa3a6dfc152b20",
       "semesterNumbers": [
-        4
+        "4"
       ],
       "content": []
     }
@@ -217,18 +211,16 @@
   ],
   "study_semester": [
     {
-      "_id": 0,
       "studyCourse": "65ef18ce00fa3a6dfc152b20",
       "semesterNumbers": [
-        2
+        "2"
       ],
       "content": []
     },
     {
-      "_id": 1,
       "studyCourse": "65ef18de00fa3a6dfc152b21",
       "semesterNumbers": [
-        2
+        "2"
       ],
       "content": []
     }
@@ -259,12 +251,11 @@
   ],
   "study_semester": [
     {
-      "_id": 0,
       "studyCourse": "65ef18ce00fa3a6dfc152b20",
       "semesterNumbers": [
-        3,
-        4,
-        5
+        "3",
+        "4",
+        "5"
       ],
       "content": [
         "WB"
@@ -297,10 +288,9 @@
   ],
   "study_semester": [
     {
-      "_id": 0,
       "studyCourse": "65ef18ce00fa3a6dfc152b20",
       "semesterNumbers": [
-        1
+        "1"
       ],
       "content": []
     }
@@ -330,10 +320,9 @@
   ],
   "study_semester": [
     {
-      "_id": 0,
       "studyCourse": "65ef18ce00fa3a6dfc152b20",
       "semesterNumbers": [
-        2
+        "2"
       ],
       "content": []
     }
@@ -363,18 +352,16 @@
   ],
   "study_semester": [
     {
-      "_id": 0,
       "studyCourse": "65ef18ce00fa3a6dfc152b20",
       "semesterNumbers": [
-        2
+        "2"
       ],
       "content": []
     },
     {
-      "_id": 1,
       "studyCourse": "65ef18de00fa3a6dfc152b21",
       "semesterNumbers": [
-        4
+        "4"
       ],
       "content": []
     }
@@ -404,10 +391,9 @@
   ],
   "study_semester": [
     {
-      "_id": 0,
       "studyCourse": "65ef18ce00fa3a6dfc152b20",
       "semesterNumbers": [
-        3
+        "3"
       ],
       "content": []
     }
@@ -460,12 +446,11 @@
   "room": ["65d854c3dfc97c0356792f8e"],
   "study_semester": [
     {
-      "_id": 0,
       "studyCourse": "65ef18ce00fa3a6dfc152b20",
       "semesterNumbers": [
-        3,
-        4,
-        5
+        "3",
+        "4",
+        "5"
       ],
       "content": []
     }
@@ -494,12 +479,11 @@
   "room": ["65d854c3dfc97c0356792f8e"],
   "study_semester": [
     {
-      "_id": 0,
       "studyCourse": "65ef18ce00fa3a6dfc152b20",
       "semesterNumbers": [
-        3,
-        4,
-        5
+        "3",
+        "4",
+        "5"
       ],
       "content": [
         "WB"
@@ -529,12 +513,11 @@
   "room": ["65d854c3dfc97c0356792f8e"],
   "study_semester": [
     {
-      "_id": 0,
       "studyCourse": "65ef18ce00fa3a6dfc152b20",
       "semesterNumbers": [
-        3,
-        4,
-        5
+        "3",
+        "4",
+        "5"
       ],
       "content": [
         "WB",
@@ -566,12 +549,11 @@
   "room": ["65d854c3dfc97c0356792f8e"],
   "study_semester": [
     {
-      "_id": 0,
       "studyCourse": "65ef18ce00fa3a6dfc152b20",
       "semesterNumbers": [
-        3,
-        4,
-        5
+        "3",
+        "4",
+        "5"
       ],
       "content": [
         "WB",
@@ -603,12 +585,11 @@
   "room": ["65d854c3dfc97c0356792f8e"],
   "study_semester": [
     {
-      "_id": 0,
       "studyCourse": "65ef18ce00fa3a6dfc152b20",
       "semesterNumbers": [
-        3,
-        4,
-        5
+        "3",
+        "4",
+        "5"
       ],
       "content": [
         "WB",
@@ -639,10 +620,9 @@
   "room": ["65d854c3dfc97c0356792f8e"],
   "study_semester": [
     {
-      "_id": 0,
       "studyCourse": "65ef18ce00fa3a6dfc152b20",
       "semesterNumbers": [
-        4
+        "4"
       ],
       "content": []
         }

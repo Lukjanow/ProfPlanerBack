@@ -7,11 +7,11 @@ from models.enums.Study import Study
 class StudySemester(BaseModel):
     id: Optional[int] = Field(alias="_id", default=None)
     studyCourse: StudyCourse
-    semesterNumbers: list[int]
+    semesterNumbers: list[str]
     content: list[str]
     
 class StudySemesterResponse(BaseModel):
     id: Optional[int] = Field(alias="_id", default=None)
     studyCourse: str
-    semesterNumbers: list[int]
+    semesterNumbers: list[str]
     content: list[str]
