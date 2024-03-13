@@ -6,13 +6,13 @@ from copy import * #Allow to copy Dict
 from models.common import *
 from models.Module import *
 import re
+import uuid 
 
 router = APIRouter()
 
 from Database.Database import db
 
 dozents = db["dozent"]
-study_semesters = db["studysemester"]
 rooms = db["rooms"]
 modules = db["modules"]
 calendars = db["calendar"]
@@ -39,8 +39,7 @@ def convertDataWithReferences(re):
             dozent.append(res)
         result["dozent"] = dozent
         study_semester = []
-        for id in result["study_semester"]:
-            res = study_semesters.find_one({"_id": ObjectId(str(id))})
+        for res in result["study_semester"]:
             if res != None:
                 resCourse = studycourse.find_one({"_id": ObjectId(str(res["studyCourse"]))})
                 resCourse["_id"] = str(resCourse["_id"])
@@ -392,9 +391,18 @@ async def Add_Modul(
     ):
     #check if module ID already exist
     data = dict(data)
+    if data["study_semester"] != None:
+        studyList = []
+        for study in data["study_semester"]:
+            study = dict(study)
+            study["_id"] = [len(data["study_semester"]) - 1]["_id"] + 1
+            studyList.append(study)
+
+        data["study_semester"] = studyList
     modules.insert_one(data)
 
     data["_id"] = str(data["_id"])
+    
     return data
 
 
@@ -465,10 +473,6 @@ async def Delete_Module(
         raise HTTPException(400, detail=f'{object_id} is not a valid ObjectId, it must be a 12-byte input or a 24-character hex string',)
     
     re = modules.find_one(ObjectId(object_id))
-
-    if re != None and len(re) != 0:
-        for study in re["study_semester"]:
-            study_semesters.delete_one({"_id": ObjectId(study)})
     
     entrys = calendarentry.find()
     entryList = []

@@ -3,7 +3,7 @@ from pydantic import BaseModel, Field
 
 from models.Dozent import Dozent
 from models.Room import Room
-from models.StudySemester import StudySemester
+from models.StudySemester import StudySemester, StudySemesterResponse
 from models.enums.Frequency import Frequency
 
 
@@ -27,7 +27,7 @@ class Module(BaseModel, use_enum_values=True):
 class ModuleResponse(Module):
     dozent: list[str]
     room: list[str]
-    study_semester: list[str]
+    study_semester: Optional[list[StudySemesterResponse]] = None
 
 
 class BasicModule(BaseModel):
