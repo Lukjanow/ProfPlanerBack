@@ -12,6 +12,7 @@
   ],
   "study_semester": [
     {
+      "_id": 0,
       "studyCourse": "65ef18ce00fa3a6dfc152b20",
       "semesterNumbers": [
         1
