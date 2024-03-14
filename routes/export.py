@@ -156,38 +156,30 @@ def checkExcelFormat(table_name, table_data):
             "study_semester", "duration", "approximate_attendance",
             "frequency", "selected", "color"
             ])
-        print("modules", table_name)
     elif table_name == "dozent":
         expected_columns = set([
             "_id", "prename", "lastname", "email", "title", "salutation", "absences"
             ])
-        print("dozent")
     elif table_name == "rooms":
         expected_columns = set([
             "_id", "roomNumber", "capacity", "roomType"
             ])
-        print("rooms")
     elif table_name == "studycourse": 
         expected_columns = set([
             "_id", "name", "semesterCount", "content"
             ])
-        print("studycourse")
     elif table_name == "calendar":
         expected_columns = set([
             "_id", "name", "entries"
             ])
-        print("calendar")
     elif table_name == "calendarEntry":
         expected_columns = set([
             "_id", "module", "time_stamp", "comment"
             ])
-        print("calendarEntry")
     if expected_columns == None:
         return False
     
     df_columns = set(table_data.columns)
-    print(expected_columns)
-    print(df_columns)
     
     if expected_columns != df_columns:
         return False
