@@ -37,8 +37,8 @@ services:
     # - MONGO_INITDB_ROOT_PASSWORD=testpassword
     volumes:
       - ./mongodb:/data/db
-    ports:
-      - "27017:27017"
+    #ports:
+    #  - "27017:27017"
     networks:
       - node-network
 

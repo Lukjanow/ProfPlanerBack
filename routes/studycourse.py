@@ -7,7 +7,6 @@ from Database.Database import db
 router = APIRouter()
 
 studyCourseCollection = db["studycourse"]
-studySemesterCollection = db["studysemester"]
 modules = db["modules"]
 
 @router.get("/studycourse",summary="read all StudyCourses",
