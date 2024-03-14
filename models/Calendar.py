@@ -7,6 +7,7 @@ class Calendar(BaseModel):
     name: str
     entries: list[CalendarEntry]
 
+
 class CalendarResponse(Calendar):
     id: Optional[str] = Field(alias="_id", default=None)
     entries: list[str]

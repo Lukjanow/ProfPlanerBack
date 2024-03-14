@@ -1,7 +1,5 @@
 from typing import Optional
-from bson import ObjectId
 from pydantic import BaseModel, Field
-
 from models.Absence import Absence
 
 class Dozent(BaseModel):
@@ -12,6 +10,7 @@ class Dozent(BaseModel):
     title: str
     salutation: str
     absences: list[Absence]
+
 
 class DozentResponse(Dozent):
     absences: Optional[list[Absence]] = None
