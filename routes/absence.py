@@ -2,7 +2,7 @@ from bson import ObjectId
 from fastapi import APIRouter, HTTPException
 from models.Absence import *
 from models.common import *
-from models.Dozent import DozentRespone
+from models.Dozent import DozentResponse
 
 from routes.dozent import dozentCollection
 
@@ -28,7 +28,7 @@ def create_absences_update_list(dozent):
 @router.post("/dozent/{dozent_id}/absence/",summary="add Absence to Dozent",
         description="Add Absence for a Dozent to the database based on the Input. Gives out a Message if successful.",
         tags=["Absence"],
-        response_model= DozentRespone,
+        response_model= DozentResponse,
         responses={
             404: {"model": HTTPError, "detail": "str"},
             400: {"model": HTTPError, "detail": "str"}

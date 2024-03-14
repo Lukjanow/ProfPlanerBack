@@ -1,0 +1,52 @@
+[{
+  "_id": {
+    "$oid": "65f199b4652cb752e4776563"
+  },
+  "id": null,
+  "name": "AI-B.Sc.",
+  "semesterCount": 7,
+  "content": [
+    "SE&D",
+    "NetSec",
+    "VisCo",
+    "WB"
+  ]
+},
+{
+  "_id": {
+    "$oid": "65f19b6e652cb752e4776564"
+  },
+  "id": null,
+  "name": "AI-M.Sc.",
+  "semesterCount": 3,
+  "content": [
+    "I&V",
+    "MobCom",
+    "N&S"
+  ]
+},
+{
+  "_id": {
+    "$oid": "65f19c37652cb752e4776565"
+  },
+  "id": null,
+  "name": "WI-B.Sc.",
+  "semesterCount": 6,
+  "content": [
+    "BusiDev",
+    "WB"
+  ]
+},
+{
+  "_id": {
+    "$oid": "65f19cfe652cb752e4776566"
+  },
+  "id": null,
+  "name": "WI-M.Sc.",
+  "semesterCount": 4,
+  "content": [
+    "FiCo",
+    "ForTrade",
+    "Mark"
+  ]
+}]

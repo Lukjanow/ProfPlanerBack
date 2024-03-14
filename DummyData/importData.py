@@ -33,11 +33,11 @@ calendarentry = db["calendarEntry"]
 modules = db["modules"]
 rooms = db["rooms"]
 dozentCollection = db["dozent"]
-studySemesterCollection = db["studysemester"]
+studyCourseCollection = db["studycourse"]
 
 importDataToCollection(calendars, "ProfPlaner.calendar.json")
 importDataToCollection(calendarentry, "ProfPlaner.calendarEntry.json")
 importDataToCollection(modules, "ProfPlaner.modules.json")
 importDataToCollection(rooms, "ProfPlaner.rooms.json")
 importDataToCollection(dozentCollection, "ProfPlaner.dozent.json")
-importDataToCollection(studySemesterCollection, "ProfPlaner.studysemester.json")
+importDataToCollection(studyCourseCollection, "ProfPlaner.studycourse.json")

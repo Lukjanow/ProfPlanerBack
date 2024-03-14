@@ -1,0 +1,486 @@
+[{
+  "_id": {
+    "$oid": "65f179bc652cb752e477651b"
+  },
+  "id": null,
+  "prename": "Thomas",
+  "lastname": "Barton",
+  "email": "thomas.barton@hs-worms.de",
+  "title": "Prof. Dr.",
+  "salutation": "Herr",
+  "absences": [
+    {
+      "id": 0,
+      "begin": {
+        "week_day": 0,
+        "hour": 0,
+        "minute": 0
+      },
+      "end": {
+        "week_day": 0,
+        "hour": 0,
+        "minute": 0
+      },
+      "comment": "string"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "65f17a29652cb752e477651c"
+  },
+  "id": null,
+  "prename": "Zdravko",
+  "lastname": "Bozakov",
+  "email": "zdravko.bozakov@hs-worms.de",
+  "title": "Prof. Dr.",
+  "salutation": "Herr",
+  "absences": [
+    {
+      "id": 0,
+      "begin": {
+        "week_day": 0,
+        "hour": 0,
+        "minute": 0
+      },
+      "end": {
+        "week_day": 0,
+        "hour": 0,
+        "minute": 0
+      },
+      "comment": "string"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "65f17a5c652cb752e477651d"
+  },
+  "id": null,
+  "prename": "Thorsten",
+  "lastname": "Frank",
+  "email": "frank@hs-worms.de",
+  "title": "Prof. Dr.",
+  "salutation": "Herr",
+  "absences": [
+    {
+      "id": 0,
+      "begin": {
+        "week_day": 0,
+        "hour": 0,
+        "minute": 0
+      },
+      "end": {
+        "week_day": 0,
+        "hour": 0,
+        "minute": 0
+      },
+      "comment": "string"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "65f17a95652cb752e477651e"
+  },
+  "id": null,
+  "prename": "Oliver",
+  "lastname": "Gloger",
+  "email": "oliver.gloger@hs-worms.de",
+  "title": "Prof. Dr.",
+  "salutation": "Herr",
+  "absences": [
+    {
+      "id": 0,
+      "begin": {
+        "week_day": 0,
+        "hour": 0,
+        "minute": 0
+      },
+      "end": {
+        "week_day": 0,
+        "hour": 0,
+        "minute": 0
+      },
+      "comment": "string"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "65f17abc652cb752e477651f"
+  },
+  "id": null,
+  "prename": "Elisabeth",
+  "lastname": "Heinemann",
+  "email": "elisabeth.heinemann@hs-worms.de",
+  "title": "Prof. Dr.",
+  "salutation": "Frau",
+  "absences": [
+    {
+      "id": 0,
+      "begin": {
+        "week_day": 0,
+        "hour": 0,
+        "minute": 0
+      },
+      "end": {
+        "week_day": 0,
+        "hour": 0,
+        "minute": 0
+      },
+      "comment": "string"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "65f17ae0652cb752e4776520"
+  },
+  "id": null,
+  "prename": "Dagmar",
+  "lastname": "Kessler",
+  "email": "dagmar.kessler@hs-worms.de",
+  "title": "Prof. Dr.",
+  "salutation": "Frau",
+  "absences": [
+    {
+      "id": 0,
+      "begin": {
+        "week_day": 0,
+        "hour": 0,
+        "minute": 0
+      },
+      "end": {
+        "week_day": 0,
+        "hour": 0,
+        "minute": 0
+      },
+      "comment": "string"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "65f17b05652cb752e4776521"
+  },
+  "id": null,
+  "prename": "Werner",
+  "lastname": "König",
+  "email": "werner.koenig@hs-worms.de",
+  "title": "Prof. Dr.",
+  "salutation": "Herr",
+  "absences": [
+    {
+      "id": 0,
+      "begin": {
+        "week_day": 0,
+        "hour": 0,
+        "minute": 0
+      },
+      "end": {
+        "week_day": 0,
+        "hour": 0,
+        "minute": 0
+      },
+      "comment": "string"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "65f17b22652cb752e4776522"
+  },
+  "id": null,
+  "prename": "Jens",
+  "lastname": "Kohler",
+  "email": "kohler@hs-worms.de",
+  "title": "Prof. Dr.",
+  "salutation": "Herr",
+  "absences": [
+    {
+      "id": 0,
+      "begin": {
+        "week_day": 0,
+        "hour": 0,
+        "minute": 0
+      },
+      "end": {
+        "week_day": 0,
+        "hour": 0,
+        "minute": 0
+      },
+      "comment": "string"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "65f17b3f652cb752e4776523"
+  },
+  "id": null,
+  "prename": "Stephan",
+  "lastname": "Kurpjuweit",
+  "email": "stephan.kurpjuweit@hs-worms.de",
+  "title": "Prof. Dr.",
+  "salutation": "Herr",
+  "absences": [
+    {
+      "id": 0,
+      "begin": {
+        "week_day": 0,
+        "hour": 0,
+        "minute": 0
+      },
+      "end": {
+        "week_day": 0,
+        "hour": 0,
+        "minute": 0
+      },
+      "comment": "string"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "65f17b5e652cb752e4776524"
+  },
+  "id": null,
+  "prename": "Norman",
+  "lastname": "Riegel",
+  "email": "norman.riegel@hs-worms.de",
+  "title": "Prof. Dr.",
+  "salutation": "Herr",
+  "absences": [
+    {
+      "id": 0,
+      "begin": {
+        "week_day": 0,
+        "hour": 0,
+        "minute": 0
+      },
+      "end": {
+        "week_day": 0,
+        "hour": 0,
+        "minute": 0
+      },
+      "comment": "string"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "65f17b76652cb752e4776525"
+  },
+  "id": null,
+  "prename": "Bernd",
+  "lastname": "Ruhland",
+  "email": "bernd.ruhland@hs-worms.de",
+  "title": "Prof. Dr.",
+  "salutation": "Herr",
+  "absences": [
+    {
+      "id": 0,
+      "begin": {
+        "week_day": 0,
+        "hour": 0,
+        "minute": 0
+      },
+      "end": {
+        "week_day": 0,
+        "hour": 0,
+        "minute": 0
+      },
+      "comment": "string"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "65f17b92652cb752e4776526"
+  },
+  "id": null,
+  "prename": "Volker",
+  "lastname": "Schwarzer",
+  "email": "volker.schwarzer@hs-worms.de",
+  "title": "Prof. Dr.",
+  "salutation": "Herr",
+  "absences": [
+    {
+      "id": 0,
+      "begin": {
+        "week_day": 0,
+        "hour": 0,
+        "minute": 0
+      },
+      "end": {
+        "week_day": 0,
+        "hour": 0,
+        "minute": 0
+      },
+      "comment": "string"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "65f17bc5652cb752e4776527"
+  },
+  "id": null,
+  "prename": "Marie-Luise",
+  "lastname": "Sessler",
+  "email": "marie-luise.sessler@hs-worms.de",
+  "title": "Prof. Dr.",
+  "salutation": "Frau",
+  "absences": [
+    {
+      "id": 0,
+      "begin": {
+        "week_day": 0,
+        "hour": 0,
+        "minute": 0
+      },
+      "end": {
+        "week_day": 0,
+        "hour": 0,
+        "minute": 0
+      },
+      "comment": "string"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "65f17bf3652cb752e4776528"
+  },
+  "id": null,
+  "prename": "Carlo",
+  "lastname": "Simon",
+  "email": "carlo.simon@hs-worms.de",
+  "title": "Prof. Dr.",
+  "salutation": "Herr",
+  "absences": [
+    {
+      "id": 0,
+      "begin": {
+        "week_day": 0,
+        "hour": 0,
+        "minute": 0
+      },
+      "end": {
+        "week_day": 0,
+        "hour": 0,
+        "minute": 0
+      },
+      "comment": "string"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "65f17c14652cb752e4776529"
+  },
+  "id": null,
+  "prename": "Herbert",
+  "lastname": "Thielen",
+  "email": "herbert.thielen@hs-worms.de",
+  "title": "Prof. Dr.",
+  "salutation": "Herr",
+  "absences": [
+    {
+      "id": 0,
+      "begin": {
+        "week_day": 0,
+        "hour": 0,
+        "minute": 0
+      },
+      "end": {
+        "week_day": 0,
+        "hour": 0,
+        "minute": 0
+      },
+      "comment": "string"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "65f17c2d652cb752e477652a"
+  },
+  "id": null,
+  "prename": "Steffen",
+  "lastname": "Wendzel",
+  "email": "steffen.wendzel@hs-worms.de",
+  "title": "Prof. Dr.",
+  "salutation": "Herr",
+  "absences": [
+    {
+      "id": 0,
+      "begin": {
+        "week_day": 0,
+        "hour": 0,
+        "minute": 0
+      },
+      "end": {
+        "week_day": 0,
+        "hour": 0,
+        "minute": 0
+      },
+      "comment": "string"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "65f17c45652cb752e477652b"
+  },
+  "id": null,
+  "prename": "Alexander",
+  "lastname": "Wiebel",
+  "email": "wiebel@hs-worms.de",
+  "title": "Prof. Dr.",
+  "salutation": "Herr",
+  "absences": [
+    {
+      "id": 0,
+      "begin": {
+        "week_day": 0,
+        "hour": 0,
+        "minute": 0
+      },
+      "end": {
+        "week_day": 0,
+        "hour": 0,
+        "minute": 0
+      },
+      "comment": "string"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "65f1980d652cb752e4776562"
+  },
+  "id": null,
+  "prename": "Michael Derek",
+  "lastname": "Werle-Rutter",
+  "email": "rutter@hs-worms.de",
+  "title": "",
+  "salutation": "Herr",
+  "absences": [
+    {
+      "id": 0,
+      "begin": {
+        "week_day": 0,
+        "hour": 0,
+        "minute": 0
+      },
+      "end": {
+        "week_day": 0,
+        "hour": 0,
+        "minute": 0
+      },
+      "comment": "string"
+    }
+  ]
+}]
