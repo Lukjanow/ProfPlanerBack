@@ -1,5 +1,4 @@
 from pydantic import BaseModel
-
 from models.CalendarEntry import CalendarEntry
 
 class Warning(BaseModel):

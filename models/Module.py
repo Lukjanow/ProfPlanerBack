@@ -1,11 +1,9 @@
 from typing import Optional
 from pydantic import BaseModel, Field
-
 from models.Dozent import Dozent
 from models.Room import Room
 from models.StudySemester import StudySemester, StudySemesterResponse
 from models.enums.Frequency import Frequency
-
 
 class Module(BaseModel, use_enum_values=True):
     id: Optional[str] = Field(alias="_id", default=None)
@@ -20,7 +18,6 @@ class Module(BaseModel, use_enum_values=True):
     frequency: Frequency
     selected: bool
     color: str | None
-
 
 
 class ModuleResponse(Module):
