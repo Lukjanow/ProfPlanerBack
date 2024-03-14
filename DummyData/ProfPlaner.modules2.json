@@ -23,14 +23,9 @@
   ],
   "duration": 105,
   "approximate_attendance": 80,
-  "type": [
-    1
-  ],
   "frequency": 1,
   "selected": true,
-  "color": "#FF0000",
-  "note": "string",
-  "groups": 0
+  "color": "#FF0000" 
 },
 {
   "_id": {
@@ -57,14 +52,9 @@
   ],
   "duration": 105,
   "approximate_attendance": 90,
-  "type": [
-    1
-  ],
   "frequency": 1,
   "selected": true,
-  "color": "#FF0000",
-  "note": "string",
-  "groups": 0
+  "color": "#FF0000"
 },
 {
   "_id": {
@@ -91,14 +81,9 @@
   ],
   "duration": 105,
   "approximate_attendance": 60,
-  "type": [
-    1
-  ],
   "frequency": 1,
   "selected": true,
-  "color": "#FF0000",
-  "note": "string",
-  "groups": 0
+  "color": "#FF0000"
 },
 {
   "_id": {
@@ -125,14 +110,9 @@
   ],
   "duration": 105,
   "approximate_attendance": 65,
-  "type": [
-    1
-  ],
   "frequency": 1,
   "selected": true,
-  "color": "#FF0000",
-  "note": "string",
-  "groups": 0
+  "color": "#FF0000"
 },
 {
   "_id": {
@@ -159,14 +139,9 @@
   ],
   "duration": 105,
   "approximate_attendance": 80,
-  "type": [
-    1
-  ],
   "frequency": 1,
   "selected": true,
-  "color": "#FF0000",
-  "note": "string",
-  "groups": 0
+  "color": "#FF0000"
 },
 {
   "_id": {
@@ -193,14 +168,9 @@
   ],
   "duration": 105,
   "approximate_attendance": 50,
-  "type": [
-    1
-  ],
   "frequency": 1,
   "selected": true,
-  "color": "#FF0000",
-  "note": "string",
-  "groups": 0
+  "color": "#FF0000"
 },
 {
   "_id": {
@@ -236,14 +206,9 @@
   ],
   "duration": 105,
   "approximate_attendance": 70,
-  "type": [
-    1
-  ],
   "frequency": 1,
   "selected": true,
-  "color": "#FF0005",
-  "note": "string",
-  "groups": 0
+  "color": "#FF0005"
 },
 {
   "_id": {
@@ -279,14 +244,9 @@
   ],
   "duration": 105,
   "approximate_attendance": 70,
-  "type": [
-    1
-  ],
   "frequency": 1,
   "selected": true,
-  "color": "#FF0005",
-  "note": "string",
-  "groups": 0
+  "color": "#FF0005"
 },
 {
   "_id": {
@@ -313,14 +273,9 @@
   ],
   "duration": 105,
   "approximate_attendance": 50,
-  "type": [
-    1
-  ],
   "frequency": 1,
   "selected": true,
-  "color": "#FF0005",
-  "note": "string",
-  "groups": 0
+  "color": "#FF0005"
 },
 {
   "_id": {
@@ -356,14 +311,9 @@
   ],
   "duration": 105,
   "approximate_attendance": 80,
-  "type": [
-    1
-  ],
   "frequency": 1,
   "selected": true,
-  "color": "#FF0005",
-  "note": "string",
-  "groups": 0
+  "color": "#FF0005"
 },
 {
   "_id": {
@@ -390,14 +340,9 @@
   ],
   "duration": 105,
   "approximate_attendance": 50,
-  "type": [
-    1
-  ],
   "frequency": 1,
   "selected": true,
-  "color": "#FF0005",
-  "note": "string",
-  "groups": 0
+  "color": "#FF0005"
 },
 {
   "_id": {
@@ -424,14 +369,9 @@
   ],
   "duration": 105,
   "approximate_attendance": 50,
-  "type": [
-    1
-  ],
   "frequency": 1,
   "selected": true,
-  "color": "#FF0005",
-  "note": "string",
-  "groups": 0
+  "color": "#FF0005"
 },
 {
   "_id": {
@@ -458,14 +398,9 @@
   ],
   "duration": 105,
   "approximate_attendance": 55,
-  "type": [
-    1
-  ],
   "frequency": 1,
   "selected": true,
-  "color": "#FF0005",
-  "note": "string",
-  "groups": 0
+  "color": "#FF0005"
 },
 {
   "_id": {
@@ -492,14 +427,9 @@
   ],
   "duration": 105,
   "approximate_attendance": 48,
-  "type": [
-    1
-  ],
   "frequency": 1,
   "selected": true,
-  "color": "#FF0005",
-  "note": "string",
-  "groups": 0
+  "color": "#FF0005"
 },
 {
   "_id": {
@@ -526,14 +456,9 @@
   ],
   "duration": 105,
   "approximate_attendance": 48,
-  "type": [
-    1
-  ],
   "frequency": 1,
   "selected": true,
-  "color": "#FF0005",
-  "note": "string",
-  "groups": 0
+  "color": "#FF0005"
 },
 {
   "_id": {
@@ -560,14 +485,9 @@
   ],
   "duration": 105,
   "approximate_attendance": 38,
-  "type": [
-    1
-  ],
   "frequency": 1,
   "selected": true,
-  "color": "#FF0005",
-  "note": "string",
-  "groups": 0
+  "color": "#FF0005"
 },
 {
   "_id": {
@@ -594,14 +514,9 @@
   ],
   "duration": 105,
   "approximate_attendance": 40,
-  "type": [
-    1
-  ],
   "frequency": 1,
   "selected": true,
-  "color": "#FF0005",
-  "note": "string",
-  "groups": 0
+  "color": "#FF0005"
 },
 {
   "_id": {
@@ -633,14 +548,9 @@
   ],
   "duration": 105,
   "approximate_attendance": 23,
-  "type": [
-    1
-  ],
   "frequency": 1,
   "selected": true,
-  "color": "#FF0005",
-  "note": "string",
-  "groups": 0
+  "color": "#FF0005"
 },
 {
   "_id": {
@@ -672,14 +582,9 @@
   ],
   "duration": 105,
   "approximate_attendance": 20,
-  "type": [
-    1
-  ],
   "frequency": 1,
   "selected": true,
-  "color": "#FF0005",
-  "note": "string",
-  "groups": 0
+  "color": "#FF0005"
 },
 {
   "_id": {
@@ -711,14 +616,9 @@
   ],
   "duration": 105,
   "approximate_attendance": 18,
-  "type": [
-    1
-  ],
   "frequency": 1,
   "selected": true,
-  "color": "#FF0005",
-  "note": "string",
-  "groups": 0
+  "color": "#FF0005"
 },
 {
   "_id": {
@@ -751,14 +651,9 @@
   ],
   "duration": 105,
   "approximate_attendance": 25,
-  "type": [
-    1
-  ],
   "frequency": 1,
   "selected": true,
-  "color": "#FF0005",
-  "note": "string",
-  "groups": 0
+  "color": "#FF0005"
 },
 {
   "_id": {
@@ -790,14 +685,9 @@
   ],
   "duration": 105,
   "approximate_attendance": 15,
-  "type": [
-    1
-  ],
   "frequency": 1,
   "selected": true,
-  "color": "#FF0005",
-  "note": "string",
-  "groups": 0
+  "color": "#FF0005"
 },
 {
   "_id": {
@@ -829,14 +719,9 @@
   ],
   "duration": 105,
   "approximate_attendance": 19,
-  "type": [
-    1
-  ],
   "frequency": 1,
   "selected": true,
-  "color": "#FF0005",
-  "note": "string",
-  "groups": 0
+  "color": "#FF0005"
 },
 {
   "_id": {
@@ -868,14 +753,9 @@
   ],
   "duration": 105,
   "approximate_attendance": 12,
-  "type": [
-    1
-  ],
   "frequency": 1,
   "selected": true,
-  "color": "#FF0005",
-  "note": "string",
-  "groups": 0
+  "color": "#FF0005"
 },
 {
   "_id": {
@@ -907,14 +787,9 @@
   ],
   "duration": 105,
   "approximate_attendance": 25,
-  "type": [
-    1
-  ],
   "frequency": 1,
   "selected": true,
-  "color": "#FF0005",
-  "note": "string",
-  "groups": 0
+  "color": "#FF0005"
 },
 {
   "_id": {
@@ -947,14 +822,9 @@
   ],
   "duration": 105,
   "approximate_attendance": 28,
-  "type": [
-    1
-  ],
   "frequency": 1,
   "selected": true,
-  "color": "#FF0005",
-  "note": "string",
-  "groups": 0
+  "color": "#FF0005"
 },
 {
   "_id": {
@@ -986,14 +856,9 @@
   ],
   "duration": 105,
   "approximate_attendance": 10,
-  "type": [
-    1
-  ],
   "frequency": 1,
   "selected": true,
-  "color": "#FF0005",
-  "note": "string",
-  "groups": 0
+  "color": "#FF0005"
 },
 {
   "_id": {
@@ -1026,14 +891,9 @@
   ],
   "duration": 105,
   "approximate_attendance": 12,
-  "type": [
-    1
-  ],
   "frequency": 1,
   "selected": true,
-  "color": "#FF0005",
-  "note": "string",
-  "groups": 0
+  "color": "#FF0005"
 },
 {
   "_id": {
@@ -1065,14 +925,9 @@
   ],
   "duration": 105,
   "approximate_attendance": 18,
-  "type": [
-    1
-  ],
   "frequency": 1,
   "selected": true,
-  "color": "#FF0005",
-  "note": "string",
-  "groups": 0
+  "color": "#FF0005"
 },
 {
   "_id": {
@@ -1104,14 +959,9 @@
   ],
   "duration": 105,
   "approximate_attendance": 9,
-  "type": [
-    1
-  ],
   "frequency": 1,
   "selected": true,
-  "color": "#FF0005",
-  "note": "string",
-  "groups": 0
+  "color": "#FF0005"
 },
 {
   "_id": {
@@ -1143,14 +993,9 @@
   ],
   "duration": 105,
   "approximate_attendance": 12,
-  "type": [
-    1
-  ],
   "frequency": 1,
   "selected": true,
-  "color": "#FF0005",
-  "note": "string",
-  "groups": 0
+  "color": "#FF0005"
 },
 {
   "_id": {
@@ -1182,14 +1027,9 @@
   ],
   "duration": 105,
   "approximate_attendance": 16,
-  "type": [
-    1
-  ],
   "frequency": 1,
   "selected": true,
-  "color": "#FF0005",
-  "note": "string",
-  "groups": 0
+  "color": "#FF0005"
 },
 {
   "_id": {
@@ -1221,14 +1061,9 @@
   ],
   "duration": 105,
   "approximate_attendance": 19,
-  "type": [
-    1
-  ],
   "frequency": 1,
   "selected": true,
-  "color": "#FF0005",
-  "note": "string",
-  "groups": 0
+  "color": "#FF0005"
 },
 {
   "_id": {
@@ -1260,14 +1095,9 @@
   ],
   "duration": 105,
   "approximate_attendance": 19,
-  "type": [
-    1
-  ],
   "frequency": 1,
   "selected": true,
-  "color": "#FF0005",
-  "note": "string",
-  "groups": 0
+  "color": "#FF0005"
 },
 {
   "_id": {
@@ -1299,14 +1129,9 @@
   ],
   "duration": 105,
   "approximate_attendance": 24,
-  "type": [
-    1
-  ],
   "frequency": 1,
   "selected": true,
-  "color": "#FF0005",
-  "note": "string",
-  "groups": 0
+  "color": "#FF0005"
 },
 {
   "_id": {
@@ -1339,14 +1164,9 @@
   ],
   "duration": 105,
   "approximate_attendance": 30,
-  "type": [
-    1
-  ],
   "frequency": 1,
   "selected": true,
-  "color": "#FF0005",
-  "note": "string",
-  "groups": 0
+  "color": "#FF0005"
 },
 {
   "_id": {
@@ -1377,14 +1197,9 @@
   ],
   "duration": 105,
   "approximate_attendance": 9,
-  "type": [
-    1
-  ],
   "frequency": 1,
   "selected": true,
-  "color": "#FF0005",
-  "note": "string",
-  "groups": 0
+  "color": "#FF0005"
 },
 {
   "_id": {
@@ -1415,12 +1230,7 @@
   ],
   "duration": 90,
   "approximate_attendance": 23,
-  "type": [
-    1
-  ],
   "frequency": 1,
   "selected": true,
-  "color": "#FF0005",
-  "note": "string",
-  "groups": 0
+  "color": "#FF0005"
 }]
