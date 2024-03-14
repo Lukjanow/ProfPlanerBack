@@ -22,9 +22,6 @@
   ],
   "duration": 90,
   "approximate_attendance": 100,
-  "type": [
-    1
-  ],
   "frequency": 3,
   "selected": true,
   "code": "EINF",
@@ -53,9 +50,6 @@
   ],
   "duration": 90,
   "approximate_attendance": 100,
-  "type": [
-    1
-  ],
   "frequency": 3,
   "selected": true,
   "code": "SMK",
@@ -88,10 +82,6 @@
   ],
   "duration": 90,
   "approximate_attendance": 20,
-  "type": [
-    1,
-    3
-  ],
   "frequency": 3,
   "selected": true,
   "code": "IoT",
@@ -120,9 +110,6 @@
   ],
   "duration": 90,
   "approximate_attendance": 80,
-  "type": [
-    1
-  ],
   "frequency": 3,
   "selected": true,
   "code": "WEB",
@@ -151,10 +138,6 @@
   ],
   "duration": 90,
   "approximate_attendance": 70,
-  "type": [
-    1,
-    2
-  ],
   "frequency": 3,
   "selected": true,
   "code": "UX",
@@ -183,10 +166,6 @@
   ],
   "duration": 90,
   "approximate_attendance": 70,
-  "type": [
-    1,
-    3
-  ],
   "frequency": 3,
   "selected": true,
   "code": "FullWEB",
@@ -223,10 +202,6 @@
   ],
   "duration": 90,
   "approximate_attendance": 140,
-  "type": [
-    1,
-    2
-  ],
   "frequency": 3,
   "selected": true,
   "code": null,
@@ -259,10 +234,6 @@
   ],
   "duration": 90,
   "approximate_attendance": 40,
-  "type": [
-    1,
-    3
-  ],
   "frequency": 1,
   "selected": true,
   "code": "ML",
@@ -291,9 +262,6 @@
   ],
   "duration": 90,
   "approximate_attendance": 100,
-  "type": [
-    1
-  ],
   "frequency": 3,
   "selected": true,
   "code": "HK",
@@ -322,9 +290,6 @@
   ],
   "duration": 90,
   "approximate_attendance": 110,
-  "type": [
-    1
-  ],
   "frequency": 3,
   "selected": true,
   "code": "BS",
@@ -361,9 +326,6 @@
   ],
   "duration": 90,
   "approximate_attendance": 110,
-  "type": [
-    1
-  ],
   "frequency": 3,
   "selected": true,
   "code": "RuN",
@@ -392,9 +354,6 @@
   ],
   "duration": 90,
   "approximate_attendance": 110,
-  "type": [
-    1
-  ],
   "frequency": 3,
   "selected": true,
   "code": "SWQ",
@@ -414,10 +373,6 @@
   ],
   "duration": 90,
   "approximate_attendance": 20,
-  "type": [
-    1,
-    2
-  ],
   "frequency": 3,
   "selected": true,
   "code": "DuG",
@@ -446,10 +401,6 @@
   ],
   "duration": 90,
   "approximate_attendance": 20,
-  "type": [
-    1,
-    2
-  ],
   "frequency": 3,
   "selected": true,
   "code": null,
@@ -480,9 +431,6 @@
   ],
   "duration": 90,
   "approximate_attendance": 20,
-  "type": [
-    1
-  ],
   "frequency": 1,
   "selected": false,
   "code": null,
@@ -515,9 +463,6 @@
   ],
   "duration": 90,
   "approximate_attendance": 20,
-  "type": [
-    2
-  ],
   "frequency": 3,
   "selected": true,
   "code": null,
@@ -549,10 +494,6 @@
   ],
   "duration": 90,
   "approximate_attendance": 30,
-  "type": [
-    1,
-    2
-  ],
   "frequency": 2,
   "selected": true,
   "code": "AD",
@@ -584,9 +525,6 @@
   ],
   "duration": 90,
   "approximate_attendance": 30,
-  "type": [
-    3
-  ],
   "frequency": 2,
   "selected": true,
   "code": "3D",
@@ -613,10 +551,6 @@
       ],
   "duration": 90,
   "approximate_attendance": 80,
-  "type": [
-    1,
-    2
-  ],
   "frequency": 3,
   "selected": true,
   "code": "RE",
