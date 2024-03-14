@@ -6,11 +6,12 @@ parent_dir = os.path.abspath(os.path.join(current_dir, os.pardir))
 sys.path.append(parent_dir)
 
 import pymongo
-from conflicts import checkTimetableForConflicts
+from algorithm.conflicts import checkTimetableForConflicts
 from bson import ObjectId
 from routes.modules import convertDataWithReferences
 from itertools import permutations
 from models.CalendarEntry import CalendarEntry
+from Database.Database import db
 import random
 
 def getPermNum(perm, module_index):
@@ -58,9 +59,9 @@ def deletePermListElements(perm_list, block_num, block_index):
 #         perm_index += 1
 
 
-def getDatabaseData():
-    myclient = pymongo.MongoClient("localhost", 27017)
-    db = myclient.ProfPlaner
+def getDatabaseTables():
+    # myclient = pymongo.MongoClient("localhost", 27017)
+    # db = myclient["ProfPlaner"]
 
     modules = db["modules"]
     calendarentry = db["calendarEntry"]
@@ -70,8 +71,12 @@ def getDatabaseData():
 
 def getModuleList(modules):
     module_list = []
+    print(modules)
+    print(modules.find())
     for module in modules.find():
         module_list.append(module)
+    print("FOUND ALL MODULES")
+    print("module list:",module_list)
     return convertDataWithReferences(module_list)
 
 
@@ -220,7 +225,7 @@ def main():
     #region initialize
 
     #get data from database
-    modules, calendarEntries, calendars = getDatabaseData()
+    modules, calendarEntries, calendars = getDatabaseTables()
 
     #get module list with all modules
     module_list = getModuleList(modules)
@@ -253,18 +258,42 @@ def main():
     for study_course in unplanned_study_course_list:
         for i in range(1, study_course["semesterCount"] + 1):
             print(study_course["name"], i)
-            semester_list = getModulesBySemester(module_list, study_course["name"], i)
+            semester_list = getModulesBySemester(unplanned_module_list, study_course["name"], i)
             semester_list = filterOutNonMandatoryModules(semester_list)
             for module in semester_list:
                 print(module["name"])
-            timetable = algorithm(semester_list, [], timetable)
+            timetable = algorithm(semester_list, planned_module_list, timetable)
         for content in study_course["content"]:
             print(study_course["name"], content)
-            content_list = getModulesByContent(module_list, study_course["name"], content)
+            content_list = getModulesByContent(unplanned_module_list, study_course["name"], content)
             for module in content_list:
                 print(module["name"])
-            timetable = algorithm(content_list, [], timetable)
-    print(timetable)
+            timetable = algorithm(content_list, planned_module_list, timetable)
+
+    calendar_entry_list = []
+    for key, value in timetable.items():
+        day = key//10
+        time = key%10
+        hours = None
+        if time == 1:
+            hours = 9
+        else:
+            hours = 13
+        minutes = 0
+        for module in value:
+            calendar_entry = {
+                "module": module["_id"],
+                "time_stamp": {
+                    "week_day": day,
+                    "hour": hours,
+                    "minute": minutes
+                },
+                "comment": None
+                }
+            calendar_entry_list.append(calendar_entry)
+
+
+    return calendar_entry_list
     
     
 
