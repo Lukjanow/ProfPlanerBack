@@ -1,4 +1,10 @@
-from itertools import permutations
+import pymongo
 
-for num in range(8, -1, -1):
-    print(num)
+client = pymongo.MongoClient("localhost", 27017)
+db = client.ProfPlaner
+
+modules = db.modules
+
+print(modules)
+for module in modules.find():
+    print(module)
