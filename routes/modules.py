@@ -12,9 +12,7 @@ router = APIRouter()
 
 # from Database.Database import db
 import pymongo
-
-myclient = pymongo.MongoClient("localhost", 27017)
-db = myclient.ProfPlaner
+from Database.Database import db
 
 dozents = db["dozent"]
 rooms = db["rooms"]
