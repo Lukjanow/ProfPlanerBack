@@ -9,9 +9,11 @@ class StudySemester(BaseModel):
     studyCourse: StudyCourse
     semesterNumbers: list[int]
     content: list[str]
+    type: str
     
 class StudySemesterResponse(BaseModel):
     id: Optional[int] = Field(alias="_id", default=None)
     studyCourse: str
     semesterNumbers: list[int]
     content: list[str]
+    type: str
