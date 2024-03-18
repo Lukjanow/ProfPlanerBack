@@ -10,6 +10,8 @@ import uuid
 
 router = APIRouter()
 
+# from Database.Database import db
+import pymongo
 from Database.Database import db
 
 dozents = db["dozent"]
@@ -394,8 +396,9 @@ async def Add_Modul(
     if data["study_semester"] != None:
         studyList = []
         for study in data["study_semester"]:
-            study["_id"] = [len(data["study_semester"]) - 1]["_id"] + 1
             study = dict(study)
+            length = len(data["study_semester"])
+            study["_id"] = data["study_semester"][length - 1].id + 1
             studyList.append(study)
 
         data["study_semester"] = studyList
