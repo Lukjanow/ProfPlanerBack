@@ -17,7 +17,7 @@
       "semesterNumbers": [
         1
       ],
-      "type": "",
+      "type": ["Pflicht"],
       "content": [],
       "_id": 1
     }
@@ -47,7 +47,7 @@
       "semesterNumbers": [
         1
       ],
-      "type": "",
+      "type": ["Pflicht"],
       "content": [],
       "_id": 1
     }
@@ -77,7 +77,7 @@
       "semesterNumbers": [
         1
       ],
-      "type": "",
+      "type": ["Pflicht"],
       "content": [],
       "_id": 1
     }
@@ -107,7 +107,7 @@
       "semesterNumbers": [
         1
       ],
-      "type": "",
+      "type": ["Pflicht"],
       "content": [],
       "_id": 1
     }
@@ -137,7 +137,7 @@
       "semesterNumbers": [
         1
       ],
-      "type": "",
+      "type": ["Pflicht"],
       "content": [],
       "_id": 1
     }
@@ -167,7 +167,7 @@
       "semesterNumbers": [
         2
       ],
-      "type": "",
+      "type": ["Pflicht"],
       "content": [],
       "_id": 1
     }
@@ -197,7 +197,7 @@
       "semesterNumbers": [
         2
       ],
-      "type": "",
+      "type": ["Pflicht"],
       "content": [],
       "_id": 1
     },
@@ -207,7 +207,7 @@
       "semesterNumbers": [
         3
       ],
-      "type": "",
+      "type": ["Pflicht"],
       "content": [],
       "_id": 1
     }
@@ -237,7 +237,7 @@
       "semesterNumbers": [
         2
       ],
-      "type": "",
+      "type": ["Pflicht"],
       "content": [],
       "_id": 1
     },
@@ -247,7 +247,7 @@
       "semesterNumbers": [
         4
       ],
-      "type": "",
+      "type": ["Pflicht"],
       "content": [],
       "_id": 1
     }
@@ -277,7 +277,7 @@
       "semesterNumbers": [
         2
       ],
-      "type": "",
+      "type": ["Pflicht"],
       "content": [],
       "_id": 1
     }
@@ -307,7 +307,7 @@
       "semesterNumbers": [
         2
       ],
-      "type": "",
+      "type": ["Pflicht"],
       "content": [],
       "_id": 1
     },
@@ -317,7 +317,7 @@
       "semesterNumbers": [
         2
       ],
-      "type": "",
+      "type": ["Pflicht"],
       "content": [],
       "_id": 1
     }
@@ -347,7 +347,7 @@
       "semesterNumbers": [
         3
       ],
-      "type": "",
+      "type": ["Pflicht"],
       "content": [],
       "_id": 1
     }
@@ -377,7 +377,7 @@
       "semesterNumbers": [
         3
       ],
-      "type": "",
+      "type": ["Pflicht"],
       "content": [],
       "_id": 1
     }
@@ -407,7 +407,7 @@
       "semesterNumbers": [
         3
       ],
-      "type": "",
+      "type": ["Pflicht"],
       "content": [],
       "_id": 1
     }
@@ -437,7 +437,7 @@
       "semesterNumbers": [
         4
       ],
-      "type": "",
+      "type": ["Pflicht"],
       "content": [],
       "_id": 1
     }
@@ -467,7 +467,7 @@
       "semesterNumbers": [
         4
       ],
-      "type": "",
+      "type": ["Pflicht"],
       "content": [],
       "_id": 1
     }
@@ -497,7 +497,7 @@
       "semesterNumbers": [
         5
       ],
-      "type": "",
+      "type": ["Pflicht"],
       "content": [],
       "_id": 1
     }
@@ -527,7 +527,7 @@
       "semesterNumbers": [
         5
       ],
-      "type": "",
+      "type": ["Pflicht"],
       "content": [],
       "_id": 1
     }
@@ -559,7 +559,7 @@
         4,
         5
       ],
-      "type": "Qualifikationsschwerpunkt",
+      "type": ["Qualifikationsschwerpunkt"],
       "content": [
         "NetSec",
         "WB"
@@ -594,7 +594,7 @@
         4,
         5
       ],
-      "type": "Qualifikationsschwerpunkt",
+      "type": ["Qualifikationsschwerpunkt"],
       "content": [
         "NetSec",
         "WB"
@@ -629,7 +629,7 @@
         4,
         5
       ],
-      "type": "Qualifikationsschwerpunkt",
+      "type": ["Qualifikationsschwerpunkt"],
       "content": [
         "NetSec",
         "WB"
@@ -664,7 +664,7 @@
         4,
         5
       ],
-      "type": "Qualifikationsschwerpunkt",
+      "type": ["Qualifikationsschwerpunkt"],
       "content": [
         "SE&D",
         "NetSec",
@@ -700,7 +700,7 @@
         4,
         5
       ],
-      "type": "Qualifikationsschwerpunkt",
+      "type": ["Qualifikationsschwerpunkt"],
       "content": [
         "NetSec",
         "WB"
@@ -735,7 +735,7 @@
         4,
         5
       ],
-      "type": "Qualifikationsschwerpunkt",
+      "type": ["Qualifikationsschwerpunkt"],
       "content": [
         "NetSec",
         "WB"
@@ -770,7 +770,7 @@
         4,
         5
       ],
-      "type": "Qualifikationsschwerpunkt",
+      "type": ["Qualifikationsschwerpunkt"],
       "content": [
         "NetSec",
         "WB"
@@ -805,7 +805,7 @@
         4,
         5
       ],
-      "type": "Qualifikationsschwerpunkt",
+      "type": ["Qualifikationsschwerpunkt"],
       "content": [
         "SE&D",
         "WB"
@@ -840,7 +840,7 @@
         4,
         5
       ],
-      "type": "Qualifikationsschwerpunkt",
+      "type": ["Qualifikationsschwerpunkt"],
       "content": [
         "NetSec",
         "SE&D",
@@ -876,7 +876,7 @@
         4,
         5
       ],
-      "type": "Qualifikationsschwerpunkt",
+      "type": ["Qualifikationsschwerpunkt"],
       "content": [
         "SE&D",
         "WB"
@@ -911,7 +911,7 @@
         4,
         5
       ],
-      "type": "Qualifikationsschwerpunkt",
+      "type": ["Qualifikationsschwerpunkt"],
       "content": [
         "VisCo",
         "SE&D",
@@ -947,7 +947,7 @@
         4,
         5
       ],
-      "type": "Qualifikationsschwerpunkt",
+      "type": ["Qualifikationsschwerpunkt"],
       "content": [
         "SE&D",
         "WB"
@@ -982,7 +982,7 @@
         4,
         5
       ],
-      "type": "Qualifikationsschwerpunkt",
+      "type": ["Qualifikationsschwerpunkt"],
       "content": [
         "VisCo",
         "WB"
@@ -1017,7 +1017,7 @@
         4,
         5
       ],
-      "type": "Qualifikationsschwerpunkt",
+      "type": ["Qualifikationsschwerpunkt"],
       "content": [
         "VisCo",
         "WB"
@@ -1052,7 +1052,7 @@
         4,
         5
       ],
-      "type": "Qualifikationsschwerpunkt",
+      "type": ["Qualifikationsschwerpunkt"],
       "content": [
         "VisCo",
         "WB"
@@ -1087,7 +1087,7 @@
         4,
         5
       ],
-      "type": "Qualifikationsschwerpunkt",
+      "type": ["Qualifikationsschwerpunkt"],
       "content": [
         "VisCo",
         "WB"
@@ -1122,7 +1122,7 @@
         4,
         5
       ],
-      "type": "Qualifikationsschwerpunkt",
+      "type": ["Qualifikationsschwerpunkt"],
       "content": [
         "VisCo",
         "WB"
@@ -1157,7 +1157,7 @@
         4,
         5
       ],
-      "type": "Qualifikationsschwerpunkt",
+      "type": ["Qualifikationsschwerpunkt"],
       "content": [
         "VisCo",
         "WB"
@@ -1192,7 +1192,7 @@
         4,
         5
       ],
-      "type": "Qualifikationsschwerpunkt",
+      "type": ["Qualifikationsschwerpunkt"],
       "content": [
         "SE&D",
         "VisCo",
@@ -1228,7 +1228,7 @@
         4,
         5
       ],
-      "type": "Qualifikationsschwerpunkt",
+      "type": ["Qualifikationsschwerpunkt"],
       "content": [
         "WB"
       ],
@@ -1262,7 +1262,7 @@
         4,
         5
       ],
-      "type": "Qualifikationsschwerpunkt",
+      "type": ["Qualifikationsschwerpunkt"],
       "content": [
         "WB"
       ],
