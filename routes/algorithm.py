@@ -1,16 +1,18 @@
 from bson import ObjectId
-from fastapi import APIRouter
+from fastapi import APIRouter, HTTPException
 from models.Room import *
 from models.common import *
 from algorithm.algorithm import main as algorithm
 from models.TimeStamp import TimeStamp
 from models.CalendarEntry import CalendarEntryResponse
+from routes.modules import convertDataWithReferences
 
 router = APIRouter()
 
 from Database.Database import db
 calendarentry = db["calendarEntry"]
 calendars = db["calendar"]
+modules = db["modules"]
 
 @router.post("/algorithm",summary="run the algorithm",
         description="Adds a calendarEntry to every not planned module.",
@@ -22,25 +24,37 @@ async def RunAlgorithm():
     # id_list = []
     # for calendar_entry in calendar_entry_list:
     #     id_list.append(calendarentry.insert_one(calendar_entry))
-    id_list = calendarentry.insert_many(calendar_entry_list)
+    newEntryList = []
+    calendarEntryList = []
+
+    if(calendar_entry_list is None):
+        return []
+
+    if(len(calendar_entry_list) != 0 ):
+        id_list = calendarentry.insert_many(calendar_entry_list)
+        for id in id_list.inserted_ids:
+            newEntryList.append(str(id))
+            calendarEntryList.append(str(id))
     calendar = calendars.find_one(calendar_id)
 
     if calendar == None:
-        return "ERROR"
+        raise HTTPException(
+        404, detail=f'calendar with ID {calendar_id} doesn\'t exist',)
     
-    newEntryList = []
+    
 
     for entry in calendar["entries"]:
-        newEntryList.append(entry)
+        calendarEntryList.append(entry)
 
-    print("---------------------")
-    print(type(id_list))
-    print(id_list)
-    print("-----------------------")
+    calendars.update_one({"_id": calendar_id}, {"$set":{"entries":calendarEntryList}})
 
-    for id in id_list.inserted_ids:
-        newEntryList.append(str(id))
+    entryList = []
 
-    calendars.update_one({"_id": calendar_id}, {"$set":{"entries":newEntryList}})
+    for id in newEntryList:
+        entry = calendarentry.find_one(ObjectId(id))
+        entry["_id"] = str(entry["_id"])
+        module = convertDataWithReferences([modules.find_one(ObjectId(entry["module"]))])[0]
+        entry["module"] = module
+        entryList.append(entry)
 
-    return "calendar_entry_list"
+    return entryList
