@@ -328,14 +328,31 @@ def main():
                 timetable, algoSuccess = brainfuck(timetable, [content_module_list], difference_list, True)
 
     print("timetable", timetable)
-        
-        # full mandatory semester
-        # semi mandatory semester
-        # contents
+    calendar_entry_list = []
+    for key, value in timetable.items():
+        day = key//10
+        time = key%10
+        hours = None
+        if time == 1:
+            hours = 9
+        else:
+            hours = 13
+        minutes = 0
+        for module in value:
+            if module in unplanned_module_list:
+                calendar_entry = {
+                    "module": module["_id"],
+                    "time_stamp": {
+                        "week_day": day,
+                        "hour": hours,
+                        "minute": minutes
+                    },
+                    "comment": None
+                    }
+                calendar_entry_list.append(calendar_entry)
 
-    # 5: create CalendarEntries for unplanned modules
-    
-    return None
+
+    return calendar_entry_list
 
 
 if __name__ == '__main__':
