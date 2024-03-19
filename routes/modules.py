@@ -31,7 +31,6 @@ studycourse = db["studycourse"]
 
 def convertDataWithReferences(re):
     x = []
-   
     for result in re:
         dozent = []
         for id in result["dozent"]:
