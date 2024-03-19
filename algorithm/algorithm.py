@@ -109,6 +109,17 @@ def getSemesterModules(study_course, semester, module_list):
     return semester_module_list
 
 
+def getContentModules(study_course, content, module_list):
+    content_module_list = []
+    for module in module_list:
+        for study_semester in module["study_semester"]:
+            if study_semester["studyCourse"] == study_course:
+                if len(study_semester["content"]) > 0:
+                    if content in study_semester["content"]:
+                        content_module_list.append(module)
+    return content_module_list
+
+
 def filterMandatoryModules(module_list, study_course):
     filtered_list = []
     for module in module_list:
@@ -132,7 +143,7 @@ def filterUnplannedModules(module_list, timetable):
     return filtered_list
 
 
-def checkPerm(timetable):
+def checkPerm(timetable, canOverlap):
     for key, value in timetable.items():
         dozent_list = []
         semester_list = []
@@ -142,13 +153,14 @@ def checkPerm(timetable):
                     return False, key
                 else:
                     dozent_list.append(dozent)
-            for study_semester in module["study_semester"]:
-                if len(study_semester["semesterNumbers"]) == 1:
-                    study_semester_object = (study_semester["studyCourse"], study_semester["semesterNumbers"][0])
-                    if study_semester_object in semester_list:
-                        return False, key
-                    else: 
-                        semester_list.append(study_semester_object)
+            if canOverlap == False:
+                for study_semester in module["study_semester"]:
+                    if len(study_semester["semesterNumbers"]) == 1:
+                        study_semester_object = (study_semester["studyCourse"], study_semester["semesterNumbers"][0])
+                        if study_semester_object in semester_list:
+                            return False, key
+                        else: 
+                            semester_list.append(study_semester_object)
     return True, 0
 
 
@@ -162,14 +174,14 @@ def deletePermListElements(perm_list, block_num, error_perm):
     new_perm_list = []
     for perm in perm_list:
         if perm[block_index] == block_num:
-            print("BAD PERM:", perm)
+            # print("BAD PERM:", perm)
             pass
         else:
             new_perm_list.append(perm)
     return new_perm_list
 
 
-def brainfuck(timetable, meta_module_list, timetable_list):
+def brainfuck(timetable, meta_module_list, timetable_list, canOverlap=False):
     perm_list = []
     for perm in permutations(timetable_list):
         perm_list.append(perm)
@@ -182,13 +194,13 @@ def brainfuck(timetable, meta_module_list, timetable_list):
         for module_list in meta_module_list:
 
             for module_index, module in enumerate(module_list):
-                module_perm_num = perm[module_index]
+                module_perm_num = perm[module_index % len(timetable_list)]
                 timetable[module_perm_num].append(module)
 
-            permSuccess, block_num = checkPerm(timetable)
+            permSuccess, block_num = checkPerm(timetable, canOverlap)
 
             for module_index, module in enumerate(module_list):
-                    module_perm_num = perm[module_index]
+                    module_perm_num = perm[module_index % len(timetable_list)]
                     timetable[module_perm_num].pop()
 
             if permSuccess == False:
@@ -198,10 +210,10 @@ def brainfuck(timetable, meta_module_list, timetable_list):
         if permSuccess:
             for module_list in meta_module_list:
                 for module_index, module in enumerate(module_list):
-                    module_perm_num = perm[module_index]
+                    module_perm_num = perm[module_index % len(timetable_list)]
                     timetable[module_perm_num].append(module)
             return timetable, True
-        
+    print("No perms left")
     return timetable, False
     
 
@@ -251,16 +263,12 @@ def main():
 
         #detect semi mandatory semester
         full_mandatory_semester_numbers, semi_mandatory_semester_numbers = detectSemiMandatorySemester(study_course, module_list)
-        print("full", full_mandatory_semester_numbers)
-        print("semi", semi_mandatory_semester_numbers)
 
         for semester in full_mandatory_semester_numbers:
             print("Semester", semester)
             # filtering modules
             semester_module_list = getSemesterModules(study_course, semester, module_list)
             semester_module_list = filterUnplannedModules(semester_module_list, timetable)
-
-            print(semester_module_list)
 
             for i in range(len(semester_module_list), 11):
                 combinations_list = combinations(timetable_list, i)
@@ -275,6 +283,7 @@ def main():
 
         max_mandatory_modules = 0
         meta_module_list = []
+        difference_list = []
         for semester in semi_mandatory_semester_numbers:
             print("Semester", semester)
             # filtering modules
@@ -286,20 +295,39 @@ def main():
             if semester_count > max_mandatory_modules:
                 max_mandatory_modules = semester_count
 
-            print(semester_module_list)
-
-            print(max_mandatory_modules)
-
         for i in range(max_mandatory_modules, 11):
             combinations_list = combinations(timetable_list, i)
             for block_list in combinations_list:
                 timetable, algoSuccess = brainfuck(timetable, meta_module_list, block_list)
                 if algoSuccess:
+                    difference_list = [block for block in timetable_list if block not in block_list]
                     break
             if algoSuccess:
                 break
 
-        print("timetable", timetable)
+        
+        for content in study_course["content"]:
+            print("Content", content)
+            # filtering modules
+            content_module_list = getContentModules(study_course, content, module_list)
+            content_module_list = filterUnplannedModules(content_module_list, timetable)
+
+            print("Amount", len(content_module_list))
+
+            contentAlgoSuccess = False
+            for i in range(len(content_module_list), 11 - max_mandatory_modules):
+                combinations_list = combinations(difference_list, i)
+                for block_list in combinations_list:
+                    timetable, algoSuccess = brainfuck(timetable, [content_module_list], block_list)
+                    if algoSuccess:
+                        contentAlgoSuccess = True
+                        break
+                if algoSuccess:
+                    break
+            if contentAlgoSuccess == False:
+                timetable, algoSuccess = brainfuck(timetable, [content_module_list], difference_list, True)
+
+    print("timetable", timetable)
         
         # full mandatory semester
         # semi mandatory semester
@@ -308,8 +336,7 @@ def main():
     # 5: create CalendarEntries for unplanned modules
     
     return None
-    
-    pass
+
 
 if __name__ == '__main__':
     main()
