@@ -19,6 +19,7 @@ calendars = db["calendar"]
 async def RunAlgorithm():
     calendar_id = ObjectId("65d61765c15324dcfc497c4f")
     calendar_entry_list = algorithm()
+    return ""
     # id_list = []
     # for calendar_entry in calendar_entry_list:
     #     id_list.append(calendarentry.insert_one(calendar_entry))
