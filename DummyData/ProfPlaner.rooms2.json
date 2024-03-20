@@ -203,7 +203,7 @@
   "id": null,
   "roomNumber": "N039",
   "capacity": 30,
-  "roomType": "laboratoryatory"
+  "roomType": "laboratory"
 },
 {
   "_id": {
@@ -212,7 +212,7 @@
   "id": null,
   "roomNumber": "N040",
   "capacity": 20,
-  "roomType": "laboratoryatory"
+  "roomType": "laboratory"
 },
 {
   "_id": {
@@ -221,7 +221,7 @@
   "id": null,
   "roomNumber": "N041",
   "capacity": 23,
-  "roomType": "laboratoryatory"
+  "roomType": "laboratory"
 },
 {
   "_id": {
@@ -230,7 +230,7 @@
   "id": null,
   "roomNumber": "N042",
   "capacity": 28,
-  "roomType": "laboratoryatory"
+  "roomType": "laboratory"
 },
 {
   "_id": {
@@ -239,7 +239,7 @@
   "id": null,
   "roomNumber": "N140",
   "capacity": 18,
-  "roomType": "laboratoryatory"
+  "roomType": "laboratory"
 },
 {
   "_id": {
@@ -248,7 +248,7 @@
   "id": null,
   "roomNumber": "N140",
   "capacity": 18,
-  "roomType": "laboratoryatory"
+  "roomType": "laboratory"
 },
 {
   "_id": {
@@ -257,7 +257,7 @@
   "id": null,
   "roomNumber": "N141",
   "capacity": 18,
-  "roomType": "laboratoryatory"
+  "roomType": "laboratory"
 },
 {
   "_id": {
@@ -266,7 +266,7 @@
   "id": null,
   "roomNumber": "N142",
   "capacity": 19,
-  "roomType": "laboratoryatory"
+  "roomType": "laboratory"
 },
 {
   "_id": {
@@ -275,7 +275,7 @@
   "id": null,
   "roomNumber": "N143",
   "capacity": 24,
-  "roomType": "laboratoryatory"
+  "roomType": "laboratory"
 },
 {
   "_id": {
@@ -284,7 +284,7 @@
   "id": null,
   "roomNumber": "N144",
   "capacity": 21,
-  "roomType": "laboratoryatory"
+  "roomType": "laboratory"
 },
 {
   "_id": {
@@ -293,7 +293,7 @@
   "id": null,
   "roomNumber": "N239",
   "capacity": 12,
-  "roomType": "laboratoryatory"
+  "roomType": "laboratory"
 },
 {
   "_id": {
@@ -302,7 +302,7 @@
   "id": null,
   "roomNumber": "N240",
   "capacity": 18,
-  "roomType": "laboratoryatory"
+  "roomType": "laboratory"
 },
 {
   "_id": {
@@ -311,7 +311,7 @@
   "id": null,
   "roomNumber": "N241",
   "capacity": 25,
-  "roomType": "laboratoryatory"
+  "roomType": "laboratory"
 },
 {
   "_id": {
@@ -320,7 +320,7 @@
   "id": null,
   "roomNumber": "N242",
   "capacity": 24,
-  "roomType": "laboratoryatory"
+  "roomType": "laboratory"
 },
 {
   "_id": {
@@ -329,7 +329,7 @@
   "id": null,
   "roomNumber": "N243",
   "capacity": 25,
-  "roomType": "laboratoryatory"
+  "roomType": "laboratory"
 },
 {
   "_id": {
@@ -338,7 +338,7 @@
   "id": null,
   "roomNumber": "N245",
   "capacity": 15,
-  "roomType": "laboratoryatory"
+  "roomType": "laboratory"
 },
 {
   "_id": {
