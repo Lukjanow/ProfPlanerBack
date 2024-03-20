@@ -36,8 +36,8 @@ dozentCollection = db["dozent"]
 studyCourseCollection = db["studycourse"]
 
 importDataToCollection(calendars, "ProfPlaner.calendar.json")
-# importDataToCollection(calendarentry, "ProfPlaner.calendarEntry.json")
-importDataToCollection(modules, "ProfPlaner.modules2.json")
-importDataToCollection(rooms, "ProfPlaner.rooms2.json")
-importDataToCollection(dozentCollection, "ProfPlaner.dozent1.json")
-importDataToCollection(studyCourseCollection, "ProfPlaner.studycourse2.json")
+importDataToCollection(calendarentry, "ProfPlaner.calendarEntry.json")
+importDataToCollection(modules, "ProfPlaner.modules.json")
+importDataToCollection(rooms, "ProfPlaner.rooms.json")
+importDataToCollection(dozentCollection, "ProfPlaner.dozent.json")
+importDataToCollection(studyCourseCollection, "ProfPlaner.studycourse.json")
