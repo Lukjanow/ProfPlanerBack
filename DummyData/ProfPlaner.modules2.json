@@ -24,7 +24,7 @@
   ],
   "duration": 105,
   "approximate_attendance": 80,
-  "frequency": 1,
+  "frequency": 3,
   "selected": true,
   "color": "#bcbcbc" 
 },
@@ -54,7 +54,7 @@
   ],
   "duration": 105,
   "approximate_attendance": 90,
-  "frequency": 1,
+  "frequency": 3,
   "selected": true,
   "color": "#bcbcbc"
 },
@@ -84,7 +84,7 @@
   ],
   "duration": 105,
   "approximate_attendance": 60,
-  "frequency": 1,
+  "frequency": 3,
   "selected": true,
   "color": "#bcbcbc"
 },
@@ -114,7 +114,7 @@
   ],
   "duration": 105,
   "approximate_attendance": 65,
-  "frequency": 1,
+  "frequency": 3,
   "selected": true,
   "color": "#bcbcbc"
 },
@@ -144,7 +144,7 @@
   ],
   "duration": 105,
   "approximate_attendance": 80,
-  "frequency": 1,
+  "frequency": 3,
   "selected": true,
   "color": "#bcbcbc"
 },
@@ -174,7 +174,7 @@
   ],
   "duration": 105,
   "approximate_attendance": 50,
-  "frequency": 1,
+  "frequency": 3,
   "selected": true,
   "color": "#bcbcbc"
 },
@@ -214,7 +214,7 @@
   ],
   "duration": 105,
   "approximate_attendance": 70,
-  "frequency": 1,
+  "frequency": 3,
   "selected": true,
   "color": "#bcbcbc"
 },
@@ -254,7 +254,7 @@
   ],
   "duration": 105,
   "approximate_attendance": 70,
-  "frequency": 1,
+  "frequency": 3,
   "selected": true,
   "color": "#bcbcbc"
 },
@@ -284,7 +284,7 @@
   ],
   "duration": 105,
   "approximate_attendance": 50,
-  "frequency": 1,
+  "frequency": 3,
   "selected": true,
   "color": "#bcbcbc"
 },
@@ -324,7 +324,7 @@
   ],
   "duration": 105,
   "approximate_attendance": 80,
-  "frequency": 1,
+  "frequency": 3,
   "selected": true,
   "color": "#bcbcbc"
 },
@@ -354,7 +354,7 @@
   ],
   "duration": 105,
   "approximate_attendance": 50,
-  "frequency": 1,
+  "frequency": 3,
   "selected": true,
   "color": "#bcbcbc"
 },
@@ -384,7 +384,7 @@
   ],
   "duration": 105,
   "approximate_attendance": 50,
-  "frequency": 1,
+  "frequency": 3,
   "selected": true,
   "color": "#bcbcbc"
 },
@@ -414,7 +414,7 @@
   ],
   "duration": 105,
   "approximate_attendance": 55,
-  "frequency": 1,
+  "frequency": 3,
   "selected": true,
   "color": "#bcbcbc"
 },
@@ -444,7 +444,7 @@
   ],
   "duration": 105,
   "approximate_attendance": 48,
-  "frequency": 1,
+  "frequency": 3,
   "selected": true,
   "color": "#bcbcbc"
 },
@@ -474,7 +474,7 @@
   ],
   "duration": 105,
   "approximate_attendance": 48,
-  "frequency": 1,
+  "frequency": 3,
   "selected": true,
   "color": "#bcbcbc"
 },
@@ -504,7 +504,7 @@
   ],
   "duration": 105,
   "approximate_attendance": 38,
-  "frequency": 1,
+  "frequency": 3,
   "selected": true,
   "color": "#bcbcbc"
 },
@@ -534,7 +534,7 @@
   ],
   "duration": 105,
   "approximate_attendance": 40,
-  "frequency": 1,
+  "frequency": 3,
   "selected": true,
   "color": "#bcbcbc"
 },
@@ -604,7 +604,7 @@
   ],
   "duration": 105,
   "approximate_attendance": 20,
-  "frequency": 1,
+  "frequency": 2,
   "selected": true,
   "color": "#bcbcbc"
 },
@@ -780,7 +780,7 @@
   ],
   "duration": 105,
   "approximate_attendance": 12,
-  "frequency": 1,
+  "frequency": 2,
   "selected": true,
   "color": "#bcbcbc"
 },
@@ -815,7 +815,7 @@
   ],
   "duration": 105,
   "approximate_attendance": 25,
-  "frequency": 1,
+  "frequency": 2,
   "selected": true,
   "color": "#bcbcbc"
 },
@@ -851,7 +851,7 @@
   ],
   "duration": 105,
   "approximate_attendance": 28,
-  "frequency": 1,
+  "frequency": 3,
   "selected": true,
   "color": "#bcbcbc"
 },
@@ -886,7 +886,7 @@
   ],
   "duration": 105,
   "approximate_attendance": 10,
-  "frequency": 1,
+  "frequency": 2,
   "selected": true,
   "color": "#bcbcbc"
 },
@@ -922,7 +922,7 @@
   ],
   "duration": 105,
   "approximate_attendance": 12,
-  "frequency": 1,
+  "frequency": 3,
   "selected": true,
   "color": "#bcbcbc"
 },
@@ -992,7 +992,7 @@
   ],
   "duration": 105,
   "approximate_attendance": 9,
-  "frequency": 1,
+  "frequency": 2,
   "selected": true,
   "color": "#bcbcbc"
 },
@@ -1027,7 +1027,7 @@
   ],
   "duration": 105,
   "approximate_attendance": 12,
-  "frequency": 1,
+  "frequency": 2,
   "selected": true,
   "color": "#bcbcbc"
 },
@@ -1132,7 +1132,7 @@
   ],
   "duration": 105,
   "approximate_attendance": 19,
-  "frequency": 1,
+  "frequency": 3,
   "selected": true,
   "color": "#bcbcbc"
 },
@@ -1167,7 +1167,7 @@
   ],
   "duration": 105,
   "approximate_attendance": 24,
-  "frequency": 1,
+  "frequency": 2,
   "selected": true,
   "color": "#bcbcbc"
 },
@@ -1203,7 +1203,7 @@
   ],
   "duration": 105,
   "approximate_attendance": 30,
-  "frequency": 1,
+  "frequency": 2,
   "selected": true,
   "color": "#bcbcbc"
 },
@@ -1237,7 +1237,7 @@
   ],
   "duration": 105,
   "approximate_attendance": 9,
-  "frequency": 1,
+  "frequency": 2,
   "selected": true,
   "color": "#bcbcbc"
 },
