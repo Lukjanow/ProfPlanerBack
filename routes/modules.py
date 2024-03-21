@@ -494,3 +494,25 @@ async def Delete_Module(
 
     modules.delete_one({"_id": id})
     return {"message": f"Successfully deleted Module {object_id}"}
+
+@router.get("/moduledata/frequency/{frequency}",summary=" read all Modules by frequency",
+        description="Get data about all Modules according the given frequency. Returns a Json with the Data. Also gives Back data for Dozent, Rooms and Studysemester",
+        tags=["Modules"],
+        response_model=list[Module], 
+        responses={
+            404: {"model": HTTPError, "detail": "str"}
+            })
+async def Get_modules_by_frequency(frequency):
+    results = modules.find({"frequency": int(frequency)})
+
+    resultList = []
+    
+    for result in results:
+        resultList.append(result)
+
+    results = modules.find({"frequency": 3})
+    
+    for result in results:
+        resultList.append(result)
+
+    return convertDataWithReferences(resultList)
