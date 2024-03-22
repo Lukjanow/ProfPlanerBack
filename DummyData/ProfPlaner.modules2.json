@@ -1,36 +1,37 @@
-[{
-  "_id": {
-    "$oid": "65f1aef5ecf81117b8dd18b2"
+[
+  {
+    "_id": {
+      "$oid": "65f1aef5ecf81117b8dd18b2"
+    },
+    "id": null,
+    "module_id": "111",
+    "name": "Selbst- und Methodenkompetenz",
+    "code": "SMK",
+    "dozent": [
+      "65f17abc652cb752e477651f"
+    ],
+    "room": [
+      "65f17ed7652cb752e4776531"
+    ],
+    "study_semester": [
+      {
+        "_id": 1,
+        "studyCourse": "65f199b4652cb752e4776563",
+        "semesterNumbers": [
+          "1"
+        ],
+        "content": [],
+        "type": [
+          "Pflicht"
+        ]
+      }
+    ],
+    "duration": 105,
+    "approximate_attendance": 80,
+    "frequency": 3,
+    "selected": true,
+    "color": null
   },
-  "id": null,
-  "module_id": "111",
-  "name": "Selbst- und Methodenkompetenz",
-  "code": "SMK",
-  "dozent": [
-    "65f17abc652cb752e477651f"
-  ],
-  "room": [
-    "65f17ed7652cb752e4776531"
-  ],
-  "study_semester": [
-    {
-      "_id": 1,
-      "studyCourse": "65f199b4652cb752e4776563",
-      "semesterNumbers": [
-        "1"
-      ],
-      "content": [],
-      "type": [
-        "Pflicht"
-      ]
-    }
-  ],
-  "duration": 105,
-  "approximate_attendance": 80,
-  "frequency": 3,
-  "selected": true,
-  "color": "#bcbcbc"
-},
   {
     "_id": {
       "$oid": "65f1af9cecf81117b8dd18b3"
@@ -62,7 +63,7 @@
     "approximate_attendance": 90,
     "frequency": 3,
     "selected": true,
-    "color": "#bcbcbc"
+    "color": null
   },
   {
     "_id": {
@@ -95,7 +96,7 @@
     "approximate_attendance": 60,
     "frequency": 3,
     "selected": true,
-    "color": "#bcbcbc"
+    "color": null
   },
   {
     "_id": {
@@ -132,7 +133,7 @@
     "approximate_attendance": 65,
     "frequency": 3,
     "selected": true,
-    "color": "#bcbcbc"
+    "color": null
   },
   {
     "_id": {
@@ -165,7 +166,7 @@
     "approximate_attendance": 80,
     "frequency": 3,
     "selected": true,
-    "color": "#bcbcbc"
+    "color": null
   },
   {
     "_id": {
@@ -198,7 +199,7 @@
     "approximate_attendance": 50,
     "frequency": 3,
     "selected": true,
-    "color": "#bcbcbc"
+    "color": null
   },
   {
     "_id": {
@@ -242,7 +243,7 @@
     "approximate_attendance": 70,
     "frequency": 3,
     "selected": true,
-    "color": "#bcbcbc"
+    "color": null
   },
   {
     "_id": {
@@ -290,7 +291,7 @@
     "approximate_attendance": 70,
     "frequency": 3,
     "selected": true,
-    "color": "#bcbcbc"
+    "color": null
   },
   {
     "_id": {
@@ -327,7 +328,7 @@
     "approximate_attendance": 50,
     "frequency": 3,
     "selected": true,
-    "color": "#bcbcbc"
+    "color": null
   },
   {
     "_id": {
@@ -371,7 +372,7 @@
     "approximate_attendance": 80,
     "frequency": 3,
     "selected": true,
-    "color": "#bcbcbc"
+    "color": null
   },
   {
     "_id": {
@@ -404,7 +405,7 @@
     "approximate_attendance": 50,
     "frequency": 3,
     "selected": true,
-    "color": "#bcbcbc"
+    "color": null
   },
   {
     "_id": {
@@ -439,7 +440,7 @@
     "approximate_attendance": 50,
     "frequency": 3,
     "selected": true,
-    "color": "#bcbcbc"
+    "color": null
   },
   {
     "_id": {
@@ -472,7 +473,7 @@
     "approximate_attendance": 55,
     "frequency": 3,
     "selected": true,
-    "color": "#bcbcbc"
+    "color": null
   },
   {
     "_id": {
@@ -505,7 +506,7 @@
     "approximate_attendance": 48,
     "frequency": 3,
     "selected": true,
-    "color": "#bcbcbc"
+    "color": null
   },
   {
     "_id": {
@@ -538,7 +539,7 @@
     "approximate_attendance": 48,
     "frequency": 3,
     "selected": true,
-    "color": "#bcbcbc"
+    "color": null
   },
   {
     "_id": {
@@ -571,7 +572,7 @@
     "approximate_attendance": 38,
     "frequency": 3,
     "selected": true,
-    "color": "#bcbcbc"
+    "color": null
   },
   {
     "_id": {
@@ -604,7 +605,7 @@
     "approximate_attendance": 40,
     "frequency": 3,
     "selected": true,
-    "color": "#bcbcbc"
+    "color": null
   },
   {
     "_id": {
@@ -642,7 +643,7 @@
     "approximate_attendance": 23,
     "frequency": 1,
     "selected": true,
-    "color": "#bcbcbc"
+    "color": null
   },
   {
     "_id": {
@@ -680,7 +681,7 @@
     "approximate_attendance": 20,
     "frequency": 2,
     "selected": true,
-    "color": "#bcbcbc"
+    "color": null
   },
   {
     "_id": {
@@ -718,7 +719,7 @@
     "approximate_attendance": 18,
     "frequency": 1,
     "selected": true,
-    "color": "#bcbcbc"
+    "color": null
   },
   {
     "_id": {
@@ -757,7 +758,7 @@
     "approximate_attendance": 25,
     "frequency": 1,
     "selected": true,
-    "color": "#bcbcbc"
+    "color": null
   },
   {
     "_id": {
@@ -795,7 +796,7 @@
     "approximate_attendance": 15,
     "frequency": 1,
     "selected": true,
-    "color": "#bcbcbc"
+    "color": null
   },
   {
     "_id": {
@@ -833,7 +834,7 @@
     "approximate_attendance": 19,
     "frequency": 1,
     "selected": true,
-    "color": "#bcbcbc"
+    "color": null
   },
   {
     "_id": {
@@ -871,7 +872,7 @@
     "approximate_attendance": 12,
     "frequency": 2,
     "selected": true,
-    "color": "#bcbcbc"
+    "color": null
   },
   {
     "_id": {
@@ -909,7 +910,7 @@
     "approximate_attendance": 25,
     "frequency": 2,
     "selected": true,
-    "color": "#bcbcbc"
+    "color": null
   },
   {
     "_id": {
@@ -948,7 +949,7 @@
     "approximate_attendance": 28,
     "frequency": 3,
     "selected": true,
-    "color": "#bcbcbc"
+    "color": null
   },
   {
     "_id": {
@@ -986,7 +987,7 @@
     "approximate_attendance": 10,
     "frequency": 2,
     "selected": true,
-    "color": "#bcbcbc"
+    "color": null
   },
   {
     "_id": {
@@ -1029,7 +1030,7 @@
     "approximate_attendance": 12,
     "frequency": 3,
     "selected": true,
-    "color": "#bcbcbc"
+    "color": null
   },
   {
     "_id": {
@@ -1067,7 +1068,7 @@
     "approximate_attendance": 18,
     "frequency": 1,
     "selected": true,
-    "color": "#bcbcbc"
+    "color": null
   },
   {
     "_id": {
@@ -1105,7 +1106,7 @@
     "approximate_attendance": 9,
     "frequency": 2,
     "selected": true,
-    "color": "#bcbcbc"
+    "color": null
   },
   {
     "_id": {
@@ -1143,7 +1144,7 @@
     "approximate_attendance": 12,
     "frequency": 2,
     "selected": true,
-    "color": "#bcbcbc"
+    "color": null
   },
   {
     "_id": {
@@ -1181,7 +1182,7 @@
     "approximate_attendance": 16,
     "frequency": 1,
     "selected": true,
-    "color": "#bcbcbc"
+    "color": null
   },
   {
     "_id": {
@@ -1219,7 +1220,7 @@
     "approximate_attendance": 19,
     "frequency": 1,
     "selected": true,
-    "color": "#bcbcbc"
+    "color": null
   },
   {
     "_id": {
@@ -1257,7 +1258,7 @@
     "approximate_attendance": 19,
     "frequency": 3,
     "selected": true,
-    "color": "#bcbcbc"
+    "color": null
   },
   {
     "_id": {
@@ -1299,7 +1300,7 @@
     "approximate_attendance": 24,
     "frequency": 2,
     "selected": true,
-    "color": "#bcbcbc"
+    "color": null
   },
   {
     "_id": {
@@ -1338,7 +1339,7 @@
     "approximate_attendance": 30,
     "frequency": 2,
     "selected": true,
-    "color": "#bcbcbc"
+    "color": null
   },
   {
     "_id": {
@@ -1375,7 +1376,7 @@
     "approximate_attendance": 9,
     "frequency": 2,
     "selected": true,
-    "color": "#bcbcbc"
+    "color": null
   },
   {
     "_id": {
@@ -1383,7 +1384,7 @@
     },
     "id": null,
     "module_id": "215",
-    "name": "Maschine Learning",
+    "name": "Machine Learning",
     "code": "ML",
     "dozent": [
       "65f17a95652cb752e477651e"
@@ -1412,5 +1413,6 @@
     "approximate_attendance": 23,
     "frequency": 1,
     "selected": true,
-    "color": "#bcbcbc"
-  }]
+    "color": null
+  }
+]
