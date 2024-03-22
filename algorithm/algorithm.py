@@ -39,9 +39,11 @@ def getModuleListsByPlanned(module_list, calendar_entry_list):
         isPlanned = False
         for calendarEntry in calendar_entry_list:
             if module["_id"] == calendarEntry["module"]["_id"]:
+                calendarEntry["module"]["isSetBefore"] = True
                 planned_module_list.append(calendarEntry)
                 isPlanned = True
         if isPlanned == False:
+            module["isSetBefore"] = False
             unplanned_module_list.append(module)
     return planned_module_list, unplanned_module_list
 
@@ -150,7 +152,8 @@ def checkPerm(timetable, canOverlap):
         for module in value:
             for dozent in module["dozent"]:
                 if dozent in dozent_list:
-                    return False, key
+                    if module["isSetBefore"] == False:
+                        return False, key
                 else:
                     dozent_list.append(dozent)
             if canOverlap == False:
@@ -158,7 +161,8 @@ def checkPerm(timetable, canOverlap):
                     if len(study_semester["semesterNumbers"]) == 1:
                         study_semester_object = (study_semester["studyCourse"], study_semester["semesterNumbers"][0])
                         if study_semester_object in semester_list:
-                            return False, key
+                            if module["isSetBefore"] == False:
+                                return False, key
                         else: 
                             semester_list.append(study_semester_object)
     return True, 0
@@ -174,21 +178,19 @@ def deletePermListElements(perm_list, block_num, error_perm):
     new_perm_list = []
     for perm in perm_list:
         if perm[block_index] == block_num:
-            # print("BAD PERM:", perm)
             pass
         else:
             new_perm_list.append(perm)
     return new_perm_list
 
 
-def brainfuck(timetable, meta_module_list, timetable_list, canOverlap=False):
+def algorithm(timetable, meta_module_list, timetable_list, canOverlap=False):
     perm_list = []
     for perm in permutations(timetable_list):
         perm_list.append(perm)
 
     while len(perm_list) > 0:
         perm = perm_list[0]
-        # print("current perm:", perm)
         permSuccess = True
 
         for module_list in meta_module_list:
@@ -260,7 +262,7 @@ def main():
     # 4: put unplanned modules in Timetable
 
     for study_course in unplanned_study_course_list:
-
+        print("StudyCourse", study_course["name"])
         #detect semi mandatory semester
         full_mandatory_semester_numbers, semi_mandatory_semester_numbers = detectSemiMandatorySemester(study_course, module_list)
 
@@ -273,7 +275,7 @@ def main():
             for i in range(len(semester_module_list), 11):
                 combinations_list = combinations(timetable_list, i)
                 for block_list in combinations_list:
-                    timetable, algoSuccess = brainfuck(timetable, [semester_module_list], block_list)
+                    timetable, algoSuccess = algorithm(timetable, [semester_module_list], block_list)
                     if algoSuccess:
                         break
                 if algoSuccess:
@@ -298,7 +300,7 @@ def main():
         for i in range(max_mandatory_modules, 11):
             combinations_list = combinations(timetable_list, i)
             for block_list in combinations_list:
-                timetable, algoSuccess = brainfuck(timetable, meta_module_list, block_list)
+                timetable, algoSuccess = algorithm(timetable, meta_module_list, block_list)
                 if algoSuccess:
                     difference_list = [block for block in timetable_list if block not in block_list]
                     break
@@ -318,14 +320,14 @@ def main():
             for i in range(len(content_module_list), 11 - max_mandatory_modules):
                 combinations_list = combinations(difference_list, i)
                 for block_list in combinations_list:
-                    timetable, algoSuccess = brainfuck(timetable, [content_module_list], block_list)
+                    timetable, algoSuccess = algorithm(timetable, [content_module_list], block_list)
                     if algoSuccess:
                         contentAlgoSuccess = True
                         break
                 if algoSuccess:
                     break
             if contentAlgoSuccess == False:
-                timetable, algoSuccess = brainfuck(timetable, [content_module_list], difference_list, True)
+                timetable, algoSuccess = algorithm(timetable, [content_module_list], difference_list, True)
 
     print("timetable", timetable)
     calendar_entry_list = []
