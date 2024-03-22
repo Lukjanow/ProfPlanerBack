@@ -8,6 +8,7 @@ class Calendar(BaseModel, use_enum_values=True):
     name: str
     entries: list[CalendarEntry]
     frequency: Frequency
+    last_opening: float
 
 
 class CalendarResponse(Calendar):
