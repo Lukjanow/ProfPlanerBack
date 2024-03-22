@@ -70,7 +70,13 @@ def convert(data):
 
 def checkExcelFormat(table_name, table_data):
     expected_columns = None
-
+    print("----------------------")
+    print(table_name)
+    print(table_data)
+    print("---------------------------------")
+    if(table_data.empty):
+        return True, True
+    
     if table_name == "modules":
         expected_columns = set([
             "_id", "module_id", "name", "code", "dozent", "room",
@@ -98,14 +104,14 @@ def checkExcelFormat(table_name, table_data):
             "_id", "module", "time_stamp", "comment"
             ])
     if expected_columns == None:
-        return False
+        return False, False
     
     df_columns = set(table_data.columns)
     
     if expected_columns != df_columns:
-        return False
+        return False, False
     
-    return True
+    return True, False
 
 def getFileData(file):
     file_extension = os.path.splitext(file.filename)[1]
@@ -218,7 +224,13 @@ async def create_upload_file(file: UploadFile):
     dataframe = getFileData(file)
 
     for table_name, table_data in dataframe.items():
-        if not checkExcelFormat(table_name, table_data):
+        format, empty = checkExcelFormat(table_name, table_data)
+        if empty:
+            collection = db[table_name]
+            collection.drop()
+            continue
+
+        if not format:
             raise HTTPException(400, detail=f"An error occurred while Excel file has wrong format.",)
 
         table_data.replace({np.nan: None}, inplace=True)
@@ -265,7 +277,12 @@ async def create_upload_file(file: UploadFile):
         sortDataFrame["calendar"] = dataframe["calendar"]
 
     for table_name, table_data in sortDataFrame.items():
-        if not checkExcelFormat(table_name, table_data):
+        format, empty = checkExcelFormat(table_name, table_data)
+
+        if empty:
+            continue
+
+        if not format:
             raise HTTPException(400, detail=f"An error occurred while Excel file has wrong format.",)
 
         table_data.replace({np.nan: None}, inplace=True)
