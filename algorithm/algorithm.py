@@ -14,10 +14,15 @@ from models.CalendarEntry import CalendarEntry
 from Database.Database import db
 import random
 
-def getModuleList(modules):
+def getModuleList(modules, calendar):
     module_list = []
-    for module in modules.find():
+    for module in modules.find({"frequency":calendar["frequency"]}):
         module_list.append(module)
+    for module in modules.find({"frequency":3}):
+        module_list.append(module)
+    print("--------------")
+    print(len(module_list))
+    print("---------------")
     return convertDataWithReferences(module_list)
 
 
@@ -221,16 +226,16 @@ def algorithm(timetable, meta_module_list, timetable_list, canOverlap=False):
 
 
 
-def main():
+def main(id):
     # 1: Get Data
 
     modules = db["modules"]
     calendar_entries = db["calendarEntry"]
     calendars = db["calendar"]
 
-    module_list = getModuleList(modules)
+    calendar = calendars.find_one(id)
 
-    calendar = calendars.find_one(ObjectId("65d61765c15324dcfc497c4f"))
+    module_list = getModuleList(modules, calendar)
 
     calendar_entry_list = getCalendarEntryList(calendar, calendar_entries, modules)
 

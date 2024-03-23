@@ -97,7 +97,7 @@ def checkExcelFormat(table_name, table_data):
             ])
     elif table_name == "calendar":
         expected_columns = set([
-            "_id", "name", "entries", "frequency"
+            "_id", "name", "entries", "frequency", "last_opening"
             ])
     elif table_name == "calendarEntry":
         expected_columns = set([

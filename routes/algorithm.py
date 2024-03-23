@@ -18,9 +18,9 @@ modules = db["modules"]
         description="Adds a calendarEntry to every not planned module.",
         tags=["Algorithm"],
     )
-async def RunAlgorithm():
-    calendar_id = ObjectId("65d61765c15324dcfc497c4f")
-    calendar_entry_list = algorithm()
+async def RunAlgorithm(data:dict):
+    calendar_id = ObjectId(data["id"])
+    calendar_entry_list = algorithm(calendar_id)
     # id_list = []
     # for calendar_entry in calendar_entry_list:
     #     id_list.append(calendarentry.insert_one(calendar_entry))

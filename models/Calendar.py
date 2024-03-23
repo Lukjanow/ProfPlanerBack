@@ -3,11 +3,12 @@ from pydantic import BaseModel, Field
 from models.CalendarEntry import *
 from models.enums.Frequency import Frequency
 
-class Calendar(BaseModel):
+class Calendar(BaseModel, use_enum_values=True):
     id: Optional[str] = Field(alias="_id", default=None)
     name: str
     entries: list[CalendarEntry]
     frequency: Frequency
+    last_opening: float
 
 
 class CalendarResponse(Calendar):
