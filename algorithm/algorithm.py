@@ -151,9 +151,16 @@ def filterUnplannedModules(module_list, timetable):
 
 def checkPerm(timetable, canOverlap):
     for key, value in timetable.items():
+        room_list = []
         dozent_list = []
         semester_list = []
         for module in value:
+            for room in module["room"]:
+                if room in room_list:
+                   if module["isSetBefore"] == False:
+                        return False, key
+                else:
+                    room_list.append(room) 
             for dozent in module["dozent"]:
                 if dozent in dozent_list:
                     if module["isSetBefore"] == False:
