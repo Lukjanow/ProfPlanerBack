@@ -97,7 +97,7 @@ def detectSemiMandatorySemester(study_course, module_list):
                 if len(study_semester["semesterNumbers"]) > 1:
                     for semester_number in study_semester["semesterNumbers"]:
                         if semester_number not in semi_mandatory_semester:
-                            semi_mandatory_semester.append(semester_number)
+                            semi_mandatory_semester.append(str(semester_number))
     full_mandatory_semester = []
     for i in range(1, study_course["semesterCount"] + 1):
         if i not in semi_mandatory_semester:
