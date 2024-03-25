@@ -17,8 +17,10 @@ import random
 def getModuleList(modules, calendar):
     module_list = []
     for module in modules.find({"frequency":calendar["frequency"]}):
+        module["isSetBefore"] = False
         module_list.append(module)
     for module in modules.find({"frequency":3}):
+        module["isSetBefore"] = False
         module_list.append(module)
     print("--------------")
     print(len(module_list))
