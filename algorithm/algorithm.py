@@ -22,9 +22,6 @@ def getModuleList(modules, calendar):
     for module in modules.find({"frequency":3}):
         module["isSetBefore"] = False
         module_list.append(module)
-    print("--------------")
-    print(len(module_list))
-    print("---------------")
     return convertDataWithReferences(module_list)
 
 
@@ -104,7 +101,7 @@ def detectSemiMandatorySemester(study_course, module_list):
     full_mandatory_semester = []
     for i in range(1, study_course["semesterCount"] + 1):
         if i not in semi_mandatory_semester:
-            full_mandatory_semester.append(i)
+            full_mandatory_semester.append(str(i))
     return full_mandatory_semester, semi_mandatory_semester
 
 
@@ -230,6 +227,7 @@ def algorithm(timetable, meta_module_list, timetable_list, canOverlap=False):
 
 def main(id):
     # 1: Get Data
+    #29
 
     modules = db["modules"]
     calendar_entries = db["calendarEntry"]
@@ -238,9 +236,8 @@ def main(id):
     calendar = calendars.find_one(id)
 
     module_list = getModuleList(modules, calendar)
-
     calendar_entry_list = getCalendarEntryList(calendar, calendar_entries, modules)
-
+    
     planned_calendar_entry_list, unplanned_module_list = getModuleListsByPlanned(module_list, calendar_entry_list)
 
     unplanned_study_course_list = getStudyCourseList(unplanned_module_list)
@@ -359,7 +356,6 @@ def main(id):
                     "comment": None
                     }
                 calendar_entry_list.append(calendar_entry)
-
 
     return calendar_entry_list
 
