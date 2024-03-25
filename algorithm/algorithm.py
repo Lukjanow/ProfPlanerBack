@@ -17,12 +17,11 @@ import random
 def getModuleList(modules, calendar):
     module_list = []
     for module in modules.find({"frequency":calendar["frequency"]}):
+        module["isSetBefore"] = False
         module_list.append(module)
     for module in modules.find({"frequency":3}):
+        module["isSetBefore"] = False
         module_list.append(module)
-    print("--------------")
-    print(len(module_list))
-    print("---------------")
     return convertDataWithReferences(module_list)
 
 
@@ -98,11 +97,11 @@ def detectSemiMandatorySemester(study_course, module_list):
                 if len(study_semester["semesterNumbers"]) > 1:
                     for semester_number in study_semester["semesterNumbers"]:
                         if semester_number not in semi_mandatory_semester:
-                            semi_mandatory_semester.append(semester_number)
+                            semi_mandatory_semester.append(str(semester_number))
     full_mandatory_semester = []
     for i in range(1, study_course["semesterCount"] + 1):
         if i not in semi_mandatory_semester:
-            full_mandatory_semester.append(i)
+            full_mandatory_semester.append(str(i))
     return full_mandatory_semester, semi_mandatory_semester
 
 
@@ -236,9 +235,8 @@ def main(id):
     calendar = calendars.find_one(id)
 
     module_list = getModuleList(modules, calendar)
-
     calendar_entry_list = getCalendarEntryList(calendar, calendar_entries, modules)
-
+    
     planned_calendar_entry_list, unplanned_module_list = getModuleListsByPlanned(module_list, calendar_entry_list)
 
     unplanned_study_course_list = getStudyCourseList(unplanned_module_list)
@@ -357,7 +355,6 @@ def main(id):
                     "comment": None
                     }
                 calendar_entry_list.append(calendar_entry)
-
 
     return calendar_entry_list
 
