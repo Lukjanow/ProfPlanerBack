@@ -227,7 +227,6 @@ def algorithm(timetable, meta_module_list, timetable_list, canOverlap=False):
 
 def main(id):
     # 1: Get Data
-    #29
 
     modules = db["modules"]
     calendar_entries = db["calendarEntry"]
