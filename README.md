@@ -1,7 +1,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://gitlab.rlp.net/top/24s/profplaner/pp_frontend_react">
+  <a href="https://gitlab.rlp.net/top/24s/profplaner/profplaner_backend">
     <img src="https://gitlab.rlp.net/uploads/-/system/group/avatar/66550/Entwurf_28.png?width=48" alt="ProfPlaner - Logo" width="80" height="80">
   </a>
   <h3 align="center">ProfPlaner - Backend</h3>
