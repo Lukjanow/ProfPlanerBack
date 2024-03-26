@@ -34,9 +34,9 @@
    ```sh
    git clone https://gitlab.rlp.net/top/24s/profplaner/profplaner_backend.git
    ```
-2. Import Dummy Data 
+2. Import Dummy Data (not for windows)
    ```sh
-   docker compose run pp_backend pytest
+   docker compose run pp_backend sh import_dummy_data.sh
    ```
 3. Run Server
    ```sh
