@@ -37,6 +37,8 @@ def convertDataWithReferences(re):
             res = dozents.find_one({"_id": ObjectId(str(id))})
             if res != None:
                 res["_id"] = str(res["_id"])
+                if res["absences"] is None:
+                    res["absences"] = []
             dozent.append(res)
         result["dozent"] = dozent
         study_semester = []
@@ -131,6 +133,10 @@ async def Get_BasicData_Modules():
         selected_modules.append(module)   
 
     selected_modules = convertDataWithReferences(selected_modules) 
+
+    print("-----------------------")
+    print(selected_modules)
+    print("---------------------")
         
     if selected_modules:
         return selected_modules
