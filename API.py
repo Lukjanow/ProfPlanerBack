@@ -19,18 +19,6 @@ from routes.algorithm import router as algorithmrouter
 
 app = FastAPI(    
         title="Profplaner API",
-        #description="You don't need to know more, it's the best.<br> Just accept it. You'll never beat it. This is a test",
-        #summary="The best. Nuff said.",
-        version="V1",
-        terms_of_service="https://www.youtube.com/watch?v=dQw4w9WgXcQ?autoplay=1",
-        contact={
-            "name": "My Website",
-            "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ?autoplay=1"
-        },
-        license_info={
-            "name": "To be selected",
-            "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ?autoplay=1",
-        },
         swagger_ui_parameters={"defaultModelsExpandDepth": -1}  #Hide schemas at bottom of page
     )
 

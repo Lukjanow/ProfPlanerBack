@@ -399,11 +399,11 @@ async def Update_calendarEntry(
     for key, value in changes.items():
             result[key] = value
     try:
-        new_item = CalendarResponse(id=calendar_id, name=result["name"], entries=result["entries"])
+        new_item = CalendarResponse(id=calendar_id, name=result["name"], entries=result["entries"], frequency=result["frequency"], last_opening=result["last_opening"])
     except:
         raise HTTPException(status_code=400, detail="TypeError")
     calendars.update_one({"_id": ObjectId(calendar_id)}, {"$set": changes})
 
     new_item.id = calendar_id
-
+    
     return new_item

@@ -1,1236 +1,1418 @@
-[{
-  "_id": {
-    "$oid": "65f1aef5ecf81117b8dd18b2"
-  },
-  "id": null,
-  "module_id": "111",
-  "name": "Selbst- und Methodenkompetenz",
-  "code": "SMK",
-  "dozent": [
-    "65f17abc652cb752e477651f"
-  ],
-  "room": [],
-  "study_semester": [
-    {
-      "id": 0,
-      "studyCourse": "65f199b4652cb752e4776563",
-      "semesterNumbers": [
-        1
-      ],
-      "content": [],
-      "_id": 1
-    }
-  ],
-  "duration": 105,
-  "approximate_attendance": 80,
-  "frequency": 1,
-  "selected": true,
-  "color": "#bcbcbc" 
-},
-{
-  "_id": {
-    "$oid": "65f1af9cecf81117b8dd18b3"
-  },
-  "id": null,
-  "module_id": "112",
-  "name": "Einführung in die Informatik",
-  "code": "EINF",
-  "dozent": [
-    "65f17c14652cb752e4776529"
-  ],
-  "room": [],
-  "study_semester": [
-    {
-      "id": 0,
-      "studyCourse": "65f199b4652cb752e4776563",
-      "semesterNumbers": [
-        1
-      ],
-      "content": [],
-      "_id": 1
-    }
-  ],
-  "duration": 105,
-  "approximate_attendance": 90,
-  "frequency": 1,
-  "selected": true,
-  "color": "#bcbcbc"
-},
-{
-  "_id": {
-    "$oid": "65f1afdaecf81117b8dd18b4"
-  },
-  "id": null,
-  "module_id": "113",
-  "name": "Hardware-Konzepte",
-  "code": "HWK",
-  "dozent": [
-    "65f17a95652cb752e477651e"
-  ],
-  "room": [],
-  "study_semester": [
-    {
-      "id": 0,
-      "studyCourse": "65f199b4652cb752e4776563",
-      "semesterNumbers": [
-        1
-      ],
-      "content": [],
-      "_id": 1
-    }
-  ],
-  "duration": 105,
-  "approximate_attendance": 60,
-  "frequency": 1,
-  "selected": true,
-  "color": "#bcbcbc"
-},
-{
-  "_id": {
-    "$oid": "65f1b025ecf81117b8dd18b5"
-  },
-  "id": null,
-  "module_id": "114",
-  "name": "Prozedurale Programmierung",
-  "code": "PROG1",
-  "dozent": [
-    "65f17b76652cb752e4776525"
-  ],
-  "room": [],
-  "study_semester": [
-    {
-      "id": 0,
-      "studyCourse": "65f199b4652cb752e4776563",
-      "semesterNumbers": [
-        1
-      ],
-      "content": [],
-      "_id": 1
-    }
-  ],
-  "duration": 105,
-  "approximate_attendance": 65,
-  "frequency": 1,
-  "selected": true,
-  "color": "#bcbcbc"
-},
-{
-  "_id": {
-    "$oid": "65f1b060ecf81117b8dd18b6"
-  },
-  "id": null,
-  "module_id": "115",
-  "name": "Diskrete Mathematik",
-  "code": "DMA",
-  "dozent": [
-    "65f17a29652cb752e477651c"
-  ],
-  "room": [],
-  "study_semester": [
-    {
-      "id": 0,
-      "studyCourse": "65f199b4652cb752e4776563",
-      "semesterNumbers": [
-        1
-      ],
-      "content": [],
-      "_id": 1
-    }
-  ],
-  "duration": 105,
-  "approximate_attendance": 80,
-  "frequency": 1,
-  "selected": true,
-  "color": "#bcbcbc"
-},
-{
-  "_id": {
-    "$oid": "65f1b0baecf81117b8dd18b7"
-  },
-  "id": null,
-  "module_id": "121",
-  "name": "Betriebssysteme",
-  "code": "BS",
-  "dozent": [
-    "65f17b22652cb752e4776522"
-  ],
-  "room": [],
-  "study_semester": [
-    {
-      "id": 0,
-      "studyCourse": "65f199b4652cb752e4776563",
-      "semesterNumbers": [
-        2
-      ],
-      "content": [],
-      "_id": 1
-    }
-  ],
-  "duration": 105,
-  "approximate_attendance": 50,
-  "frequency": 1,
-  "selected": true,
-  "color": "#bcbcbc"
-},
-{
-  "_id": {
-    "$oid": "65f1b45eecf81117b8dd18b9"
-  },
-  "id": null,
-  "module_id": "122",
-  "name": "Datenbanken",
-  "code": "DB",
-  "dozent": [
-    "65f17b5e652cb752e4776524"
-  ],
-  "room": [],
-  "study_semester": [
-    {
-      "id": 0,
-      "studyCourse": "65f199b4652cb752e4776563",
-      "semesterNumbers": [
-        2
-      ],
-      "content": [],
-      "_id": 1
+[
+  {
+    "_id": {
+      "$oid": "65f1aef5ecf81117b8dd18b2"
     },
-    {
-      "id": 0,
-      "studyCourse": "65f19c37652cb752e4776565",
-      "semesterNumbers": [
-        3
-      ],
-      "content": [],
-      "_id": 1
-    }
-  ],
-  "duration": 105,
-  "approximate_attendance": 70,
-  "frequency": 1,
-  "selected": true,
-  "color": "#bcbcbc"
-},
-{
-  "_id": {
-    "$oid": "65f1b52decf81117b8dd18ba"
+    "id": null,
+    "module_id": "111",
+    "name": "Selbst- und Methodenkompetenz",
+    "code": "SMK",
+    "dozent": [
+      "65f17abc652cb752e477651f"
+    ],
+    "room": [
+      "65f17ed7652cb752e4776531"
+    ],
+    "study_semester": [
+      {
+        "_id": 1,
+        "studyCourse": "65f199b4652cb752e4776563",
+        "semesterNumbers": [
+          "1"
+        ],
+        "content": [],
+        "type": [
+          "Pflicht"
+        ]
+      }
+    ],
+    "duration": 105,
+    "approximate_attendance": 80,
+    "frequency": 3,
+    "selected": true,
+    "color": null
   },
-  "id": null,
-  "module_id": "123",
-  "name": "Rechnernetze und Netzwerksicherheit",
-  "code": "RN",
-  "dozent": [
-    "65f17c14652cb752e4776529"
-  ],
-  "room": [],
-  "study_semester": [
-    {
-      "id": 0,
-      "studyCourse": "65f199b4652cb752e4776563",
-      "semesterNumbers": [
-        2
-      ],
-      "content": [],
-      "_id": 1
+  {
+    "_id": {
+      "$oid": "65f1af9cecf81117b8dd18b3"
     },
-    {
-      "id": 0,
-      "studyCourse": "65f19c37652cb752e4776565",
-      "semesterNumbers": [
-        4
-      ],
-      "content": [],
-      "_id": 1
-    }
-  ],
-  "duration": 105,
-  "approximate_attendance": 70,
-  "frequency": 1,
-  "selected": true,
-  "color": "#bcbcbc"
-},
-{
-  "_id": {
-    "$oid": "65f1b5a7ecf81117b8dd18bb"
+    "id": null,
+    "module_id": "112",
+    "name": "Einführung in die Informatik",
+    "code": "EINF",
+    "dozent": [
+      "65f17c14652cb752e4776529"
+    ],
+    "room": [
+      "65f17ed7652cb752e4776531"
+    ],
+    "study_semester": [
+      {
+        "_id": 1,
+        "studyCourse": "65f199b4652cb752e4776563",
+        "semesterNumbers": [
+          "1"
+        ],
+        "content": [],
+        "type": [
+          "Pflicht"
+        ]
+      }
+    ],
+    "duration": 105,
+    "approximate_attendance": 90,
+    "frequency": 3,
+    "selected": true,
+    "color": null
   },
-  "id": null,
-  "module_id": "124",
-  "name": "Objektorientierte Programmierung",
-  "code": "PROG2",
-  "dozent": [
-    "65f17b76652cb752e4776525"
-  ],
-  "room": [],
-  "study_semester": [
-    {
-      "id": 0,
-      "studyCourse": "65f199b4652cb752e4776563",
-      "semesterNumbers": [
-        2
-      ],
-      "content": [],
-      "_id": 1
-    }
-  ],
-  "duration": 105,
-  "approximate_attendance": 50,
-  "frequency": 1,
-  "selected": true,
-  "color": "#bcbcbc"
-},
-{
-  "_id": {
-    "$oid": "65f1b638ecf81117b8dd18bc"
-  },
-  "id": null,
-  "module_id": "125",
-  "name": "Statistik",
-  "code": "STAT",
-  "dozent": [
-    "65f17ae0652cb752e4776520"
-  ],
-  "room": [],
-  "study_semester": [
-    {
-      "id": 0,
-      "studyCourse": "65f199b4652cb752e4776563",
-      "semesterNumbers": [
-        2
-      ],
-      "content": [],
-      "_id": 1
+  {
+    "_id": {
+      "$oid": "65f1afdaecf81117b8dd18b4"
     },
-    {
-      "id": 0,
-      "studyCourse": "65f19c37652cb752e4776565",
-      "semesterNumbers": [
-        2
-      ],
-      "content": [],
-      "_id": 1
-    }
-  ],
-  "duration": 105,
-  "approximate_attendance": 80,
-  "frequency": 1,
-  "selected": true,
-  "color": "#bcbcbc"
-},
-{
-  "_id": {
-    "$oid": "65f1b6b2ecf81117b8dd18bd"
+    "id": null,
+    "module_id": "113",
+    "name": "Hardware-Konzepte",
+    "code": "HWK",
+    "dozent": [
+      "65f17a95652cb752e477651e"
+    ],
+    "room": [
+      "65f17ed7652cb752e4776531"
+    ],
+    "study_semester": [
+      {
+        "_id": 1,
+        "studyCourse": "65f199b4652cb752e4776563",
+        "semesterNumbers": [
+          "1"
+        ],
+        "content": [],
+        "type": [
+          "Pflicht"
+        ]
+      }
+    ],
+    "duration": 105,
+    "approximate_attendance": 60,
+    "frequency": 3,
+    "selected": true,
+    "color": null
   },
-  "id": null,
-  "module_id": "131",
-  "name": "Softwarequalität",
-  "code": "SWQ",
-  "dozent": [
-    "65f17c14652cb752e4776529"
-  ],
-  "room": [],
-  "study_semester": [
-    {
-      "id": 0,
-      "studyCourse": "65f199b4652cb752e4776563",
-      "semesterNumbers": [
-        3
-      ],
-      "content": [],
-      "_id": 1
-    }
-  ],
-  "duration": 105,
-  "approximate_attendance": 50,
-  "frequency": 1,
-  "selected": true,
-  "color": "#bcbcbc"
-},
-{
-  "_id": {
-    "$oid": "65f1b6e7ecf81117b8dd18be"
+  {
+    "_id": {
+      "$oid": "65f1b025ecf81117b8dd18b5"
+    },
+    "id": null,
+    "module_id": "114",
+    "name": "Prozedurale Programmierung",
+    "code": "PROG1",
+    "dozent": [
+      "65f17b76652cb752e4776525"
+    ],
+    "room": [
+      "65f17ed7652cb752e4776531",
+      "65f180c9652cb752e4776542",
+      "65f180d9652cb752e4776543",
+      "65f180e8652cb752e4776544",
+      "65f1819a652cb752e4776545"
+    ],
+    "study_semester": [
+      {
+        "_id": 1,
+        "studyCourse": "65f199b4652cb752e4776563",
+        "semesterNumbers": [
+          "1"
+        ],
+        "content": [],
+        "type": [
+          "Pflicht"
+        ]
+      }
+    ],
+    "duration": 105,
+    "approximate_attendance": 65,
+    "frequency": 3,
+    "selected": true,
+    "color": null
   },
-  "id": null,
-  "module_id": "132",
-  "name": "Webentwicklung",
-  "code": "WEB",
-  "dozent": [
-    "65f17b92652cb752e4776526"
-  ],
-  "room": [],
-  "study_semester": [
-    {
-      "id": 0,
-      "studyCourse": "65f199b4652cb752e4776563",
-      "semesterNumbers": [
-        3
-      ],
-      "content": [],
-      "_id": 1
-    }
-  ],
-  "duration": 105,
-  "approximate_attendance": 50,
-  "frequency": 1,
-  "selected": true,
-  "color": "#bcbcbc"
-},
-{
-  "_id": {
-    "$oid": "65f1b71aecf81117b8dd18bf"
+  {
+    "_id": {
+      "$oid": "65f1b060ecf81117b8dd18b6"
+    },
+    "id": null,
+    "module_id": "115",
+    "name": "Diskrete Mathematik",
+    "code": "DMA",
+    "dozent": [
+      "65f17a29652cb752e477651c"
+    ],
+    "room": [
+      "65f17ed7652cb752e4776531"
+    ],
+    "study_semester": [
+      {
+        "_id": 1,
+        "studyCourse": "65f199b4652cb752e4776563",
+        "semesterNumbers": [
+          "1"
+        ],
+        "content": [],
+        "type": [
+          "Pflicht"
+        ]
+      }
+    ],
+    "duration": 105,
+    "approximate_attendance": 80,
+    "frequency": 3,
+    "selected": true,
+    "color": null
   },
-  "id": null,
-  "module_id": "133",
-  "name": "Software Engeneering",
-  "code": "SE",
-  "dozent": [
-    "65f17b22652cb752e4776522"
-  ],
-  "room": [],
-  "study_semester": [
-    {
-      "id": 0,
-      "studyCourse": "65f199b4652cb752e4776563",
-      "semesterNumbers": [
-        3
-      ],
-      "content": [],
-      "_id": 1
-    }
-  ],
-  "duration": 105,
-  "approximate_attendance": 55,
-  "frequency": 1,
-  "selected": true,
-  "color": "#bcbcbc"
-},
-{
-  "_id": {
-    "$oid": "65f1b768ecf81117b8dd18c0"
+  {
+    "_id": {
+      "$oid": "65f1b0baecf81117b8dd18b7"
+    },
+    "id": null,
+    "module_id": "121",
+    "name": "Betriebssysteme",
+    "code": "BS",
+    "dozent": [
+      "65f17b22652cb752e4776522"
+    ],
+    "room": [
+      "65f183ee652cb752e477655b"
+    ],
+    "study_semester": [
+      {
+        "_id": 1,
+        "studyCourse": "65f199b4652cb752e4776563",
+        "semesterNumbers": [
+          "2"
+        ],
+        "content": [],
+        "type": [
+          "Pflicht"
+        ]
+      }
+    ],
+    "duration": 105,
+    "approximate_attendance": 50,
+    "frequency": 3,
+    "selected": true,
+    "color": null
   },
-  "id": null,
-  "module_id": "151",
-  "name": "Fullstack Webanwendungen",
-  "code": "FWA",
-  "dozent": [
-    "65f17b22652cb752e4776522"
-  ],
-  "room": [],
-  "study_semester": [
-    {
-      "id": 0,
-      "studyCourse": "65f199b4652cb752e4776563",
-      "semesterNumbers": [
-        4
-      ],
-      "content": [],
-      "_id": 1
-    }
-  ],
-  "duration": 105,
-  "approximate_attendance": 48,
-  "frequency": 1,
-  "selected": true,
-  "color": "#bcbcbc"
-},
-{
-  "_id": {
-    "$oid": "65f1b7abecf81117b8dd18c1"
+  {
+    "_id": {
+      "$oid": "65f1b45eecf81117b8dd18b9"
+    },
+    "id": null,
+    "module_id": "122",
+    "name": "Datenbanken",
+    "code": "DB",
+    "dozent": [
+      "65f17b5e652cb752e4776524"
+    ],
+    "room": [
+      "65f17ffd652cb752e4776540"
+    ],
+    "study_semester": [
+      {
+        "_id": 1,
+        "studyCourse": "65f199b4652cb752e4776563",
+        "semesterNumbers": [
+          "2"
+        ],
+        "content": [],
+        "type": [
+          "Pflicht"
+        ]
+      },
+      {
+        "_id": 1,
+        "studyCourse": "65f19c37652cb752e4776565",
+        "semesterNumbers": [
+          "3"
+        ],
+        "content": [],
+        "type": [
+          "Pflicht"
+        ]
+      }
+    ],
+    "duration": 105,
+    "approximate_attendance": 70,
+    "frequency": 3,
+    "selected": true,
+    "color": null
   },
-  "id": null,
-  "module_id": "142",
-  "name": "Requirements Engeneering",
-  "code": "REQ",
-  "dozent": [
-    "65f17abc652cb752e477651f"
-  ],
-  "room": [],
-  "study_semester": [
-    {
-      "id": 0,
-      "studyCourse": "65f199b4652cb752e4776563",
-      "semesterNumbers": [
-        4
-      ],
-      "content": [],
-      "_id": 1
-    }
-  ],
-  "duration": 105,
-  "approximate_attendance": 48,
-  "frequency": 1,
-  "selected": true,
-  "color": "#bcbcbc"
-},
-{
-  "_id": {
-    "$oid": "65f1b831ecf81117b8dd18c2"
+  {
+    "_id": {
+      "$oid": "65f1b52decf81117b8dd18ba"
+    },
+    "id": null,
+    "module_id": "123",
+    "name": "Rechnernetze und Netzwerksicherheit",
+    "code": "RN",
+    "dozent": [
+      "65f17c14652cb752e4776529"
+    ],
+    "room": [
+      "65f17e8a652cb752e477652f",
+      "65f180b5652cb752e4776541",
+      "65f180c9652cb752e4776542",
+      "65f180d9652cb752e4776543",
+      "65f180e8652cb752e4776544"
+    ],
+    "study_semester": [
+      {
+        "_id": 1,
+        "studyCourse": "65f199b4652cb752e4776563",
+        "semesterNumbers": [
+          "2"
+        ],
+        "content": [],
+        "type": [
+          "Pflicht"
+        ]
+      },
+      {
+        "_id": 1,
+        "studyCourse": "65f19c37652cb752e4776565",
+        "semesterNumbers": [
+          "4"
+        ],
+        "content": [],
+        "type": [
+          "Pflicht"
+        ]
+      }
+    ],
+    "duration": 105,
+    "approximate_attendance": 70,
+    "frequency": 3,
+    "selected": true,
+    "color": null
   },
-  "id": null,
-  "module_id": "141",
-  "name": "Wissenschaftliches Arbeiten",
-  "code": "WA",
-  "dozent": [
-    "65f17abc652cb752e477651f"
-  ],
-  "room": [],
-  "study_semester": [
-    {
-      "id": 0,
-      "studyCourse": "65f199b4652cb752e4776563",
-      "semesterNumbers": [
-        5
-      ],
-      "content": [],
-      "_id": 1
-    }
-  ],
-  "duration": 105,
-  "approximate_attendance": 38,
-  "frequency": 1,
-  "selected": true,
-  "color": "#bcbcbc"
-},
-{
-  "_id": {
-    "$oid": "65f1b88cecf81117b8dd18c3"
+  {
+    "_id": {
+      "$oid": "65f1b5a7ecf81117b8dd18bb"
+    },
+    "id": null,
+    "module_id": "124",
+    "name": "Objektorientierte Programmierung",
+    "code": "PROG2",
+    "dozent": [
+      "65f17b76652cb752e4776525"
+    ],
+    "room": [
+      "65f17ed7652cb752e4776531",
+      "65f180b5652cb752e4776541",
+      "65f180c9652cb752e4776542",
+      "65f180d9652cb752e4776543",
+      "65f180e8652cb752e4776544"
+    ],
+    "study_semester": [
+      {
+        "_id": 1,
+        "studyCourse": "65f199b4652cb752e4776563",
+        "semesterNumbers": [
+          "2"
+        ],
+        "content": [],
+        "type": [
+          "Pflicht"
+        ]
+      }
+    ],
+    "duration": 105,
+    "approximate_attendance": 50,
+    "frequency": 3,
+    "selected": true,
+    "color": null
   },
-  "id": null,
-  "module_id": "152",
-  "name": "User Experience",
-  "code": "UX",
-  "dozent": [
-    "65f17b05652cb752e4776521"
-  ],
-  "room": [],
-  "study_semester": [
-    {
-      "id": 0,
-      "studyCourse": "65f199b4652cb752e4776563",
-      "semesterNumbers": [
-        5
-      ],
-      "content": [],
-      "_id": 1
-    }
-  ],
-  "duration": 105,
-  "approximate_attendance": 40,
-  "frequency": 1,
-  "selected": true,
-  "color": "#bcbcbc"
-},
-{
-  "_id": {
-    "$oid": "65f1b94cecf81117b8dd18c4"
+  {
+    "_id": {
+      "$oid": "65f1b638ecf81117b8dd18bc"
+    },
+    "id": null,
+    "module_id": "125",
+    "name": "Statistik",
+    "code": "STAT",
+    "dozent": [
+      "65f17ae0652cb752e4776520"
+    ],
+    "room": [
+      "65f17e8a652cb752e477652f"
+    ],
+    "study_semester": [
+      {
+        "_id": 1,
+        "studyCourse": "65f199b4652cb752e4776563",
+        "semesterNumbers": [
+          "2"
+        ],
+        "content": [],
+        "type": [
+          "Pflicht"
+        ]
+      },
+      {
+        "_id": 1,
+        "studyCourse": "65f19c37652cb752e4776565",
+        "semesterNumbers": [
+          "2"
+        ],
+        "content": [],
+        "type": [
+          "Pflicht"
+        ]
+      }
+    ],
+    "duration": 105,
+    "approximate_attendance": 80,
+    "frequency": 3,
+    "selected": true,
+    "color": null
   },
-  "id": null,
-  "module_id": "301",
-  "name": "Cloud Computing",
-  "code": "CC",
-  "dozent": [
-    "65f17a29652cb752e477651c"
-  ],
-  "room": [],
-  "study_semester": [
-    {
-      "id": 0,
-      "studyCourse": "65f199b4652cb752e4776563",
-      "semesterNumbers": [
-        3,
-        4,
-        5
-      ],
-      "content": [
-        "NetSec",
-        "WB"
-      ],
-      "_id": 1
-    }
-  ],
-  "duration": 105,
-  "approximate_attendance": 23,
-  "frequency": 1,
-  "selected": true,
-  "color": "#bcbcbc"
-},
-{
-  "_id": {
-    "$oid": "65f1b9adecf81117b8dd18c5"
+  {
+    "_id": {
+      "$oid": "65f1b6b2ecf81117b8dd18bd"
+    },
+    "id": null,
+    "module_id": "131",
+    "name": "Softwarequalität",
+    "code": "SWQ",
+    "dozent": [
+      "65f17c14652cb752e4776529"
+    ],
+    "room": [
+      "65f1828f652cb752e477654c"
+    ],
+    "study_semester": [
+      {
+        "_id": 1,
+        "studyCourse": "65f199b4652cb752e4776563",
+        "semesterNumbers": [
+          "3"
+        ],
+        "content": [],
+        "type": [
+          "Pflicht"
+        ]
+      }
+    ],
+    "duration": 105,
+    "approximate_attendance": 50,
+    "frequency": 3,
+    "selected": true,
+    "color": null
   },
-  "id": null,
-  "module_id": "302",
-  "name": "Network Security",
-  "code": "NWS",
-  "dozent": [
-    "65f17c2d652cb752e477652a"
-  ],
-  "room": [],
-  "study_semester": [
-    {
-      "id": 0,
-      "studyCourse": "65f199b4652cb752e4776563",
-      "semesterNumbers": [
-        3,
-        4,
-        5
-      ],
-      "content": [
-        "NetSec",
-        "WB"
-      ],
-      "_id": 1
-    }
-  ],
-  "duration": 105,
-  "approximate_attendance": 20,
-  "frequency": 1,
-  "selected": true,
-  "color": "#bcbcbc"
-},
-{
-  "_id": {
-    "$oid": "65f1b9eeecf81117b8dd18c6"
+  {
+    "_id": {
+      "$oid": "65f1b6e7ecf81117b8dd18be"
+    },
+    "id": null,
+    "module_id": "132",
+    "name": "Webentwicklung",
+    "code": "WEB",
+    "dozent": [
+      "65f17b92652cb752e4776526"
+    ],
+    "room": [
+      "65f183c0652cb752e4776559",
+      "65f180e8652cb752e4776544",
+      "65f180d9652cb752e4776543"
+    ],
+    "study_semester": [
+      {
+        "_id": 1,
+        "studyCourse": "65f199b4652cb752e4776563",
+        "semesterNumbers": [
+          "3"
+        ],
+        "content": [],
+        "type": [
+          "Pflicht"
+        ]
+      }
+    ],
+    "duration": 105,
+    "approximate_attendance": 50,
+    "frequency": 3,
+    "selected": true,
+    "color": null
   },
-  "id": null,
-  "module_id": "303",
-  "name": "Network Technologies",
-  "code": "NWT",
-  "dozent": [
-    "65f17a29652cb752e477651c"
-  ],
-  "room": [],
-  "study_semester": [
-    {
-      "id": 0,
-      "studyCourse": "65f199b4652cb752e4776563",
-      "semesterNumbers": [
-        3,
-        4,
-        5
-      ],
-      "content": [
-        "NetSec",
-        "WB"
-      ],
-      "_id": 1
-    }
-  ],
-  "duration": 105,
-  "approximate_attendance": 18,
-  "frequency": 1,
-  "selected": true,
-  "color": "#bcbcbc"
-},
-{
-  "_id": {
-    "$oid": "65f1bb36ecf81117b8dd18c7"
+  {
+    "_id": {
+      "$oid": "65f1b71aecf81117b8dd18bf"
+    },
+    "id": null,
+    "module_id": "133",
+    "name": "Software Engeneering",
+    "code": "SE",
+    "dozent": [
+      "65f17b22652cb752e4776522"
+    ],
+    "room": [
+      "65f17ffd652cb752e4776540"
+    ],
+    "study_semester": [
+      {
+        "_id": 1,
+        "studyCourse": "65f199b4652cb752e4776563",
+        "semesterNumbers": [
+          "3"
+        ],
+        "content": [],
+        "type": [
+          "Pflicht"
+        ]
+      }
+    ],
+    "duration": 105,
+    "approximate_attendance": 55,
+    "frequency": 3,
+    "selected": true,
+    "color": null
   },
-  "id": null,
-  "module_id": "305",
-  "name": "Kryptographie",
-  "code": "KRY",
-  "dozent": [
-    "65f17c2d652cb752e477652a"
-  ],
-  "room": [],
-  "study_semester": [
-    {
-      "id": 0,
-      "studyCourse": "65f199b4652cb752e4776563",
-      "semesterNumbers": [
-        3,
-        4,
-        5
-      ],
-      "content": [
-        "SE&D",
-        "NetSec",
-        "WB"
-      ],
-      "_id": 1
-    }
-  ],
-  "duration": 105,
-  "approximate_attendance": 25,
-  "frequency": 1,
-  "selected": true,
-  "color": "#bcbcbc"
-},
-{
-  "_id": {
-    "$oid": "65f1bb83ecf81117b8dd18c8"
+  {
+    "_id": {
+      "$oid": "65f1b768ecf81117b8dd18c0"
+    },
+    "id": null,
+    "module_id": "151",
+    "name": "Fullstack Webanwendungen",
+    "code": "FWA",
+    "dozent": [
+      "65f17b22652cb752e4776522"
+    ],
+    "room": [
+      "65f17ffd652cb752e4776540"
+    ],
+    "study_semester": [
+      {
+        "_id": 1,
+        "studyCourse": "65f199b4652cb752e4776563",
+        "semesterNumbers": [
+          "4"
+        ],
+        "content": [],
+        "type": [
+          "Pflicht"
+        ]
+      }
+    ],
+    "duration": 105,
+    "approximate_attendance": 48,
+    "frequency": 3,
+    "selected": true,
+    "color": null
   },
-  "id": null,
-  "module_id": "306",
-  "name": "Systemadministration",
-  "code": "SYS",
-  "dozent": [
-    "65f17a29652cb752e477651c"
-  ],
-  "room": [],
-  "study_semester": [
-    {
-      "id": 0,
-      "studyCourse": "65f199b4652cb752e4776563",
-      "semesterNumbers": [
-        3,
-        4,
-        5
-      ],
-      "content": [
-        "NetSec",
-        "WB"
-      ],
-      "_id": 1
-    }
-  ],
-  "duration": 105,
-  "approximate_attendance": 15,
-  "frequency": 1,
-  "selected": true,
-  "color": "#bcbcbc"
-},
-{
-  "_id": {
-    "$oid": "65f1bbb8ecf81117b8dd18c9"
+  {
+    "_id": {
+      "$oid": "65f1b7abecf81117b8dd18c1"
+    },
+    "id": null,
+    "module_id": "142",
+    "name": "Requirements Engeneering",
+    "code": "REQ",
+    "dozent": [
+      "65f17abc652cb752e477651f"
+    ],
+    "room": [
+      "65f17f75652cb752e4776538"
+    ],
+    "study_semester": [
+      {
+        "_id": 1,
+        "studyCourse": "65f199b4652cb752e4776563",
+        "semesterNumbers": [
+          "4"
+        ],
+        "content": [],
+        "type": [
+          "Pflicht"
+        ]
+      }
+    ],
+    "duration": 105,
+    "approximate_attendance": 48,
+    "frequency": 3,
+    "selected": true,
+    "color": null
   },
-  "id": null,
-  "module_id": "307",
-  "name": "Storage Management",
-  "code": "STO",
-  "dozent": [
-    "65f17c14652cb752e4776529"
-  ],
-  "room": [],
-  "study_semester": [
-    {
-      "id": 0,
-      "studyCourse": "65f199b4652cb752e4776563",
-      "semesterNumbers": [
-        3,
-        4,
-        5
-      ],
-      "content": [
-        "NetSec",
-        "WB"
-      ],
-      "_id": 1
-    }
-  ],
-  "duration": 105,
-  "approximate_attendance": 19,
-  "frequency": 1,
-  "selected": true,
-  "color": "#bcbcbc"
-},
-{
-  "_id": {
-    "$oid": "65f1bc02ecf81117b8dd18ca"
+  {
+    "_id": {
+      "$oid": "65f1b831ecf81117b8dd18c2"
+    },
+    "id": null,
+    "module_id": "141",
+    "name": "Wissenschaftliches Arbeiten",
+    "code": "WA",
+    "dozent": [
+      "65f17abc652cb752e477651f"
+    ],
+    "room": [
+      "65f18452652cb752e4776560"
+    ],
+    "study_semester": [
+      {
+        "_id": 1,
+        "studyCourse": "65f199b4652cb752e4776563",
+        "semesterNumbers": [
+          "5"
+        ],
+        "content": [],
+        "type": [
+          "Pflicht"
+        ]
+      }
+    ],
+    "duration": 105,
+    "approximate_attendance": 38,
+    "frequency": 3,
+    "selected": true,
+    "color": null
   },
-  "id": null,
-  "module_id": "308",
-  "name": "Advanced Network Topics",
-  "code": "ANT",
-  "dozent": [
-    "65f17b22652cb752e4776522"
-  ],
-  "room": [],
-  "study_semester": [
-    {
-      "id": 0,
-      "studyCourse": "65f199b4652cb752e4776563",
-      "semesterNumbers": [
-        3,
-        4,
-        5
-      ],
-      "content": [
-        "NetSec",
-        "WB"
-      ],
-      "_id": 1
-    }
-  ],
-  "duration": 105,
-  "approximate_attendance": 12,
-  "frequency": 1,
-  "selected": true,
-  "color": "#bcbcbc"
-},
-{
-  "_id": {
-    "$oid": "65f1bd65ecf81117b8dd18cc"
+  {
+    "_id": {
+      "$oid": "65f1b88cecf81117b8dd18c3"
+    },
+    "id": null,
+    "module_id": "152",
+    "name": "User Experience",
+    "code": "UX",
+    "dozent": [
+      "65f17b05652cb752e4776521"
+    ],
+    "room": [
+      "65f182ce652cb752e4776550"
+    ],
+    "study_semester": [
+      {
+        "_id": 1,
+        "studyCourse": "65f199b4652cb752e4776563",
+        "semesterNumbers": [
+          "5"
+        ],
+        "content": [],
+        "type": [
+          "Pflicht"
+        ]
+      }
+    ],
+    "duration": 105,
+    "approximate_attendance": 40,
+    "frequency": 3,
+    "selected": true,
+    "color": null
   },
-  "id": null,
-  "module_id": "501",
-  "name": "Algorithmen und Datenstrukturen",
-  "code": "ALGO",
-  "dozent": [
-    "65f17b92652cb752e4776526"
-  ],
-  "room": [],
-  "study_semester": [
-    {
-      "id": 0,
-      "studyCourse": "65f199b4652cb752e4776563",
-      "semesterNumbers": [
-        3,
-        4,
-        5
-      ],
-      "content": [
-        "SE&D",
-        "WB"
-      ],
-      "_id": 1
-    }
-  ],
-  "duration": 105,
-  "approximate_attendance": 25,
-  "frequency": 1,
-  "selected": true,
-  "color": "#bcbcbc"
-},
-{
-  "_id": {
-    "$oid": "65f1be86ecf81117b8dd18cd"
+  {
+    "_id": {
+      "$oid": "65f1b94cecf81117b8dd18c4"
+    },
+    "id": null,
+    "module_id": "301",
+    "name": "Cloud Computing",
+    "code": "CC",
+    "dozent": [
+      "65f17a29652cb752e477651c"
+    ],
+    "room": [
+      "65f17ea0652cb752e4776530"
+    ],
+    "study_semester": [
+      {
+        "_id": 1,
+        "studyCourse": "65f199b4652cb752e4776563",
+        "semesterNumbers": [
+          "3",
+          "4",
+          "5"
+        ],
+        "content": [
+          "NetSec",
+          "WB"
+        ],
+        "type": [
+          "Qualifikationsschwerpunkt"
+        ]
+      }
+    ],
+    "duration": 105,
+    "approximate_attendance": 23,
+    "frequency": 1,
+    "selected": true,
+    "color": null
   },
-  "id": null,
-  "module_id": "502",
-  "name": "Entwicklung mobiler Anwendungen",
-  "code": "EMA",
-  "dozent": [
-    "65f17b3f652cb752e4776523"
-  ],
-  "room": [],
-  "study_semester": [
-    {
-      "id": 0,
-      "studyCourse": "65f199b4652cb752e4776563",
-      "semesterNumbers": [
-        3,
-        4,
-        5
-      ],
-      "content": [
-        "NetSec",
-        "SE&D",
-        "WB"
-      ],
-      "_id": 1
-    }
-  ],
-  "duration": 105,
-  "approximate_attendance": 28,
-  "frequency": 1,
-  "selected": true,
-  "color": "#bcbcbc"
-},
-{
-  "_id": {
-    "$oid": "65f1bed7ecf81117b8dd18ce"
+  {
+    "_id": {
+      "$oid": "65f1b9adecf81117b8dd18c5"
+    },
+    "id": null,
+    "module_id": "302",
+    "name": "Network Security",
+    "code": "NWS",
+    "dozent": [
+      "65f17c2d652cb752e477652a"
+    ],
+    "room": [
+      "65f17ed7652cb752e4776531"
+    ],
+    "study_semester": [
+      {
+        "_id": 1,
+        "studyCourse": "65f199b4652cb752e4776563",
+        "semesterNumbers": [
+          "3",
+          "4",
+          "5"
+        ],
+        "content": [
+          "NetSec",
+          "WB"
+        ],
+        "type": [
+          "Qualifikationsschwerpunkt"
+        ]
+      }
+    ],
+    "duration": 105,
+    "approximate_attendance": 20,
+    "frequency": 2,
+    "selected": true,
+    "color": null
   },
-  "id": null,
-  "module_id": "504",
-  "name": "Theoretische Informatik",
-  "code": "TINF",
-  "dozent": [
-    "65f17a29652cb752e477651c"
-  ],
-  "room": [],
-  "study_semester": [
-    {
-      "id": 0,
-      "studyCourse": "65f199b4652cb752e4776563",
-      "semesterNumbers": [
-        3,
-        4,
-        5
-      ],
-      "content": [
-        "SE&D",
-        "WB"
-      ],
-      "_id": 1
-    }
-  ],
-  "duration": 105,
-  "approximate_attendance": 10,
-  "frequency": 1,
-  "selected": true,
-  "color": "#bcbcbc"
-},
-{
-  "_id": {
-    "$oid": "65f1bf39ecf81117b8dd18cf"
+  {
+    "_id": {
+      "$oid": "65f1b9eeecf81117b8dd18c6"
+    },
+    "id": null,
+    "module_id": "303",
+    "name": "Network Technologies",
+    "code": "NWT",
+    "dozent": [
+      "65f17a29652cb752e477651c"
+    ],
+    "room": [
+      "65f18263652cb752e477654a"
+    ],
+    "study_semester": [
+      {
+        "_id": 1,
+        "studyCourse": "65f199b4652cb752e4776563",
+        "semesterNumbers": [
+          "3",
+          "4",
+          "5"
+        ],
+        "content": [
+          "NetSec",
+          "WB"
+        ],
+        "type": [
+          "Qualifikationsschwerpunkt"
+        ]
+      }
+    ],
+    "duration": 105,
+    "approximate_attendance": 18,
+    "frequency": 1,
+    "selected": true,
+    "color": null
   },
-  "id": null,
-  "module_id": "505",
-  "name": "Programmieren Graphischer Oberflächen",
-  "code": "GUI",
-  "dozent": [
-    "65f17a95652cb752e477651e"
-  ],
-  "room": [],
-  "study_semester": [
-    {
-      "id": 0,
-      "studyCourse": "65f199b4652cb752e4776563",
-      "semesterNumbers": [
-        3,
-        4,
-        5
-      ],
-      "content": [
-        "VisCo",
-        "SE&D",
-        "WB"
-      ],
-      "_id": 1
-    }
-  ],
-  "duration": 105,
-  "approximate_attendance": 12,
-  "frequency": 1,
-  "selected": true,
-  "color": "#bcbcbc"
-},
-{
-  "_id": {
-    "$oid": "65f1bfdaecf81117b8dd18d0"
+  {
+    "_id": {
+      "$oid": "65f1bb36ecf81117b8dd18c7"
+    },
+    "id": null,
+    "module_id": "305",
+    "name": "Kryptographie",
+    "code": "KRY",
+    "dozent": [
+      "65f17c2d652cb752e477652a"
+    ],
+    "room": [
+      "65f183fc652cb752e477655c"
+    ],
+    "study_semester": [
+      {
+        "_id": 1,
+        "studyCourse": "65f199b4652cb752e4776563",
+        "semesterNumbers": [
+          "3",
+          "4",
+          "5"
+        ],
+        "content": [
+          "SE&D",
+          "NetSec",
+          "WB"
+        ],
+        "type": [
+          "Qualifikationsschwerpunkt"
+        ]
+      }
+    ],
+    "duration": 105,
+    "approximate_attendance": 25,
+    "frequency": 1,
+    "selected": true,
+    "color": null
   },
-  "id": null,
-  "module_id": "506",
-  "name": "Software Architektur",
-  "code": "SWA",
-  "dozent": [
-    "65f17b92652cb752e4776526"
-  ],
-  "room": [],
-  "study_semester": [
-    {
-      "id": 0,
-      "studyCourse": "65f199b4652cb752e4776563",
-      "semesterNumbers": [
-        3,
-        4,
-        5
-      ],
-      "content": [
-        "SE&D",
-        "WB"
-      ],
-      "_id": 1
-    }
-  ],
-  "duration": 105,
-  "approximate_attendance": 18,
-  "frequency": 1,
-  "selected": true,
-  "color": "#bcbcbc"
-},
-{
-  "_id": {
-    "$oid": "65f1c08aecf81117b8dd18d2"
+  {
+    "_id": {
+      "$oid": "65f1bb83ecf81117b8dd18c8"
+    },
+    "id": null,
+    "module_id": "306",
+    "name": "Systemadministration",
+    "code": "SYS",
+    "dozent": [
+      "65f17a29652cb752e477651c"
+    ],
+    "room": [
+      "65f18437652cb752e477655f"
+    ],
+    "study_semester": [
+      {
+        "_id": 1,
+        "studyCourse": "65f199b4652cb752e4776563",
+        "semesterNumbers": [
+          "3",
+          "4",
+          "5"
+        ],
+        "content": [
+          "NetSec",
+          "WB"
+        ],
+        "type": [
+          "Qualifikationsschwerpunkt"
+        ]
+      }
+    ],
+    "duration": 105,
+    "approximate_attendance": 15,
+    "frequency": 1,
+    "selected": true,
+    "color": null
   },
-  "id": null,
-  "module_id": "401",
-  "name": "Virtuelle und erweiterte Realität",
-  "code": "VRAR",
-  "dozent": [
-    "65f17c45652cb752e477652b"
-  ],
-  "room": [],
-  "study_semester": [
-    {
-      "id": 0,
-      "studyCourse": "65f199b4652cb752e4776563",
-      "semesterNumbers": [
-        3,
-        4,
-        5
-      ],
-      "content": [
-        "VisCo",
-        "WB"
-      ],
-      "_id": 1
-    }
-  ],
-  "duration": 105,
-  "approximate_attendance": 9,
-  "frequency": 1,
-  "selected": true,
-  "color": "#bcbcbc"
-},
-{
-  "_id": {
-    "$oid": "65f1c0e2ecf81117b8dd18d3"
+  {
+    "_id": {
+      "$oid": "65f1bbb8ecf81117b8dd18c9"
+    },
+    "id": null,
+    "module_id": "307",
+    "name": "Storage Management",
+    "code": "STO",
+    "dozent": [
+      "65f17c14652cb752e4776529"
+    ],
+    "room": [
+      "65f18424652cb752e477655e"
+    ],
+    "study_semester": [
+      {
+        "_id": 1,
+        "studyCourse": "65f199b4652cb752e4776563",
+        "semesterNumbers": [
+          "3",
+          "4",
+          "5"
+        ],
+        "content": [
+          "NetSec",
+          "WB"
+        ],
+        "type": [
+          "Qualifikationsschwerpunkt"
+        ]
+      }
+    ],
+    "duration": 105,
+    "approximate_attendance": 19,
+    "frequency": 1,
+    "selected": true,
+    "color": null
   },
-  "id": null,
-  "module_id": "402",
-  "name": "Audiovisuelle Produktion",
-  "code": "AVP",
-  "dozent": [
-    "65f17c14652cb752e4776529"
-  ],
-  "room": [],
-  "study_semester": [
-    {
-      "id": 0,
-      "studyCourse": "65f199b4652cb752e4776563",
-      "semesterNumbers": [
-        3,
-        4,
-        5
-      ],
-      "content": [
-        "VisCo",
-        "WB"
-      ],
-      "_id": 1
-    }
-  ],
-  "duration": 105,
-  "approximate_attendance": 12,
-  "frequency": 1,
-  "selected": true,
-  "color": "#bcbcbc"
-},
-{
-  "_id": {
-    "$oid": "65f1c120ecf81117b8dd18d4"
+  {
+    "_id": {
+      "$oid": "65f1bc02ecf81117b8dd18ca"
+    },
+    "id": null,
+    "module_id": "308",
+    "name": "Advanced Network Topics",
+    "code": "ANT",
+    "dozent": [
+      "65f17b22652cb752e4776522"
+    ],
+    "room": [
+      "65f18246652cb752e4776548"
+    ],
+    "study_semester": [
+      {
+        "_id": 1,
+        "studyCourse": "65f199b4652cb752e4776563",
+        "semesterNumbers": [
+          "3",
+          "4",
+          "5"
+        ],
+        "content": [
+          "NetSec",
+          "WB"
+        ],
+        "type": [
+          "Qualifikationsschwerpunkt"
+        ]
+      }
+    ],
+    "duration": 105,
+    "approximate_attendance": 12,
+    "frequency": 2,
+    "selected": true,
+    "color": null
   },
-  "id": null,
-  "module_id": "403",
-  "name": "3D-Modellierung",
-  "code": "3DM",
-  "dozent": [
-    "65f17c45652cb752e477652b"
-  ],
-  "room": [],
-  "study_semester": [
-    {
-      "id": 0,
-      "studyCourse": "65f199b4652cb752e4776563",
-      "semesterNumbers": [
-        3,
-        4,
-        5
-      ],
-      "content": [
-        "VisCo",
-        "WB"
-      ],
-      "_id": 1
-    }
-  ],
-  "duration": 105,
-  "approximate_attendance": 16,
-  "frequency": 1,
-  "selected": true,
-  "color": "#bcbcbc"
-},
-{
-  "_id": {
-    "$oid": "65f1c16decf81117b8dd18d5"
+  {
+    "_id": {
+      "$oid": "65f1bd65ecf81117b8dd18cc"
+    },
+    "id": null,
+    "module_id": "501",
+    "name": "Algorithmen und Datenstrukturen",
+    "code": "ALGO",
+    "dozent": [
+      "65f17b92652cb752e4776526"
+    ],
+    "room": [
+      "65f17fa0652cb752e477653b"
+    ],
+    "study_semester": [
+      {
+        "_id": 1,
+        "studyCourse": "65f199b4652cb752e4776563",
+        "semesterNumbers": [
+          "3",
+          "4",
+          "5"
+        ],
+        "content": [
+          "SE&D",
+          "WB"
+        ],
+        "type": [
+          "Qualifikationsschwerpunkt"
+        ]
+      }
+    ],
+    "duration": 105,
+    "approximate_attendance": 25,
+    "frequency": 2,
+    "selected": true,
+    "color": null
   },
-  "id": null,
-  "module_id": "404",
-  "name": "Computergrafik",
-  "code": "CG",
-  "dozent": [
-    "65f17c45652cb752e477652b"
-  ],
-  "room": [],
-  "study_semester": [
-    {
-      "id": 0,
-      "studyCourse": "65f199b4652cb752e4776563",
-      "semesterNumbers": [
-        3,
-        4,
-        5
-      ],
-      "content": [
-        "VisCo",
-        "WB"
-      ],
-      "_id": 1
-    }
-  ],
-  "duration": 105,
-  "approximate_attendance": 19,
-  "frequency": 1,
-  "selected": true,
-  "color": "#bcbcbc"
-},
-{
-  "_id": {
-    "$oid": "65f1c1a3ecf81117b8dd18d6"
+  {
+    "_id": {
+      "$oid": "65f1be86ecf81117b8dd18cd"
+    },
+    "id": null,
+    "module_id": "502",
+    "name": "Entwicklung mobiler Anwendungen",
+    "code": "EMA",
+    "dozent": [
+      "65f17b3f652cb752e4776523"
+    ],
+    "room": [
+      "65f182c1652cb752e477654f"
+    ],
+    "study_semester": [
+      {
+        "_id": 1,
+        "studyCourse": "65f199b4652cb752e4776563",
+        "semesterNumbers": [
+          "3",
+          "4",
+          "5"
+        ],
+        "content": [
+          "NetSec",
+          "SE&D",
+          "WB"
+        ],
+        "type": [
+          "Qualifikationsschwerpunkt"
+        ]
+      }
+    ],
+    "duration": 105,
+    "approximate_attendance": 28,
+    "frequency": 3,
+    "selected": true,
+    "color": null
   },
-  "id": null,
-  "module_id": "405",
-  "name": "Mediengestaltung",
-  "code": "MG",
-  "dozent": [
-    "65f17b05652cb752e4776521"
-  ],
-  "room": [],
-  "study_semester": [
-    {
-      "id": 0,
-      "studyCourse": "65f199b4652cb752e4776563",
-      "semesterNumbers": [
-        3,
-        4,
-        5
-      ],
-      "content": [
-        "VisCo",
-        "WB"
-      ],
-      "_id": 1
-    }
-  ],
-  "duration": 105,
-  "approximate_attendance": 19,
-  "frequency": 1,
-  "selected": true,
-  "color": "#bcbcbc"
-},
-{
-  "_id": {
-    "$oid": "65f1c1eeecf81117b8dd18d7"
+  {
+    "_id": {
+      "$oid": "65f1bed7ecf81117b8dd18ce"
+    },
+    "id": null,
+    "module_id": "504",
+    "name": "Theoretische Informatik",
+    "code": "TINF",
+    "dozent": [
+      "65f17a29652cb752e477651c"
+    ],
+    "room": [
+      "65f183d7652cb752e477655a"
+    ],
+    "study_semester": [
+      {
+        "_id": 1,
+        "studyCourse": "65f199b4652cb752e4776563",
+        "semesterNumbers": [
+          "3",
+          "4",
+          "5"
+        ],
+        "content": [
+          "SE&D",
+          "WB"
+        ],
+        "type": [
+          "Qualifikationsschwerpunkt"
+        ]
+      }
+    ],
+    "duration": 105,
+    "approximate_attendance": 10,
+    "frequency": 2,
+    "selected": true,
+    "color": null
   },
-  "id": null,
-  "module_id": "406",
-  "name": "Bildverarbeitung",
-  "code": "BV",
-  "dozent": [
-    "65f17a95652cb752e477651e"
-  ],
-  "room": [],
-  "study_semester": [
-    {
-      "id": 0,
-      "studyCourse": "65f199b4652cb752e4776563",
-      "semesterNumbers": [
-        3,
-        4,
-        5
-      ],
-      "content": [
-        "VisCo",
-        "WB"
-      ],
-      "_id": 1
-    }
-  ],
-  "duration": 105,
-  "approximate_attendance": 24,
-  "frequency": 1,
-  "selected": true,
-  "color": "#bcbcbc"
-},
-{
-  "_id": {
-    "$oid": "65f1c239ecf81117b8dd18d8"
+  {
+    "_id": {
+      "$oid": "65f1bf39ecf81117b8dd18cf"
+    },
+    "id": null,
+    "module_id": "505",
+    "name": "Programmieren Graphischer Oberflächen",
+    "code": "GUI",
+    "dozent": [
+      "65f17a95652cb752e477651e"
+    ],
+    "room": [
+      "65f180b5652cb752e4776541",
+      "65f180c9652cb752e4776542",
+      "65f180d9652cb752e4776543",
+      "65f180e8652cb752e4776544",
+      "65f1838b652cb752e4776556"
+    ],
+    "study_semester": [
+      {
+        "_id": 1,
+        "studyCourse": "65f199b4652cb752e4776563",
+        "semesterNumbers": [
+          "3",
+          "4",
+          "5"
+        ],
+        "content": [
+          "VisCo",
+          "SE&D",
+          "WB"
+        ],
+        "type": [
+          "Qualifikationsschwerpunkt"
+        ]
+      }
+    ],
+    "duration": 105,
+    "approximate_attendance": 12,
+    "frequency": 3,
+    "selected": true,
+    "color": null
   },
-  "id": null,
-  "module_id": "407",
-  "name": "Architektur Neuronaler Netze für Generative KI",
-  "code": "ANN",
-  "dozent": [
-    "65f17b3f652cb752e4776523"
-  ],
-  "room": [],
-  "study_semester": [
-    {
-      "id": 0,
-      "studyCourse": "65f199b4652cb752e4776563",
-      "semesterNumbers": [
-        3,
-        4,
-        5
-      ],
-      "content": [
-        "SE&D",
-        "VisCo",
-        "WB"
-      ],
-      "_id": 1
-    }
-  ],
-  "duration": 105,
-  "approximate_attendance": 30,
-  "frequency": 1,
-  "selected": true,
-  "color": "#bcbcbc"
-},
-{
-  "_id": {
-    "$oid": "65f1c292ecf81117b8dd18d9"
+  {
+    "_id": {
+      "$oid": "65f1bfdaecf81117b8dd18d0"
+    },
+    "id": null,
+    "module_id": "506",
+    "name": "Software Architektur",
+    "code": "SWA",
+    "dozent": [
+      "65f17b92652cb752e4776526"
+    ],
+    "room": [
+      "65f18452652cb752e4776560"
+    ],
+    "study_semester": [
+      {
+        "_id": 1,
+        "studyCourse": "65f199b4652cb752e4776563",
+        "semesterNumbers": [
+          "3",
+          "4",
+          "5"
+        ],
+        "content": [
+          "SE&D",
+          "WB"
+        ],
+        "type": [
+          "Qualifikationsschwerpunkt"
+        ]
+      }
+    ],
+    "duration": 105,
+    "approximate_attendance": 18,
+    "frequency": 1,
+    "selected": true,
+    "color": null
   },
-  "id": null,
-  "module_id": "201",
-  "name": "IT-Recht",
-  "code": "ITR",
-  "dozent": [
-    "65f17a29652cb752e477651c"
-  ],
-  "room": [],
-  "study_semester": [
-    {
-      "id": 0,
-      "studyCourse": "65f199b4652cb752e4776563",
-      "semesterNumbers": [
-        3,
-        4,
-        5
-      ],
-      "content": [
-        "WB"
-      ],
-      "_id": 1
-    }
-  ],
-  "duration": 105,
-  "approximate_attendance": 9,
-  "frequency": 1,
-  "selected": true,
-  "color": "#bcbcbc"
-},
-{
-  "_id": {
-    "$oid": "65f1c31fecf81117b8dd18da"
+  {
+    "_id": {
+      "$oid": "65f1c08aecf81117b8dd18d2"
+    },
+    "id": null,
+    "module_id": "401",
+    "name": "Virtuelle und erweiterte Realität",
+    "code": "VRAR",
+    "dozent": [
+      "65f17c45652cb752e477652b"
+    ],
+    "room": [
+      "65f182c1652cb752e477654f"
+    ],
+    "study_semester": [
+      {
+        "_id": 1,
+        "studyCourse": "65f199b4652cb752e4776563",
+        "semesterNumbers": [
+          "3",
+          "4",
+          "5"
+        ],
+        "content": [
+          "VisCo",
+          "WB"
+        ],
+        "type": [
+          "Qualifikationsschwerpunkt"
+        ]
+      }
+    ],
+    "duration": 105,
+    "approximate_attendance": 9,
+    "frequency": 2,
+    "selected": true,
+    "color": null
   },
-  "id": null,
-  "module_id": "215",
-  "name": "Maschine Learning",
-  "code": "ML",
-  "dozent": [
-    "65f17a95652cb752e477651e"
-  ],
-  "room": [],
-  "study_semester": [
-    {
-      "id": 0,
-      "studyCourse": "65f199b4652cb752e4776563",
-      "semesterNumbers": [
-        3,
-        4,
-        5
-      ],
-      "content": [
-        "WB"
-      ],
-      "_id": 1
-    }
-  ],
-  "duration": 90,
-  "approximate_attendance": 23,
-  "frequency": 1,
-  "selected": true,
-  "color": "#bcbcbc"
-}]
+  {
+    "_id": {
+      "$oid": "65f1c0e2ecf81117b8dd18d3"
+    },
+    "id": null,
+    "module_id": "402",
+    "name": "Audiovisuelle Produktion",
+    "code": "AVP",
+    "dozent": [
+      "65f17c14652cb752e4776529"
+    ],
+    "room": [
+      "65f182a3652cb752e477654d"
+    ],
+    "study_semester": [
+      {
+        "_id": 1,
+        "studyCourse": "65f199b4652cb752e4776563",
+        "semesterNumbers": [
+          "3",
+          "4",
+          "5"
+        ],
+        "content": [
+          "VisCo",
+          "WB"
+        ],
+        "type": [
+          "Qualifikationsschwerpunkt"
+        ]
+      }
+    ],
+    "duration": 105,
+    "approximate_attendance": 12,
+    "frequency": 2,
+    "selected": true,
+    "color": null
+  },
+  {
+    "_id": {
+      "$oid": "65f1c120ecf81117b8dd18d4"
+    },
+    "id": null,
+    "module_id": "403",
+    "name": "3D-Modellierung",
+    "code": "3DM",
+    "dozent": [
+      "65f17c45652cb752e477652b"
+    ],
+    "room": [
+      "65f182c1652cb752e477654f"
+    ],
+    "study_semester": [
+      {
+        "_id": 1,
+        "studyCourse": "65f199b4652cb752e4776563",
+        "semesterNumbers": [
+          "3",
+          "4",
+          "5"
+        ],
+        "content": [
+          "VisCo",
+          "WB"
+        ],
+        "type": [
+          "Qualifikationsschwerpunkt"
+        ]
+      }
+    ],
+    "duration": 105,
+    "approximate_attendance": 16,
+    "frequency": 1,
+    "selected": true,
+    "color": null
+  },
+  {
+    "_id": {
+      "$oid": "65f1c16decf81117b8dd18d5"
+    },
+    "id": null,
+    "module_id": "404",
+    "name": "Computergrafik",
+    "code": "CG",
+    "dozent": [
+      "65f17c45652cb752e477652b"
+    ],
+    "room": [
+      "65f182c1652cb752e477654f"
+    ],
+    "study_semester": [
+      {
+        "_id": 1,
+        "studyCourse": "65f199b4652cb752e4776563",
+        "semesterNumbers": [
+          "3",
+          "4",
+          "5"
+        ],
+        "content": [
+          "VisCo",
+          "WB"
+        ],
+        "type": [
+          "Qualifikationsschwerpunkt"
+        ]
+      }
+    ],
+    "duration": 105,
+    "approximate_attendance": 19,
+    "frequency": 1,
+    "selected": true,
+    "color": null
+  },
+  {
+    "_id": {
+      "$oid": "65f1c1a3ecf81117b8dd18d6"
+    },
+    "id": null,
+    "module_id": "405",
+    "name": "Mediengestaltung",
+    "code": "MG",
+    "dozent": [
+      "65f17b05652cb752e4776521"
+    ],
+    "room": [
+      "65f18255652cb752e4776549"
+    ],
+    "study_semester": [
+      {
+        "_id": 1,
+        "studyCourse": "65f199b4652cb752e4776563",
+        "semesterNumbers": [
+          "3",
+          "4",
+          "5"
+        ],
+        "content": [
+          "VisCo",
+          "WB"
+        ],
+        "type": [
+          "Qualifikationsschwerpunkt"
+        ]
+      }
+    ],
+    "duration": 105,
+    "approximate_attendance": 19,
+    "frequency": 3,
+    "selected": true,
+    "color": null
+  },
+  {
+    "_id": {
+      "$oid": "65f1c1eeecf81117b8dd18d7"
+    },
+    "id": null,
+    "module_id": "406",
+    "name": "Bildverarbeitung",
+    "code": "BV",
+    "dozent": [
+      "65f17a95652cb752e477651e"
+    ],
+    "room": [
+      "65f180b5652cb752e4776541",
+      "65f180c9652cb752e4776542",
+      "65f180d9652cb752e4776543",
+      "65f180e8652cb752e4776544",
+      "65f18399652cb752e4776557"
+    ],
+    "study_semester": [
+      {
+        "_id": 1,
+        "studyCourse": "65f199b4652cb752e4776563",
+        "semesterNumbers": [
+          "3",
+          "4",
+          "5"
+        ],
+        "content": [
+          "VisCo",
+          "WB"
+        ],
+        "type": [
+          "Qualifikationsschwerpunkt"
+        ]
+      }
+    ],
+    "duration": 105,
+    "approximate_attendance": 24,
+    "frequency": 2,
+    "selected": true,
+    "color": null
+  },
+  {
+    "_id": {
+      "$oid": "65f1c239ecf81117b8dd18d8"
+    },
+    "id": null,
+    "module_id": "407",
+    "name": "Architektur Neuronaler Netze für Generative KI",
+    "code": "ANN",
+    "dozent": [
+      "65f17b3f652cb752e4776523"
+    ],
+    "room": [
+      "65f1828f652cb752e477654c"
+    ],
+    "study_semester": [
+      {
+        "_id": 1,
+        "studyCourse": "65f199b4652cb752e4776563",
+        "semesterNumbers": [
+          "3",
+          "4",
+          "5"
+        ],
+        "content": [
+          "SE&D",
+          "VisCo",
+          "WB"
+        ],
+        "type": [
+          "Qualifikationsschwerpunkt"
+        ]
+      }
+    ],
+    "duration": 105,
+    "approximate_attendance": 30,
+    "frequency": 2,
+    "selected": true,
+    "color": null
+  },
+  {
+    "_id": {
+      "$oid": "65f1c292ecf81117b8dd18d9"
+    },
+    "id": null,
+    "module_id": "201",
+    "name": "IT-Recht",
+    "code": "ITR",
+    "dozent": [
+      "65f17a29652cb752e477651c"
+    ],
+    "room": [
+      "65f18356652cb752e4776554"
+    ],
+    "study_semester": [
+      {
+        "_id": 1,
+        "studyCourse": "65f199b4652cb752e4776563",
+        "semesterNumbers": [
+          "3",
+          "4",
+          "5"
+        ],
+        "content": [
+          "WB"
+        ],
+        "type": [
+          "Qualifikationsschwerpunkt"
+        ]
+      }
+    ],
+    "duration": 105,
+    "approximate_attendance": 9,
+    "frequency": 2,
+    "selected": true,
+    "color": null
+  },
+  {
+    "_id": {
+      "$oid": "65f1c31fecf81117b8dd18da"
+    },
+    "id": null,
+    "module_id": "215",
+    "name": "Machine Learning",
+    "code": "ML",
+    "dozent": [
+      "65f17a95652cb752e477651e"
+    ],
+    "room": [
+      "65f183ee652cb752e477655b"
+    ],
+    "study_semester": [
+      {
+        "_id": 1,
+        "studyCourse": "65f199b4652cb752e4776563",
+        "semesterNumbers": [
+          "3",
+          "4",
+          "5"
+        ],
+        "content": [
+          "WB"
+        ],
+        "type": [
+          "Qualifikationsschwerpunkt"
+        ]
+      }
+    ],
+    "duration": 90,
+    "approximate_attendance": 23,
+    "frequency": 1,
+    "selected": true,
+    "color": null
+  }
+]

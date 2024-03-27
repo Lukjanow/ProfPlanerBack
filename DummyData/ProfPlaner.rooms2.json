@@ -5,7 +5,7 @@
   "id": null,
   "roomNumber": "TestRoom",
   "capacity": 100,
-  "roomType": "Labor"
+  "roomType": "laboratory"
 },
 {
   "_id": {

@@ -7,6 +7,7 @@ class StudySemester(BaseModel):
     studyCourse: StudyCourse
     semesterNumbers: list[int]
     content: list[str]
+    type: list[str]
     
 
 class StudySemesterResponse(BaseModel):
@@ -14,3 +15,4 @@ class StudySemesterResponse(BaseModel):
     studyCourse: str
     semesterNumbers: list[int]
     content: list[str]
+    type: list[str]
