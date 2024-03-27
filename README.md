@@ -61,8 +61,17 @@
 
 <!-- TECHNOLOGIES -->
 ## Technologies
-
-
+This Project uses Python3.11 with mongodb and FastAPI. The following pip packages were used:
+- fastapi
+- uvicorn
+- pydantic
+- pymongo
+- pytest
+- httpx
+- pandas
+- XlsxWriter
+- python-multipart
+- openpyxl
 
 
 
