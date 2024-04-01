@@ -32,7 +32,7 @@
 
 1. Clone the repository
    ```sh
-   git clone https://gitlab.rlp.net/top/24s/profplaner/profplaner_backend.git
+   git clone https://github.com/Lormdo/ProfPlanerBack.git
    ```
 2. Import Dummy Data (not for windows)
    ```sh
